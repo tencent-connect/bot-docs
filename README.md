@@ -24,8 +24,15 @@ $ npm run dev
 - 目前文档还在快速补充和优化中，欢迎各位开发者 PR👏
 
 ## 文档结构参考
-
-todo
+```
+docs
+├── .vuepress/   # vuepress相关文件
+├── business/    # 运营规范文档
+├── develop/     # 开发文档
+│   ├── api/     # api文档
+│   └── nodesdk/ # nodesdk文档
+└── README.md    # 主页文档
+```
 ## 贡献者
 
 todo
