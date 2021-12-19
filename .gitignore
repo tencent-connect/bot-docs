@@ -1,0 +1,19 @@
+node_modules
+/docs/.vuepress/dist/
+package-lock.json
+yarn.lock
+yarn-error.log
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea
+
+# Thumbnails
+._*
+
+_book
+*.pdf
+docs/develop/api/index.html
+.temp
