@@ -6,6 +6,7 @@
   "repository": "https://github.com/tencent-connect/bot-docs",
   "author": "qq_channel@tencent.com",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "@vuepress/plugin-back-to-top": "^1.8.2",
