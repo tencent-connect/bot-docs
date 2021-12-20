@@ -1,6 +1,6 @@
 # 机器人文档
 
-本仓库是QQ机器人文档项目，基于[vuepress](https://vuepress.vuejs.org/zh/)构建。对应文档网站是 <https://bot.q.qq.com/wiki>。
+本仓库是 QQ 机器人文档项目，基于[vuepress](https://vuepress.vuejs.org/zh/)构建。对应文档网站是 <https://bot.q.qq.com/wiki>。
 
 ## 本地开发
 
@@ -21,9 +21,12 @@ $ npm run dev
 
 ## 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-- 目前文档还在快速补充和优化中，欢迎各位开发者 PR👏
+- 👏如果您有针对文档的错误修复，请以分支`fix/xxx`向`main`分支发 PR
+- 👏如果您有新的内容贡献，请以分支`feature/xxx`向`main`分支发起 PR
+- 👏如果您有相关的建议或意见，请提[issues](https://github.com/tencent-connect/bot-docs/issues)
 
 ## 文档结构参考
+
 ```
 docs
 ├── .vuepress/   # vuepress相关文件
@@ -33,6 +36,7 @@ docs
 │   └── nodesdk/ # nodesdk文档
 └── README.md    # 主页文档
 ```
+
 ## 贡献者
 
 todo
