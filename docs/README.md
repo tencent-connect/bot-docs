@@ -210,7 +210,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 #### 5.1 机器人 BotAppID
 
-此处主要展示`BotAppID`、`Bot` `token`、`Bot Secret`。
+此处主要展示`BotAppID`、`BotToken`、`BotSecret`。
 
 :::tip 温馨提示
 此信息不要对外传播
