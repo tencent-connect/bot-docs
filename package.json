@@ -25,9 +25,7 @@
     "textlint-rule-apostrophe": "^2.0.0",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^1.0.0",
-    "textlint-rule-en-capitalization": "^2.0.3",
     "textlint-rule-stop-words": "^2.0.9",
-    "textlint-rule-terminology": "^2.1.5",
     "textlint-rule-write-good": "^2.0.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
@@ -42,7 +40,7 @@
     "build": "vuepress build docs --temp .temp",
     "lint-md": "npm run lint-md:style && npm run lint-md:wording",
     "lint-md:style": "remark --quiet --frail .",
-    "lint-md:wording": "textlint ./docs/**/*.md --fix",
+    "lint-md:wording": "textlint './docs/**/*.md'",
     "view-info": "vuepress view-info docs --temp .temp"
   },
   "dependencies": {
