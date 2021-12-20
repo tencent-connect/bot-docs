@@ -1,18 +1,49 @@
 # SDK 接入指南
 
-## 当前版本
+## 介绍
 
-<NpmBadge packageName="@tencent-connect/bot-node-sdk" />
+`NodeSDK`主要基于基础 API 上进行封装，提供给用户一种简单、高效的使用方式。
+
+整体而言 SDK 包含了以下功能：
+
+- 具有完备的消息通信模块，与服务端保持**⻓连接**。
+- 能发送 **http** 请求，也能作为中转回包给开发者。
+- 能调用基础 **API**。
+
+### SDK 底层架构设计
+
+整个 SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如下图所示：
+
+<img :src="$withBase('/images/node-sdk/framework.png')" alt="SDK 底层架构设计">
+
+整个 SDK 设计与实现基于**两条主线**：
+
+1. NodeSDK 与基础侧的通信模块，属于机器人**被动接受消息**。比如有用户@机器人、新
+   用户加入频道触发的事件等等。
+   <img :src="$withBase('/images/node-sdk/api-client.png')" alt="SDK 底层架构设计">
+2. 机器人通过 NodeSDK 调用基础能力，属于机器人**主动触发消息**。比如欢迎语提醒、
+   定时打卡任务触发、查询当前频道成员列表等等。
+   <img :src="$withBase('/images/node-sdk/ws-client.png')" alt="SDK 底层架构设计">
 
 ## 安装
 
+### 当前版本
+
+<NpmBadge packageName="@tencent-connect/bot-node-sdk" />
+
+### npm 方式
+
 ```sh
 $ npm i @tencent-connect/bot-node-sdk
-# 或者
-$ yarn add @tencent-connect/bot-node-sdk
 ```
 
-- 如果安装失败，可尝试使用腾讯源, 在以上命令后拼接 ` --registry=https://mirrors.tencent.com/npm/`
+如果安装失败，可尝试使用腾讯源, 在上述命令后拼接 ` --registry=https://mirrors.tencent.com/npm/`。
+
+### yarn 方式
+
+```sh
+$ yarn add @tencent-connect/bot-node-sdk
+```
 
 ## 使用示例
 
@@ -40,7 +71,7 @@ const ws = creatWebsocket(testConfig);
 
 - intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html#%E4%B8%BE%E4%BE%8B)。
 
-通过上述示例代码我们可以拿到整个 NodeSDK 最核心的两个对象`client`和`ws`。
+通过上述示例代码我们可以拿到整个 NodeSDK 最核心的两个对象`client`和`ws`，整个 SDK 能力将由这两个对象提供。
 
 ### 使用 client
 
