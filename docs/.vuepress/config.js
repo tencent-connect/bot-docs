@@ -68,6 +68,7 @@ module.exports = {
       },
     ],
     ['vuepress-plugin-baidu-autopush'],
+    ['@vuepress/last-updated'],
   ],
   globalUIComponents: ['TuXiaoChao'],
   theme: require.resolve('./theme-qq'),
