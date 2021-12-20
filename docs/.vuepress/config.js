@@ -74,7 +74,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     displayAllHeaders: false,
-    lastUpdated: 'Last Updated', // string | boolean
+    lastUpdated: '上次更新',
     nav: [
       {
         text: '介绍',
@@ -84,10 +84,6 @@ module.exports = {
         text: 'API文档',
         link: '/develop/api/',
       },
-      // {
-      //   text: 'NodeSDK',
-      //   link: '/develop/nodesdk/',
-      // },
       {
         text: 'SDK文档',
         items: [
@@ -111,7 +107,11 @@ module.exports = {
         link: 'https://github.com/tencent-connect',
       },
     ],
-    editLinks: false,
+    repo: 'tencent-connect/bot-docs',
+    editLinks: true,
+    editLinkText: '在GitHub上编辑此页',
+    docsDir: 'docs',
+    docsBranch: 'main',
     sidebar: {
       '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
       ...nodesdkConfig.sidebar,
