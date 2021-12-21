@@ -1,0 +1,17 @@
+
+   
+name: Issues Notifier
+on:
+  issues:
+    types: [opened, edited, reopened, closed]
+jobs:
+  add-assigness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Work Weixin Notifier
+        uses: jerray/work-weixin-notifier@v1.1.0
+        with:
+          key: ${{ secrets.weixin_bot_key }}
+          content: '**【机器人文档】**`Issues`有更新(${{github.event.issue.state}}),请关注@ostwindli@shaohuizuo [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})'
+          type: markdown
+          status: ${{ job.status }}
