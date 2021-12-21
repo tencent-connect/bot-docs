@@ -67,6 +67,16 @@ module.exports = {
         },
       },
     ],
+    [
+      'vuepress-plugin-right-anchor',
+      {
+        showDepth: 1,
+        expand: {
+          trigger: 'hover',
+          clickModeDefaultOpen: true,
+        },
+      },
+    ],
     ['vuepress-plugin-baidu-autopush'],
     ['@vuepress/pwa'],
   ],
@@ -103,10 +113,6 @@ module.exports = {
         text: '机器人平台',
         link: 'https://bot.q.qq.com/open',
       },
-      {
-        text: 'GitHub',
-        link: 'https://github.com/tencent-connect',
-      },
     ],
     repo: 'tencent-connect/bot-docs',
     editLinks: true,
@@ -118,6 +124,7 @@ module.exports = {
       ...nodesdkConfig.sidebar,
       '/': [''],
     },
+
     plugins: [
       [
         '@vuepress/search',

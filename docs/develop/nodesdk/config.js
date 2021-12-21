@@ -7,6 +7,21 @@ module.exports = {
     '/develop/nodesdk/': [
       '',
       {
+        title: '术语',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          { title: '用户对象(User)', path: 'model/user' },
+          { title: '频道对象(Guild)', path: 'model/guild' },
+          { title: '子频道对象(Channel)', path: 'model/channel' },
+          { title: '子频道权限对象(ChannelPermissions)', path: 'model/channel_permission' },
+          { title: '成员对象(Member)', path: 'model/member' },
+          { title: '频道身份组对象(Role)', path: 'model/role' },
+          { title: '消息对象(Message)', path: 'model/message' },
+          { title: '语音对象(Audio)', path: 'model/audio' },
+        ],
+      },
+      {
         title: 'Client API',
         collapsable: false,
         children: [
@@ -99,21 +114,6 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 0,
         children: [{ title: 'wss 消息体', path: 'wss/model.md' }],
-      },
-      {
-        title: '术语',
-        collapsable: false,
-        sidebarDepth: 0,
-        children: [
-          { title: '用户对象(User)', path: 'model/user' },
-          { title: '频道对象(Guild)', path: 'model/guild' },
-          { title: '子频道对象(Channel)', path: 'model/channel' },
-          { title: '子频道权限对象(ChannelPermissions)', path: 'model/channel_permission' },
-          { title: '成员对象(Member)', path: 'model/member' },
-          { title: '频道身份组对象(Role)', path: 'model/role' },
-          { title: '消息对象(Message)', path: 'model/message' },
-          { title: '语音对象(Audio)', path: 'model/audio' },
-        ],
       },
     ],
   },

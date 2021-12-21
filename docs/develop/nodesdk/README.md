@@ -120,6 +120,12 @@ client.messageApi
 }
 ```
 
+::: tip 提示
+
+针对返回失败的情况，可查看[错误状态码](../api/openapi/error/error.md#错误处理)描述。
+
+:::
+
 ### 使用 ws
 
 `ws`用于频道内消息监听，**如要使用`client`向指定子频道发送消息，必选先建立 ws 连接**。
