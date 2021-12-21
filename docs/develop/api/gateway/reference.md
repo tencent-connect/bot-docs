@@ -22,13 +22,11 @@ payload 指的是在websocket连接上传输的数据，网关的上下行消息
 ## 1.连接到Gateway
 
 第一步先调用 [/gateway](../openapi/wss/url_get.md) 或 [/gateway/bot](../openapi/wss/shard_url_get.md) 接口获取网关地址。 会得到一个类似下面这样的地址：
-
 ```
 wss://api.sgroup.qq.com/websocket/
 ```
 
 然后进行websocket连接，一旦连接成功，就会返回 [OpCode 10 Hello](opcode.md) 消息。这个消息主要的内容是心跳周期，单位毫秒(milliseconds)，如下：
-
 ``` json
 {
   "op": 10,
@@ -68,7 +66,6 @@ wss://api.sgroup.qq.com/websocket/
 `properties` 目前无实际作用，可以按照自己的实际情况填写，也可以留空
 
 鉴权成功之后，后台会下发一个 `Ready Event`，结构如下：
-
 ```json
 {
     "op":0,
@@ -92,18 +89,14 @@ wss://api.sgroup.qq.com/websocket/
 
 
 ## 3.发送心跳
-
 鉴权成功之后，就需要按照周期进行心跳发送。`d`为客户端收到的最新的消息的`s`，如果是第一次连接，传`null`。
-
 ```json
 {
     "op": 1,
     "d": 251
 }
 ```
-
 心跳发送成功之后会收到 [OpCode 11 Heartbeat ACK](opcode.md) 消息，如下：
-
 ```json
 {
   "op": 11

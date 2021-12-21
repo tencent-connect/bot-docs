@@ -5,7 +5,6 @@
 `GET /channels/{channel_id}/schedules`
 
 ### 功能描述
-
 - 获取某个日程子频道里中当天的日程列表；
 - 若带了参数 since，则返回结束时间在 since 之后的日程列表；若未带参数 since，则默认返回当天的日程列表。
 

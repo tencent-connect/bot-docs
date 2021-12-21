@@ -19,7 +19,6 @@
 | ark              | [MessageArk](#messageark) ark消息对象            | ark消息                |
 
 ### MessageEmbed
-
 | 字段名    | 类型                                                 | 描述         |
 | --------- | ---------------------------------------------------- | ------------ |
 | title     | string                                               | 标题         |
@@ -28,32 +27,27 @@
 | fields    | [MessageEmbedField](#messageembedfield) 对象数组     | 消息创建时间 |
 
 ### MessageEmbedThumbnail
-
 | 字段名 | 类型   | 描述     |
 | ------ | ------ | -------- |
 | url    | string | 图片地址 |
 
 ### MessageEmbedField
-
 | 字段名 | 类型   | 描述   |
 | ------ | ------ | ------ |
 | name   | string | 字段名 |
 
 ### MessageAttachment
-
 | 字段名 | 类型   | 描述     |
 | ------ | ------ | -------- |
 | url    | string | 下载地址 |
 
 ### MessageArk
-
 | 字段名      | 类型                                    | 描述                    |
 | :---------- | :-------------------------------------- | :---------------------- |
 | template_id | int                                     | ark模板id（需要先申请） |
 | kv          | [MessageAkrKv](#messagearkkv) arkkv数组 | kv值列表                |
 
 ### MessageArkKv
-
 | 字段名 | 类型                                             | 描述              |
 | :----- | :----------------------------------------------- | :---------------- |
 | key    | string                                           | key               |
@@ -61,13 +55,11 @@
 | obj    | [MessageArkObj](#messagearkobj) arkobj类型的数组 | ark obj类型的列表 |
 
 ### MessageArkObj
-
 | 字段名 | 类型                                             | 描述          |
 | :----- | :----------------------------------------------- | :------------ |
 | obj_kv | [MessageArkObjKv](#messageobjkv) objkv类型的数组 | ark objkv列表 |
 
 ### MessageArkObjKv
-
 | 字段名 | 类型   | 描述  |
 | :----- | :----- | :---- |
 | key    | string | key   |

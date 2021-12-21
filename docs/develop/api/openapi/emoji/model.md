@@ -4,8 +4,8 @@
 
 | 字段名  | 类型     | 描述                                                 |
 | ---  | ---    | ---                                                |
-| id   | string | 表情ID，系统表情使用数字为ID，emoji使用emoji本身为id，参考 EmojiType 列表 |
-| type | uint32 | 表情类型                                               |
+| id   | string | 表情ID，系统表情使用数字为ID，emoji使用emoji本身为id，参考 Emoji 列表 |
+| type | uint32 | 表情类型 EmojiType                                               |
 
 ### EmojiType
 

@@ -3,7 +3,6 @@
 ## 接口说明
 
 QQ频道机器人提供两类接口：
-
 - 基于 REST 风格的 OPENAPI
 - 基于 WebSocket 提供实时事件通知的事件中心
 
@@ -13,11 +12,9 @@ QQ频道机器人提供两类接口：
 - 沙箱环境：`https://sandbox.api.sgroup.qq.com` 沙箱环境只会收到测试频道的事件，且调用openapi仅能操作测试频道
 
 ### SDK
-
 - golang: https://github.com/tencent-connect/botgo
 
 ## 票据
-
 申请机器人通过后，平台将会下发三个票据。具体描述如下：
 
 | 票据 | 描述 |

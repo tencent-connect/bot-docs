@@ -6,9 +6,7 @@
 
 
 ### 获得合适的分片数
-
 使用[/gateway/bot](../openapi/wss/shard_url_get.md)接口获取网关地址的时候，会同时返回一个建议的shard数，及最大并发限制。
-
 ```json
 {
     "url": "wss://sandbox.api.sgroup.qq.com/websocket",
@@ -23,13 +21,10 @@
 ```
 
 ### 分片规则
-
 分片是按照频道id进行哈希的，同一个频道的信息会固定从同一个链接推送。具体哈希计算规则如下：
-
 ```bash
 shard_id = (guild_id >> 22) % num_shards
 ```
 
 ### 最大连接数
-
 每个机器人创建的连接数不能超过`remaining`剩余连接数

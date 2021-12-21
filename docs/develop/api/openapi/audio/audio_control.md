@@ -1,7 +1,6 @@
 # 音频控制
 
 ### 接口
-
 `POST /channels/{channel.id}/audio`
 
 ### 功能描述
@@ -11,21 +10,16 @@
 
 
 ### 参数 
-
 参照 [AudioControl](model.md#audiocontrol)
 
 ### 返回
-
 成功返回空对象 
-
 ```json
 {}
 ```
 
 ### 示例
-
 REQ BODY
-
 ```json
 {
     "audio_url": "http://qq.com/a.mp3",
@@ -35,7 +29,6 @@ REQ BODY
 ```
 
 RSP BODY 
-
 ```json
 {}
 ```

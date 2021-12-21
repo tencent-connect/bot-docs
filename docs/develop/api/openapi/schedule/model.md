@@ -1,7 +1,6 @@
 # 日程对象(Schedule)
 
 ### Schedule
-
 | 字段名 | 类型 | 描述 |
 | - | - | - |
 | id | string | 日程 id |

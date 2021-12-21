@@ -1,12 +1,12 @@
-# 创建子频道公告
+# 创建频道全局公告
 
 ### 接口
 
-`POST /channels/{channel_id}/announces`
+`POST /guilds/{guild_id}/announces`
 
 ### 功能描述
 
-- 设置消息为指定子频道公告
+- 创建频道全局公告
 
 ### Content-Type
 
@@ -17,6 +17,7 @@
 | 字段名      | 类型    | 描述    |
 | -----------| ------ | ------- |
 | message_id | string | 消息 id  |
+| channel_id | string | 子频道 id  |
 
 ### 返回
 
@@ -32,7 +33,8 @@ REQ BODY
 
 ```json
 {
-  "message_id": "08cf85f3efcacfe21f1094ad611a1231343431313532313836373133393436313220801e280030a2ddfa86043803400348cef7a08d06"
+  "channel_id": "10001",
+  "message_id": "08cf85f3efcacfe21f1094ad611a1231343431313532313836373133393436313220801e280030a2ddfa86043803400348cef7a08d06",
 }
 ```
 

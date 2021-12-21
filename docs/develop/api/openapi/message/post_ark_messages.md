@@ -1,18 +1,15 @@
 # 发送模板消息
 
 ### 接口
-
 `POST /channels/{channel_id}/messages`
 
 ### 功能描述
-
 - 要求操作人在该子频道具有`发送消息`和 `模板消息` 的权限。
 - 调用前需要先申请消息模板，这一步会得到一个模板id，在请求时填在ark.template_id上
 - 发送成功之后，会触发一个创建消息的事件。
 - 可用模板参考[可用模板](message_template.md)
 
 ### Content-Type
-
 只支持`application/json`
 
 ### 参数
@@ -22,7 +19,6 @@
 | ark    | [MessageArk](model.md#messageark) | ark 消息 |
 
 ### 返回
-
 [Message](model.md#message) 对象
 
 ### 具体错误
@@ -32,7 +28,6 @@
 ### 示例
 
 假设模板如下，其中#META_LIST#类型为数组、#META_URL#类型为URL其他为文本
-
 ```json
 {
     "app": "com.tencent.miniapp",
@@ -52,7 +47,6 @@
 ```
 
 REQ BODY
-
 ```json
 {
     "ark": {
@@ -107,9 +101,7 @@ REQ BODY
     }
 }
 ```
-
 则实际下发的json为
-
 ```json
 {
     "app": "com.tencent.miniapp",
@@ -131,7 +123,6 @@ REQ BODY
 ```
 
 返回包
-
 ```json
 {
     "id": "101234567890abcdef",
