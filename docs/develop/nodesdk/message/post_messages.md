@@ -56,7 +56,16 @@ async function demo() {
 
 ## 返回说明
 
-返回[Message](#message) 对象。
+主动消息都需要审核，返回结果如下：
+
+```json
+{
+  "code": 304023,
+  "message": "push message is waiting for audit now"
+}
+```
+
+若为私域机器人可正常返回[Message](#message) 对象。
 
 ### Message
 
