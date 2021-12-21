@@ -14,6 +14,8 @@
   * [获取某个成员信息](openapi/member/get_member.md)
 * 公告 API
   * [公告对象(Announces)](openapi/announces/model.md)
+  * [创建频道全局公告](openapi/announces/post_guild_announces.md)
+  * [删除频道全局公告](openapi/announces/delete_guild_announces.md)
   * [创建子频道公告](openapi/announces/post_channel_announces.md)
   * [删除子频道公告](openapi/announces/delete_channel_announces.md)
 * 子频道 API

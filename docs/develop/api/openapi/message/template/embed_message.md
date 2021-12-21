@@ -1,19 +1,15 @@
 # embed消息
 
 ### 样式
-
 ![embed](./embed.jpg)
 
 ### 功能描述
-
 - Embed是消息支持的一种特殊的格式，支持部分富文本格式
 
 ### Content-Type
-
 `application/json`
 
 ### 参数
-
 | 字段名 | 类型                                  | 描述           |
 | ------ | ------------------------------------- | -------------- |
 | embed  | [MessageEmbed](../model.md#messageembed) | embed 消息详情 |
@@ -22,17 +18,13 @@
 - embed.fields.name 为文本
 
 ### 返回
-
 [Message](../model.md#message) 对象
 
 ### 具体错误
-
 [错误码](../error/error.md)
 
 ### 示例
-
 REQ BODY
-
 ```json
 {
   "embed": {
@@ -57,7 +49,6 @@ REQ BODY
 ```
 
 返回包
-
 ```json
 {
     "id": "101234567890abcdef",

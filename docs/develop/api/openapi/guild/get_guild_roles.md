@@ -1,11 +1,9 @@
 # 获取频道身份组列表
 
 ### 接口
-
 `GET /guilds/{guild_id}/roles`
 
 ### 返回
-
 | 字段名 | 类型 | 描述 |
 | --- | --- | --- |
 | guild_id  | string | 频道ID |

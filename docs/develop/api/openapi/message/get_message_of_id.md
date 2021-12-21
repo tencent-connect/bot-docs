@@ -1,23 +1,18 @@
 # 获取指定消息
 
 ### 接口
-
 `GET /channels/{channel_id}/messages/{message_id}`
 
 ### 返回
-
 [Message](model.md#message) 对象
 
 ### 示例
-
 REQ BODY
-
 ```http
 GET /channels/100001/messages/abcdef01
 ```
 
 RESP BODY
-
 ```json
 {
     "id": "abcdef01",

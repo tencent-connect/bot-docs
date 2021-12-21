@@ -1,11 +1,9 @@
 # 获取当前用户频道列表
 
 ### 接口
-
 `GET /users/@me/guilds`
 
 ### 返回
-
 当前用户所加入的 [Guild](../guild/model.md#guild) 对象列表
 
 ### 参数
