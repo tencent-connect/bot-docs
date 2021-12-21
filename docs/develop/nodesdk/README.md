@@ -37,7 +37,11 @@
 $ npm i @tencent-connect/bot-node-sdk
 ```
 
-如果安装失败，可尝试使用腾讯源, 在上述命令后拼接 ` --registry=https://mirrors.tencent.com/npm/`。
+如果安装失败，可尝试使用腾讯源
+
+```sh
+$ npm i @tencent/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
+```
 
 ### yarn 方式
 
@@ -54,7 +58,7 @@ $ yarn add @tencent-connect/bot-node-sdk
 // import { creatOpenAPI, creatWebsocket } from '@tencent-connect/bot-node-sdk';
 
 // CommonJs
-const { creatOpenAPI, creatWebsocket } = require('@tencent/bot-node-sdk');
+const { creatOpenAPI, creatWebsocket } = require('@tencent-connect/bot-node-sdk');
 
 const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID

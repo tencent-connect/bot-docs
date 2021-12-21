@@ -2,10 +2,10 @@
 
 ## 使用示例
 
-### 创建 WSS 实例并监听消息
+### 创建 WS 实例并监听消息
 
 ```js
-import { creatWebsocket } from '@tencent/bot-node-sdk';
+import { creatWebsocket } from '@tencent-connect/bot-node-sdk';
 const ws = creatWebsocket(testConfigWs);
 ws.on('READY', (data) => {
   console.log('[READY] 事件接收 :', data);
