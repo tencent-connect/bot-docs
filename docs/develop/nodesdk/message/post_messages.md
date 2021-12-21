@@ -29,30 +29,31 @@ async function demo() {
 
 ## MessageToCreate
 
-| 字段名  | 类型                          | 描述                                                                    |
-| ------- | ----------------------------- | ----------------------------------------------------------------------- |
-| content | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)                   |
-| embed   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                              |
-| ark     | [MessageArk](#messageark)     | ark 消息                                                                |
-| image   | string                        | 图片 url 地址                                                           |
-| msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为被动回复消息，否则视为主动推送消息** |
+| 字段名  | 类型                          | 描述                                                                                     |
+| ------- | ----------------------------- | ---------------------------------------------------------------------------------------- |
+| content | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)                                    |
+| embed   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                                               |
+| ark     | [MessageArk](#messageark)     | ark 消息                                                                                 |
+| image   | string                        | 图片 url 地址                                                                            |
+| msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为[被动回复消息](#被动回复消息)，否则视为主动推送消息** |
+
+`content`、`embed`、`ark`、`image`**至少需要有一个字段**，否则无法下发消息。
+
+### 被动回复消息
+
+::: warning 注意
+
+被动消息需是用户`@机器人`的消息，否则将会报错。
+
+:::
 
 ## MessageEmbed
 
-| 字段名      | 类型                                      | 描述                                                                           |
-| ----------- | ----------------------------------------- | ------------------------------------------------------------------------------ |
-| title       | string                                    | 标题                                                                           |
-| description | string                                    | 描述                                                                           |
-| prompt      | string                                    | 消息弹窗内容                                                                   |
-| timestamp   | string                                    | 消息创建时间                                                                   |
-| fields      | [MessageEmbedField[]](#messageembedfield) | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
+详见[消息内嵌格式](./message_format.md)。
 
-## MessageEmbedField
+## MessageArk
 
-| 字段名 | 类型   | 描述   |
-| ------ | ------ | ------ |
-| name   | string | 字段名 |
-| value  | string | 字段值 |
+详见[发送模板消息](./post_ark_messages.md)。
 
 ## 返回说明
 

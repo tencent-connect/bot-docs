@@ -6,6 +6,7 @@
 - 调用前需要先申请消息模板，这一步会得到一个模板 id，在请求时填在 ark.template_id 上
 - 发送成功之后，会触发一个创建消息的事件。
 - 可用模板参考[可用模板](message_template.md)
+- 如果发送的消息中包含链接（网页、图片、视频链接等），**需要提前在[机器人管理端](https://bot.q.qq.com/#/developer/developer-setting)报备**，操作流程：操作路径为：”开发设置“ -> ”消息 URL 配置“
 
 :::
 
@@ -55,23 +56,23 @@ async function demo() {
 
 ### 参数示例
 
-假设模板如下，其中`#META_LIST#`类型为数组、`#META_URL#`类型为 `URL`、 其他为文本。
+假设模板如下，其中`#META_LIST#`类型为数组、`#META_URL#`类型为 `URL`、其他为文本。
 
 ```json
 {
-    "app": "com.tencent.miniapp",
-    "view": "detail",
-    "ver": "0.0.0.1",
-    "desc": "#DESC#",
-    "prompt": "[QQ小程序]#PROMPT#",
-    "meta": {
-        "detail": {
-            "title": "#TITLE#",
-            "desc": "#META_DESC#",
-            "url": "#META_URL#",
-            "list": #META_LIST#
-        }
+  "app": "com.tencent.miniapp",
+  "view": "detail",
+  "ver": "0.0.0.1",
+  "desc": "#DESC#",
+  "prompt": "[QQ小程序]#PROMPT#",
+  "meta": {
+    "detail": {
+      "title": "#TITLE#",
+      "desc": "#META_DESC#",
+      "url": "#META_URL#",
+      "list": "#META_LIST#"
     }
+  }
 }
 ```
 
