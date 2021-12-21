@@ -7,27 +7,26 @@ module.exports = {
     '/develop/nodesdk/': [
       '',
       {
-        title: 'NodeSDK',
+        title: 'Client API',
         collapsable: false,
         children: [
           {
             title: '用户 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['user/model', 'user/me'],
+            children: ['user/me'],
           },
           {
             title: '频道 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['guild/model', 'guild/guilds', 'guild/get_guild'],
+            children: ['guild/guilds', 'guild/get_guild'],
           },
           {
             title: '子频道 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'channel/model',
               'channel/get_channels',
               'channel/get_channel',
               'channel/post_channels',
@@ -40,7 +39,6 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'channel_permissions/model',
               'channel_permissions/get_channel_permissions',
               'channel_permissions/put_channel_permissions',
             ],
@@ -49,12 +47,7 @@ module.exports = {
             title: '成员 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: [
-              'member/model',
-              'member/get_members',
-              'member/get_member',
-              'member/delete_member',
-            ],
+            children: ['member/get_members', 'member/get_member', 'member/delete_member'],
           },
 
           {
@@ -62,7 +55,6 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'guild/role_model',
               'guild/get_guild_roles',
               'guild/post_guild_role',
               'guild/patch_guild_role',
@@ -76,7 +68,6 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'message/model',
               'message/get_messages',
               'message/get_message_of_id',
               'message/post_messages',
@@ -99,14 +90,29 @@ module.exports = {
             title: '音频 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['audio/model', 'audio/audio_control'],
+            children: ['audio/audio_control'],
           },
-          {
-            title: 'WebSocket API',
-            collapsable: false,
-            sidebarDepth: 0,
-            children: ['wss/model'],
-          },
+        ],
+      },
+      {
+        title: 'WebSocket API',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [{ title: 'wss 消息体', path: 'wss/model.md' }],
+      },
+      {
+        title: '术语',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          { title: '用户对象(User)', path: 'model/user' },
+          { title: '频道对象(Guild)', path: 'model/guild' },
+          { title: '子频道对象(Channel)', path: 'model/channel' },
+          { title: '子频道权限对象(ChannelPermissions)', path: 'model/channel_permission' },
+          { title: '成员对象(Member)', path: 'model/member' },
+          { title: '频道身份组对象(Role)', path: 'model/role' },
+          { title: '消息对象(Message)', path: 'model/message' },
+          { title: '语音对象(Audio)', path: 'model/audio' },
         ],
       },
     ],

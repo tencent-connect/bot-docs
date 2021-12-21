@@ -1,6 +1,6 @@
 # 删除频道身份组
 
-删除频道身份组
+删除频道身份组。
 
 ```javascript
 async function demo() {

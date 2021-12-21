@@ -1,6 +1,6 @@
 # 获取频道列表
 
-通过此接口，可以拿到当前用户下的所有频道信息列表
+获取当前用户下的所有频道信息列表。
 
 ## 使用示例
 
@@ -16,7 +16,16 @@ async function demo() {
 
 ## 返回说明
 
-字段参见 [Guild](model.md#Guild)
+返回 [Guild](#guild) 数组。
+
+### Guild
+
+| 字段名 | 类型    | 描述               |
+| ------ | ------- | ------------------ |
+| id     | string  | 频道 ID            |
+| name   | string  | 频道名称           |
+| icon   | string  | 频道头像地址       |
+| owner  | boolean | 当前人是否是创建人 |
 
 ## 返回示例
 
@@ -25,9 +34,9 @@ async function demo() {
 ```js
 [
   {
-    id: 'GUILD_ID',
+    id: 'xxxxxx',
     name: 'Ost测试频道',
-    icon: 'https://groupprohead-76292.picgzc.qpic.cn/89435891637651808/100?t=1637651809045',
+    icon: 'xxxxxx',
     owner: false,
   },
 ];

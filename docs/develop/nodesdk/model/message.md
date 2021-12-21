@@ -5,17 +5,17 @@
 | 字段名           | 类型                                      | 描述                                                                            |
 | ---------------- | ----------------------------------------- | ------------------------------------------------------------------------------- |
 | id               | string                                    | 消息 id                                                                         |
-| channel_id       | string                                    | 子频道 id                                                                       |
-| guild_id         | string                                    | 频道 id                                                                         |
+| channel_id       | string                                    | 子频道 ID                                                                       |
+| guild_id         | string                                    | 频道 ID                                                                         |
 | content          | string                                    | 消息内容                                                                        |
 | timestamp        | string                                    | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
 | edited_timestamp | string                                    | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
 | mention_everyone | boolean                                   | 是否是@全员消息                                                                 |
-| author           | [User](../user/model.md#user)             | 消息创建者                                                                      |
+| author           | [User](../model/user#user)                | 消息创建者                                                                      |
 | attachments      | [MessageAttachment[]](#messageattachment) | 附件                                                                            |
 | embeds           | [MessageEmbed[]](#messageembed)           | embed                                                                           |
-| mentions         | [User[]](../user/model.md#user)           | 消息中@的人                                                                     |
-| member           | [Member](../member/model.md#member)       | 消息创建者的 member 信息                                                        |
+| mentions         | [User](../model/user#user)                | 消息中@的人                                                                     |
+| member           | [Member](../model/member.md#member)       | 消息创建者的 member 信息                                                        |
 | ark              | [MessageArk](#messageark)                 | ark 消息                                                                        |
 
 ## MessageToCreate

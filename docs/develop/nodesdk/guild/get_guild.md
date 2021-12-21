@@ -1,6 +1,6 @@
 # 获取频道详情
 
-拿到频道详情信息
+获取频道详情信息。
 
 ## 使用示例
 
@@ -18,7 +18,19 @@ async function demo() {
 
 ## 返回说明
 
-字段参见 [Guild](model.md#Guild)
+返回 [Guild](#guild) 对象。
+
+### Guild
+
+| 字段名       | 类型    | 描述               |
+| ------------ | ------- | ------------------ |
+| id           | string  | 频道 ID            |
+| name         | string  | 频道名称           |
+| owner_id     | string  | 创建人用户 ID      |
+| owner        | boolean | 当前人是否是创建人 |
+| member_count | number  | 成员数             |
+| max_members  | number  | 最大成员数         |
+| description  | string  | 描述               |
 
 ## 返回示例
 

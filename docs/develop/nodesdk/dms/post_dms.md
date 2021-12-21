@@ -18,17 +18,17 @@ const res = await client.directMessageApi.createDirectMessage({
 
 | 字段名          | 类型   | 描述      |
 | --------------- | ------ | --------- |
-| recipient_id    | string | 接收者 id |
-| source_guild_id | string | 源频道 id |
+| recipient_id    | string | 接收者 ID |
+| source_guild_id | string | 源频道 ID |
 
 ## 返回说明
 
-成功创建后，返回[DMS](model.md#dms)对象返回创建成功的频道 id，子频道 id 和创建时间。
+成功创建后，返回[DMS](model.md#dms)对象返回创建成功的频道 ID，子频道 ID 和创建时间。
 
 | 字段名      | 类型   | 描述      |
 | ----------- | ------ | --------- |
-| guild_id    | string | 频道 id   |
-| channel_id  | string | 子频道 id |
+| guild_id    | string | 频道 ID   |
+| channel_id  | string | 子频道 ID |
 | create_time | string | 创建时间  |
 
 ## 返回示例

@@ -1,24 +1,6 @@
-# 获取子频道列表
+# 子频道对象(Channel)
 
-获取子频道列表。
-
-## 使用示例
-
-```javascript
-async function demo() {
-  let { data } = await client.channelApi.channels(guildId);
-}
-```
-
-## 参数说明
-
-| 字段名  | 必填 | 类型   | 描述    |
-| ------- | ---- | ------ | ------- |
-| guildId | 是   | string | 频道 ID |
-
-## 返回说明
-
-返回 [Channel](#channel) 数组。
+子频道对象中所涉及的 ID 类数据，都仅在机器人场景流通，与真实的 ID 无关，请不要理解为真实的 ID。
 
 ### Channel
 
@@ -57,31 +39,4 @@ async function demo() {
 | 2   | 攻略 |
 | 3   | 开黑 |
 
-## 返回示例
-
-`data`：
-
-```js
-[
-  {
-    id: 'xxxxxx',
-    guild_id: 'xxxxxx',
-    name: '很高兴遇见你',
-    type: 4,
-    position: 2,
-    parent_id: '0',
-    owner_id: '0',
-    sub_type: 0,
-  },
-  {
-    id: 'xxxxxx',
-    guild_id: 'xxxxxx',
-    name: '话题讨论',
-    type: 4,
-    position: 3,
-    parent_id: '0',
-    owner_id: '0',
-    sub_type: 0,
-  },
-];
-```
+注：目前只有`文字子频道`具有 `ChannelSubType` 二级分类，同时二级分类也可能会不断增加，开发者也需要注意对未知 ID 的处理。
