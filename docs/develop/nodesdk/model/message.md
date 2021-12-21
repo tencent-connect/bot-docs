@@ -35,8 +35,8 @@
 | title       | string                                    | 标题                                                                           |
 | description | string                                    | 描述                                                                           |
 | prompt      | string                                    | 消息弹窗内容                                                                   |
-| timestamp   | string                                    | 消息创建时间                                                                   |
-| fields      | [MessageEmbedField[]](#messageembedfield) | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
+| timestamp   | string                                    | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
+| fields      | [MessageEmbedField[]](#messageembedfield) | 消息体                                                                         |
 
 ## MessageEmbedField
 

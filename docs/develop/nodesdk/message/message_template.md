@@ -2,10 +2,12 @@
 
 为了丰富消息内容，SDK 提供了几种消息模板。
 
-## 注意事项
+::: warning 注意
 
 - 发送消息时所有字段均使用`字符串类型`。
-- 如果发送的消息中包含链接（网页、图片、视频链接等），需要提前报备。
+- 如果发送的消息中包含链接（网页、图片、视频链接等），**需要提前在[机器人管理端](https://bot.q.qq.com/#/developer/developer-setting)报备**，操作流程：操作路径为：”开发设置“ -> ”消息 URL 配置“。
+
+:::
 
 ## 可用模板
 
@@ -23,16 +25,16 @@
 
 ```json
 {
-    "app": "com.tencent.channel.robot",
-    "view": "albumAddPic",
-    "ver": "0.0.0.1",
-    "desc": "#DESC#",
-    "prompt": "[QQ小程序]#PROMPT#",
-    "meta": {
-        "detail": {
-            "list": #LIST#
-        }
+  "app": "com.tencent.channel.robot",
+  "view": "albumAddPic",
+  "ver": "0.0.0.1",
+  "desc": "#DESC#",
+  "prompt": "[QQ小程序]#PROMPT#",
+  "meta": {
+    "detail": {
+      "list": "#LIST#"
     }
+  }
 }
 ```
 
