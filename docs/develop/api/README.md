@@ -12,7 +12,7 @@ QQ频道机器人提供两类接口：
 - 沙箱环境：`https://sandbox.api.sgroup.qq.com` 沙箱环境只会收到测试频道的事件，且调用openapi仅能操作测试频道
 
 ### SDK
-- golang: https://github.com/tencent-connect/botgo
+- golang: <https://github.com/tencent-connect/botgo>
 
 ## 票据
 申请机器人通过后，平台将会下发三个票据。具体描述如下：
@@ -96,7 +96,7 @@ api := botgo.NewOpenAPI(token).WithTimeout(3 * time.Second) // 使用NewSandboxO
 
 #### 使用例子
 
-https://github.com/tencent-connect/botgo/tree/master/testcase
+<https://github.com/tencent-connect/botgo/tree/master/testcase>
 
 ## 一种简单的工作流
 
