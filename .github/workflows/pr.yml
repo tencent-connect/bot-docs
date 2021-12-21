@@ -1,6 +1,6 @@
 
    
-name: Issues Notifier
+name: PR Notifier
 on:
   pull_request:
     branches: [ main ]
