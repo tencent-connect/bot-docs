@@ -99,7 +99,12 @@ client.messageApi
     content: 'messageApi接口触发：hello',
   })
   .then(res => {
+    // 数据存储在data中
     console.log(res.data);
+  })
+  .catch(err => {
+    // err信息错误码请参考API文档错误码描述
+    console.log(err);
   });
 ```
 
@@ -186,6 +191,41 @@ ws.on('AT_MESSAGES', data => {
     member: { joined_at: 'xxx', roles: [Array] },
     mentions: [ [Object] ],
     timestamp: 'xxx'
+  }
+}
+```
+
+以”创建子频道“场景举例：
+
+```js
+// 开启事件监听
+ws.on('AUDIO_ACTION', data => {
+  console.log(data);
+});
+
+// 创建子频道
+client.channelApi.postChannel('GUILD_ID', {
+  name: 'test_creation',
+  type: 0,
+  parent_id: 'CHANNEL_ID',
+  owner_id: '0',
+  sub_type: 0,
+});
+```
+
+上述代码打印信息为：
+
+```js
+{
+  eventType: 'CHANNEL_CREATE',
+  msg: {
+    guild_id: 'xxxxxx',
+    id: 'xxxxxx',
+    name: 'test_creation',
+    op_user_id: 'xxxxxx',
+    owner_id: 'xxxxxx',
+    sub_type: 0,
+    type: 0
   }
 }
 ```
