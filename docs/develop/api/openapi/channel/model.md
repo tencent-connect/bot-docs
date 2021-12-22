@@ -3,16 +3,17 @@
 子频道对象中所涉及的 ID 类数据，都仅在机器人场景流通，与真实的 ID 无关。请不要理解为真实的 ID
 
 ### Channel
-| 字段名    | 类型   | 描述                                           |
-| --------- | ------ | ---------------------------------------------- |
-| id        | string | 子频道id                                       |
-| guild_id  | string | 频道id                                         |
-| name      | string | 子频道名                                       |
-| type      | int    | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | int    | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | int    | 排序，必填，而且不能够和其他子频道的值重复     |
-| parent_id | string | 分组 id                                        |
-| owner_id  | string | 创建人 id                                      |
+| 字段名       | 类型   | 描述                                           |
+| ---------    | ------ | ---------------------------------------------- |
+| id           | string | 子频道id                                       |
+| guild_id     | string | 频道id                                         |
+| name         | string | 子频道名                                       |
+| type         | int    | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type     | int    | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position     | int    | 排序，必填，而且不能够和其他子频道的值重复     |
+| parent_id    | string | 分组 id                                        |
+| owner_id     | string | 创建人 id                                      |
+| private_type | uint32 | 子频道私密类型 [PrivateType](#privatetype)     |
 
 ### ChannelType
 
@@ -38,3 +39,10 @@
 | 3   | 开黑 |
 
 注：目前只有`文字子频道`具有 `ChannelSubType` 二级分类，同时二级分类也可能会不断增加，开发者也需要注意对未知 ID 的处理。
+
+### PrivateType
+| 值  | 描述                |
+| --- | ----                |
+| 0   | 公开频道            |
+| 1   | 群主管理员可见      |
+| 2   | 群主管理员+指定成员 |

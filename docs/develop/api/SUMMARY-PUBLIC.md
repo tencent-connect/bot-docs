@@ -56,6 +56,9 @@
   * [创建日程](openapi/schedule/post_schedule.md)
   * [修改日程](openapi/schedule/patch_schedule.md)
   * [删除日程](openapi/schedule/delete_schedule.md)
+* 禁言 API
+  * [频道全局禁言](openapi/guild/patch_guild_mute.md)
+  * [频道指定成员禁言](openapi/guild/patch_guild_member_mute.md)
 * WebSocket API
   * [获取通用 WSS 接入点](openapi/wss/url_get.md)
   * [获取带分片 WSS 接入点](openapi/wss/shard_url_get.md)
