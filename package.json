@@ -10,6 +10,7 @@
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.3",
     "@vuepress/plugin-search": "^1.8.2",
     "eslint": "^8.5.0",
     "husky": "^7.0.4",
