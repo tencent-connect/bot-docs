@@ -75,6 +75,14 @@ const ws = creatWebsocket(testConfig);
 
 - intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html#%E4%B8%BE%E4%BE%8B)。
 
+:::warning 注意
+
+- 事件类型的订阅，是有权限控制的，除了 `GUILDS`，`AT_MESSAGES`，`GUILD_MEMBERS` 事件是基础的事件，默认有权限订阅之外，其他的特殊事件，都需要**经过申请才能够使用**，如果在鉴权的时候传递了无权限的 `intents`，`websocket` **会报错，并直接关闭连接**。
+
+- `intents`传**空数组**时，将默认开启**全部**事件类型的监听。
+
+:::
+
 通过上述示例代码我们可以拿到整个 NodeSDK 最核心的两个对象`client`和`ws`，整个 SDK 能力将由这两个对象提供。
 
 ### 使用 client
