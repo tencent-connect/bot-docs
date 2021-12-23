@@ -56,7 +56,7 @@ msg_api.post_message(channel_id, message_send_request)
 
 ## MessageArk
 
-详见[发送模板消息](post_ark_messages.md)。
+详见[发送模板消息](post_ark_message.md)。
 
 ## 返回说明
 
