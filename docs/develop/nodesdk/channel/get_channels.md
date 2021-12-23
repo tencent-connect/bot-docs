@@ -1,6 +1,6 @@
 # 获取子频道列表
 
-获取子频道列表。
+获取子频道列表，子频道用[Channel](../model/channel.md)描述。
 
 ## 使用示例
 
@@ -29,7 +29,7 @@ async function demo() {
 | name      | string | 子频道名                                       |
 | type      | number | 子频道类型 [ChannelType](#channeltype)         |
 | sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，非必填     |
+| position  | number | 排序，非必填                                   |
 | parent_id | string | 分组 ID                                        |
 | owner_id  | string | 创建人 ID                                      |
 

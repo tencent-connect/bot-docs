@@ -8,7 +8,7 @@
 - 发送成功之后，会触发一个创建消息的事件。
 - 被动回复消息有效期为 `5` 分钟。
 - 主动推送消息每日每个子频道限 `2` 条。
-- **发送消息接口要求机器人接口需要链接到 `websocket gateway` 上保持在线状态**
+- **发送消息接口要求机器人接口需要链接到 `websocket gateway` 上保持在线状态**。
 
 :::
 
@@ -27,7 +27,7 @@ async function demo() {
 | channelID | 是   | string                              | 子频道 ID  |
 | messsage  | 是   | [MessageToCreate](#messagetocreate) | 消息体结构 |
 
-## MessageToCreate
+### MessageToCreate
 
 | 字段名  | 类型                          | 描述                                                                                     |
 | ------- | ----------------------------- | ---------------------------------------------------------------------------------------- |
@@ -47,11 +47,11 @@ async function demo() {
 
 :::
 
-## MessageEmbed
+### MessageEmbed
 
 详见[消息内嵌格式](./message_format.md)。
 
-## MessageArk
+### MessageArk
 
 详见[发送模板消息](./post_ark_messages.md)。
 
