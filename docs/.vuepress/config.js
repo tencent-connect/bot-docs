@@ -140,6 +140,7 @@ module.exports = ctx => ({
     sidebar: {
       '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
       ...nodesdkConfig.sidebar,
+      ...pythonsdkConfig.sidebar,
       '/': [''],
     },
 
