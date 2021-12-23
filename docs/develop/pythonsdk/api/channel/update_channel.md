@@ -12,7 +12,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.ChannelAPI(token, False)
-channel = api.update_channel(channel_id, channel)
+channel_res = api.update_channel(channel_id, channel)
 ```
 
 ::: warning 注意
