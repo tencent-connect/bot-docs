@@ -10,7 +10,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.GuildRoleAPI(token, False)
-result = api.update_guild_role(guildId, roleId, roleInfo)
+result = api.update_guild_role(guild_id, role_id, role_info)
 ```
 
 ::: warning 注意 需要使用的 token 对应的用户具备创建身份组权限。如果是机器人，要求被添加为管理员。
@@ -20,9 +20,9 @@ result = api.update_guild_role(guildId, roleId, roleInfo)
 
 | 字段名   | 必填 | 类型                  | 描述           |
 | -------- | ---- | --------------------- | -------------- |
-| guildId  | 是   | string                | 频道 ID        |
-| roleId   | 是   | string                | 身份组 ID      |
-| roleInfo | 是   | [RoleInfo](#roleinfo) | 频道身份组参数 |
+| guild_id  | 是   | string                | 频道 ID        |
+| role_id   | 是   | string                | 身份组 ID      |
+| role_info | 是   | [RoleInfo](#roleinfo) | 频道身份组参数 |
 
 ### RoleInfo
 

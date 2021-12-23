@@ -4,17 +4,20 @@
 
 ## 使用示例
 
-```javascript
-async function demo() {
-  let { data } = await client.guildApi.guild(guildId);
-}
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+api = qqbot.GuildAPI(token, False)
+guild = api.get_guild(guild_id)
 ```
 
 ## 参数说明
 
 | 字段名  | 必填 | 类型   | 描述    |
 | ------- | ---- | ------ | ------- |
-| guildId | 是   | string | 频道 ID |
+| guild_id | 是   | string | 频道 ID |
 
 ## 返回说明
 
