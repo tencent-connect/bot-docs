@@ -53,7 +53,7 @@ channel = api.get_channel(channel_id)
 | 10006 | 应用子频道   |
 | 10007 | 论坛子频道   |
 
-注：由于 QQ 频道还在持续的迭代中，经常会有新的子频道类型增加，文档更新不一定及时，开发者识别 `ChannelType` 时，请注意相关的未知 ID 的处理。
+注：由于 QQ 频道还在持续的迭代中，经常会有新的子频道类型增加，文档更新不一定及时，开发者识别 `ChannelType` 时，请注意相关的未知类型的处理。
 
 ### ChannelSubType
 
@@ -68,7 +68,7 @@ channel = api.get_channel(channel_id)
 
 `data`：
 
-```python
+```json
 {
     "id":"channel_id",
     "guild_id":"guild_id",

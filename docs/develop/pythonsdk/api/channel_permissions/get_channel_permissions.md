@@ -54,7 +54,7 @@ channel = api.get_channel_permissions(channel_id, user_id)
 
 `data`：
 
-```python
+```json
 {
     "channel_id": "1128412",
     "user_id": "9962144428931019739",

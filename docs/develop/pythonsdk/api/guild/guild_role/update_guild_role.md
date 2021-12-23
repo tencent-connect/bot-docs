@@ -13,7 +13,8 @@ api = qqbot.GuildRoleAPI(token, False)
 result = api.update_guild_role(guild_id, role_id, role_info)
 ```
 
-::: warning 注意 需要使用的 token 对应的用户具备创建身份组权限。如果是机器人，要求被添加为管理员。
+:::warning 注意 
+需要使用的 token 对应的用户具备创建身份组权限。如果是机器人，要求被添加为管理员
 :::
 
 ## 参数说明

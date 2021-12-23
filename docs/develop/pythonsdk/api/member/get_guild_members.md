@@ -54,23 +54,25 @@ members = api.get_guild_members(guild_id, query_params)
 
 `data`：
 
-```js
+```json
 [
   {
-    user: {
-      id: 'USERID',
-      username: '机器人管家-ostwindli',
-      avatar: 'http://thirdqq.qlogo.cn/g?b=oidb&k=oPicoPIg01ujpSr8oosudkQ&s=0&t=1637218059',
-      bot: false,
-      public_flags: 0,
-      system: false,
+    "user": {
+      "id": "USERID",
+      "username": "机器人管家-ostwindli",
+      "avatar": "http://thirdqq.qlogo.cn/g?b=oidb&k=oPicoPIg01ujpSr8oosudkQ&s=0&t=1637218059",
+      "bot": false,
+      "public_flags": 0,
+      "system": false
     },
-    nick: '阿青',
-    roles: ['4'],
-    joined_at: '2021-11-23T15:16:48+08:00',
-    deaf: false,
-    mute: false,
-    pending: false,
-  },
-];
+    "nick": "阿青",
+    "roles": [
+      "4"
+    ],
+    "joined_at": "2021-11-23T15:16:48+08:00",
+    "deaf": false,
+    "mute": false,
+    "pending": false
+  }
+]
 ```
