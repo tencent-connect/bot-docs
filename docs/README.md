@@ -20,7 +20,7 @@ QQ频道机器人通过开放的平台承载机器人的定制化功能，让开
 
 ## 接入流程
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.001.png')" alt="接入流程">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.001.png')" alt="接入流程">
 
 ### 1. 阅读文档
 
@@ -38,7 +38,7 @@ QQ频道机器人通过开放的平台承载机器人的定制化功能，让开
 
 主体类型选择「公司」
 
-<img :src="$withBase('/images/introduce/choice-body.png')" alt="选择公司">
+<img :src="$withBotBase('/images/introduce/choice-body.png')" alt="选择公司">
 
 
 ::: tip 温馨提示
@@ -51,14 +51,14 @@ QQ频道机器人通过开放的平台承载机器人的定制化功能，让开
 
 请填写**未注册过 QQ 机器人、QQ 小程序、QQ 小游戏的邮箱账号**，并登陆邮箱，查收激活邮件，点击激活链接。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.002.png')" alt="填写邮箱和密码">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.002.png')" alt="填写邮箱和密码">
 
 
 ##### 2.2.2 企业主体认证
 
 企业账号需要上传营业执照照片、主体名称、号码类型、证件号码，请确保照片清晰，填写内容无误。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.003.jpeg')" alt="企业主体认证">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.003.jpeg')" alt="企业主体认证">
 
 
 ::: tip 温馨提示
@@ -75,7 +75,7 @@ QQ频道机器人通过开放的平台承载机器人的定制化功能，让开
 - 用于扫码的 QQ 号需已进行过实名认证。
 :::
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.004_1.jpeg')" alt="管理员信息登记">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.004_1.jpeg')" alt="管理员信息登记">
 
 ::: tip 温馨提示
 
@@ -90,7 +90,7 @@ QQ频道机器人通过开放的平台承载机器人的定制化功能，让开
 
 QQ 机器人企业主体资质认证包括工商信息校验、财务信息校验 2 个环节。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.004.png')" alt="企业主体开发者资质审核主流程">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.004.png')" alt="企业主体开发者资质审核主流程">
 
 ::: tip 温馨提示
 **请务必尽快完成此环节，通过资质认证后开发者才能发起提审流程。**
@@ -129,7 +129,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 阅读和签署开发者服务平台协议，如被平台发现违法协议者，将依据法律追究责任。
 
-<img :src="$withBase('/images/introduce/account.png')" alt="填写邮箱和密码">
+<img :src="$withBotBase('/images/introduce/account.png')" alt="填写邮箱和密码">
 
 
 :::tip 温馨提示
@@ -140,7 +140,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 前往账号填写的邮箱地址进行账号激活，点击邮箱中的链接即可激活账号。
 
-<img :src="$withBase('/images/introduce/mail.png')" alt="激活邮箱">
+<img :src="$withBotBase('/images/introduce/mail.png')" alt="激活邮箱">
 
 :::tip 温馨提示
 
@@ -157,7 +157,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 **当前机器人处于内测中，入驻的个体均为平台邀请并筛选的个体开发者，需签署隐私保密协议，如存在对外泄露平台信息情况，公司将对其追究法律责任！！！**
 
-<img :src="$withBase('/images/introduce/manager.png')" alt="管理员信息登记">
+<img :src="$withBotBase('/images/introduce/manager.png')" alt="管理员信息登记">
 
 :::tip 温馨提示
 **如实名认证信息填写错误，则人脸识别无法通过，须修改正确后再扫码通过。**
@@ -167,7 +167,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 点击按钮即可进入开发者管理端。
 
-<img :src="$withBase('/images/introduce/finish-register.png')" alt="完成注册">
+<img :src="$withBotBase('/images/introduce/finish-register.png')" alt="完成注册">
 
 ### 4. 创建机器人
 
@@ -183,7 +183,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 - **沙箱频道 ID 号**：该频道由开发者在频道中自主创建，提交机器人基本信息后，机器人会出现在沙箱频道的机器人列表当中，开发者可在沙箱频道里进行功能自测，便于填写复审时需要的自测报告。
 
-<img :src="$withBase('/images/introduce/create-robot.png')" alt="获得BotAppID&添加沙箱频道">
+<img :src="$withBotBase('/images/introduce/create-robot.png')" alt="获得BotAppID&添加沙箱频道">
 
 :::tip 温馨提示
 
@@ -204,7 +204,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
  **点击频道右上角「...」--->点击「频道设置」--->点击「机器人」--->添加测试机器人**
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.006.png')" alt="添加机器人">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.006.png')" alt="添加机器人">
 
 ### 5. 开发设置
 
@@ -220,13 +220,13 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 在跳转 `h5` 需要 `OAuth` 的时候使用 （如机器人服务是跳转小程序，可忽略），回调地址上限为`10`条。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.008.png')" alt="回调地址">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.008.png')" alt="回调地址">
 
 #### 5.3 消息 URL 配置
 
 填写机器人下发消息中所包含的链接域名，域名需在此处提交后才可生效，域名上限为`20`条，每年可修改`50`次。
 
-<img :src="$withBase('/images/introduce/callback-info-url.png')" alt="消息 URL 配置">
+<img :src="$withBotBase('/images/introduce/callback-info-url.png')" alt="消息 URL 配置">
 
 :::tip 温馨提示
 域名需提前进行ICP备案，并通过域名校验才可报备成功。
@@ -241,7 +241,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 **产品ID填写：** 需要在此处填写兔小巢反馈空间的产品ID，C端用户的机器人反馈才可同步至此处，详细获取路径如开发者端提示：设置-->产品设置-->产品ID。
 
 
-<img :src="$withBase('/images/introduce/feedback.png')" alt="频道用户意见反馈">
+<img :src="$withBotBase('/images/introduce/feedback.png')" alt="频道用户意见反馈">
 
 :::tip 温馨提示
 兔小巢创建与使用详情可点击[**用户反馈空间创建攻略**](https://docs.qq.com/doc/DY0FBR0FUSm5lT0pn)
@@ -251,7 +251,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 基本信息修改限制：每月可修改`5`次。
 
-<img :src="$withBase('/images/introduce/config.png')" alt="设置">
+<img :src="$withBotBase('/images/introduce/config.png')" alt="设置">
 
 ### 7. 权限设置
 
@@ -268,7 +268,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 - **发布权限**：拥有该权限的成员可编辑和提交语料、服务、指令等模块。
 - **开发设置**：拥有该权限的成员可编辑和提交回调地址、URL 模块。
 
-<img :src="$withBase('/images/introduce/auth.png')" alt="权限">
+<img :src="$withBotBase('/images/introduce/auth.png')" alt="权限">
 
 :::tip 温馨提示
 **登陆权限是基础权限，要拥有发布权限和开发权限的前提是拥有登陆权限**
@@ -278,7 +278,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 开发者可以通过发布设置配置对话类型语料以及机器人服务，此处配置的语料和功能配置完毕，均需通过代码开发实现。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.009.png')" alt="发布设置">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.009.png')" alt="发布设置">
 
 #### 8.1 语料配置
 
@@ -296,7 +296,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 **图片链接：** 填写机器人回答中图片的`url`链接，图片链接`url`需带`http`或`https`前缀，图片不允许涉及政治敏感与色情。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.010.png')" alt="语料配置">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.010.png')" alt="语料配置">
 
 :::tip 温馨提示
 **所有开发者注册完机器人默认拥有“不校验语料id”能力，即不需要在管理端的对话型语料里进行语料报备，直接使用代码实现AB回复逻辑即可，一旦机器人被平台发现有违规行为，该能力将被收回，所有被动消息均需要在此处进行报备才可发出。**
@@ -367,7 +367,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 - **权限菜单**：请选择本服务是开放给所有用户还是仅针对频道主和管理员。
 
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.011.png')" alt="服务配置">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.011.png')" alt="服务配置">
 
 :::tip  温馨提示
 **开发者可添加、删减功能，管理端配置的功能顺序与 C 端机器人资料卡展示的功能顺序一致**
@@ -389,7 +389,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 开发者可添加、删减指令，管理端配置的功能顺序与 C 端机器人指令集展示的功能顺序一致，建议将常用/核心的指令前置。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.012.png')" alt="指令配置">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.012.png')" alt="指令配置">
 
 :::warning 注意
 **指令和服务模块暂不需要单独提审，自测完成后，填写自测报告与自测报告一起提审**。
@@ -399,7 +399,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 开发者需下载机器人自测报告模版，在自测频道内根据模板要求测试机器人的功能，并填写完自测报告后上传。
 
-<img :src="$withBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.013.png')" alt="自测报告">
+<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.013.png')" alt="自测报告">
 
 - **自测报告**：[机器人自测报告模板](https://docs.qq.com/sheet/DZlplZ1FFQUpmWWVt)。
 
@@ -407,7 +407,7 @@ QQ 机器人企业主体资质认证包括工商信息校验、财务信息校�
 
 - **审核时效**：工作日`24`小时内审核，不支持催审，请耐心等待审核验收结果。
 
-<img :src="$withBase('/images/introduce/audit.png')" alt="自测报告-审核">
+<img :src="$withBotBase('/images/introduce/audit.png')" alt="自测报告-审核">
 
 ::: tip 温馨提示
 提交功能配置审核前需完成机器人的资质认证，提交审核后，服务配置、指令配置和自测报告将一起送往平台进行审核。

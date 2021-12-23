@@ -14,16 +14,16 @@
 
 整个 SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如下图所示：
 
-<img :src="$withBase('/images/node-sdk/framework.png')" alt="SDK 底层架构设计">
+<img :src="$withBotBase('/images/node-sdk/framework.png')" alt="SDK 底层架构设计">
 
 整个 SDK 设计与实现基于**两条主线**：
 
 1. NodeSDK 与基础侧的通信模块，属于机器人**被动接受消息**。比如有用户@机器人、新
    用户加入频道触发的事件等等。
-   <img :src="$withBase('/images/node-sdk/api-client.png')" alt="SDK 底层架构设计">
+   <img :src="$withBotBase('/images/node-sdk/api-client.png')" alt="SDK 底层架构设计">
 2. 机器人通过 NodeSDK 调用基础能力，属于机器人**主动触发消息**。比如欢迎语提醒、
    定时打卡任务触发、查询当前频道成员列表等等。
-   <img :src="$withBase('/images/node-sdk/ws-client.png')" alt="SDK 底层架构设计">
+   <img :src="$withBotBase('/images/node-sdk/ws-client.png')" alt="SDK 底层架构设计">
 
 ## 安装
 
