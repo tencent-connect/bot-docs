@@ -19,7 +19,7 @@
 
 ### 样式(id=23)
 
-<img :src="$withBase('/images/node-sdk/msg-tpl-23.png')" alt="接入流程">
+<img :src="$withBotBase('/images/node-sdk/msg-tpl-23.png')" alt="接入流程">
 
 ### 模板格式
 
@@ -154,7 +154,7 @@
 
 ### 样式(id=24)
 
-<img :src="$withBase('/images/node-sdk/msg-tpl-24.png')" alt="接入流程">
+<img :src="$withBotBase('/images/node-sdk/msg-tpl-24.png')" alt="接入流程">
 
 ### 模板格式
 
@@ -233,7 +233,7 @@
 
 ### 样式(id=34)
 
-<img :src="$withBase('/images/node-sdk/msg-tpl-34.png')" alt="接入流程">
+<img :src="$withBotBase('/images/node-sdk/msg-tpl-34.png')" alt="接入流程">
 
 ### 模板格式
 
@@ -312,7 +312,7 @@
 
 ### 样式(id=37)
 
-<img :src="$withBase('/images/node-sdk/msg-tpl-37.png')" alt="接入流程">
+<img :src="$withBotBase('/images/node-sdk/msg-tpl-37.png')" alt="接入流程">
 
 ### 模板格式
 
