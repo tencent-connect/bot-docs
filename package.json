@@ -40,7 +40,7 @@
   },
   "scripts": {
     "dev": "vuepress dev docs --temp .temp",
-    "build": "vuepress build docs --temp .temp",
+    "build": "vuepress build docs --temp .temp --dest dist",
     "build-test": "cross-env BUILD_ENV=test vuepress build docs --temp .temp --dest dist",
     "lint-md": "npm run lint-md:style && npm run lint-md:wording",
     "lint-md:style": "remark --quiet --frail .",
