@@ -73,18 +73,17 @@ module.exports = {
               'api/member/delete_guild_member'
             ],
           },
-
           {
             title: '频道身份组 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'api/guild/get_guild_roles',
-              'api/guild/create_guild_role',
-              'api/guild/update_guild_role',
-              'api/guild/delete_guild_role',
-              'api/guild/create_guild_member_role',
-              'api/guild/delete_guild_member_role',
+              'api/guild/guild_role/get_guild_roles',
+              'api/guild/guild_role/create_guild_role',
+              'api/guild/guild_role/update_guild_role',
+              'api/guild/guild_role/delete_guild_role',
+              'api/guild/guild_role/create_guild_role_member',
+              'api/guild/guild_role/delete_guild_role_member'
             ],
           },
           {
