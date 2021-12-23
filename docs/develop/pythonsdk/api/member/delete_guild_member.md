@@ -6,10 +6,8 @@
 
 ## 使用示例
 
-```javascript
-async function demo() {
-  let { data } = await client.guildApi.deleteGuildMember(guildId, userId);
-}
+```python
+# TODO:施工中
 ```
 
 ::: warning 注意
@@ -22,8 +20,8 @@ async function demo() {
 
 | 字段名  | 必填 | 类型   | 描述    |
 | ------- | ---- | ------ | ------- |
-| guildId | 是   | string | 频道 ID |
-| userId  | 是   | string | 用户 ID |
+| guild_id | 是   | string | 频道 ID |
+| user_id  | 是   | string | 用户 ID |
 
 ## 返回说明
 

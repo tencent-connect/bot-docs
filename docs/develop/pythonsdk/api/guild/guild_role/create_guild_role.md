@@ -10,7 +10,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.GuildRoleAPI(token, False)
-result = api.create_guild_role(guildId, roleInfo)
+result = api.create_guild_role(guild_id,role_info)
 ```
 
 ::: warning 注意
@@ -21,8 +21,8 @@ result = api.create_guild_role(guildId, roleInfo)
 
 | 字段名   | 必填 | 类型                  | 描述           |
 | -------- | ---- | --------------------- | -------------- |
-| guildId  | 是   | string                | 频道 ID        |
-| roleInfo | 是   | [RoleInfo](#roleinfo) | 频道身份组参数 |
+| guild_id  | 是   | string                | 频道 ID        |
+| role_info | 是   | [RoleInfo](#roleinfo) | 频道身份组参数 |
 
 ### RoleInfo
 

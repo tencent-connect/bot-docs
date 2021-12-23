@@ -10,14 +10,14 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.GuildRoleAPI(token, False)
-guild_roles = api.get_guild_roles(guildId)
+guild_roles = api.get_guild_roles(guild_id)
 ```
 
 ## 参数说明
 
 | 字段名  | 必填 | 类型   | 描述    |
 | ------- | ---- | ------ | ------- |
-| guildId | 是   | string | 频道 ID |
+| guild_id | 是   | string | 频道 ID |
 
 ## 返回说明
 

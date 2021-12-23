@@ -14,10 +14,13 @@
 
 需要关注`ark`字段的使用。
 
-```javascript
-async function demo() {
-  let { data } = await client.messageApi.postMessage(channelID, message);
-}
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+msg_api = qqbot.MessageAPI(token, False)         
+msg_api.post_message(channel_id, message_send_request)
 ```
 
 ## 参数说明
@@ -25,9 +28,9 @@ async function demo() {
 | 参数      | 必填 | 类型                                | 说明       |
 | --------- | ---- | ----------------------------------- | ---------- |
 | channelID | 是   | string                              | 子频道 ID  |
-| messsage  | 是   | [MessageToCreate](#messagetocreate) | 消息体结构 |
+| message_send_request  | 是   | [MessageSendRequest](#MessageSendRequest) | 消息体结构 |
 
-## MessageToCreate
+## MessageSendRequest
 
 | 字段名  | 类型                          | 描述                                                                    |
 | ------- | ----------------------------- | ----------------------------------------------------------------------- |

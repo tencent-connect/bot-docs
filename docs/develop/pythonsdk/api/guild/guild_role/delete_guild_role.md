@@ -8,15 +8,15 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.GuildRoleAPI(token, False)
-result = api.delete_guild_role(guildId, roleId)
+result = api.delete_guild_role(guild_id, role_id)
 ```
 
 ### 参数说明
 
 | 参数    | 必填 | 类型   | 说明      |
 | ------- | ---- | ------ | --------- |
-| guildId | 是   | string | 频道 ID   |
-| roleId  | 是   | string | 身份组 ID |
+| guild_id | 是   | string | 频道 ID   |
+| role_id  | 是   | string | 身份组 ID |
 
 ### 返回说明
 

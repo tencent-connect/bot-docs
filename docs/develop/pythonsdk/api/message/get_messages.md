@@ -1,27 +1,48 @@
-# 获取指定消息
+# 拉取消息列表
 
-获取指定消息。
+获取消息列表。
+<Warnning />
 
 ## 使用示例
 
-```javascript
-async function demo() {
-  let { data } = await client.messageApi.message(channelID, messageID);
-}
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+msg_api = qqbot.MessageAPI(token, False)
+msg_api.get_messages(channel_id,pager)
 ```
 
 ## 参数说明
 
-| 参数      | 必填 | 类型   | 说明      |
-| --------- | ---- | ------ | --------- |
-| channelID | 是   | string | 子频道 ID |
-| messageID | 是   | string | 消息 ID   |
+| 参数      | 必填 | 类型                            | 说明      |
+| --------- | ---- | ------------------------------- | --------- |
+| channel_id | 是   | string                          | 子频道 ID |
+| pager     | 否   | [MessagesPager](#messagespager) | 分页信息  |
+
+### MessagesPager
+
+| 参数  | 必填 | 类型                    | 说明                          |
+| ----- | ---- | ----------------------- | ----------------------------- |
+| type  | 否   | [TypesEnum](#typesenum) | 拉取类型                      |
+| id    | 否   | string                  | 消息 ID                       |
+| limit | 否   | string                  | 每次拉取多少条消息，最大 `20` |
+
+### TypesEnum
+
+| 字段名   | 类型   | 描述               |
+| -------- | ------ | ------------------ |
+| `around` | string | 读此 id 前后的消息 |
+| `before` | string | 读此 id 之前的消息 |
+| `after`  | string | 读此 id 之后的消息 |
+| `latest`  | string | 最新limit的消息 |
+
+如果 `around/before/after` 均为`空`，则拉取最新的 `limit` 条消息。
 
 ## 返回说明
 
-| 参数    | 类型                | 说明              |
-| ------- | ------------------- | ----------------- |
-| message | [Message](#message) | 返回 message 对象 |
+返回 [Message](#message) 对象数组。
 
 ### Message
 
@@ -63,12 +84,12 @@ async function demo() {
 
 ## 返回示例
 
-`data`:
+`data`：
 
 ```json
-{
-  "message": {
-    "id": "abcdef01",
+[
+  {
+    "id": "xxx",
     "channel_id": "100001",
     "guild_id": "100000000001",
     "content": "hello",
@@ -79,9 +100,29 @@ async function demo() {
       "bot": false
     },
     "member": {
-      "roles": ["1"],
+      "roles": [
+        "1"
+      ],
+      "joined_at": "2021-04-12T16:34:42+08:00"
+    }
+  },
+  {
+    "id": "yyy",
+    "channel_id": "100001",
+    "guild_id": "1000000000001",
+    "content": "world",
+    "timestamp": "2021-05-25T15:20:32+08:00",
+    "author": {
+      "id": "10000001",
+      "username": "az",
+      "bot": false
+    },
+    "member": {
+      "roles": [
+        "1"
+      ],
       "joined_at": "2021-04-12T16:34:42+08:00"
     }
   }
-}
+]
 ```
