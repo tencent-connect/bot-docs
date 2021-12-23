@@ -45,7 +45,7 @@ members = api.get_guild_member(guild_id, user_id)
 
 `data`：
 
-```python
+```json
 {
     "user": {
         "id": "用户 ID",

@@ -64,7 +64,7 @@ channel = api.get_channels(guild_id)
 
 `data`：
 
-```python
+```json
 [
     {
         "id":"channel_id",

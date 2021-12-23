@@ -9,9 +9,7 @@ class HandlerType(Enum):
     GUILD_MEMBER_EVENT_HANDLER = 2  # 频道成员事件    
     CHANNEL_EVENT_HANDLER = 3  # 子频道事件    
     MESSAGE_EVENT_HANDLER = 4  # 消息事件    
-    AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件 
-    # DIRECT_MESSAGE_EVENT_HANDLER = 6 #私信消息事件
-    # AUDIO_EVENT_HANDLER = 7 #音频事件
+    AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
 ```
 
 ## 当前事件的返回类型

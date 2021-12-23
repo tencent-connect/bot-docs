@@ -39,7 +39,7 @@ guild = api.get_guild(guild_id)
 
 `data`：
 
-```python
+```json
 {
     "id":"guildId",
     "name":"频道名称",

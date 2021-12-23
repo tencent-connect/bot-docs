@@ -25,9 +25,9 @@ msg_api.get_messages(channel_id,pager)
 
 | 参数  | 必填 | 类型                    | 说明                          |
 | ----- | ---- | ----------------------- | ----------------------------- |
-| type  | 否   | [TypesEnum](#typesenum) | 拉取类型                      |
-| id    | 否   | string                  | 消息 ID                       |
-| limit | 否   | string                  | 每次拉取多少条消息，最大 `20` |
+| type  | 是   | [TypesEnum](#typesenum) | 拉取类型                      |
+| id    | 是   | string                  | 消息 ID                       |
+| limit | 是   | string                  | 每次拉取多少条消息，最大 `20` |
 
 ### TypesEnum
 

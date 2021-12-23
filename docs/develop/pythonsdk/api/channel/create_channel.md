@@ -11,7 +11,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 api = qqbot.ChannelAPI(token, False)
-channel = api.create_channel(channel_id, channel)
+channel_res = api.create_channel(channel_id, channel)
 ```
 
 ::: warning 注意
@@ -85,7 +85,7 @@ channel = api.create_channel(channel_id, channel)
 
 `data`：
 
-```python
+```json
 {
     "id": "channel_id",
     "guild_id": "guild_id",

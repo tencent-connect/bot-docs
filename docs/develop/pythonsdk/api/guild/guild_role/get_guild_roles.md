@@ -41,7 +41,7 @@ guild_roles = api.get_guild_roles(guild_id)
 
 `data`：
 
-```python
+```json
 {
     "guild_id":"guild_id",
     "roles":[

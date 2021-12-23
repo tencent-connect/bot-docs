@@ -61,7 +61,7 @@ channel = api.delete_channel(channel_id)
 
 `data`：
 
-```python
+```json
 {
     "id":"channel_id",
     "type":0,

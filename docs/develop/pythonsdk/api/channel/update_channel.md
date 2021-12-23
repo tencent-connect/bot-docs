@@ -83,28 +83,15 @@ channel = api.update_channel(channel_id, channel)
 
 `data`：
 
-```python
+```json
 {
-    "id":"2186875",
-    "guild_id":"2020131797974366736",
-    "name":"update_channel",
-    "topic":null,
-    "type":0,
-    "last_message_id":null,
-    "last_pin_timestamp":null,
-    "nsfw":null,
-    "icon":null,
-    "position":22,
-    "bitrate":null,
-    "recipients":[
-
-    ],
-    "user_limit":null,
-    "parent_id":"1128421",
-    "rate_limit_per_user":null,
-    "owner_id":null,
-    "application_id":null,
-    "op_user_id":null,
-    "sub_type":0
+  "id": "2186875",
+  "guild_id": "2020131797974366736",
+  "name": "update_channel",
+  "type": 0,
+  "position": 22,
+  "parent_id": "1128421",
+  "owner_id": null,
+  "sub_type": 0
 }
 ```
