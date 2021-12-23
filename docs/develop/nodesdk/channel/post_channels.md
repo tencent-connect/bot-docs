@@ -35,7 +35,7 @@ async function demo() {
 | name      | string | 是   | 子频道名                                       |
 | type      | number | 是   | 子频道类型 [ChannelType](#channeltype)         |
 | sub_type  | number | 是   | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 否   | 排序，非必填     |
+| position  | number | 否   | 排序，非必填                                   |
 | parent_id | string | 否   | 分组 ID                                        |
 
 ### ChannelType
@@ -68,15 +68,15 @@ async function demo() {
 
 ### ChannelRes
 
-| 字段名    | 类型   | 描述                                           |
-| --------- | ------ | ---------------------------------------------- |
-| id        | string | 子频道 ID                                      |
-| guild_id  | string | 频道 ID                                        |
-| name      | string | 子频道名                                       |
-| type      | number | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，非必填     |
-| parent_id | string | 分组 ID                                        |
+| 字段名   | 类型   | 描述                                           |
+| -------- | ------ | ---------------------------------------------- |
+| id       | string | 子频道 ID                                      |
+| guild_id | string | 频道 ID                                        |
+| name     | string | 子频道名                                       |
+| type     | number | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position | number | 排序，非必填                                   |
+| owner_id | string | 创建人用户 ID                                  |
 
 ## 返回示例
 
