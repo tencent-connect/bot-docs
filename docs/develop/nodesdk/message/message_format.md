@@ -2,8 +2,8 @@
 
 ::: warning 注意
 
-- 消息不支持 markdown 格式，会自动移除 markdown 格式
-- 内嵌格式仅在 content 中会生效，在 Ark 和 Embed 中不生效
+- 消息**不支持 markdown 格式**，会自动移除 markdown 格式。
+- **内嵌格式仅在 `content` 中会生效，在 `Ark` 和 `Embed` 中不生效**。
 
 :::
 
@@ -22,32 +22,13 @@ async function demo() {
 | channelID | 是   | string                              | 子频道 ID  |
 | messsage  | 是   | [MessageToCreate](#messagetocreate) | 消息体结构 |
 
-## MessageToCreate
+### MessageToCreate
 
-| 字段名  | 类型                          | 描述                                                                    |
-| ------- | ----------------------------- | ----------------------------------------------------------------------- |
-| content | string                        | 消息内容，参考[支持的格式](#支持的格式)                                 |
-| embed   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                              |
-| ark     | [MessageArk](#messageark)     | ark 消息                                                                |
-| image   | string                        | 图片 url 地址                                                           |
-| msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为被动回复消息，否则视为主动推送消息** |
-
-## MessageEmbed
-
-| 字段名      | 类型                                      | 描述                                                                           |
-| ----------- | ----------------------------------------- | ------------------------------------------------------------------------------ |
-| title       | string                                    | 标题                                                                           |
-| description | string                                    | 描述                                                                           |
-| prompt      | string                                    | 消息弹窗内容                                                                   |
-| timestamp   | string                                    | 消息创建时间                                                                   |
-| fields      | [MessageEmbedField[]](#messageembedfield) | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
-
-## MessageEmbedField
-
-| 字段名 | 类型   | 描述   |
-| ------ | ------ | ------ |
-| name   | string | 字段名 |
-| value  | string | 字段值 |
+| 字段名  | 类型   | 描述                                                                    |
+| ------- | ------ | ----------------------------------------------------------------------- |
+| content | string | 消息内容，参考[支持的格式](#支持的格式)                                 |
+| image   | string | 图片 url 地址                                                           |
+| msg_id  | string | 要回复的消息 id。**带了 msg_id 视为被动回复消息，否则视为主动推送消息** |
 
 ### 支持的格式
 

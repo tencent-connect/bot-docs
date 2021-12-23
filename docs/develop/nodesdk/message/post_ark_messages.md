@@ -3,9 +3,9 @@
 ::: warning 注意
 
 - 要求操作人在该子频道具有`发送消息`和 `模板消息` 的权限。
-- 调用前需要先申请消息模板，这一步会得到一个模板 id，在请求时填在 ark.template_id 上
+- 调用前需要先申请消息模板，这一步会得到一个模板 id，在请求时填在 `ark.template_id` 上。
 - 发送成功之后，会触发一个创建消息的事件。
-- 可用模板参考[可用模板](message_template.md)
+- 可用模板参考[消息模板](message_template.md)
 - 如果发送的消息中包含链接（网页、图片、视频链接等），**需要提前在[机器人管理端](https://bot.q.qq.com/#/developer/developer-setting)报备**，操作流程：操作路径为：”开发设置“ -> ”消息 URL 配置“
 
 :::
@@ -27,7 +27,7 @@ async function demo() {
 | channelID | 是   | string                              | 子频道 ID  |
 | messsage  | 是   | [MessageToCreate](#messagetocreate) | 消息体结构 |
 
-## MessageToCreate
+### MessageToCreate
 
 | 字段名  | 类型                          | 描述                                                                    |
 | ------- | ----------------------------- | ----------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ async function demo() {
 | image   | string                        | 图片 url 地址                                                           |
 | msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为被动回复消息，否则视为主动推送消息** |
 
-## MessageEmbed
+### MessageEmbed
 
 | 字段名      | 类型                                      | 描述                                                                           |
 | ----------- | ----------------------------------------- | ------------------------------------------------------------------------------ |
@@ -47,14 +47,42 @@ async function demo() {
 | timestamp   | string                                    | 消息创建时间                                                                   |
 | fields      | [MessageEmbedField[]](#messageembedfield) | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
 
-## MessageEmbedField
+### MessageEmbedField
 
 | 字段名 | 类型   | 描述   |
 | ------ | ------ | ------ |
 | name   | string | 字段名 |
 | value  | string | 字段值 |
 
-### 参数示例
+### MessageArk
+
+| 字段名      | 类型                            | 描述                      |
+| :---------- | :------------------------------ | :------------------------ |
+| template_id | number                          | ark 模板 id（需要先申请） |
+| kv          | [MessageAkrKv[]](#messagearkkv) | kv 值列表                 |
+
+### MessageArkKv
+
+| 字段名 | 类型                              | 描述               |
+| :----- | :-------------------------------- | :----------------- |
+| key    | string                            | key                |
+| value  | string                            | value              |
+| obj    | [MessageArkObj[]](#messagearkobj) | ark obj 类型的列表 |
+
+### MessageArkObj
+
+| 字段名 | 类型                               | 描述           |
+| :----- | :--------------------------------- | :------------- |
+| obj_kv | [MessageArkObjKv[]](#messageobjkv) | ark objkv 列表 |
+
+### MessageArkObjKv
+
+| 字段名 | 类型   | 描述  |
+| :----- | :----- | :---- |
+| key    | string | key   |
+| value  | string | value |
+
+## 参数示例
 
 假设模板如下，其中`#META_LIST#`类型为数组、`#META_URL#`类型为 `URL`、其他为文本。
 
