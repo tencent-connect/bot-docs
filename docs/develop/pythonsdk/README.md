@@ -50,34 +50,7 @@ def _message_handler(event, message: Message):
     msg_api.post_message(message.channel_id, send)
 ```
 
-注：当前支持事件及回调事件包括：
-
-``` py
-class HandlerType(Enum):
-    PLAIN_EVENT_HANDLER = 0 #透传事件
-    GUILD_EVENT_HANDLER = 1 #频道事件
-    GUILD_MEMBER_EVENT_HANDLER = 2 #频道成员事件
-    CHANNEL_EVENT_HANDLER = 3 #子频道事件
-    MESSAGE_EVENT_HANDLER = 4 #消息事件
-    AT_MESSAGE_EVENT_HANDLER = 5 #At消息事件
-    # DIRECT_MESSAGE_EVENT_HANDLER = 6 #私信消息事件
-    # AUDIO_EVENT_HANDLER = 7 #音频事件
-```
-
-事件回调函数的参数 1 为事件名称，参数 2 返回具体的数据对象。
-
-``` py
-#透传事件（无具体的数据对象，根据后台返回Json对象）
-def _plain_handler(event, data):
-#频道事件
-def _guild_handler(event, guild:Guild):
-#频道成员事件
-def _guild_member_handler(event, guild_member: GuildMember):
-#子频道事件
-def _channel_handler(event, channel: Channel):
-#消息事件 #At消息事件
-def _message_handler(event, message: Message):
-```
+注：当前支持事件及回调事件可参考[事件监听](websocket/listen_events.md#当前支持的事件类型)
 
 ## 日志打印
 
