@@ -61,16 +61,8 @@ async function demo() {
 
 ## 返回说明
 
-返回 [ChannelPermissions](#channelpermissions) 对象。
+HTTP 状态码 `204`。
 
 ## 返回示例
 
-`data`：
-
-```js
-{
-    channel_id: 'CHANNEL_ID',
-    user_id: 'USER_ID',
-    permissions: '0'
-}
-```
+-
