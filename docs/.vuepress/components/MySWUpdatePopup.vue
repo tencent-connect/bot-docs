@@ -35,7 +35,7 @@ export default {
   text-align: center;
   box-shadow: 1px 1px 1px #3eb07c;
   right: 20px;
-  top: 12%;
+  top: 13%;
   color: #3eb07c;
   width: 180px;
   font-size: 16px;
