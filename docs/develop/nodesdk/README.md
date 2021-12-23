@@ -34,19 +34,19 @@
 ### npm 方式
 
 ```sh
-$ npm i @tencent-connect/bot-node-sdk
+npm i @tencent-connect/bot-node-sdk
 ```
 
 如果安装失败，可尝试使用腾讯源
 
 ```sh
-$ npm i @tencent/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
+npm i @tencent/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
 ```
 
 ### yarn 方式
 
 ```sh
-$ yarn add @tencent-connect/bot-node-sdk
+yarn add @tencent-connect/bot-node-sdk
 ```
 
 ## 使用示例
@@ -55,10 +55,10 @@ $ yarn add @tencent-connect/bot-node-sdk
 
 ```js
 // ESModule | TypeScript
-// import { creatOpenAPI, creatWebsocket } from '@tencent-connect/bot-node-sdk';
+// import { creatOpenAPI, createWebsocket } from '@tencent-connect/bot-node-sdk';
 
 // CommonJs
-const { creatOpenAPI, creatWebsocket } = require('@tencent-connect/bot-node-sdk');
+const { creatOpenAPI, createWebsocket } = require('@tencent-connect/bot-node-sdk');
 
 const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
@@ -70,7 +70,7 @@ const testConfig = {
 const client = creatOpenAPI(testConfig);
 
 // 创建 websocket 连接
-const ws = creatWebsocket(testConfig);
+const ws = createWebsocket(testConfig);
 ```
 
 - intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html#%E4%B8%BE%E4%BE%8B)。

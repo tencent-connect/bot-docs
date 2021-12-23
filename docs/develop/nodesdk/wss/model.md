@@ -7,8 +7,8 @@ WS 支持监听的事件类型可参考[事件订阅 intents](../api/../../api/g
 ### 创建 WS 实例并监听消息
 
 ```js
-import { creatWebsocket } from '@tencent-connect/bot-node-sdk';
-const ws = creatWebsocket(testConfigWs);
+import { createWebsocket } from '@tencent-connect/bot-node-sdk';
+const ws = createWebsocket(testConfigWs);
 ws.on('READY', data => {
   console.log('[READY] 事件接收 :', data);
 });
