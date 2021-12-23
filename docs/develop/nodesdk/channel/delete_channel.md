@@ -28,7 +28,7 @@ async function demo() {
 
 ## 返回说明
 
-字段参见 [ChannelRes](#channelres)
+返回一个 [ChannelRes](#channelres) 对象。
 
 ### ChannelRes
 

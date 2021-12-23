@@ -15,7 +15,7 @@ async function demo() {
 ::: warning 注意
 
 - 要求操作人具有管理子频道的权限，如果是机器人，则需要将机器人设置为管理员。
-- 修改成功后，会触发子频道更新事件
+- 修改成功后，会触发子频道更新事件。
 
 :::
 
@@ -52,7 +52,7 @@ async function demo() {
 
 ## 返回说明
 
-字段参见 [ChannelRes](#channelres)。
+返回 [ChannelRes](#channelres) 对象。
 
 ### ChannelRes
 

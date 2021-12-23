@@ -73,7 +73,7 @@ const client = creatOpenAPI(testConfig);
 const ws = createWebsocket(testConfig);
 ```
 
-- intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html#%E4%B8%BE%E4%BE%8B)。
+- intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html)。
 
 :::warning 注意
 
@@ -195,11 +195,11 @@ ws.on('AT_MESSAGES', data => {
 }
 ```
 
-以”创建子频道“场景举例：
+拿 **”创建子频道“** 场景举个例子：
 
 ```js
 // 开启事件监听
-ws.on('AUDIO_ACTION', data => {
+ws.on('GUILDS', data => {
   console.log(data);
 });
 
