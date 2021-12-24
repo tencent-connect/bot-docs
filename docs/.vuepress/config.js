@@ -4,11 +4,11 @@ const commonConfig = require('./common');
 // openapi 外部文档隐藏的接口,注意不要携带.md后缀
 // 废弃，请使用 summary-public 来约束可以展示的内容
 const hiddenApi = [];
-
+const base = '/wiki/';
 module.exports = ctx => ({
-  base: '/wiki/',
+  base,
   configureWebpack: (config, isServer) => {
-    config.output.publicPath = ctx.isProd ? commonConfig.cdnBase + commonConfig.cdnPath : this.base;
+    config.output.publicPath = ctx.isProd ? commonConfig.cdnBase + commonConfig.cdnPath : base;
   },
   title: ' QQ机器人文档',
   description:
