@@ -24,7 +24,7 @@
 | title     | string                                               | 标题         |
 | prompt    | string                                               | 消息弹窗内容 |
 | thumbnail | [MessageEmbedThumbnail](#messageembedthumbnail) 对象 | 缩略图       |
-| fields    | [MessageEmbedField](#messageembedfield) 对象数组     | 消息创建时间 |
+| fields    | [MessageEmbedField](#messageembedfield) 对象数组     | embed 字段数据 |
 
 ### MessageEmbedThumbnail
 | 字段名 | 类型   | 描述     |
