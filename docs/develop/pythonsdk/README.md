@@ -19,7 +19,7 @@ pip install qq-bot
 import qqbot
 
 token = qqbot.Token("{appid}","{token}")
-api = qqbot.UserAPI(token, IS_SANDBOX)
+api = qqbot.UserAPI(token, False)
 user = api.me()
 
 print(user.username)  # 打印机器人名字
