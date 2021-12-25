@@ -56,7 +56,7 @@ const { createOpenAPI, createWebsocket } = require('@tencent-connect/bot-node-sd
 const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
   token: 'TOKEN', // 申请机器人时获取到的机器人 BotToken
-  intents: [], // 事件订阅,用于开启可接收的消息类型
+  intents: ['AT_MESSAGES'], // 事件订阅,用于开启可接收的消息类型
 };
 
 // 创建 client
