@@ -33,7 +33,7 @@ npm i @tencent-connect/bot-node-sdk
 如果安装失败，可尝试使用腾讯源
 
 ```sh
-npm i @tencent/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
+npm i @tencent-connect/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
 ```
 
 ### yarn 方式
