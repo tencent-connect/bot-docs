@@ -12,6 +12,6 @@ jobs:
         uses: jerray/work-weixin-notifier@v1.1.0
         with:
           key: ${{ secrets.weixin_bot_key }}
-          content: '**【机器人文档】**`PR`有更新(${{github.event.pull_request.state}})，请关注@ostwindli@shaohuizuo [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}}) '
+          content: '**【机器人文档】**`PR`有更新(${{github.event.pull_request.state}})，请关注<@ostwindli><@shaohuizuo> [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}}) '
           type: markdown
           status: ${{ job.status }}
