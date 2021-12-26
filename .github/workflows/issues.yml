@@ -13,11 +13,11 @@ jobs:
           content: |
             # 【机器人文档】 <font color="warning">ISSUE</font> [ <font color="info">${{github.event.issue.state}}</font> ] 
             
-            > Detail ： [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})
-            > Title ： ${{ github.event.issue.title }} 
-            > Body ： ${{github.event.issue.body}}
-            > User ： ${{ github.event.issue.user.login }}
-            > Attention ： <@shaohuizuo><@ostwindli> 
+            > Detail： [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})
+            > Title： ${{ github.event.issue.title }} 
+            > Body： ${{github.event.issue.body}}
+            > User： ${{ github.event.issue.user.login }}
+            > Attention： <@shaohuizuo><@ostwindli> 
            
           type: markdown
           status: ${{ job.status }}
