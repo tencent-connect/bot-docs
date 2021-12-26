@@ -12,8 +12,10 @@
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.3",
     "@vuepress/plugin-search": "^1.8.2",
+    "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
+    "fs-extra": "^10.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.3",
     "lodash.throttle": "^4.1.1",
@@ -22,6 +24,7 @@
     "remark-lint": "^9.1.1",
     "remark-preset-lint-consistent": "^5.1.1",
     "remark-preset-lint-recommended": "^6.1.2",
+    "shelljs": "^0.8.4",
     "textlint": "^12.1.0",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-apostrophe": "^2.0.0",
@@ -29,6 +32,7 @@
     "textlint-rule-diacritics": "^1.0.0",
     "textlint-rule-stop-words": "^2.0.9",
     "textlint-rule-write-good": "^2.0.0",
+    "umi-request": "^1.4.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-fulltext-search": "^2.2.1",
@@ -39,17 +43,17 @@
     "vuepress-plugin-zooming": "^1.1.8"
   },
   "scripts": {
-    "dev": "vuepress dev docs --temp .temp",
-    "build": "vuepress build docs --temp .temp --dest dist",
-    "build-test": "cross-env BUILD_ENV=test vuepress build docs --temp .temp --dest dist",
+    "dev": "npm run sync-api && vuepress dev docs --temp .temp",
+    "build": "npm run sync-api && vuepress build docs --temp .temp --dest dist",
+    "build-test": "npm run sync-api && cross-env BUILD_ENV=test vuepress build docs --temp .temp --dest dist",
     "lint-md": "npm run lint-md:style && npm run lint-md:wording",
     "lint-md:style": "remark --quiet --frail .",
     "lint-md:wording": "textlint './docs/**/*.md'",
-    "view-info": "vuepress view-info docs --temp .temp"
+    "view-info": "vuepress view-info docs --temp .temp",
+    "sync-api": "node scripts/sync-inner-docs/index.js"
   },
   "dependencies": {
     "async-validator": "1.11.5",
-    "element-ui": "^2.15.6",
-    "umi-request": "^1.4.0"
+    "element-ui": "^2.15.6"
   }
 }

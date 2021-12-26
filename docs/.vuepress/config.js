@@ -1,11 +1,12 @@
-const { convertSummary } = require('./summary-sidebar');
+
+// 注意：需要在dev前初始化内网api文档
+const apiConfig = require('../develop/api/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
 const commonConfig = require('./common');
-// openapi 外部文档隐藏的接口,注意不要携带.md后缀
-// 废弃，请使用 summary-public 来约束可以展示的内容
-const hiddenApi = [];
+
 const base = '/wiki/';
+
 module.exports = ctx => ({
   base,
   configureWebpack: (config, isServer) => {
@@ -108,10 +109,11 @@ module.exports = ctx => ({
         text: '介绍',
         link: '/',
       },
-      {
-        text: 'API文档',
-        link: '/develop/api/',
-      },
+      // {
+      //   text: 'API文档',
+      //   link: '/develop/api/',
+      // },
+      apiConfig.nav,
       {
         text: 'SDK文档',
         items: [
@@ -138,7 +140,8 @@ module.exports = ctx => ({
     docsDir: 'docs',
     docsBranch: 'main',
     sidebar: {
-      '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
+      // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
+      ...apiConfig.sidebar,
       ...nodesdkConfig.sidebar,
       ...pythonsdkConfig.sidebar,
       '/': [''],
