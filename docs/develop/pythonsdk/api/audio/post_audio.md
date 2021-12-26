@@ -22,7 +22,6 @@ result = audioApi.post_audio(channel_id, audio_control)
 
 字段参见 [AudioControl](#audiocontrol)
 
-
 # 语音对象
 
 ## AudioControl

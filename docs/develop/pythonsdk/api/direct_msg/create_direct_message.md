@@ -19,16 +19,16 @@ direct_message_guild = api.create_direct_message_guild(request)
 
 ## 参数说明
 
-| 字段名      | 类型   | 描述      |
-| ----------- | ------ | --------- |
-| request    | [CreateDirectMessageRequest](#CreateDirectMessageRequest) | 私信频道创建请求   |
+| 字段名  | 类型                                                      | 描述             |
+| ------- | --------------------------------------------------------- | ---------------- |
+| request | [CreateDirectMessageRequest](#CreateDirectMessageRequest) | 私信频道创建请求 |
 
 ## CreateDirectMessageRequest
 
 | 字段名          | 类型   | 描述      |
 | --------------- | ------ | --------- |
 | source_guild_id | string | 源频道 ID |
-| user_id    | string | 接收者 ID |
+| user_id         | string | 接收者 ID |
 
 ## 返回说明
 
