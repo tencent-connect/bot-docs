@@ -8,6 +8,8 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.3",
@@ -43,6 +45,7 @@
     "vuepress-plugin-zooming": "^1.1.8"
   },
   "scripts": {
+    "prepare": "husky install",
     "dev": "npm run sync-api && vuepress dev docs --temp .temp",
     "build": "npm run sync-api && vuepress build docs --temp .temp --dest dist",
     "build-test": "npm run sync-api && cross-env BUILD_ENV=test vuepress build docs --temp .temp --dest dist",
@@ -51,6 +54,11 @@
     "lint-md:wording": "textlint './docs/**/*.md'",
     "view-info": "vuepress view-info docs --temp .temp",
     "sync-api": "node scripts/sync-inner-docs/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
     "async-validator": "1.11.5",

@@ -1,4 +1,4 @@
-# 机器人文档
+#   机器人文档
 
 本仓库是 QQ 机器人文档项目，基于[vuepress](https://vuepress.vuejs.org/zh/)构建。对应文档网站是 <https://bot.q.qq.com/wiki>。
 

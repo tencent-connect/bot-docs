@@ -1,4 +1,3 @@
-
 // 注意：需要在dev前初始化内网api文档
 const apiConfig = require('../develop/api/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
@@ -138,6 +137,8 @@ module.exports = ctx => ({
     editLinks: true,
     editLinkText: '在GitHub上编辑此页',
     docsDir: 'docs',
+    // 不展示编码的页面
+    disableRoutes: ['/develop/api/'],
     docsBranch: 'main',
     sidebar: {
       // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
