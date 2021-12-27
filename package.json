@@ -8,6 +8,8 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.3",
@@ -43,7 +45,13 @@
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-zooming": "^1.1.8"
   },
+  "lint-staged": {
+    "*.md": [
+      "npm run lint-md"
+    ]
+  },
   "scripts": {
+    "prepare": "husky install",
     "dev": "npm run sync-api && vuepress dev docs --temp .temp",
     "build": "vuepress build docs --temp .temp --dest dist",
     "build-test": "cross-env BUILD_ENV=test vuepress build docs --temp .temp --dest dist",
