@@ -35,7 +35,7 @@
     "textlint-rule-diacritics": "^1.0.0",
     "textlint-rule-stop-words": "^2.0.9",
     "textlint-rule-write-good": "^2.0.0",
-    "umi-request": "^1.2.3",
+    "umi-request": "^1.4.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-fulltext-search": "^2.2.1",
