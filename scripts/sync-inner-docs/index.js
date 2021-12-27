@@ -23,6 +23,9 @@ const defaultApiTempPath = path.join(__dirname, 'default-docs/')
 
 const apiGit = 'git@git.woa.com:bbteam_projects/group_pro/docs.git';
 
+// api文档分支
+const apiBranch = process.argv[2] || 'master';
+
 syncDocs();
 
 async function syncDocs() {
@@ -59,7 +62,7 @@ function getApiDocs() {
   if (fs.existsSync(path.join(apiDocsTempPathBase, 'SUMMARY-PUBLIC.md'))) {
     console.log(chalk.green('--------拉取最新内网API文档 start--------'));
     sh.cd(apiDocsTempPath);
-    sh.exec('git checkout master');
+    sh.exec(`git checkout ${apiBranch}`);
     sh.exec('git pull', { silent: true });
     console.log();
     console.log(chalk.blue('最新提交记录参考：'));
@@ -70,7 +73,7 @@ function getApiDocs() {
   } else {
     console.log(chalk.green('--------clone内网API文档 start--------'));
     sh.rm('-rf', apiDocsTempPath);
-    sh.exec(`git clone -b master ${apiGit} ${apiDocsTempPath}`);
+    sh.exec(`git clone -b ${apiBranch} ${apiGit} ${apiDocsTempPath}`);
     console.log(chalk.green('--------clone内网API文档 end--------'));
   }
 }
