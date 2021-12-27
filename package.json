@@ -13,6 +13,7 @@
     "@vuepress/plugin-pwa": "^1.8.3",
     "@vuepress/plugin-search": "^1.8.2",
     "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "fs-extra": "^10.0.0",
@@ -50,7 +51,8 @@
     "lint-md:style": "remark --quiet --frail .",
     "lint-md:wording": "textlint './docs/**/*.md'",
     "view-info": "vuepress view-info docs --temp .temp",
-    "sync-api": "node scripts/sync-inner-docs/index.js"
+    "sync-api": "node scripts/sync-inner-docs/index.js",
+    "build-tag": "node scripts/add-build-tag.js"
   },
   "dependencies": {
     "async-validator": "1.11.5",
