@@ -40,11 +40,11 @@ jobs:
           content: |
             # 【机器人文档】 <font color="warning">PR</font> [ <font color="info">${{github.event.pull_request.state}}</font> ] 
             
-            > Title： ${{ github.event.pull_request.title }} 
-            > Body： ${{ github.event.pull_request.body }} 
-            > User： ${{ github.event.pull_request.user.login }}
-            > Detail： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
-            > Attention： <@shaohuizuo> <@ostwindli>  
+            > 标题： ${{ github.event.pull_request.title }} 
+            > 发起人： ${{ github.event.pull_request.user.login }}
+
+            > 详情： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
+            > 请关注： <@shaohuizuo> <@ostwindli>  
             
           type: markdown
           status: ${{ job.status }}
