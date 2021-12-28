@@ -53,7 +53,7 @@ export default {
 
       const { path: pagePath } = this.$page; 
       
-      if (disableRoutes.includes(pagePath)) {
+      if (disableRoutes.some(route => pagePath.startsWith(route))) {
         return false;
       }
 
