@@ -96,6 +96,14 @@ module.exports = ctx => ({
         },
       },
     ],
+    [require('./plugins/vuepress-plugin-contributors/index'), {
+      docsRepo: 'tencent-connect/bot-docs',
+      docsBranch: 'main',
+      docsDir: 'docs',
+      label: '贡献者🎉',
+      api: 'https://api.xuann.wang/api/github-file-contributors',
+      disableRoutes:['/develop/api/']
+    }]
   ],
   globalUIComponents: ['TuXiaoChao'],
   theme: require.resolve('./theme-qq'),
