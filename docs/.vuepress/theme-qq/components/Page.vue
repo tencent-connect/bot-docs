@@ -7,6 +7,8 @@
 
     <PageNav v-bind="{ sidebarItems }" />
 
+    <Contributors />
+
     <slot name="bottom" />
   </main>
 </template>
