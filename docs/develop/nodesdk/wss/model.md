@@ -1,4 +1,4 @@
-# WSS 消息体
+# WSS 消息体 <Badge text="v1.0.0" />
 
 WS 支持监听的事件类型可参考[事件订阅 intents](../api/../../api/gateway/intents.md)。
 

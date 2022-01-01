@@ -1,4 +1,4 @@
-# openapi 错误
+# openapi 错误 <Badge text="v1.0.0" />
 
 ## 错误处理
 

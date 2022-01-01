@@ -1,4 +1,4 @@
-# 子频道权限对象(ChannelPermissions)
+# 子频道权限对象(ChannelPermissions) <Badge text="v1.0.0" />
 
 ## ChannelPermissions
 
