@@ -56,6 +56,8 @@ module.exports = {
             children: [
               'channel_permissions/get_channel_permissions',
               'channel_permissions/put_channel_permissions',
+              'channel_permissions/get_channel_role_permissions',
+              'channel_permissions/put_channel_role_permissions',
             ],
           },
           {
