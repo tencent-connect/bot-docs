@@ -1,4 +1,4 @@
-# 成员对象(Member)
+# 成员对象(Member) <Badge text="v1.0.0" />
 
 ## Member
 

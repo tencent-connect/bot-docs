@@ -1,4 +1,4 @@
-# 获取子频道列表
+# 获取子频道列表 <Badge text="v1.0.0" />
 
 获取子频道列表，子频道用[Channel](../model/channel.md)描述。
 
