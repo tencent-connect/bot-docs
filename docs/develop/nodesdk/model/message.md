@@ -1,4 +1,4 @@
-# 消息对象(Message)
+# 消息对象(Message) <Badge text="v1.0.0" />
 
 ## Message
 

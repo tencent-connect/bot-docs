@@ -1,4 +1,4 @@
-# 语音对象(AudioControl)
+# 语音对象(AudioControl) <Badge text="v1.0.0" />
 
 ## AudioControl
 
