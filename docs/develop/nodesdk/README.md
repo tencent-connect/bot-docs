@@ -22,24 +22,28 @@ SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如�
 
 ### 当前版本
 
-<NpmBadge packageName="@tencent-connect/bot-node-sdk" />
+<NpmBadge packageName="qq-guild-bot" />
+
+:::danger 注意
+`@tencent-connect/bot-node-sdk`已改名为`qq-guild-bot`。 原包已废弃，请使用新包！
+:::
 
 ### npm 方式
 
 ```sh
-npm i @tencent-connect/bot-node-sdk
+npm i qq-guild-bot
 ```
 
 如果安装失败，可尝试使用腾讯源
 
 ```sh
-npm i @tencent-connect/bot-node-sdk --registry=https://mirrors.tencent.com/npm/
+npm i qq-guild-bot --registry=https://mirrors.tencent.com/npm/
 ```
 
 ### yarn 方式
 
 ```sh
-yarn add @tencent-connect/bot-node-sdk
+yarn add qq-guild-bot
 ```
 
 ## 使用示例
@@ -48,10 +52,10 @@ yarn add @tencent-connect/bot-node-sdk
 
 ```js
 // ESModule | TypeScript
-// import { createOpenAPI, createWebsocket } from '@tencent-connect/bot-node-sdk';
+// import { createOpenAPI, createWebsocket } from 'qq-guild-bot';
 
 // CommonJs
-const { createOpenAPI, createWebsocket } = require('@tencent-connect/bot-node-sdk');
+const { createOpenAPI, createWebsocket } = require('qq-guild-bot');
 
 const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
