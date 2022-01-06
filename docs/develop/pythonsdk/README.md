@@ -1,56 +1,153 @@
-# Python SDK 接入指南
+# qq-bot-python
 
-## 当前版本
-![PyPI](https://img.shields.io/pypi/v/qq-bot)
+## sdk安装
 
-## 安装
+外发版本通过下面方式安装
 
 ``` bash
-pip install qq-bot
+pip install qq-bot  # 注意是 qq-bot 而不是 qqbot！
 ```
 
 更新包的话需要添加 ``--upgrade`` ``注：需要python3.7+``
 
-## 使用示例-API访问
+## sdk使用
 
-下面的例子，通过api获取当前机器人的相关信息：
+需要使用的地方import SDK
+
+```python
+import qqbot
+```
+
+## 示例机器人
+
+[`examples`](./examples/) 目录下存放示例机器人，可供实现参考。
+
+## qqbot-API
+
+基于 https://bot.q.qq.com/wiki/develop/api/ 机器人开放平台API实现的API接口封装。
+
+### 使用方法
+
+通过 `import` 对应API的类来进行使用，构造参数（`Token` 对象，是否沙盒模式）。
+
+比如下面的例子，通过api当前机器人的相关信息：
 
 ``` py
 import qqbot
 
 token = qqbot.Token("{appid}","{token}")
 api = qqbot.UserAPI(token, False)
+
 user = api.me()
 
 print(user.username)  # 打印机器人名字
 ```
 
-## 使用示例-异步消息
+async 示例：
+
+``` py
+import qqbot
+
+token = qqbot.Token("{appid}","{token}")
+api = qqbot.AsyncUserAPI(token, False)
+
+# 获取loop
+loop = asyncio.get_event_loop()
+user = loop.run_until_complete(api.me())
+
+print(user.username)  # 打印机器人名字
+```
+
+## qqbot-事件监听
+
+异步模块基于 websocket 技术用于监听频道内的相关事件，如消息、成员变化等事件，用于开发者对事件进行相应的处理。
+
+### 使用方法
 
 通过注册需要监听的事件并设置回调函数后，即可完成对事件的监听。
 
 比如下面这个例子：需要监听机器人被@后消息并进行相应的回复。
 
-``` py
-# 先初始化需要用的 `token` 对象
-t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
-# 通过 `qqbot.HandlerType` 定义需要监听的事件（部分事件可能需要权限申请）可以注册多个
-qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
-# 通过 `qqbot.listen_events` 注册需要监听的事件
-qqbot.listen_events(t_token, False, qqbot_handler)
+- 先初始化需要用的 `token` 对象
+- 通过 `qqbot.listen_events` 注册需要监听的事件
+- 通过 `qqbot.HandlerType` 定义需要监听的事件（部分事件可能需要权限申请）
 
-# 定义注册事件回调执行函数,如 `_message_handler`
-def _message_handler(event, message: Message):
-    msg_api = qqbot.MessageAPI(t_token, False)
+  ``` py
+  t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
+  # 注册事件类型和回调，可以注册多个
+  qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
+  qqbot.listen_events(t_token, False, qqbot_handler)
+  ```
+
+- 最后定义注册事件回调执行函数,如 `_message_handler` 。
+
+  ``` py
+  def _message_handler(event, message: Message):
+      msg_api = qqbot.MessageAPI(t_token, False)
+      # 打印返回信息
+      qqbot.logger.info("event %s" % event + ",receive message %s" % message.content)
+      # 构造消息发送请求数据对象
+      send = qqbot.MessageSendRequest("<@%s>谢谢你，加油" % message.author.id, message.id)
+      # 通过api发送回复消息
+      msg_api.post_message(message.channel_id, send)
+  ```
+
+- async 示例:
+
+  ``` py
+  # async的异步接口的使用示例
+  t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
+  qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
+  qqbot.async_listen_events(t_token, False, qqbot_handler)
+  ```
+  ``` py
+  async def _message_handler(event, message: qqbot.Message):
+    """
+    定义事件回调的处理
+
+    :param event: 事件类型
+    :param message: 事件对象（如监听消息是Message对象）
+    """
+    msg_api = qqbot.AsyncMessageAPI(t_token, False)
     # 打印返回信息
     qqbot.logger.info("event %s" % event + ",receive message %s" % message.content)
-    # 构造消息发送请求数据对象
-    send = qqbot.MessageSendRequest("<@%s>谢谢你，加油" % message.author.id, message.id)
-    # 通过api发送回复消息
-    msg_api.post_message(message.channel_id, send)
-```
+    for i in range(5):
+        await asyncio.sleep(5)
+        # 构造消息发送请求数据对象
+        send = qqbot.MessageSendRequest("<@%s>谢谢你，加油 " % message.author.id, message.id)
+        # 通过api发送回复消息
+        await msg_api.post_message(message.channel_id, send)
 
-注：当前支持事件及回调事件可参考[事件监听](websocket/listen_events.md#当前支持的事件类型)
+  ```
+- 注：当前支持事件及回调数据对象为：
+
+  ``` py
+  class HandlerType(Enum):
+      PLAIN_EVENT_HANDLER = 0  # 透传事件
+      GUILD_EVENT_HANDLER = 1  # 频道事件
+      GUILD_MEMBER_EVENT_HANDLER = 2  # 频道成员事件
+      CHANNEL_EVENT_HANDLER = 3  # 子频道事件
+      MESSAGE_EVENT_HANDLER = 4  # 消息事件
+      AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
+      # DIRECT_MESSAGE_EVENT_HANDLER = 6  # 私信消息事件
+      # AUDIO_EVENT_HANDLER = 7  # 音频事件
+  ```
+
+  事件回调函数的参数 1 为事件名称，参数 2 返回具体的数据对象。
+
+  ``` py
+  # 透传事件（无具体的数据对象，根据后台返回Json对象）
+  def _plain_handler(event, data):
+  # 频道事件
+  def _guild_handler(event, guild:Guild):
+  # 频道成员事件
+  def _guild_member_handler(event, guild_member: GuildMember):
+  # 子频道事件
+  def _channel_handler(event, channel: Channel):
+  # 消息事件
+  # At消息事件
+  def _message_handler(event, message: Message):
+  ```
 
 ## 日志打印
 
@@ -58,14 +155,17 @@ def _message_handler(event, message: Message):
 
 ### 使用方法
 
+引用模块，并获取 `logger` 实例：
+
 ``` py
-# 引用模块
 from core.util import logging
 
-# 获取 `logger` 实例
 logger = logging.getLogger(__name__)
+```
 
-# 打印日志
+然后就可以愉快地使用 logger 进行打印。例如：
+
+``` py
 logger.info("hello world!")
 ```
 
