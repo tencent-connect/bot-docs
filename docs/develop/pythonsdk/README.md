@@ -1,4 +1,4 @@
-# qq-bot-python
+# Python SDK 接入指南
 
 ## sdk安装
 
