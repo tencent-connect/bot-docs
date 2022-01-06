@@ -1,0 +1,50 @@
+name: PR Open Check
+
+on:
+  pull_request:
+    branches: ['main']
+    types: [opened, edited, reopened, synchronize]
+
+jobs:        
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v4
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn
+        
+      - name: Run Lint
+        run: yarn lint-md
+          
+      - name: Work Weixin Notifier
+        uses: jerray/work-weixin-notifier@v1.1.0
+        with:
+          key: ${{ secrets.weixin_bot_key }}
+          content: |
+            # 【机器人文档】 <font color="warning">PR</font> [ <font color="info">${{github.event.pull_request.state}}</font> ] 
+            
+            > 标题： ${{ github.event.pull_request.title }} 
+            > 发起人： ${{ github.event.pull_request.user.login }}
+
+            > 详情： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
+            > 请关注： <@shaohuizuo> <@ostwindli>  
+            
+          type: markdown
+          status: ${{ job.status }}

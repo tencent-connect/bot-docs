@@ -1,4 +1,4 @@
-# WSS 消息体
+# WSS 消息体 <Badge text="v1.0.0" />
 
 WS 支持监听的事件类型可参考[事件订阅 intents](../api/../../api/gateway/intents.md)。
 
@@ -7,7 +7,7 @@ WS 支持监听的事件类型可参考[事件订阅 intents](../api/../../api/g
 ### 创建 WS 实例并监听消息
 
 ```js
-import { createWebsocket } from '@tencent-connect/bot-node-sdk';
+import { createWebsocket } from 'qq-guild-bot';
 const ws = createWebsocket(testConfigWs);
 ws.on('READY', data => {
   console.log('[READY] 事件接收 :', data);

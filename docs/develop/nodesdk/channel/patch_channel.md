@@ -1,4 +1,4 @@
-# 修改子频道
+# 修改子频道 <Badge text="v1.0.0" />
 
 修改某个子频道的信息。
 
@@ -28,12 +28,14 @@ async function demo() {
 
 ### Channel
 
-| 字段名    | 类型   | 描述                                       |
-| --------- | ------ | ------------------------------------------ |
-| name      | string | 子频道名                                   |
-| type      | number | 子频道类型 [ChannelType](#channeltype)     |
-| position  | number | 排序，非必填 |
-| parent_id | string | 分组 ID                                    |
+| 字段名    | 必填 | 类型   | 描述                                   |
+| --------- | ---- | ------ | -------------------------------------- |
+| name      | 否   | string | 子频道名                               |
+| type      | 否   | number | 子频道类型 [ChannelType](#channeltype) |
+| position  | 否   | number | 排序                                   |
+| parent_id | 否   | string | 分组 ID                                |
+
+上述字段需要修改哪个，就传递哪个即可。
 
 ### ChannelType
 
@@ -63,7 +65,7 @@ async function demo() {
 | name      | string | 子频道名                                       |
 | type      | number | 子频道类型 [ChannelType](#channeltype)         |
 | sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，非必填     |
+| position  | number | 排序，非必填                                   |
 | parent_id | string | 分组 ID                                        |
 | owner_id  | string | 创建人 ID                                      |
 

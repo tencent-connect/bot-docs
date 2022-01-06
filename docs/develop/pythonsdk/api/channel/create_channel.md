@@ -19,8 +19,8 @@ channel_res = api.create_channel(channel_id, channel)
 - 要求操作人具有管理频道的权限，如果是机器人，则需要将机器人设置为管理员。
 - 创建成功后，返回创建成功的子频道对象，同时会触发一个频道创建的事件通知。
 - 目前不支持创建的子频道类型
-    - 子频道分组
-    - 私密子频道
+  - 子频道分组
+  - 私密子频道
 
 :::
 
@@ -71,15 +71,15 @@ channel_res = api.create_channel(channel_id, channel)
 
 ### ChannelRes
 
-| 字段名    | 类型   | 描述                                           |
-| --------- | ------ | ---------------------------------------------- |
-| id        | string | 子频道 ID                                      |
-| guild_id  | string | 频道 ID                                        |
-| name      | string | 子频道名                                       |
-| type      | number | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，必填，而且不能够和其他子频道的值重复     |
-| owner_id | string | 创建者 ID                                        |
+| 字段名   | 类型   | 描述                                           |
+| -------- | ------ | ---------------------------------------------- |
+| id       | string | 子频道 ID                                      |
+| guild_id | string | 频道 ID                                        |
+| name     | string | 子频道名                                       |
+| type     | number | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position | number | 排序，必填，而且不能够和其他子频道的值重复     |
+| owner_id | string | 创建者 ID                                      |
 
 ## 返回示例
 
@@ -87,12 +87,12 @@ channel_res = api.create_channel(channel_id, channel)
 
 ```json
 {
-    "id": "channel_id",
-    "guild_id": "guild_id",
-    "name": "channel_test",
-    "type": 1,
-    "position": 1640240055,
-    "owner_id": "2854198244",
-    "sub_type": 0
+  "id": "channel_id",
+  "guild_id": "guild_id",
+  "name": "channel_test",
+  "type": 1,
+  "position": 1640240055,
+  "owner_id": "2854198244",
+  "sub_type": 0
 }
 ```

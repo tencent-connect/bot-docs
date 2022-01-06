@@ -1,9 +1,7 @@
-
-   
 name: Issues Notifier
 on:
   issues:
-    types: [opened, edited, reopened, closed]
+    types: [opened, reopened]
 jobs:
   add-assigness:
     runs-on: ubuntu-latest
@@ -12,6 +10,14 @@ jobs:
         uses: jerray/work-weixin-notifier@v1.1.0
         with:
           key: ${{ secrets.weixin_bot_key }}
-          content: '**【机器人文档】**`Issues`有更新(${{github.event.issue.state}}),请关注@ostwindli@shaohuizuo [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})'
+          content: |
+            # 【机器人文档】 <font color="warning">ISSUE</font> [ <font color="info">${{github.event.issue.state}}</font> ] 
+            
+            > Detail： [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})
+            > Title： ${{ github.event.issue.title }} 
+            > Body： ${{github.event.issue.body}}
+            > User： ${{ github.event.issue.user.login }}
+            > Attention： <@shaohuizuo><@ostwindli> 
+           
           type: markdown
           status: ${{ job.status }}

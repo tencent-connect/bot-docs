@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    branches: ['main']
+    types: [closed]
+    
+jobs:
+  pr-approved-notice:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Work Weixin Notifier
+        uses: jerray/work-weixin-notifier@v1.1.0
+        with:
+          key: ${{ secrets.weixin_bot_key }}
+          content: |
+            # 【机器人文档】 <font color="warning">PR</font> [ <font color="info">merged</font> ] 
+            
+            > 标题： ${{ github.event.pull_request.title }} 
+            > 合并人： ${{ github.event.pull_request.merged_by.login }}
+            
+            > 详情： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
+            > 请关注： <@shaohuizuo> <@ostwindli>  
+            
+          type: markdown
+          status: ${{ job.status }}

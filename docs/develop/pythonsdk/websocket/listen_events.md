@@ -73,4 +73,17 @@ def _message_handler(event, message: Message):
 qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
 qqbot.listen_events(token, False, qqbot_handler)
 ```
+如果同时需要监听多个事件，在``listen_events``增加多个事件的handler对象
+
+```py
+# 同时监听at消息和私信消息的事件
+qqbot_handler = qqbot.Handler(
+    qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler
+)
+qqbot_direct_message_handler = qqbot.Handler(
+    qqbot.HandlerType.DIRECT_MESSAGE_EVENT_HANDLER, _direct_message_handler
+)
+qqbot.listen_events(token, False, qqbot_handler, qqbot_direct_message_handler)
+
+```
 

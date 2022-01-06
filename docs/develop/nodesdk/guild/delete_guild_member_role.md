@@ -1,4 +1,4 @@
-# 删除频道身份组成员
+# 删除频道身份组成员 <Badge text="v1.0.0" />
 
 删除频道身份组成员。
 
@@ -6,31 +6,31 @@
 
 ```javascript
 async function demo() {
-  let { data } = await client.memberApi.memberDeleteRole(guildId, roleId, userId, channel);
+  let { data } = await client.memberApi.memberDeleteRole(guildId, roleId, userId, channelId);
 }
 ```
 
 ::: warning 注意
 
-- 需要使用的 token 对应的用户具备删除身份组成员权限。如果是机器人，要求被添加为管理员。
-- 如果要删除的身份组 ID 是[5-子频道管理员](#defaultroleids)，需要增加 channel 对象来指定具体是哪个子频道
+- 需要使用的 token 对应的用户具备删除身份组成员权限，如果是机器人，要求被添加为管理员。
 
 :::
 
 ## 参数说明
 
-| 字段名  | 必填 | 类型                | 描述                                 |
-| ------- | ---- | ------------------- | ------------------------------------ |
-| guildId | 是   | string              | 频道 ID                              |
-| roleId  | 是   | string              | 身份组 ID                            |
-| userId  | 是   | string              | 用户 ID                              |
-| channel | 是   | [Channel](#channel) | 接收一个只填充了子频道 ID 字段的对象 |
+| 字段名      | 必填 | 类型                             | 描述                          |
+| ----------- | ---- | -------------------------------- | ----------------------------- |
+| guildId     | 是   | string                           | 频道 ID                       |
+| roleId      | 是   | string                           | 身份组 ID                     |
+| userId      | 是   | string                           | 用户 ID                       |
+| ~~channel~~ | 否   | [Channel](./../model/channel.md) | ~~只填充 id 属性的 Channel 对象~~(**已弃用，请使用 channelId**) |
+| channelId   | 否   | string                           | 子频道 ID                     |
 
-### Channel
+::: warning 注意
 
-| 字段名 | 类型   | 描述      |
-| ------ | ------ | --------- |
-| id     | string | 子频道 ID |
+- 如果目标身份组 `ID` 是 [5-子频道管理员](#defaultroleids)（即：`roleId = '5'`），需要指定`channelId`参数，否则会报错。
+
+:::
 
 ### DefaultRoleIDs
 

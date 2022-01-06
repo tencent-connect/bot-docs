@@ -13,10 +13,17 @@
 ### 2、本地克隆代码开发
 
 ```sh
-$ git clone git@github.com:tencent-connect/bot-docs.git
-$ cd bot-docs
-$ npm i
-$ npm run dev
+git clone git@github.com:tencent-connect/bot-docs.git
+cd bot-docs
+npm i
+npm run dev
+```
+
+## 构建
+
+```sh
+npm run sync-api
+npm run build
 ```
 
 ## 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
