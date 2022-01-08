@@ -93,6 +93,12 @@ module.exports = {
               'message/message_format',
             ],
           },
+          {
+            title: '禁言 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['mute/mute_all', 'mute/mute_member'],
+          },
           //   {
           //     title: '私信 API',
           //     collapsable: false,
