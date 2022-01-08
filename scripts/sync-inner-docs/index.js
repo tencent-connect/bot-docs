@@ -19,7 +19,7 @@ const apiDocsTargetPath = path.join(__dirname, '../../docs/develop/api/');
 fs.ensureDirSync(apiDocsTargetPath);
 
 // 默认api模板位置
-const defaultApiTempPath = path.join(__dirname, 'default-docs/')
+const defaultApiTempPath = path.join(__dirname, 'default-docs/');
 
 const apiGit = 'git@git.woa.com:bbteam_projects/group_pro/docs.git';
 
@@ -36,44 +36,43 @@ async function syncDocs() {
     syncApiAssets();
   } else {
     // 外网下，区分下之前内网同步过，还是从没同步过
-    // 之前同步过，则不做处理，直接用之前同步过的.一般是内部开发者，则无需处理
-
-    console.log()
-    console.log(chalk.green('--------外网api文档同步 start--------'));
-    const apiDir = fs.readdirSync(apiDocsTargetPath)
-    if(Array.isArray(apiDir) && ['README.md', 'config.js', 'openapi', 'miniapp'].every(file => apiDir.includes(file))){
+    // 之前同步过，则不做处理，直接用之前同步过的. 这种情况，一般是内部开发者
+    console.log(chalk.green('\n--------外网api文档同步 start--------'));
+    const apiDir = fs.readdirSync(apiDocsTargetPath);
+    if (
+      Array.isArray(apiDir) &&
+      ['README.md', 'config.js', 'openapi', 'miniapp'].every(file => apiDir.includes(file))
+    ) {
       console.log(chalk.blue('检测到你之前内网同步过，外网暂不同步！'));
-    }else{
+    } else {
+      // 从没同步过，则用默认模板，一般是外部用户使用，比如GitHub fork
       sh.rm('-rf', apiDocsTargetPath);
-      fs.copySync(defaultApiTempPath, apiDocsTargetPath)
+      fs.copySync(defaultApiTempPath, apiDocsTargetPath);
       console.log(chalk.blue('同步默认api模板！'));
     }
-    console.log(chalk.green('--------外网api文档同步 start--------'));
-
-    // 从没同步过，则用默认模板，一般是外部用户使用，比如GitHub fork
-
-
+    console.log(chalk.green('--------外网api文档同步 end--------'));
   }
 }
 
 // 从工蜂获取文档
 function getApiDocs() {
-  //  sh.mkdir(apiDocsTempPath)
   if (fs.existsSync(path.join(apiDocsTempPathBase, 'SUMMARY-PUBLIC.md'))) {
     console.log(chalk.green('--------拉取最新内网API文档 start--------'));
+
     sh.cd(apiDocsTempPath);
     sh.exec(`git checkout ${apiBranch}`);
     sh.exec('git pull', { silent: true });
-    console.log();
-    console.log(chalk.blue('最新提交记录参考：'));
+
+    console.log(chalk.blue('\n最新提交记录参考：'));
     sh.exec('git log --pretty=format:"%h %cd %an %s" -6');
-    console.log();
-    console.log(chalk.green('--------拉取最新内网API文档 end--------'));
-    console.log();
+
+    console.log(chalk.green('\n--------拉取最新内网API文档 end--------\n'));
   } else {
     console.log(chalk.green('--------clone内网API文档 start--------'));
+
     sh.rm('-rf', apiDocsTempPath);
     sh.exec(`git clone -b ${apiBranch} ${apiGit} ${apiDocsTempPath}`);
+
     console.log(chalk.green('--------clone内网API文档 end--------'));
   }
 }
@@ -125,6 +124,5 @@ function syncApiAssets() {
     fs.copySync(img, img.replace(apiDocsTempPathBase, apiDocsTargetPath));
   });
 
-  // console.log(imgs);
   console.log(chalk.green('--------同步内网API文档 end--------'));
 }
