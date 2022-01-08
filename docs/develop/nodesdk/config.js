@@ -18,6 +18,7 @@ module.exports = {
           { title: '成员对象(Member)', path: 'model/member' },
           { title: '频道身份组对象(Role)', path: 'model/role' },
           { title: '消息对象(Message)', path: 'model/message' },
+          { title: '公告对象(Announce)', path: 'model/announce' },
           { title: '语音对象(Audio)', path: 'model/audio' },
         ],
       },
@@ -99,6 +100,17 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: ['mute/mute_all', 'mute/mute_member'],
+          },
+          {
+            title: '公告 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'announce/post_guild_announce',
+              'announce/delete_guild_announce',
+              'announce/post_channel_announce',
+              'announce/delete_channel_announce',
+            ],
           },
           //   {
           //     title: '私信 API',
