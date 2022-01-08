@@ -229,4 +229,5 @@ client.channelApi.postChannel('GUILD_ID', {
 
 ## 更新日志
 
-查看[更新日志](https://github.com/tencent-connect/bot-node-sdk/blob/main/CHANGELOG.md)
+查看[更新日志](https://github.com/tencent-connect/bot-node-sdk/blob/main/CHANGELOG.md) 
+

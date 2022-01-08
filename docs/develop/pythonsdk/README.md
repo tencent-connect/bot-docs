@@ -20,7 +20,7 @@ import qqbot
 
 ## 示例机器人
 
-[`examples`](./examples/) 目录下存放示例机器人，可供实现参考。
+[`examples`](https://github.com/tencent-connect/botpy/tree/master/examples) 目录下存放示例机器人，可供实现参考。
 
 ## qqbot-API
 
