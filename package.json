@@ -60,6 +60,7 @@
     "lint-md:wording": "textlint './docs/**/*.md'",
     "view-info": "vuepress view-info docs --temp .temp",
     "sync-api": "node scripts/sync-inner-docs/index.js",
+    "change-log": "node scripts/change-log.js",
     "build-tag": "node scripts/add-build-tag.js"
   },
   "dependencies": {
