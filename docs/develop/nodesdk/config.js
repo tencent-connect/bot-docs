@@ -88,6 +88,7 @@ module.exports = {
               'message/get_messages',
               'message/get_message_of_id',
               'message/post_messages',
+              'message/delete_message',
               'message/message_template',
               'message/post_ark_messages',
               'message/message_format',
