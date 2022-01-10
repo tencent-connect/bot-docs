@@ -7,6 +7,12 @@ module.exports = {
     '/develop/nodesdk/': [
       '',
       {
+        title: '更新日志',
+        path: 'changelog/',
+        sidebarDepth: 0,
+        sidebar: false
+      },
+      {
         title: '术语',
         collapsable: false,
         sidebarDepth: 0,
