@@ -6,7 +6,7 @@ sidebar: auto
 
 ## 2022-01-10
 
-* feat(docs): 增加changelog、优化nodesdk安装指引: ([eb0e5dc](https://github.com/tencent-connect/bot-docs/commit/eb0e5dc8882d0d763406c60fde68661114777d43))
+* feat(docs): 增加changelog、优化nodesdk安装指引: ([707d7d0](https://github.com/tencent-connect/bot-docs/commit/707d7d05ee6ea19db9cc08005778f7892fce2d57))
 
 ## 2022-01-08
 
