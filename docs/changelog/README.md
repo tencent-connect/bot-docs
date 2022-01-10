@@ -6,6 +6,8 @@ sidebar: auto
 
 ## 2022-01-10
 
+* perf(nodesdk): 优化文档内容和结构 ([6783ecd](https://github.com/tencent-connect/bot-docs/commit/6783ecd9247f4de9748cd52e0b9e354bee546292))
+* docs: 同步文档changelog ([c47acd3](https://github.com/tencent-connect/bot-docs/commit/c47acd3c59c848ab7cdd695848672b164c25528a))
 * feat(docs): 增加changelog、优化nodesdk安装指引: ([707d7d0](https://github.com/tencent-connect/bot-docs/commit/707d7d05ee6ea19db9cc08005778f7892fce2d57))
 
 ## 2022-01-08
