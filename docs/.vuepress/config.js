@@ -150,7 +150,7 @@ module.exports = ctx => ({
     editLinkText: '在GitHub上编辑此页',
     docsDir: 'docs',
     // 不展示编码的页面
-    disableRoutes: ['/develop/api/','/changelog/','/develop/nodesdk/changelog/'],
+    disableRoutes: ['/develop/api/','/changelog/','/develop/nodesdk/changelog/', '/develop/pythonsdk/changelog/'],
     docsBranch: 'main',
     sidebar: {
       // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
