@@ -4,17 +4,7 @@
 
 `NodeSDK`主要基于[基础 API](../api/README.md)封装，提供给用户一种简单、高效的使用方式。
 
-## 安装
-
-### 当前版本
-
-<NpmBadge packageName="qq-guild-bot" />
-
-:::danger 注意
-`@tencent-connect/bot-node-sdk`已改名为`qq-guild-bot`。 原包已废弃，请使用新包！
-:::
-
-### 本地安装
+## 安装 <NpmBadge packageName="qq-guild-bot" />
 
 ```sh
 npm i qq-guild-bot
@@ -25,6 +15,10 @@ yarn add qq-guild-bot
 # 国内安装可以使用腾讯源
 npm i qq-guild-bot --registry=https://mirrors.tencent.com/npm/
 ```
+
+:::danger 注意
+`@tencent-connect/bot-node-sdk`已更名为`qq-guild-bot`。 原包已废弃，请使用新包！
+:::
 
 ## 使用示例
 
