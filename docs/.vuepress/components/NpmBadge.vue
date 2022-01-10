@@ -31,8 +31,10 @@ export default {
 
 <style scoped>
 .npm-badge {
-  display: block;
   margin-right: 0.5rem;
   margin-top: 1.5rem;
+}
+.disable-zooming{
+  vertical-align: top;
 }
 </style>
