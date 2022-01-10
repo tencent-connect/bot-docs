@@ -140,13 +140,17 @@ module.exports = ctx => ({
         text: '机器人平台',
         link: 'https://bot.q.qq.com/open',
       },
+      {
+        text: '更新日志',
+        link: '/changelog/',
+      },
     ],
     repo: 'tencent-connect/bot-docs',
     editLinks: true,
     editLinkText: '在GitHub上编辑此页',
     docsDir: 'docs',
     // 不展示编码的页面
-    disableRoutes: ['/develop/api/'],
+    disableRoutes: ['/develop/api/','/changelog/','/develop/nodesdk/changelog/'],
     docsBranch: 'main',
     sidebar: {
       // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),

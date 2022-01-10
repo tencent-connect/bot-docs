@@ -2,12 +2,16 @@
  * 按天生成文档提交记录日志
  * @author ostwindli
  */
+const umi = require('umi-request');
 
 const cp = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const extendRequest = umi.extend({ timeout: 5000 });
 
-const targetChangelogPath = path.join(__dirname, '../CHANGELOG.md');
+const docChangelogPath = path.join(__dirname, '../docs/changelog/README.md');
+const nodesdkChangelogPath = path.join(__dirname, '../docs/develop/nodesdk/changelog/README.md');
+
 
 try {
   // 取出所有git log
@@ -32,7 +36,7 @@ try {
     });
 
   //开始组装markdown内容
-  let resArr = ['# 文档更新日志'];
+  let resArr = [`---\nsidebar: auto\n---\n`, '# 文档更新日志'];
   Object.keys(resObj)
     .sort((a, b) => a - b)
     .forEach(date => {
@@ -41,7 +45,10 @@ try {
       resArr = resArr.concat(resObj[date]);
     });
 
-  fs.writeFileSync(targetChangelogPath, resArr.join('\n'));
+  fs.writeFileSync(docChangelogPath, resArr.join('\n'));
+  console.log('\n文档更新日志同步完成\n');
+  getNodeSDKChangelog()
+
 } catch (error) {
   console.log(error);
   process.exit(-1);
@@ -76,4 +83,19 @@ function assembleMsg(msg, hash) {
     0,
     7,
   )}](https://github.com/tencent-connect/bot-docs/commit/${hash}))`;
+}
+
+/**
+ * 同步nodesdk日志
+ */
+async function getNodeSDKChangelog() {
+  try {
+    let res = await extendRequest('https://raw.githubusercontent.com/tencent-connect/bot-node-sdk/main/CHANGELOG.md');
+    res = res.replace('# Changelog', '# 更新日志')
+    fs.writeFileSync(nodesdkChangelogPath, res)
+    console.log('\nNodeSDK更新日志同步完成\n')
+  } catch (error) {
+    console.log('\nNodeSDK Changelog文件更新失败\n', error.message)
+  }
+
 }

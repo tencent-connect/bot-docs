@@ -4,20 +4,6 @@
 
 `NodeSDK`主要基于[基础 API](../api/README.md)封装，提供给用户一种简单、高效的使用方式。
 
-整个 SDK 设计与实现基于**两条主线**：
-
-- **主动的事件触发**
-  - 频道操作能力：子频道增删改、身份组增删改、成员增删改等。
-  - 主动消息推送能力。
-- **被动的事件监听**
-  - 通过 `websocket` 监听事件。
-
-### SDK 底层架构设计
-
-SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如下图所示：
-
-<img :src="$withBotBase('/images/node-sdk/framework.png')" alt="SDK 底层架构设计">
-
 ## 安装
 
 ### 当前版本
@@ -28,22 +14,16 @@ SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如�
 `@tencent-connect/bot-node-sdk`已改名为`qq-guild-bot`。 原包已废弃，请使用新包！
 :::
 
-### npm 方式
+### 本地安装
 
 ```sh
 npm i qq-guild-bot
-```
 
-如果安装失败，可尝试使用腾讯源
-
-```sh
-npm i qq-guild-bot --registry=https://mirrors.tencent.com/npm/
-```
-
-### yarn 方式
-
-```sh
+# 或者使用yarn
 yarn add qq-guild-bot
+
+# 国内安装可以使用腾讯源
+npm i qq-guild-bot --registry=https://mirrors.tencent.com/npm/
 ```
 
 ## 使用示例
@@ -227,6 +207,16 @@ client.channelApi.postChannel('GUILD_ID', {
 }
 ```
 
-## 更新日志
+## SDK 架构说明
 
-查看[更新日志](https://github.com/tencent-connect/bot-node-sdk/blob/main/CHANGELOG.md)
+整个 SDK 设计与实现基于**两条主线**：
+
+- **主动的事件触发**
+  - 频道操作能力：子频道增删改、身份组增删改、成员增删改等。
+  - 主动消息推送能力。
+- **被动的事件监听**
+  - 通过 `websocket` 监听事件。
+
+SDK 分三层设计：`应用层`、`框架层`、`基础层`，具体结构如下图所示：
+
+<img :src="$withBotBase('/images/node-sdk/framework.png')" alt="SDK 底层架构设计">
