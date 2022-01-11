@@ -10,7 +10,7 @@ module.exports = {
         title: 'NodeSDK更新日志',
         path: 'changelog/',
         sidebarDepth: 0,
-        sidebar: false
+        sidebar: false,
       },
       {
         title: '术语',
@@ -25,6 +25,7 @@ module.exports = {
           { title: '频道身份组对象(Role)', path: 'model/role' },
           { title: '消息对象(Message)', path: 'model/message' },
           { title: '公告对象(Announce)', path: 'model/announce' },
+          { title: '日程对象(Schedule)', path: 'model/schedule' },
           { title: '语音对象(Audio)', path: 'model/audio' },
         ],
       },
@@ -57,23 +58,11 @@ module.exports = {
             ],
           },
           {
-            title: '子频道权限 API',
-            collapsable: false,
-            sidebarDepth: 0,
-            children: [
-              'channel_permissions/get_channel_permissions',
-              'channel_permissions/put_channel_permissions',
-              'channel_permissions/get_channel_role_permissions',
-              'channel_permissions/put_channel_role_permissions',
-            ],
-          },
-          {
             title: '成员 API',
             collapsable: false,
             sidebarDepth: 0,
             children: ['member/get_members', 'member/get_member', 'member/delete_member'],
           },
-
           {
             title: '频道身份组 API',
             collapsable: false,
@@ -85,6 +74,17 @@ module.exports = {
               'guild/delete_guild_role',
               'guild/put_guild_member_role',
               'guild/delete_guild_member_role',
+            ],
+          },
+          {
+            title: '子频道权限 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'channel_permissions/get_channel_permissions',
+              'channel_permissions/put_channel_permissions',
+              'channel_permissions/get_channel_role_permissions',
+              'channel_permissions/put_channel_role_permissions',
             ],
           },
           {
@@ -116,6 +116,18 @@ module.exports = {
               'announce/delete_guild_announce',
               'announce/post_channel_announce',
               'announce/delete_channel_announce',
+            ],
+          },
+          {
+            title: '日程 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'schedule/get_schedules',
+              'schedule/get_schedule',
+              'schedule/post_schedule',
+              'schedule/patch_schedule',
+              'schedule/delete_schedule',
             ],
           },
           //   {
