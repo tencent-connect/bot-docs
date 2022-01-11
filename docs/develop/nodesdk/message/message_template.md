@@ -11,9 +11,105 @@
 
 ## 可用模板
 
+- [embed 消息](#embed消息)
 - [链接+文本列表模板](#链接、文本列表模板)
 - [文本+缩略图模板](#文本、缩略图模板)
 - [大图模板](#大图模板34)
+
+## embed消息
+
+### 样式
+
+<img :src="$withBotBase('/images/node-sdk/embed.png')" alt="embed消息">
+
+### 使用示例
+
+```javascript
+async function demo() {
+  let { data } = await client.messageApi.postMessage('channelId', {
+    embed: {
+      title: '标题',
+      prompt: '消息通知',
+      thumbnail: {
+        url: 'xxxxx.png',
+      },
+      fields: [
+        {
+          name: '当前等级：黄金',
+        },
+        {
+          name: '之前等级：白银',
+        },
+        {
+          name: '😁继续努力',
+        },
+      ],
+    },
+  });
+}
+```
+
+### 参数说明
+
+| 字段名 | 类型                                             | 描述           |
+| ------ | ------------------------------------------------ | -------------- |
+| embed  | [MessageEmbed](../model/message.md#messageembed) | embed 消息详情 |
+
+::: warning 注意
+
+- 其中 embed.thumbnail 为选填，没有缩略图的可以不填。
+- embed.fields.name 为文本。
+
+:::
+
+### 返回说明
+
+返回[Message](../model/message.md) 对象。
+
+### 返回示例
+
+```json
+{
+  "id": "xxxxxx",
+  "channel_id": "xxxxxx",
+  "guild_id": "xxxxxx",
+  "timestamp": "2021-12-07T15:24:54+08:00",
+  "tts": false,
+  "mention_everyone": false,
+  "author": {
+    "id": "12345",
+    "username": "abc",
+    "avatar": "",
+    "bot": true
+  },
+  "embeds": [
+    {
+      "title": "标题",
+      "description": "",
+      "thumbnail": {
+        "url": "xxxxxx.png"
+      },
+      "fields": [
+        {
+          "name": "当前等级：黄金",
+          "value": ""
+        },
+        {
+          "name": "之前等级：白银",
+          "value": ""
+        },
+        {
+          "name": "😁继续努力",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "pinned": false,
+  "type": 0,
+  "flags": 0
+}
+```
 
 ## 链接、文本列表模板
 

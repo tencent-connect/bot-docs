@@ -9,6 +9,7 @@
 - 被动回复消息有效期为 `5` 分钟。
 - 每日最多向`2`个频道主动推消息（后续上限会提升）。
 - **发送消息接口要求机器人接口需要链接到 `websocket gateway` 上保持在线状态**。
+- 有关主动消息审核，可以通过 [Intents](../../api/gateway/intents.md) 中审核事件 `MESSAGE_AUDIT` 返回 [MessageAudited](../model/message.md#messageaudited) 对象获取结果
 
 :::
 
@@ -39,11 +40,10 @@ async function demo() {
 
 `content`、`embed`、`ark`、`image`**至少需要有一个字段**，否则无法下发消息。
 
-### 被动回复消息
+::: tip 主动消息与被动消息
 
-::: warning 注意
-
-被动消息需是用户`@机器人`的消息，否则将会报错。
+- 主动消息：发送消息时，未填充 `msg_id` 字段的消息。
+- 被动消息：发送消息时，填充了 `msg_id` 字段的消息。接口使用此 `msg_id` 拉取用户的消息，同时判断用户消息的发送时间，如果超过被动消息回复时效，将会不允许发送该消息。
 
 :::
 
