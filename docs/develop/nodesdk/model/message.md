@@ -78,3 +78,15 @@
 | :----- | :----- | :---- |
 | key    | string | key   |
 | value  | string | value |
+
+## MessageAudited
+
+消息审核对象
+| 字段名 | 类型 | 描述 |
+| ----------- | ----------------- | --------------------------------- |
+| audit_id | string | 消息审核 ID |
+| message_id | string | 消息 ID，只有审核通过事件才会有值 |
+| guild_id | string | 频道 ID |
+| channel_id | string | 子频道 ID |
+| audit_time | string | 消息审核时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"|
+| create_time | string timestamp | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
