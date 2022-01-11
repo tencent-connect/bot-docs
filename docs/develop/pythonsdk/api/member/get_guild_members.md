@@ -36,7 +36,7 @@ members = api.get_guild_members(guild_id, query_params)
 
 | 字段名    | 类型          | 描述                                                                                         |
 | --------- | ------------- | -------------------------------------------------------------------------------------------- |
-| user      | [User](#user) | 用户基础信息，来自 QQ 资料，只有成员相关接口中会填充此信息                                   |
+| user      | [User](#user) | 用户的频道基础信息，只有成员相关接口中会填充此信息                                   |
 | nick      | string        | 用户在频道内的昵称                                                                           |
 | roles     | string[]      | 用户在频道内的身份组 ID，默认值可参考[DefaultRoleIDs](../guild/role_model.md#DefaultRoleIDs) |
 | joined_at | string        | 用户加入频道的时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"         |
