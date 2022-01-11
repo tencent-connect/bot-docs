@@ -1,18 +1,18 @@
 # Python SDK 接入指南
 
-## sdk安装
+## sdk 安装
 
 外发版本通过下面方式安装
 
-``` bash
+```bash
 pip install qq-bot  # 注意是 qq-bot 而不是 qqbot！
 ```
 
-更新包的话需要添加 ``--upgrade`` ``注：需要python3.7+``
+更新包的话需要添加 `--upgrade` `注：需要python3.7+`
 
-## sdk使用
+## sdk 使用
 
-需要使用的地方import SDK
+需要使用的地方 import SDK
 
 ```python
 import qqbot
@@ -24,15 +24,15 @@ import qqbot
 
 ## qqbot-API
 
-基于 https://bot.q.qq.com/wiki/develop/api/ 机器人开放平台API实现的API接口封装。
+基于 https://bot.q.qq.com/wiki/develop/api/ 机器人开放平台 API 实现的 API 接口封装。
 
 ### 使用方法
 
-通过 `import` 对应API的类来进行使用，构造参数（`Token` 对象，是否沙盒模式）。
+通过 `import` 对应 API 的类来进行使用，构造参数（`Token` 对象，是否沙盒模式）。
 
-比如下面的例子，通过api当前机器人的相关信息：
+比如下面的例子，通过 api 当前机器人的相关信息：
 
-``` py
+```py
 import qqbot
 
 token = qqbot.Token("{appid}","{token}")
@@ -45,7 +45,7 @@ print(user.username)  # 打印机器人名字
 
 async 示例：
 
-``` py
+```py
 import qqbot
 
 token = qqbot.Token("{appid}","{token}")
@@ -72,7 +72,7 @@ print(user.username)  # 打印机器人名字
 - 通过 `qqbot.listen_events` 注册需要监听的事件
 - 通过 `qqbot.HandlerType` 定义需要监听的事件（部分事件可能需要权限申请）
 
-  ``` py
+  ```py
   t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
   # 注册事件类型和回调，可以注册多个
   qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
@@ -81,7 +81,7 @@ print(user.username)  # 打印机器人名字
 
 - 最后定义注册事件回调执行函数,如 `_message_handler` 。
 
-  ``` py
+  ```py
   def _message_handler(event, message: Message):
       msg_api = qqbot.MessageAPI(t_token, False)
       # 打印返回信息
@@ -94,13 +94,14 @@ print(user.username)  # 打印机器人名字
 
 - async 示例:
 
-  ``` py
+  ```py
   # async的异步接口的使用示例
   t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
   qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
   qqbot.async_listen_events(t_token, False, qqbot_handler)
   ```
-  ``` py
+
+  ```py
   async def _message_handler(event, message: qqbot.Message):
     """
     定义事件回调的处理
@@ -119,9 +120,10 @@ print(user.username)  # 打印机器人名字
         await msg_api.post_message(message.channel_id, send)
 
   ```
+
 - 注：当前支持事件及回调数据对象为：
 
-  ``` py
+  ```py
   class HandlerType(Enum):
       PLAIN_EVENT_HANDLER = 0  # 透传事件
       GUILD_EVENT_HANDLER = 1  # 频道事件
@@ -135,7 +137,7 @@ print(user.username)  # 打印机器人名字
 
   事件回调函数的参数 1 为事件名称，参数 2 返回具体的数据对象。
 
-  ``` py
+  ```py
   # 透传事件（无具体的数据对象，根据后台返回Json对象）
   def _plain_handler(event, data):
   # 频道事件
@@ -157,7 +159,7 @@ print(user.username)  # 打印机器人名字
 
 引用模块，并获取 `logger` 实例：
 
-``` py
+```py
 from core.util import logging
 
 logger = logging.getLogger(__name__)
@@ -165,7 +167,7 @@ logger = logging.getLogger(__name__)
 
 然后就可以愉快地使用 logger 进行打印。例如：
 
-``` py
+```py
 logger.info("hello world!")
 ```
 
@@ -173,25 +175,25 @@ logger.info("hello world!")
 
 通过 `export` 命令添加 `QQBOT_LOG_LEVEL` 环境变量可以设置日志级别。例如：
 
-``` bash
+```bash
 export QQBOT_LOG_LEVEL=10  # 10表示DEBUG级别
 ```
 
-几个可选取值（参考了[logging模块的取值](https://docs.python.org/3/library/logging.html#levels)）：
+几个可选取值（参考了[logging 模块的取值](https://docs.python.org/3/library/logging.html#levels)）：
 
-| Level | 取值 |
-| ----- | ------------- |
-| CRITICAL  | 50  |
-| ERROR | 40 |
-| WARNING | 30 |
-| INFO | 20 |
-| DEBUG | 10 |
-| NOTSET | 0 |
+| Level    | 取值 |
+| -------- | ---- |
+| CRITICAL | 50   |
+| ERROR    | 40   |
+| WARNING  | 30   |
+| INFO     | 20   |
+| DEBUG    | 10   |
+| NOTSET   | 0    |
 
 ### 禁用日志文件输出
 
 默认情况下 qqbot 会在当前执行目录下生成格式为 `qqbot.log.*` 的日志文件。如果想禁用这些日志文件，可以通过设置 `QQBOT_DISABLE_LOG` 环境变量为 1 来关闭。
 
-``` bash
+```bash
 export QQBOT_DISABLE_LOG=1  # 1表示禁用日志
 ```
