@@ -17,7 +17,6 @@ async function demo() {
 - 创建成功后，返回创建成功的子频道对象，同时会触发一个频道创建的事件通知。
 - 目前不支持创建的子频道类型
   - 子频道分组
-  - 私密子频道
 
 :::
 
@@ -30,13 +29,15 @@ async function demo() {
 
 ### Channel
 
-| 字段名    | 类型   | 必填 | 描述                                           |
-| --------- | ------ | ---- | ---------------------------------------------- |
-| name      | string | 是   | 子频道名                                       |
-| type      | number | 是   | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 是   | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 否   | 排序，非必填                                   |
-| parent_id | string | 否   | 分组 ID                                        |
+| 字段名           | 类型     | 必填 | 描述                                           |
+| ---------------- | -------- | ---- | ---------------------------------------------- |
+| name             | string   | 是   | 子频道名                                       |
+| type             | number   | 是   | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type         | number   | 是   | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position         | number   | 否   | 排序，非必填                                   |
+| parent_id        | string   | 否   | 分组 ID                                        |
+| private_type     | number   | 否   | 子频道私密类型 [PrivateType](#privatetype)     |
+| private_user_ids | string[] | 否   | 私密子频道成员 ID                              |
 
 ### ChannelType
 
@@ -61,6 +62,14 @@ async function demo() {
 | 1   | 公告 |
 | 2   | 攻略 |
 | 3   | 开黑 |
+
+### PrivateType
+
+| 值  | 描述                  |
+| --- | --------------------- |
+| 0   | 公开频道              |
+| 1   | 群主管理员可见        |
+| 2   | 群主管理员 + 指定成员 |
 
 ## 返回说明
 

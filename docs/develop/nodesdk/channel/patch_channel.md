@@ -28,12 +28,13 @@ async function demo() {
 
 ### Channel
 
-| 字段名    | 必填 | 类型   | 描述                                   |
-| --------- | ---- | ------ | -------------------------------------- |
-| name      | 否   | string | 子频道名                               |
-| type      | 否   | number | 子频道类型 [ChannelType](#channeltype) |
-| position  | 否   | number | 排序                                   |
-| parent_id | 否   | string | 分组 ID                                |
+| 字段名       | 必填 | 类型   | 描述                                       |
+| ------------ | ---- | ------ | ------------------------------------------ |
+| name         | 否   | string | 子频道名                                   |
+| type         | 否   | number | 子频道类型 [ChannelType](#channeltype)     |
+| position     | 否   | number | 排序                                       |
+| parent_id    | 否   | string | 分组 ID                                    |
+| private_type | 否   | number | 子频道私密类型 [PrivateType](#privatetype) |
 
 上述字段需要修改哪个，就传递哪个即可。
 
@@ -58,16 +59,17 @@ async function demo() {
 
 ### ChannelRes
 
-| 字段名    | 类型   | 描述                                           |
-| --------- | ------ | ---------------------------------------------- |
-| id        | string | 子频道 ID                                      |
-| guild_id  | string | 频道 ID                                        |
-| name      | string | 子频道名                                       |
-| type      | number | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，非必填                                   |
-| parent_id | string | 分组 ID                                        |
-| owner_id  | string | 创建人 ID                                      |
+| 字段名       | 类型   | 描述                                           |
+| ------------ | ------ | ---------------------------------------------- |
+| id           | string | 子频道 ID                                      |
+| guild_id     | string | 频道 ID                                        |
+| name         | string | 子频道名                                       |
+| type         | number | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type     | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position     | number | 排序，非必填                                   |
+| parent_id    | string | 分组 ID                                        |
+| owner_id     | string | 创建人 ID                                      |
+| private_type | string | 子频道私密类型 [PrivateType](#privatetype)     |
 
 ### ChannelSubType
 
@@ -78,30 +80,28 @@ async function demo() {
 | 2   | 攻略 |
 | 3   | 开黑 |
 
+### PrivateType
+
+| 值  | 描述                  |
+| --- | --------------------- |
+| 0   | 公开频道              |
+| 1   | 群主管理员可见        |
+| 2   | 群主管理员 + 指定成员 |
+
 ## 返回示例
 
 `data`：
 
-```js
+```json
 {
-    id: 'CHANNEL_ID',
-    guild_id: 'GUILD_ID',
-    name: 'ostwindli话题讨论',
-    topic: null,
-    type: 4,
-    last_message_id: null,
-    last_pin_timestamp: null,
-    nsfw: null,
-    icon: null,
-    position: 2,
-    bitrate: null,
-    recipients: [],
-    user_limit: null,
-    parent_id: '0',
-    rate_limit_per_user: null,
-    owner_id: null,
-    application_id: null,
-    op_user_id: null,
-    sub_type: 0
-  }
+  "id": "xxxxxx",
+  "guild_id": "xxxxxx",
+  "name": "子频道",
+  "type": 0,
+  "position": 2,
+  "parent_id": "1531395",
+  "owner_id": "17734236238436271167",
+  "sub_type": 0,
+  "private_type": 0
+}
 ```
