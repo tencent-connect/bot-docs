@@ -48,7 +48,7 @@ async function getPythonSDKChangelog() {
       cp.execSync(`
       cd ${docsPath}
       rm -rf botpy
-      git clone git@github.com:tencent-connect/botpy.git
+      git clone https://github.com/tencent-connect/botpy.git
     `);
     }
 
