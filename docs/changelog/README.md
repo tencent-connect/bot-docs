@@ -4,9 +4,26 @@ sidebar: auto
 
 # 文档更新日志
 
+## 2022-01-13
+
+* docs(changloe): 同步changlog ([8f1f3bf](https://github.com/tencent-connect/bot-docs/commit/8f1f3bfd27a47d01da134a6a8aab2ea656b361af))
+* perf(ci): 更新changlog脚本 ([ef0d549](https://github.com/tencent-connect/bot-docs/commit/ef0d549b89fc822abdf1eac5521dc8d6201ab17d))
+
+## 2022-01-12
+
+* feat: 添加表情相关文档 ([b4eac75](https://github.com/tencent-connect/bot-docs/commit/b4eac75ea59b000bbfbe5e51bc683706514100d8))
+* feat: 补充子频道私密类型参数 ([aec5c56](https://github.com/tencent-connect/bot-docs/commit/aec5c561c88dfee47e465a64ab0d696a4ff2667b))
+* feat: 补充获取频道列表的参数 ([79c67fb](https://github.com/tencent-connect/bot-docs/commit/79c67fba4f1d8f11c5995212ee98ef7f2ce39e82))
+
+## 2022-01-11
+
+* feat: 添加日程API ([9d88b23](https://github.com/tencent-connect/bot-docs/commit/9d88b2395288dc8f41ae6862e589c14eef5fea91))
+* feat: 更新messageAPI文档 ([2e23754](https://github.com/tencent-connect/bot-docs/commit/2e23754bb38e548036c7ec9bd519e7fabd5db476))
+
 ## 2022-01-10
 
-* perf(nodesdk): 优化文档内容和结构 ([6783ecd](https://github.com/tencent-connect/bot-docs/commit/6783ecd9247f4de9748cd52e0b9e354bee546292))
+* feat: 调整changelog脚本，支持pythonsdk变更记录的同步 ([02750b5](https://github.com/tencent-connect/bot-docs/commit/02750b5e6b4de6701efdf7adf6bca683f66df73d))
+* perf(nodesdk): 优化文档内容和结构 ([ad20cb7](https://github.com/tencent-connect/bot-docs/commit/ad20cb7cc22ab8f6c54e835382315c850e045b22))
 * docs: 同步文档changelog ([c47acd3](https://github.com/tencent-connect/bot-docs/commit/c47acd3c59c848ab7cdd695848672b164c25528a))
 * feat(docs): 增加changelog、优化nodesdk安装指引: ([707d7d0](https://github.com/tencent-connect/bot-docs/commit/707d7d05ee6ea19db9cc08005778f7892fce2d57))
 

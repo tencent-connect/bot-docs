@@ -38,21 +38,18 @@ async function getPythonSDKChangelog() {
     const docsPath = path.join(__dirname, '..');
     const pythonSDKPath = path.join(docsPath, 'botpy');
 
-    try {
-      if (fs.existsSync(path.join(pythonSDKPath, 'README.md'))) {
-        cp.execSync(`
-        cd ${pythonSDKPath}
-        git pull
-      `);
-      } else {
-        cp.execSync(`
-        cd ${docsPath}
-        rm -rf botpy
-        git clone git@github.com:tencent-connect/botpy.git
-      `);
-      }
-    } catch (error) {
-      console.log(`clone botpy error:`, error.message);
+    if (fs.existsSync(path.join(pythonSDKPath, 'README.md'))) {
+      //已经存在
+      cp.execSync(`
+      cd ${pythonSDKPath}
+      git pull
+    `);
+    } else {
+      cp.execSync(`
+      cd ${docsPath}
+      rm -rf botpy
+      git clone git@github.com:tencent-connect/botpy.git
+    `);
     }
 
     const pythonChangelogPath = path.join(
@@ -99,6 +96,10 @@ async function getDocsChangelog() {
  */
 function getChangelogByGit(projectPath, gitRepo, changelogTitle) {
   try {
+    if (!fs.existsSync(projectPath)) {
+      console.log(`\ngetChangelogByGit路径${projectPath}不存在\n`);
+      process.exit(-1);
+    }
     // 取出所有git log
     // 格式：'0a06a93550771de2624f1b0bcdf0246cad7c8b44----2021-12-20 15:21:00 +0800----doc: 完善文档描述'
     let res = cp
