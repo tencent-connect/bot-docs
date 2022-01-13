@@ -6,7 +6,7 @@ sidebar: auto
 
 ## 2022-01-13
 
-* docs(changloe): 同步changlog ([8f1f3bf](https://github.com/tencent-connect/bot-docs/commit/8f1f3bfd27a47d01da134a6a8aab2ea656b361af))
+* docs(changlog): 同步changlog ([46f5921](https://github.com/tencent-connect/bot-docs/commit/46f59210f4f5f7efd72f47c447eefb93ea9ad288))
 * perf(ci): 更新changlog脚本 ([ef0d549](https://github.com/tencent-connect/bot-docs/commit/ef0d549b89fc822abdf1eac5521dc8d6201ab17d))
 
 ## 2022-01-12
