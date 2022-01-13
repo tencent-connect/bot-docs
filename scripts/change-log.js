@@ -36,12 +36,24 @@ async function getNodeSDKChangelog() {
 async function getPythonSDKChangelog() {
   try {
     const docsPath = path.join(__dirname, '..');
-    const pythonSDKPath = path.join(__dirname, '../botpy');
-    cp.execSync(`
-      cd ${docsPath}
-      rm -rf botpy
-      git clone git@github.com:tencent-connect/botpy.git
-    `);
+    const pythonSDKPath = path.join(docsPath, 'botpy');
+
+    try {
+      if (fs.existsSync(path.join(pythonSDKPath, 'README.md'))) {
+        cp.execSync(`
+        cd ${pythonSDKPath}
+        git pull
+      `);
+      } else {
+        cp.execSync(`
+        cd ${docsPath}
+        rm -rf botpy
+        git clone git@github.com:tencent-connect/botpy.git
+      `);
+      }
+    } catch (error) {
+      console.log(`clone botpy error:`, error.message);
+    }
 
     const pythonChangelogPath = path.join(
       __dirname,
@@ -51,7 +63,7 @@ async function getPythonSDKChangelog() {
     const content = getChangelogByGit(
       pythonSDKPath,
       'https://github.com/tencent-connect/botpy/commit',
-      [`# PythonSDK更新日志`]
+      [`# PythonSDK更新日志`],
     );
     fs.writeFileSync(pythonChangelogPath, content);
     console.log('\nPythonSDK Changelog同步完成\n');
@@ -70,8 +82,7 @@ async function getDocsChangelog() {
     const content = getChangelogByGit(
       docsPath,
       'https://github.com/tencent-connect/bot-docs/commit',
-      [`---\nsidebar: auto\n---\n`, `# 文档更新日志`]
-      
+      [`---\nsidebar: auto\n---\n`, `# 文档更新日志`],
     );
     fs.writeFileSync(docChangelogPath, content);
     console.log('\n文档 Changelog更新日志同步完成\n');
