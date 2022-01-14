@@ -137,13 +137,14 @@ module.exports = ctx => ({
         link: '/business/',
       },
       {
-        text: '机器人平台',
-        link: 'https://bot.q.qq.com/open',
-      },
-      {
         text: '更新日志',
         link: '/changelog/',
       },
+      {
+        text: '机器人平台',
+        link: 'https://bot.q.qq.com/open',
+      },
+
     ],
     repo: 'tencent-connect/bot-docs',
     editLinks: true,
