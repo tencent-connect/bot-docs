@@ -1,4 +1,4 @@
-# Python SDK 接入指南
+# PythonSDK接入指南
 ![PyPI](https://img.shields.io/pypi/v/qq-bot)
 
 ## sdk 安装
