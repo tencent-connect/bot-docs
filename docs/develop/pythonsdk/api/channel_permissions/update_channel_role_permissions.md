@@ -1,6 +1,6 @@
-# 修改子频道权限
+# 修改子频道身份组权限 <Badge text="v1.0.0" />
 
-修改子频道权限。
+修改子频道身份组的权限。
 
 ## 使用示例
 
@@ -14,7 +14,7 @@ token = qqbot.Token({appid}, {token})
 
 def demo():
     api = qqbot.ChannelPermissionsAPI(token, False)
-    is_succeeded = api.update_channel_permissions(channel_id, user_id, channel_permissions)
+    is_success = api.update_channel_role_permissions(channel_id, role_id, channel_permissions)
 ```
 
 async:
@@ -27,8 +27,15 @@ token = qqbot.Token({appid}, {token})
 
 async def demo():
     api = qqbot.AsyncChannelPermissionsAPI(token, False)
-    is_succeeded = await api.update_channel_permissions(channel_id, user_id, channel_permissions)
+    is_success = await api.update_channel_role_permissions(channel_id, role_id, channel_permissions)
 ```
+
+::: warning 注意
+
+- 要求操作人具有管理子频道的权限，如果是机器人，则需要将机器人设置为管理员。
+- 参数包括 add 和 remove 两个字段，分别表示授予的权限以及删除的权限。要授予用户权限即把 add 对应位置 1，删除用户权限即把 remove 对应位置 1。当两个字段同一位都为 1，表现为删除权限。
+- 本接口不支持修改可管理子频道权限。
+  :::
 
 ::: warning 注意
 
@@ -42,7 +49,7 @@ async def demo():
 | 字段名           | 必填 | 类型                                  | 描述                                      |
 | ---------------- | ---- | ------------------------------------- | ----------------------------------------- |
 | channel_id        | 是   | string                                | 子频道 ID                                 |
-| user_id           | 是   | string                                | 用户 ID  |
+| role_id           | 是   | string                                | 身份组 ID  |
 | channel_permissions | 是   | [UpdatePermission](#updatepermission) | 权限参数                                  |
 
 ### UpdatePermission
@@ -85,7 +92,7 @@ async def demo():
 async def demo():
     api = qqbot.AsyncChannelPermissionsAPI(token, False)
     update_permissions = qqbot.UpdatePermission(add="4")
-    is_succeeded = await api.update_channel_permissions(channel_id, user_id, update_permissions)
+    is_succeeded = await api.update_channel_role_permissions(channel_id, role_id, update_permissions)
 ```
 
 同理，移除`可发言子频道`如下：
@@ -94,12 +101,8 @@ async def demo():
 async def demo():
     api = qqbot.AsyncChannelPermissionsAPI(token, False)
     update_permissions = qqbot.UpdatePermission(remove="4")
-    is_succeeded = await api.update_channel_permissions(channel_id, user_id, update_permissions)
+    is_succeeded = await api.update_channel_role_permissions(channel_id, role_id, update_permissions)
 ```
-
-## 返回说明
-
-返回是否更新成功
 
 ## 返回示例
 
