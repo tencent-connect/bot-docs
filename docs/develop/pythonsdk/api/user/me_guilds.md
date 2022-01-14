@@ -1,7 +1,7 @@
-# 获取当前用户频道列表
+# 获取当前用户频道列表 <Badge text="v1.0.0" />
 
 ### 使用示例
-sync:
+#### sync
 ```python
 import qqbot
 
@@ -12,7 +12,7 @@ def demo():
     guilds = api.me_guilds()
 ```
 
-async:
+#### async
 ```python
 import qqbot
 

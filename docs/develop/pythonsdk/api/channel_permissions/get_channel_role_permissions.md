@@ -4,7 +4,7 @@
 
 ## 使用示例
 
-sync:
+#### sync
 
 ```python
 import qqbot
@@ -17,7 +17,7 @@ def demo():
     channel_permissions = api.get_channel_role_permissions(channel_id, role_id)
 ```
 
-async:
+#### async
 
 ```python
 import qqbot
