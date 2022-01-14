@@ -67,6 +67,8 @@ module.exports = {
             children: [
               'api/channel_permissions/get_channel_permissions',
               'api/channel_permissions/update_channel_permissions',
+              'api/channel_permissions/get_channel_role_permissions',
+              'api/channel_permissions/update_channel_role_permissions',
             ],
           },
           {
@@ -103,6 +105,15 @@ module.exports = {
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
+            ],
+          },
+          {
+            title: '禁言 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/mute/mute_all',
+              'api/mute/mute_member',
             ],
           },
           {
