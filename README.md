@@ -48,7 +48,7 @@ docs
 
 欢迎扫码加入 **QQ 频道开发者社区**。
 
-![频道开发者社区](https://mpqq.gtimg.cn/privacy-info/qq-guild.png)
+![开发者社区](https://mpqq.gtimg.cn/privacy/qq_guild_developer.png)
 
 ## 贡献者
 
