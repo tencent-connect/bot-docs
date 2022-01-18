@@ -49,16 +49,7 @@ export default {
 };
 </script>
 
-<style>
-html,
-body {
-  background: #edf4f1;
-  font-family: 'Ubuntu';
-}
-
-* {
-  box-sizing: border-box;
-}
+<style scoped>
 
 .box {
   width: 350px;
