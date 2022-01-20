@@ -1,7 +1,7 @@
 # 创建子频道
 
 创建一个子频道。
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 
