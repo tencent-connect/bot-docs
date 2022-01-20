@@ -4,14 +4,30 @@
 
 ## 使用示例
 
+#### sync 
+
 ```python
 import qqbot
 
 token = qqbot.Token({appid}, {token})
 
-announce_api = qqbot.AnnounceAPI(token, False)  
-create_channel_announce_request = CreateChannelAnnounceRequest(message_id)
-announce_api.create_channel_announce(channel_id, create_channel_announce_request)
+def demo():
+    announce_api = qqbot.AnnounceAPI(token, False)  
+    create_channel_announce_request = CreateChannelAnnounceRequest(message_id)
+    announce = announce_api.create_channel_announce(channel_id, create_channel_announce_request)
+```
+
+#### async
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+async def demo():
+    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
+    create_channel_announce_request = CreateChannelAnnounceRequest(message_id)
+    announce = await announce_api.create_channel_announce(channel_id, create_channel_announce_request)
 ```
 
 ## 参数说明

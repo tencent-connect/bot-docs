@@ -4,13 +4,26 @@
 
 ## 使用示例
 
+#### sync
 ```python
 import qqbot
 
 token = qqbot.Token({appid}, {token})
 
-announce_api = qqbot.AnnounceAPI(token, False)  
-announce_api.delete_channel_announce(channel_id, message_id)
+def demo():
+    announce_api = qqbot.AnnounceAPI(token, False)  
+    is_success = announce_api.delete_channel_announce(channel_id, message_id)
+```
+
+#### async
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+async def demo():
+    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
+    is_success = await announce_api.delete_channel_announce(channel_id, message_id)
 ```
 
 ## 参数说明
