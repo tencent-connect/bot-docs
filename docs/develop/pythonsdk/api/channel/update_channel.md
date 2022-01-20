@@ -2,7 +2,7 @@
 
 修改某个子频道的信息。
 
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 

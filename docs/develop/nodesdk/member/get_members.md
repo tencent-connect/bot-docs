@@ -2,7 +2,7 @@
 
 获取频道下的成员列表。
 
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 

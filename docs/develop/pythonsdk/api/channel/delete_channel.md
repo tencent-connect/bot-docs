@@ -2,7 +2,7 @@
 
 移除一个子频道。
 
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 
