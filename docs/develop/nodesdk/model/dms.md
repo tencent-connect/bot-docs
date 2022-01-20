@@ -1,4 +1,4 @@
-# 私信会话对象（DMS） <Badge text="v1.0.0" />
+# 私信会话对象（DMS） <Badge text="v2.6.0" />
 
 ## DMS
 

@@ -24,6 +24,7 @@ module.exports = {
           { title: '成员对象(Member)', path: 'model/member' },
           { title: '频道身份组对象(Role)', path: 'model/role' },
           { title: '消息对象(Message)', path: 'model/message' },
+          { title: '私信对象(DMS)', path: 'model/dms' },
           { title: '公告对象(Announce)', path: 'model/announce' },
           { title: '日程对象(Schedule)', path: 'model/schedule' },
           { title: '表情对象(Emoji)', path: 'model/emoji' },
@@ -104,6 +105,12 @@ module.exports = {
             ],
           },
           {
+            title: '私信 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['dms/post_dms.md', 'dms/post_dms_messages.md'],
+          },
+          {
             title: '禁言 API',
             collapsable: false,
             sidebarDepth: 0,
@@ -132,16 +139,6 @@ module.exports = {
               'schedule/delete_schedule',
             ],
           },
-          //   {
-          //     title: '私信 API',
-          //     collapsable: false,
-          //     sidebarDepth: 0,
-          //     children: [
-          //       'dms/model.md',
-          //       'dms/post_dms.md',
-          //       'dms/post_dms_messages.md',
-          //     ],
-          //   },
           {
             title: '音频 API',
             collapsable: false,
