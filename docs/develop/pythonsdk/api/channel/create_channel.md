@@ -28,7 +28,7 @@ channel_res = api.create_channel(channel_id, channel)
 
 | 字段名  | 必填 | 类型                | 描述       |
 | ------- | ---- | ------------------- | ---------- |
-| guildId | 是   | string              | 频道 ID    |
+| guild_id | 是   | string              | 频道 ID    |
 | channel | 是   | [Channel](#channel) | 子频道对象 |
 
 ### Channel

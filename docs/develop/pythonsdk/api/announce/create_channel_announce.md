@@ -18,7 +18,7 @@ announce_api.create_channel_announce(channel_id, create_channel_announce_request
 
 | 字段名    | 必填 | 类型   | 描述                             |
 | --------- | ---- | ------ | -------------------------------- |
-| guildId   | 是   | string | 频道 ID     |
+| guild_id   | 是   | string | 频道 ID     |
 | create_channel_announce_request | 是   | [CreateChannelAnnounceRequest](#CreateChannelAnnounceRequest) | 创建子频道公告请求参数 |
 
 
