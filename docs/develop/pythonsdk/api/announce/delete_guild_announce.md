@@ -17,7 +17,7 @@ announce_api.delete_announce(guild_id, message_id)
 
 | 字段名    | 必填 | 类型   | 描述                           |
 | --------- | ---- | ------ | ------------------------------ |
-| guildId   | 是   | string | 频道 ID  |
+| guild_id   | 是   | string | 频道 ID  |
 | messageId | 是   | string | 消息 ID |
 
 ## 返回说明

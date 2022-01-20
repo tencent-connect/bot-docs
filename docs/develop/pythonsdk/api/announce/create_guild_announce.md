@@ -18,7 +18,7 @@ announce_api.create_announce(guild_id, create_announce_request)
 
 | 字段名    | 必填 | 类型   | 描述                             |
 | --------- | ---- | ------ | -------------------------------- |
-| guildId   | 是   | string | 频道 ID     |
+| guild_id   | 是   | string | 频道 ID     |
 | create_announce_request | 是   | [CreateAnnounceRequest](#muteoption) | 创建频道公告请求参数 |
 
 
