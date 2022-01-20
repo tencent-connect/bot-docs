@@ -2,7 +2,7 @@
 
 移除频道的某个成员。
 
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 

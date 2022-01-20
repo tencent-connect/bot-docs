@@ -1,7 +1,7 @@
 # 获取消息列表 <Badge text="v1.0.0" />
 
 获取消息列表。
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 

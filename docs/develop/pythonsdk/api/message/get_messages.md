@@ -1,7 +1,7 @@
 # 拉取消息列表
 
 获取消息列表。
-<Warnning />
+<PrivateDomain/>
 
 ## 使用示例
 
