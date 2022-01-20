@@ -14,7 +14,7 @@ token = qqbot.Token({appid}, {token})
 
 def demo():
     api = qqbot.MuteAPI(token, False)
-    is_success = api.mute_all(channel_id, role_id, channel_permissions)
+    is_success = api.mute_all(guild_id, options)
 ```
 
 #### async

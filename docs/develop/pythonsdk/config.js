@@ -102,6 +102,7 @@ module.exports = {
               'api/message/get_message',
               'api/message/get_messages',
               'api/message/post_message',
+              'api/message/recall_message',
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
@@ -114,6 +115,17 @@ module.exports = {
             children: [
               'api/mute/mute_all',
               'api/mute/mute_member',
+            ],
+          },
+          {
+            title: '公告 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/announce/create_guild_announce',
+              'api/announce/delete_guild_announce',
+              'api/announce/create_channel_announce',
+              'api/announce/delete_channel_announce',
             ],
           },
           {

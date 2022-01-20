@@ -4,14 +4,30 @@
 
 ## 使用示例
 
+#### sync 
+
 ```python
 import qqbot
 
 token = qqbot.Token({appid}, {token})
 
-announce_api = qqbot.AnnounceAPI(token, False)  
-create_announce_request = CreateAnnounceRequest(channel_id, message_id)
-announce_api.create_announce(guild_id, create_announce_request)
+def demo():
+    announce_api = qqbot.AnnounceAPI(token, False)  
+    create_announce_request = CreateAnnounceRequest(channel_id, message_id)
+    announce = announce_api.create_announce(guild_id, create_announce_request)
+```
+
+#### async
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+async def demo():
+    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
+    create_announce_request = CreateAnnounceRequest(channel_id, message_id)
+    announce = await announce_api.create_announce(guild_id, create_announce_request)
 ```
 
 ## 参数说明
@@ -19,7 +35,7 @@ announce_api.create_announce(guild_id, create_announce_request)
 | 字段名    | 必填 | 类型   | 描述                             |
 | --------- | ---- | ------ | -------------------------------- |
 | guild_id   | 是   | string | 频道 ID     |
-| create_announce_request | 是   | [CreateAnnounceRequest](#muteoption) | 创建频道公告请求参数 |
+| create_announce_request | 是   | [CreateAnnounceRequest](#CreateAnnounceRequest) | 创建频道公告请求参数 |
 
 
 ### CreateAnnounceRequest
