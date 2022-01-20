@@ -11,14 +11,29 @@
 
 ## 使用示例
 
+#### sync
+
 ```python
 import qqbot
 
 token = qqbot.Token({appid}, {token})
 
-msg_api = qqbot.MessageAPI(token, False)  
-msg_api.recall_message(channel_id, message_id)
+def demo():
+    msg_api = qqbot.MessageAPI(token, False)  
+    is_success = msg_api.recall_message(channel_id, message_id)
 ```
+
+#### async
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+async def demo():
+    msg_api = qqbot.AsyncMessageAPI(token, False)  
+    is_success = await msg_api.recall_message(channel_id, message_id)
+```
+
 
 ## 参数说明
 
