@@ -10,6 +10,8 @@ class HandlerType(Enum):
     CHANNEL_EVENT_HANDLER = 3  # 子频道事件    
     MESSAGE_EVENT_HANDLER = 4  # 消息事件    
     AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
+    DIRECT_MESSAGE_EVENT_HANDLER = 6 # 私信事件
+    AUDIO_EVENT_HANDLER = 7 # 音频事件
 ```
 
 ## 当前支持的事件
@@ -29,7 +31,7 @@ class WsEvent:
     EventGuildMemberRemove = "GUILD_MEMBER_REMOVE"
 
     EventMessageCreate = "MESSAGE_CREATE"
-    
+    EventDirectMessageCreate = "DIRECT_MESSAGE_CREATE"
     EventAtMessageCreate = "AT_MESSAGE_CREATE"
 ```
 
@@ -47,6 +49,8 @@ def _channel_handler(event, channel: Channel):
 #消息事件 
 def _message_handler(event, message: Message):
 #At消息事件
+def _message_handler(event, message: Message):
+#私信消息事件
 def _message_handler(event, message: Message):
 ```
 
