@@ -116,13 +116,8 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'api/message/get_message',
-              'api/message/get_messages',
-              'api/message/post_message',
-              'api/message/recall_message',
-              'api/message/post_ark_message',
-              'api/message/message_template',
-              'api/message/message_format',
+              'api/dms/create_dms',
+              'api/dms/post_dms',
             ],
           },
           {
