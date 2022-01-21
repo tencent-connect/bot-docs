@@ -44,7 +44,7 @@ async def demo():
 | 字段名  | 必填 | 类型                                                           | 描述                                                 |
 | ------- | ---- | -------------------------------------------------------------- | ---------------------------------------------------- |
 | guild_id | 是   | string                                                         | [私信频道 ID](../../model/dms.md)                       |
-| msg_request  | 是   | [MessageToCreate](../message/post_message.md#MessageSendRequest) | 消息体 ，参考[发送消息](../message/post_message.md) |
+| msg_request  | 是   | [MessageSendRequest](../message/post_message.md#MessageSendRequest) | 消息体 ，参考[发送消息](../message/post_message.md) |
 
 ## 返回说明
 
