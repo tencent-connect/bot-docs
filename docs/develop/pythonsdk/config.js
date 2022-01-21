@@ -24,6 +24,7 @@ module.exports = {
           {title: '成员对象(Member)', path: 'model/member'},
           {title: '频道身份组对象(Role)', path: 'model/role'},
           {title: '消息对象(Message)', path: 'model/message'},
+          {title: '私信对象(DMS)', path: 'model/dms'},
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
           {title: '表情对象(Emoji)', path: 'model/emoji'},
@@ -98,6 +99,20 @@ module.exports = {
           },
           {
             title: '消息 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/message/get_message',
+              'api/message/get_messages',
+              'api/message/post_message',
+              'api/message/recall_message',
+              'api/message/post_ark_message',
+              'api/message/message_template',
+              'api/message/message_format',
+            ],
+          },
+          {
+            title: '私信 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
