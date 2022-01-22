@@ -52,4 +52,10 @@ docs
 
 ## 贡献者
 
-todo
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<a href="https://github.com/tencent-connect/bot-docs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tencent-connect/bot-docs" />
+</a>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
