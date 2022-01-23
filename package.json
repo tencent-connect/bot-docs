@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "async-validator": "1.11.5",
-    "element-ui": "^2.15.6"
+    "element-ui": "^2.15.6",
+    "flexsearch": "^0.6.32"
   }
 }

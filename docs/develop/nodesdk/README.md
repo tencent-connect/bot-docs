@@ -35,6 +35,7 @@ const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
   token: 'TOKEN', // 申请机器人时获取到的机器人 BotToken
   intents: ['AT_MESSAGES'], // 事件订阅,用于开启可接收的消息类型
+  sandbox: false, // 沙箱支持，可选，默认false. v2.7.0+
 };
 
 // 创建 client
@@ -45,6 +46,7 @@ const ws = createWebsocket(testConfig);
 ```
 
 - intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html)。
+- 沙箱配置说明：[接口域名](../api/#接口域名)
 
 :::warning 注意
 
