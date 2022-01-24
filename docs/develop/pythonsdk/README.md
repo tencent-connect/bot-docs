@@ -63,6 +63,8 @@ print(user.username)  # 打印机器人名字
 
 异步模块基于 websocket 技术用于监听频道内的相关事件，如消息、成员变化等事件，用于开发者对事件进行相应的处理。
 
+更完整的事件说明，请参考[事件监听]：https://bot.q.qq.com/wiki/develop/pythonsdk/websocket/listen_events.html
+
 ### 使用方法
 
 通过注册需要监听的事件并设置回调函数后，即可完成对事件的监听。
