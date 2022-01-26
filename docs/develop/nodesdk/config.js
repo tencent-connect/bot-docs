@@ -95,7 +95,6 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'message/get_messages',
               'message/get_message_of_id',
               'message/post_messages',
               'message/delete_message',
