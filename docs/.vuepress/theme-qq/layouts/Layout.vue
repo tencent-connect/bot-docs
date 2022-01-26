@@ -48,7 +48,7 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
-import { resolveSidebarItems } from '../util'
+import { resolveSidebarItems, loadImage } from '../util';
 
 export default {
   name: 'Layout',
@@ -60,10 +60,17 @@ export default {
     Navbar
   },
 
-  data () {
+  provide() {
     return {
-      isSidebarOpen: false
-    }
+      layoutInstance: this,
+    };
+  },
+
+  data() {
+    return {
+      isSidebarOpen: false,
+      isPublicNetwork: true, // 是公网
+    };
   },
 
   computed: {
@@ -112,6 +119,21 @@ export default {
         },
         userPageClass
       ]
+    }
+  },
+
+  async created() {
+    const images = [
+      'https://km.woa.com/favicon.ico',
+      'http://km.oa.com/img/bbs/logo.gif',
+      'http://adminresource.oa.com/admres/adm/images/icon_addr.png',
+    ];
+    try {
+      await Promise.any(images.map(item => loadImage(item)));
+      console.log('当前在内网');
+      this.isPublicNetwork = false;
+    } catch (error) {
+      console.log(error);
     }
   },
 

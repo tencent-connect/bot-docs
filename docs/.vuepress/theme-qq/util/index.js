@@ -228,13 +228,15 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     const children = item.children || []
     if (children.length === 0 && item.path) {
       return Object.assign(resolvePage(pages, item.path, base), {
-        title: item.title
+        title: item.title,
+        inner: item.inner
       })
     }
     return {
       type: 'group',
       path: item.path,
       title: item.title,
+      inner: item.inner,
       sidebarDepth: item.sidebarDepth,
       initialOpenGroupIndex: item.initialOpenGroupIndex,
       children: children.map(child => resolveItem(child, pages, base, groupDepth + 1)),
@@ -242,3 +244,17 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     }
   }
 }
+
+export const loadImage = src => {
+  return new Promise(resolve => {
+    try {
+      const image = new Image();
+      image.src = src;
+      image.onload = () => {
+        resolve(true);
+      };
+    } catch (error) {
+      console.log('图片加载失败：', error);
+    }
+  });
+};

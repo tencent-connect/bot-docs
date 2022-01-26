@@ -1,25 +1,19 @@
 <template>
-  <ul
-    v-if="items.length"
-    class="sidebar-links"
-  >
-    <li
-      v-for="(item, i) in items"
-      :key="i"
-    >
-      <SidebarGroup
-        v-if="item.type === 'group'"
-        :item="item"
-        :open="i === openGroupIndex"
-        :collapsable="item.collapsable || item.collapsible"
-        :depth="depth"
-        @toggle="toggleGroup(i)"
-      />
-      <SidebarLink
-        v-else
-        :sidebar-depth="sidebarDepth"
-        :item="item"
-      />
+  <ul v-if="items.length"
+      class="sidebar-links">
+    <li v-for="(item, i) in items"
+        :key="i">
+      <div v-if="!(item.inner && layoutInstance.isPublicNetwork)">
+        <SidebarGroup v-if="item.type === 'group'"
+                      :item="item"
+                      :open="i === openGroupIndex"
+                      :collapsable="item.collapsable || item.collapsible"
+                      :depth="depth"
+                      @toggle="toggleGroup(i)" />
+        <SidebarLink v-else
+                     :sidebar-depth="sidebarDepth"
+                     :item="item" />
+      </div>
     </li>
   </ul>
 </template>
@@ -33,6 +27,8 @@ export default {
   name: 'SidebarLinks',
 
   components: { SidebarGroup, SidebarLink },
+
+  inject: ['layoutInstance'],
 
   props: [
     'items',
