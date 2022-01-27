@@ -18,6 +18,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           {title: '用户对象(User)', path: 'model/user'},
+          {title: '接口权限API(APIPermission)', path: 'model/api_permission.md' },
           {title: '频道对象(Guild)', path: 'model/guild'},
           {title: '子频道对象(Channel)', path: 'model/channel'},
           {title: '子频道权限对象(ChannelPermissions)', path: 'model/channel_permission'},
@@ -147,6 +148,12 @@ module.exports = {
             children: [
               'api/audio/post_audio'
             ],
+          },
+          {
+            title: '接口权限 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['api/api_permissions/get_permissions','api/api_permissions/post_permission.md'],
           },
         ],
       },
