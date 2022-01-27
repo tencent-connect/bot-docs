@@ -41,14 +41,14 @@ async def demo():
 
 | 字段名              | 必填 | 类型                                                  | 描述                         |
 | ------------------- | ---- | ----------------------------------------------------- | ---------------------------- |
-| guild_id             | 是   | string                                                | [频道 ID](../model/guild.md) |
+| guild_id             | 是   | string                                                | [频道 ID](../../model/guild.md) |
 | permission_demand_to_create | 是   | [PermissionDemandToCreate](#PermissionDemandToCreate) | 授权链接对象                 |
 
 ### PermissionDemandToCreate
 
 | 字段名       | 必填 | 类型                                                        | 描述                                              |
 | ------------ | ---- | ----------------------------------------------------------- | ------------------------------------------------- |
-| channel_id   | 是   | string                                                      | 授权链接发送的[子频道 ID](../model/channel.md)    |
+| channel_id   | 是   | string                                                      | 授权链接发送的[子频道 ID](../../model/channel.md)    |
 | api_identify | 是   | [APIPermissionDemandIdentify](#apipermissiondemandidentify) | API 权限需求标识对象                              |
 | desc         | 否   | string                                                      | 机器人申请对应的 API 接口权限后可以使用功能的描述 |
 

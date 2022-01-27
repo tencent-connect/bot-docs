@@ -32,7 +32,7 @@ async def demo():
 
 | 字段名  | 必填 | 类型   | 描述                         |
 | ------- | ---- | ------ | ---------------------------- |
-| guild_id | 是   | string | [频道 ID](../model/guild.md) |
+| guild_id | 是   | string | [频道 ID](../../model/guild.md) |
 
 ## 返回说明
 
