@@ -15,7 +15,6 @@ export default {
 <style>
 .qrcode {
   position: fixed;
-  z-index: 19;
   top: 300px;
   right: 35px;
   padding: 10px;
@@ -23,8 +22,8 @@ export default {
   background-color: #f7f7f7;
 }
 .qrcode img {
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
 }
 .qrcode .title {
   font-size: 17px;
@@ -36,6 +35,7 @@ export default {
 }
 .qrcode .title.bottom {
   margin-top: 2px;
+  font-size:14px;
 }
 
 @media only screen and (max-width: 1440px) {
