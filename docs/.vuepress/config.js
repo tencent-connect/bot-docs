@@ -106,7 +106,7 @@ module.exports = ctx => ({
       disableRoutes:['/develop/api/']
     }]
   ],
-  globalUIComponents: ['TuXiaoChao'],
+  globalUIComponents: ['TuXiaoChao','Qrcode'],
   theme: require.resolve('./theme-qq'),
   themeConfig: {
     sidebarDepth: 1,
