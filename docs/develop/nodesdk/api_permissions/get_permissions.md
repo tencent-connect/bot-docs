@@ -6,7 +6,7 @@
 
 ```javascript
 async function demo() {
-  let { data } = await client.guildPermissionsApi.permissons(guildID);
+  let { data } = await client.guildPermissionsApi.permissions(guildID);
 }
 ```
 
