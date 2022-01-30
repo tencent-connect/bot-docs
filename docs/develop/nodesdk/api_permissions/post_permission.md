@@ -13,10 +13,10 @@
 
 ```javascript
 async function demo() {
-  let { data } = await client.guildPermissionsApi.postPermissonDemand(guildID, permissionDemandObj);
+  let { data } = await client.guildPermissionsApi.postPermissionDemand(guildID, permissionDemandObj);
 
   // e.g.
-  // let { data } = await client.guildPermissionsApi.postPermissonDemand('123456', {
+  // let { data } = await client.guildPermissionsApi.postPermissionDemand('123456', {
   //   channel_id: '112233',
   //   api_identify: {
   //     path: '/guilds/{guild_id}',
