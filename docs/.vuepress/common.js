@@ -1,5 +1,5 @@
 
 module.exports = {
-  cdnBase: 'https://abc-pcweb-1251316161.file.myqcloud.com/',
-  cdnPath: typeof process !== 'undefined' && process.env && process.env.BUILD_ENV === 'test' ? 'qq-test-channel/' : 'qq-channel/',
+  cdnBase: 'https://mpqq.gtimg.cn/',
+  cdnPath: typeof process !== 'undefined' && process.env && process.env.BUILD_ENV === 'test' ? 'bot-wiki/test/' : 'bot-wiki/online/',
 };
