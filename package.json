@@ -12,7 +12,7 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-pwa": "^1.8.3",
+    "@vuepress/plugin-pwa": "1.9.5",
     "@vuepress/plugin-search": "^1.8.2",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
@@ -22,6 +22,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.3",
     "lodash.throttle": "^4.1.1",
+    "patch-package": "^6.4.7",
     "prettier": "^2.5.1",
     "remark-cli": "^10.0.1",
     "remark-lint": "^9.1.1",
@@ -61,7 +62,8 @@
     "view-info": "vuepress view-info docs --temp .temp",
     "sync-api": "node scripts/sync-inner-docs/index.js",
     "change-log": "node scripts/change-log.js",
-    "build-tag": "node scripts/add-build-tag.js"
+    "build-tag": "node scripts/add-build-tag.js",
+    "postinstall":"patch-package"
   },
   "dependencies": {
     "async-validator": "1.11.5",

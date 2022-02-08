@@ -1,6 +1,6 @@
 <template>
-  <SWUpdatePopup v-slot="{ enabled, reload, message, buttonText }">
-    <div v-if="enabled"
+  <SWUpdatePopup v-slot="{  reload, message, buttonText }">
+    <div v-if="false"
          class="my-sw-update-popup">
       <p>{{ message }}</p>
       <el-button @click="reload"

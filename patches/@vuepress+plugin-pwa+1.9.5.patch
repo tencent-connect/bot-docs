@@ -1,0 +1,20 @@
+diff --git a/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue b/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
+index 1cced58..796d442 100644
+--- a/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
++++ b/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
+@@ -65,6 +65,15 @@ export default {
+     }
+   },
+   
++  watch: {
++    enabled(newValue, oldValue) {
++      if(newValue){
++        // cleanCache
++         this.updateEvent.skipWaiting()
++      }
++    }
++  },
++
+   methods: {
+     onSWUpdated (e) {
+       this.updateEvent = e
