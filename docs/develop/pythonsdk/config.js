@@ -29,6 +29,7 @@ module.exports = {
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
           {title: '表情对象(Emoji)', path: 'model/emoji'},
+          {title: '日程对象(Schedule)', path: 'model/schedule'},
         ],
       },
       {
@@ -139,6 +140,18 @@ module.exports = {
               'api/announce/delete_guild_announce',
               'api/announce/create_channel_announce',
               'api/announce/delete_channel_announce',
+            ],
+          },
+          {
+            title: '日程 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/schedule/get_schedules',
+              'api/schedule/get_schedule',
+              'api/schedule/post_schedule',
+              'api/schedule/update_schedule',
+              'api/schedule/delete_schedule',
             ],
           },
           {
