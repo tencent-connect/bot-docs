@@ -30,13 +30,11 @@ async function demo() {
 | --------------- | ---- | ----------------- | ----------------------------------------------- |
 | name            | 否   | string            | 日程名称                                        |
 | description     | 否   | string            | 日程描述                                        |
-| start_timestamp | 否   | string            | 日程开始时间戳(**`ms`**)                        |
-| end_timestamp   | 否   | string            | 日程结束时间戳(**`ms`**)                        |
+| start_timestamp | 是   | string            | 日程开始时间戳(**`ms`**)                        |
+| end_timestamp   | 是   | string            | 日程结束时间戳(**`ms`**)                        |
 | creator         | 否   | [Member](#member) | 创建者                                          |
 | jump_channel_id | 否   | string            | 日程开始时跳转到的子频道 ID                     |
-| remind_type     | 否   | string            | 日程提醒类型，取值参考[RemindType](#remindtype) |
-
-**以上字段，需要修改哪个传哪个即可**。
+| remind_type     | 是   | string            | 日程提醒类型，取值参考[RemindType](#remindtype) |
 
 ## 返回说明
 
