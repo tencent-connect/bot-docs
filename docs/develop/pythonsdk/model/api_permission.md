@@ -1,4 +1,4 @@
-# API 权限对象 <Badge text="v2.8.0" />
+# API 权限对象 
 
 ## 接口权限对象(APIPermission)
 
