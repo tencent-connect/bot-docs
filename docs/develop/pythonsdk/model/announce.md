@@ -1,4 +1,4 @@
-# 公告对象（Announce） <Badge text="v2.2.0" />
+# 公告对象（Announce） 
 
 ## Announce
 
