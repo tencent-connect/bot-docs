@@ -57,6 +57,34 @@ msg_api.post_message(channel_id, message_send_request)
 | name   | string | 字段名 |
 | value  | string | 字段值 |
 
+### MessageArk
+
+| 字段名      | 类型                            | 描述                      |
+| :---------- | :------------------------------ | :------------------------ |
+| template_id | number                          | ark 模板 id（需要先申请） |
+| kv          | [MessageAkrKv[]](#messagearkkv) | kv 值列表                 |
+
+### MessageArkKv
+
+| 字段名 | 类型                              | 描述               |
+| :----- | :-------------------------------- | :----------------- |
+| key    | string                            | key                |
+| value  | string                            | value              |
+| obj    | [MessageArkObj[]](#messagearkobj) | ark obj 类型的列表 |
+
+### MessageArkObj
+
+| 字段名 | 类型                               | 描述           |
+| :----- | :--------------------------------- | :------------- |
+| obj_kv | [MessageArkObjKv[]](#messageobjkv) | ark objkv 列表 |
+
+### MessageArkObjKv
+
+| 字段名 | 类型   | 描述  |
+| :----- | :----- | :---- |
+| key    | string | key   |
+| value  | string | value |
+
 ### 参数示例
 
 假设模板如下，其中`#META_LIST#`类型为数组、`#META_URL#`类型为 `URL`、其他为文本。
