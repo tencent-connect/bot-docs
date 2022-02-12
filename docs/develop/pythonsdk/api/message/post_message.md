@@ -29,7 +29,7 @@ msg_api.post_message(channel_id, message_send_request)
 
 | 参数      | 必填 | 类型                                | 说明       |
 | --------- | ---- | ----------------------------------- | ---------- |
-| channelID | 是   | string                              | 子频道 ID  |
+| channel | 是   | string                              | 子频道 ID  |
 | message_send_request  | 是   | [MessageSendRequest](#MessageSendRequest) | 消息体结构 |
 
 ## MessageSendRequest
