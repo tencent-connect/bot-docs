@@ -1,0 +1,29 @@
+diff --git a/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue b/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
+index 1cced58..4daba59 100644
+--- a/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
++++ b/node_modules/@vuepress/plugin-pwa/lib/SWUpdatePopup.vue
+@@ -7,7 +7,7 @@
+       :buttonText="buttonText"
+     >
+       <div
+-        v-if="enabled"
++        v-if="false"
+         class="sw-update-popup"
+       >
+         {{ message }}
+@@ -65,6 +65,15 @@ export default {
+     }
+   },
+ 
++  watch: {
++    enabled(newValue, oldValue) {
++      if(newValue){
++        // cleanCache
++         this.updateEvent.skipWaiting()
++      }
++    }
++  },
++
+   methods: {
+     onSWUpdated (e) {
+       this.updateEvent = e

@@ -1,4 +1,4 @@
-# 修改日程 <Badge text="v2.3.0" />
+# 修改日程
 
 修改`日程子频道`里的一个日程。
 
@@ -10,19 +10,39 @@
 
 ## 使用示例
 
-```javascript
-async function demo() {
-  let { data } = await client.scheduleApi.patchSchedule(channelId, scheduleId, schedule);
-}
+#### sync
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+
+def demo():
+    api = qqbot.ScheduleAPI(token, False)
+    schedule = api.update_schedule(channel_id, schedule_id, schedule_to_patch)
+```
+
+#### async
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+
+async def demo():
+    api = qqbot.AsyncScheduleAPI(token, False)
+    schedule = await api.update_schedule(channel_id, schedule_id, schedule_to_patch)
 ```
 
 ## 参数说明
 
 | 字段名     | 必填 | 类型                                | 描述      |
 | ---------- | ---- | ----------------------------------- | --------- |
-| channelId  | 是   | string                              | 子频道 ID |
-| scheduleId | 是   | string                              | 日程 ID   |
-| schedule   | 是   | [ScheduleToPatch](#scheduletopatch) | 日程对象  |
+| channel_id  | 是   | string                              | 子频道 ID |
+| schedule_id | 是   | string                              | 日程 ID   |
+| schedule_to_patch   | 是   | [ScheduleToPatch](#scheduletopatch) | 日程对象  |
 
 ### ScheduleToPatch
 

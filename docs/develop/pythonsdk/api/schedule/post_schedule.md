@@ -1,6 +1,6 @@
-# 修改日程 <Badge text="v2.3.0" />
+# 创建日程 
 
-修改`日程子频道`里的一个日程。
+在`日程子频道`创建一个日程。
 
 ::: warning 注意
 
@@ -10,31 +10,50 @@
 
 ## 使用示例
 
-```javascript
-async function demo() {
-  let { data } = await client.scheduleApi.patchSchedule(channelId, scheduleId, schedule);
-}
+#### sync
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+
+def demo():
+    api = qqbot.ScheduleAPI(token, False)
+    schedule = api.create_schedule(channel_id, schedule_to_create)
+```
+
+#### async
+
+```python
+import qqbot
+
+token = qqbot.Token({appid}, {token})
+
+
+async def demo():
+    api = qqbot.AsyncScheduleAPI(token, False)
+    schedule = await api.create_schedule(channel_id, schedule_to_create)
 ```
 
 ## 参数说明
 
-| 字段名     | 必填 | 类型                                | 描述      |
-| ---------- | ---- | ----------------------------------- | --------- |
-| channelId  | 是   | string                              | 子频道 ID |
-| scheduleId | 是   | string                              | 日程 ID   |
-| schedule   | 是   | [ScheduleToPatch](#scheduletopatch) | 日程对象  |
+| 字段名    | 必填 | 类型                                  | 描述                             |
+| --------- | ---- | ------------------------------------- | -------------------------------- |
+| channel_id | 是   | string                                | [子频道 ID](../../model/channel.md) |
+| schedule_to_create  | 是   | [ScheduleToCreate](#scheduletocreate) | 日程对象                         |
 
-### ScheduleToPatch
+### ScheduleToCreate
 
-| 字段名          | 必填 | 类型              | 描述                                            |
-| --------------- | ---- | ----------------- | ----------------------------------------------- |
-| name            | 否   | string            | 日程名称                                        |
-| description     | 否   | string            | 日程描述                                        |
-| start_timestamp | 是   | string            | 日程开始时间戳(**`ms`**)                        |
-| end_timestamp   | 是   | string            | 日程结束时间戳(**`ms`**)                        |
-| creator         | 否   | [Member](#member) | 创建者                                          |
-| jump_channel_id | 否   | string            | 日程开始时跳转到的子频道 ID                     |
-| remind_type     | 是   | string            | 日程提醒类型，取值参考[RemindType](#remindtype) |
+| 字段名          | 必填 | 类型              | 描述                                                            |
+| --------------- | ---- | ----------------- | --------------------------------------------------------------- |
+| name            | 是   | string            | 日程名称                                                        |
+| description     | 否   | string            | 日程描述                                                        |
+| start_timestamp | 是   | string            | 日程开始时间戳(**`ms`**) ，**日程开始时间必须大于传当前时间**   |
+| end_timestamp   | 是   | string            | 日程结束时间戳(**`ms`**) ，**日程结束时间必须大于日程开始时间** |
+| creator         | 否   | [Member](#member) | 创建者                                                          |
+| jump_channel_id | 否   | string            | 日程开始时跳转到的[子频道 ID](../model/channel.md)              |
+| remind_type     | 是   | string            | 日程提醒类型，取值参考[RemindType](#remindtype)                 |
 
 ## 返回说明
 

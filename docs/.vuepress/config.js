@@ -107,7 +107,7 @@ module.exports = ctx => ({
       },
     ],
   ],
-  globalUIComponents: ['TuXiaoChao'],
+  globalUIComponents: ['TuXiaoChao','Qrcode'],
   theme: require.resolve('./theme-qq'),
   themeConfig: {
     sidebarDepth: 1,

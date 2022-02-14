@@ -18,6 +18,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           {title: '用户对象(User)', path: 'model/user'},
+          {title: '接口权限API(APIPermission)', path: 'model/api_permission.md' },
           {title: '频道对象(Guild)', path: 'model/guild'},
           {title: '子频道对象(Channel)', path: 'model/channel'},
           {title: '子频道权限对象(ChannelPermissions)', path: 'model/channel_permission'},
@@ -28,6 +29,7 @@ module.exports = {
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
           {title: '表情对象(Emoji)', path: 'model/emoji'},
+          {title: '日程对象(Schedule)', path: 'model/schedule'},
         ],
       },
       {
@@ -141,12 +143,30 @@ module.exports = {
             ],
           },
           {
+            title: '日程 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/schedule/get_schedules',
+              'api/schedule/get_schedule',
+              'api/schedule/post_schedule',
+              'api/schedule/update_schedule',
+              'api/schedule/delete_schedule',
+            ],
+          },
+          {
             title: '音频 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
               'api/audio/post_audio'
             ],
+          },
+          {
+            title: '接口权限 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['api/api_permissions/get_permissions','api/api_permissions/post_permission.md'],
           },
         ],
       },

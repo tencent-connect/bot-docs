@@ -35,6 +35,7 @@ const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
   token: 'TOKEN', // 申请机器人时获取到的机器人 BotToken
   intents: ['AT_MESSAGES'], // 事件订阅,用于开启可接收的消息类型
+  sandbox: false, // 沙箱支持，可选，默认false. v2.7.0+
 };
 
 // 创建 client
@@ -45,10 +46,11 @@ const ws = createWebsocket(testConfig);
 ```
 
 - intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html)。
+- 沙箱配置说明：[接口域名](../api/#接口域名)
 
 :::warning 注意
 
-- 事件类型的订阅，是有权限控制的，除了 `GUILDS`，`AT_MESSAGES`，`GUILD_MEMBERS` 事件是基础的事件，默认有权限订阅之外，其他的特殊事件，都需要**经过申请才能够使用**，如果在鉴权的时候传递了无权限的 `intents`，`websocket` **会报错，并直接关闭连接**。
+- 事件类型的订阅，是有权限控制的，除了 `GUILDS`，`AT_MESSAGES`，`DIRECT_MESSAGE`，`GUILD_MEMBERS` 事件是基础的事件，默认有权限订阅之外，其他的特殊事件，都需要**经过申请才能够使用**，如果在鉴权的时候传递了无权限的 `intents`，`websocket` **会报错，并直接关闭连接**。
 
 - `intents`传**空数组**时，将默认开启**全部**事件类型的监听。
 
@@ -112,7 +114,7 @@ client.messageApi
 
 ### 使用 ws
 
-`ws`用于频道内消息监听，**如要使用`client`向指定子频道发送消息，必选先建立 ws 连接**。
+`ws`用于频道内消息监听，**如要使用`client`向指定子频道发送消息，必须先建立 ws 连接**。
 
 #### ws 调用示例
 
@@ -127,8 +129,8 @@ ws.on('ERROR', data => {
 ws.on('GUILDS', data => {
   console.log('[GUILDS] 事件接收 :', data);
 });
-ws.on('GUILGUILD_MEMBERSDS', data => {
-  console.log('[GUILGUILD_MEMBERSDS] 事件接收 :', data);
+ws.on('GUILD_MEMBERS', data => {
+  console.log('[GUILD_MEMBERS] 事件接收 :', data);
 });
 ws.on('DIRECT_MESSAGE', data => {
   console.log('[DIRECT_MESSAGE] 事件接收 :', data);

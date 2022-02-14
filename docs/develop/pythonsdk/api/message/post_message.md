@@ -5,10 +5,12 @@
 ::: warning 注意
 
 - 要求操作人在该子频道具有`发送消息`的权限。
-- 发送成功之后，会触发一个创建消息的事件。
-- 被动回复消息有效期为 `5` 分钟。
-- 主动推送消息每日每个子频道限 `2` 条。
-- **发送消息接口要求机器人接口需要链接到 `websocket gateway` 上保持在线状态**
+- 主动推送消息，默认每天往每个频道可推送的消息数是 `20` 条，超过会被限制。
+- 主动推送消息在每个频道中，每天可以往 `2` 个子频道推送消息，超过后会被限制。
+- 不论主动消息还是被动消息，在一个子频道中，每 `1s` 只能发送 `5` 条消息。
+- 被动回复消息有效期为 `5` 分钟，超时会报错。
+- **发送消息接口要求机器人接口需要链接到 `websocket gateway` 上保持在线状态**。
+- 有关主动消息审核，可以通过 [Intents](../../api/gateway/intents.md) 中审核事件 `MESSAGE_AUDIT` 返回 [MessageAudited](../model/message.md#messageaudited) 对象获取结果。
 
 :::
 
@@ -27,7 +29,7 @@ msg_api.post_message(channel_id, message_send_request)
 
 | 参数      | 必填 | 类型                                | 说明       |
 | --------- | ---- | ----------------------------------- | ---------- |
-| channelID | 是   | string                              | 子频道 ID  |
+| channel_id | 是   | string                              | 子频道 ID  |
 | message_send_request  | 是   | [MessageSendRequest](#MessageSendRequest) | 消息体结构 |
 
 ## MessageSendRequest
