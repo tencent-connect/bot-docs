@@ -244,17 +244,3 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     }
   }
 }
-
-export const loadImage = src => {
-  return new Promise(resolve => {
-    try {
-      const image = new Image();
-      image.src = src;
-      image.onload = () => {
-        resolve(true);
-      };
-    } catch (error) {
-      console.log('图片加载失败：', error);
-    }
-  });
-};

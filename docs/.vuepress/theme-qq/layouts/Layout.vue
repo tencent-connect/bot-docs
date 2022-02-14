@@ -48,7 +48,8 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
-import { resolveSidebarItems, loadImage } from '../util';
+import { resolveSidebarItems } from '../util';
+import Ping from 'ping.js';
 
 export default {
   name: 'Layout',
@@ -123,18 +124,13 @@ export default {
   },
 
   async created() {
-    const images = [
-      'https://km.woa.com/favicon.ico',
-      'http://km.oa.com/img/bbs/logo.gif',
-      'http://adminresource.oa.com/admres/adm/images/icon_addr.png',
-    ];
-    try {
-      await Promise.any(images.map(item => loadImage(item)));
-      console.log('当前在内网');
-      this.isPublicNetwork = false;
-    } catch (error) {
-      console.log(error);
-    }
+    const p = new Ping()
+    p.ping("https://km.woa.com",(err,data)=>{
+      if(!err){
+        console.log('当前在内网');
+        this.isPublicNetwork = false;
+      }
+    })
   },
 
   mounted () {

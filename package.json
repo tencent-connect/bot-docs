@@ -63,11 +63,12 @@
     "sync-api": "node scripts/sync-inner-docs/index.js",
     "change-log": "node scripts/change-log.js",
     "build-tag": "node scripts/add-build-tag.js",
-    "postinstall":"patch-package"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "async-validator": "1.11.5",
     "element-ui": "^2.15.6",
-    "flexsearch": "^0.6.32"
+    "flexsearch": "^0.6.32",
+    "ping.js": "^0.3.0"
   }
 }

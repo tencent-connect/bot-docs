@@ -108,7 +108,6 @@ module.exports = [
       },
       {
         title: '删除频道身份组成员',
-        inner: true,
         path: 'openapi/guild/delete_guild_member_role',
       },
     ],
