@@ -1,5 +1,4 @@
-// 注意：需要在dev前初始化内网api文档
-const apiConfig = require('../develop/api/config');
+const { genApiConfig } = require('./util');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
 const commonConfig = require('./common');
@@ -96,14 +95,17 @@ module.exports = ctx => ({
         },
       },
     ],
-    [require('./plugins/vuepress-plugin-contributors/index'), {
-      docsRepo: 'tencent-connect/bot-docs',
-      docsBranch: 'main',
-      docsDir: 'docs',
-      label: '贡献者🎉',
-      api: 'https://api.xuann.wang/api/github-file-contributors',
-      disableRoutes:['/develop/api/']
-    }]
+    [
+      require('./plugins/vuepress-plugin-contributors/index'),
+      {
+        docsRepo: 'tencent-connect/bot-docs',
+        docsBranch: 'main',
+        docsDir: 'docs',
+        label: '贡献者🎉',
+        api: 'https://api.xuann.wang/api/github-file-contributors',
+        disableRoutes: ['/develop/api/'],
+      },
+    ],
   ],
   globalUIComponents: ['TuXiaoChao'],
   theme: require.resolve('./theme-qq'),
@@ -120,7 +122,7 @@ module.exports = ctx => ({
       //   text: 'API文档',
       //   link: '/develop/api/',
       // },
-      apiConfig.nav,
+      genApiConfig().nav,
       {
         text: 'SDK文档',
         items: [
@@ -150,11 +152,16 @@ module.exports = ctx => ({
     editLinkText: '在GitHub上编辑此页',
     docsDir: 'docs',
     // 不展示编码的页面
-    disableRoutes: ['/develop/api/','/changelog/','/develop/nodesdk/changelog/', '/develop/pythonsdk/changelog/'],
+    disableRoutes: [
+      '/develop/api/',
+      '/changelog/',
+      '/develop/nodesdk/changelog/',
+      '/develop/pythonsdk/changelog/',
+    ],
     docsBranch: 'main',
     sidebar: {
       // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
-      ...apiConfig.sidebar,
+      ...genApiConfig().sidebar,
       ...nodesdkConfig.sidebar,
       ...pythonsdkConfig.sidebar,
       '/': [''],
