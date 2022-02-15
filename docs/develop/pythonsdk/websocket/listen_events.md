@@ -12,6 +12,7 @@ class HandlerType(Enum):
     AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
     DIRECT_MESSAGE_EVENT_HANDLER = 6 # 私信事件
     AUDIO_EVENT_HANDLER = 7 # 音频事件
+    MESSAGE_REACTIONS_EVENT_HANDLER = 8 # 表情表态事件
 ```
 
 ## 当前支持的事件
@@ -33,6 +34,14 @@ class WsEvent:
     EventMessageCreate = "MESSAGE_CREATE"
     EventDirectMessageCreate = "DIRECT_MESSAGE_CREATE"
     EventAtMessageCreate = "AT_MESSAGE_CREATE"
+
+    EventAudioStart = "AUDIO_START"
+    EventAudioFinish = "AUDIO_FINISH"
+    EventAudioOnMic = "AUDIO_ON_MIC"
+    EventAudioOffMic = "AUDIO_OFF_MIC"
+
+    EventMessageReactionAdd = "MESSAGE_REACTION_ADD"
+    EventMessageReactionRemove = "MESSAGE_REACTION_REMOVE"
 ```
 
 ## 当前事件的返回类型
@@ -52,6 +61,8 @@ def _message_handler(event, message: Message):
 def _message_handler(event, message: Message):
 #私信消息事件
 def _message_handler(event, message: Message):
+#表情表态消息事件
+def _message_reactions_handler(event, reaction: Reaction):
 ```
 
 ## 使用示例
