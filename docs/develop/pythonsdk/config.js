@@ -29,6 +29,7 @@ module.exports = {
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
           {title: '表情对象(Emoji)', path: 'model/emoji'},
+          {title: '表情表态对象(Reaction)', path: 'model/reaction'},
           {title: '日程对象(Schedule)', path: 'model/schedule'},
         ],
       },
