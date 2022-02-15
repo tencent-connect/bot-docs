@@ -31,13 +31,14 @@ async function demo() {
 
 ### MessageToCreate
 
-| 字段名  | 类型                          | 描述                                                                                     |
-| ------- | ----------------------------- | ---------------------------------------------------------------------------------------- |
-| content | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)                                    |
-| embed   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                                               |
-| ark     | [MessageArk](#messageark)     | ark 消息                                                                                 |
-| image   | string                        | 图片 url 地址                                                                            |
-| msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为[被动回复消息](#被动回复消息)，否则视为主动推送消息** |
+| 字段名            | 类型                                  | 必填 |                                                                                          | 描述 |
+| ----------------- | ------------------------------------- | ---- | ---------------------------------------------------------------------------------------- | ---- |
+| content           | string                                | 否   | 消息内容，文本内容，支持[内嵌格式](message_format.md)                                    |
+| embed             | [MessageEmbed](#messageembed)         | 否   | embed 消息，一种特殊的 ark                                                               |
+| ark               | [MessageArk](#messageark)             | 否   | ark 消息                                                                                 |
+| message_reference | [MessageReference](#messagereference) | 否   | 引用消息                                                                                 |
+| image             | string                                | 否   | 图片 url 地址                                                                            |
+| msg_id            | string                                | 否   | 要回复的消息 id。**带了 msg_id 视为[被动回复消息](#被动回复消息)，否则视为主动推送消息** |
 
 `content`、`embed`、`ark`、`image`**至少需要有一个字段**，否则无法下发消息。
 
@@ -50,11 +51,15 @@ async function demo() {
 
 ### MessageEmbed
 
-详见[消息内嵌格式](./message_format.md)。
+详见[消息模板](./message_template.md)。
 
 ### MessageArk
 
 详见[发送模板消息](./post_ark_messages.md)。
+
+### MessageReference
+
+详见[发送引用消息](./post_reference_messages.md)。
 
 ## 返回说明
 

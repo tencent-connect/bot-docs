@@ -102,6 +102,7 @@ module.exports = {
               'message/message_template',
               'message/post_ark_messages',
               'message/message_format',
+              'message/post_reference_messages',
             ],
           },
           {
