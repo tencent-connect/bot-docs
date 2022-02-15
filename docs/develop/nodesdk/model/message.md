@@ -79,6 +79,13 @@
 | key    | string | key   |
 | value  | string | value |
 
+## MessageReference
+
+| 字段名                   | 类型    | 描述                                 |
+| :----------------------- | :------ | :----------------------------------- |
+| message_id               | string  | 需要引用回复的消息 ID                |
+| ignore_get_message_error | boolean | 是否忽略获取引用消息详情错误，默认否 |
+
 ## MessageAudited
 
 消息审核对象
