@@ -21,7 +21,7 @@ members = api.get_guild_member(guild_id, user_id)
 
 ## 返回说明
 
-返回 [Member](model.md) 对象。
+返回 [Member](#member) 对象。
 
 ## Member
 
