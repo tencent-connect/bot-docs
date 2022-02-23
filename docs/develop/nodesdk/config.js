@@ -112,6 +112,12 @@ module.exports = {
             children: ['dms/post_dms.md', 'dms/post_dms_messages.md'],
           },
           {
+            title: '表情表态 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['reaction/post_reaction.md', 'reaction/delete_reaction.md'],
+          },
+          {
             title: '禁言 API',
             collapsable: false,
             sidebarDepth: 0,
