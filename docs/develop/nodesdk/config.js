@@ -123,6 +123,7 @@ module.exports = {
             sidebarDepth: 0,
             children: [
               'announce/post_guild_announce',
+              'announce/post_guild_recommend',
               'announce/delete_guild_announce',
               'announce/post_channel_announce',
               'announce/delete_channel_announce',

@@ -24,11 +24,20 @@ async function demo() {
 
 ### Announce
 
-| 字段名     | 类型   | 描述                      |
-| ---------- | ------ | ------------------------- |
-| guild_id   | string | [频道 ID](./guild.md)     |
-| channel_id | string | [子频道 ID](./channel.md) |
-| message_id | string | [消息 ID](./message.md)   |
+| 字段名             | 类型                                         | 描述                             |
+| ------------------ | -------------------------------------------- | -------------------------------- |
+| guild_id           | string                                       | [频道 ID](../model/guild.md)     |
+| channel_id         | string                                       | [子频道 ID](../model/channel.md) |
+| message_id         | string                                       | [消息 ID](../model/message.md)   |
+| announce_type      | number                                       | 推荐类别 0:成员公告; 1:欢迎公告  |
+| recommend_channels | [RecommendChannel[]](#recommendchannel) 数组 | 推荐子频道详情列表               |
+
+### RecommendChannel
+
+| 字段名     | 类型   | 描述                             |
+| ---------- | ------ | -------------------------------- |
+| channel_id | string | [子频道 ID](../model/channel.md) |
+| introduce  | string | 推荐语                           |
 
 ## 返回示例
 
@@ -37,7 +46,9 @@ async function demo() {
 ```json
 {
   "guild_id": "xxxxxx",
-  "channel_id": "xxxxxx",
-  "message_id": "xxxxxx"
+  "channel_id": "123456",
+  "message_id": "xxxxxx",
+  "announces_type": 0,
+  "recommend_channels": []
 }
 ```
