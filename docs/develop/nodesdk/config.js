@@ -27,6 +27,7 @@ module.exports = {
           { title: '消息对象(Message)', path: 'model/message' },
           { title: '私信对象(DMS)', path: 'model/dms' },
           { title: '公告对象(Announce)', path: 'model/announce' },
+          { title: '精华消息对象(PinsMessage)', path: 'model/pins_message.md' },
           { title: '日程对象(Schedule)', path: 'model/schedule' },
           { title: '表情对象(Emoji)', path: 'model/emoji' },
           { title: '表情表态对象(Reaction)', path: 'model/reaction' },
@@ -127,6 +128,16 @@ module.exports = {
               'announce/delete_guild_announce',
               'announce/post_channel_announce',
               'announce/delete_channel_announce',
+            ],
+          },
+          {
+            title: '精华消息 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'pins_message/get_pins_message',
+              'pins_message/put_pins_message',
+              'pins_message/delete_pins_message',
             ],
           },
           {
