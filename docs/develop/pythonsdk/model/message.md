@@ -2,21 +2,23 @@
 
 ## Message
 
-| 字段名           | 类型                                      | 描述                                                                            |
-| ---------------- | ----------------------------------------- | ------------------------------------------------------------------------------- |
-| id               | string                                    | 消息 id                                                                         |
-| channel_id       | string                                    | 子频道 ID                                                                       |
-| guild_id         | string                                    | 频道 ID                                                                         |
-| content          | string                                    | 消息内容                                                                        |
-| timestamp        | string                                    | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
-| edited_timestamp | string                                    | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00" |
-| mention_everyone | boolean                                   | 是否是@全员消息                                                                 |
-| author           | [User](/user#user)                | 消息创建者                                                                      |
-| attachments      | [MessageAttachment[]](#messageattachment) | 附件                                                                            |
-| embeds           | [MessageEmbed[]](#messageembed)           | embed                                                                           |
-| mentions         | [User](/user#user)                | 消息中@的人                                                                     |
-| member           | [Member](d#member)       | 消息创建者的 member 信息                                                        |
-| ark              | [MessageArk](#messageark)                 | ark 消息                                                                        |
+| 字段名           | 类型                                      | 描述                                                                                                                       |
+| ---------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| id               | string                                    | 消息 id                                                                                                                    |
+| channel_id       | string                                    | 子频道 ID                                                                                                                  |
+| guild_id         | string                                    | 频道 ID                                                                                                                    |
+| content          | string                                    | 消息内容                                                                                                                   |
+| timestamp        | string                                    | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
+| edited_timestamp | string                                    | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
+| mention_everyone | boolean                                   | 是否是@全员消息                                                                                                            |
+| author           | [User](/user#user)                        | 消息创建者                                                                                                                 |
+| attachments      | [MessageAttachment[]](#messageattachment) | 附件                                                                                                                       |
+| embeds           | [MessageEmbed[]](#messageembed)           | embed                                                                                                                      |
+| mentions         | [User](/user#user)                        | 消息中@的人                                                                                                                |
+| member           | [Member](d#member)                        | 消息创建者的 member 信息                                                                                                   |
+| ark              | [MessageArk](#messageark)                 | ark 消息                                                                                                                   |
+| seq              | number                                    | 用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序。(目前只在消息事件中有值，后续废弃) |
+| seq_in_channel   | string                                    | 子频道消息 seq，用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序                     |
 
 ## MessageToCreate
 
@@ -78,3 +80,24 @@
 | :----- | :----- | :---- |
 | key    | string | key   |
 | value  | string | value |
+
+## MessageReference
+
+| 字段名                   | 类型    | 描述                                 |
+| :----------------------- | :------ | :----------------------------------- |
+| message_id               | string  | 需要引用回复的消息 ID                |
+| ignore_get_message_error | boolean | 是否忽略获取引用消息详情错误，默认否 |
+
+## MessageAudited
+
+消息审核对象
+
+| 字段名         | 类型             | 描述                                                                                                   |
+| -------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| audit_id       | string           | 消息审核 ID                                                                                            |
+| message_id     | string           | 消息 ID，只有审核通过事件才会有值                                                                      |
+| guild_id       | string           | 频道 ID                                                                                                |
+| channel_id     | string           | 子频道 ID                                                                                              |
+| audit_time     | string           | 消息审核时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                         |
+| create_time    | string timestamp | 消息创建时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                         |
+| seq_in_channel | string           | 子频道消息 seq，用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序 |
