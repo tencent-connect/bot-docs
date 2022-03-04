@@ -2,23 +2,24 @@
 
 ## Message
 
-| 字段名           | 类型                                      | 描述                                                                                                                       |
-| ---------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| id               | string                                    | 消息 id                                                                                                                    |
-| channel_id       | string                                    | 子频道 ID                                                                                                                  |
-| guild_id         | string                                    | 频道 ID                                                                                                                    |
-| content          | string                                    | 消息内容                                                                                                                   |
-| timestamp        | string                                    | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
-| edited_timestamp | string                                    | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
-| mention_everyone | boolean                                   | 是否是@全员消息                                                                                                            |
-| author           | [User](../model/user#user)                | 消息创建者                                                                                                                 |
-| attachments      | [MessageAttachment[]](#messageattachment) | 附件                                                                                                                       |
-| embeds           | [MessageEmbed[]](#messageembed)           | embed                                                                                                                      |
-| mentions         | [User](../model/user#user)                | 消息中@的人                                                                                                                |
-| member           | [Member](../model/member.md#member)       | 消息创建者的 member 信息                                                                                                   |
-| ark              | [MessageArk](#messageark)                 | ark 消息                                                                                                                   |
-| seq              | number                                    | 用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序。(目前只在消息事件中有值，后续废弃) |
-| seq_in_channel   | string                                    | 子频道消息 seq，用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序                     |
+| 字段名            | 类型                                       | 描述                                                                                                                       |
+| ----------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| id                | string                                     | 消息 id                                                                                                                    |
+| channel_id        | string                                     | 子频道 ID                                                                                                                  |
+| guild_id          | string                                     | 频道 ID                                                                                                                    |
+| content           | string                                     | 消息内容                                                                                                                   |
+| timestamp         | string                                     | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
+| edited_timestamp  | string                                     | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
+| mention_everyone  | boolean                                    | 是否是@全员消息                                                                                                            |
+| author            | [User](../model/user#user)                 | 消息创建者                                                                                                                 |
+| attachments       | [MessageAttachment[]](#messageattachment)  | 附件                                                                                                                       |
+| embeds            | [MessageEmbed[]](#messageembed)            | embed                                                                                                                      |
+| mentions          | [User](../model/user#user)                 | 消息中@的人                                                                                                                |
+| member            | [Member](../model/member.md#member)        | 消息创建者的 member 信息                                                                                                   |
+| ark               | [MessageArk](#messageark)                  | ark 消息                                                                                                                   |
+| seq               | number                                     | 用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序。(目前只在消息事件中有值，后续废弃) |
+| seq_in_channel    | string                                     | 子频道消息 seq，用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序                     |
+| message_reference | [MessageReference](#messagereference) 对象 | 引用消息对象                                                                                                               |
 
 ## MessageToCreate
 
