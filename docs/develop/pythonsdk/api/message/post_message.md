@@ -34,13 +34,13 @@ msg_api.post_message(channel_id, message_send_request)
 
 ## MessageSendRequest
 
-| 字段名  | 类型                          | 描述                                                                                     |
-| ------- | ----------------------------- | ---------------------------------------------------------------------------------------- |
-| content | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)                                    |
-| embed   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                                               |
-| ark     | [MessageArk](#messageark)     | ark 消息                                                                                 |
-| image   | string                        | 图片 url 地址                                                                            |
-| msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为[被动回复消息](#被动回复消息)，否则视为主动推送消息** |
+| 字段名  | 必填 | 类型                          | 描述                                                                                     |
+| ------- | ---- | ----------------------------- | ---------------------------------------------------------------------------------------- |
+| content | 否   | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)，可以为空                                    |
+| embed   | 否   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                                               |
+| ark     | 否   | [MessageArk](#messageark)     | ark 消息                                                                                 |
+| image   | 否   | string                        | 图片 url 地址                                                                            |
+| msg_id  | 否   | string                        | 要回复的消息 id。**带了 msg_id 视为[被动回复消息](#被动回复消息)，否则视为主动推送消息** |
 
 `content`、`embed`、`ark`、`image`**至少需要有一个字段**，否则无法下发消息。
 
