@@ -6,4 +6,4 @@
 | ----------- | -------- | --------------------------- |
 | guild_id    | string   | [频道 ID](./guild.md)       |
 | channel_id  | string   | [子频道 ID](./channel.md)   |
-| message_ids | List[str] | [消息 ID](./message.md)数组 |
+| message_ids | string列表 | [消息 ID](./message.md)列表 |
