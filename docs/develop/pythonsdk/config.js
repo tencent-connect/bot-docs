@@ -28,6 +28,7 @@ module.exports = {
           {title: '私信对象(DMS)', path: 'model/dms'},
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
+          {title: '精华消息对象(PinsMessage)', path: 'model/pins_message' },
           {title: '表情对象(Emoji)', path: 'model/emoji'},
           {title: '表情表态对象(Reaction)', path: 'model/reaction'},
           {title: '日程对象(Schedule)', path: 'model/schedule'},
@@ -121,6 +122,15 @@ module.exports = {
             children: [
               'api/dms/create_dms',
               'api/dms/post_dms',
+            ],
+          },
+          {
+            title: '表情表态 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/reaction/post_reaction.md',
+              'api/reaction/delete_reaction.md'
             ],
           },
           {
