@@ -113,6 +113,7 @@ module.exports = {
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
+              'api/message/post_reference_messages'
             ],
           },
           {
@@ -151,6 +152,7 @@ module.exports = {
               'api/announce/delete_guild_announce',
               'api/announce/create_channel_announce',
               'api/announce/delete_channel_announce',
+              'api/announce/post_recommended_channels',
             ],
           },
           {
