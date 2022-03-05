@@ -21,7 +21,9 @@ token = qqbot.Token({appid}, {token})
 
 def demo():
     announce_api = qqbot.AnnounceAPI(token, False)  
-    announce = announce_api.post_recommended_channels(guild_id, message_id)
+    channel_list = [RecommendChannel(channel_id, "xxx")]
+    request = RecommendChannelRequest(0, channel_list)
+    announce = announce_api.post_recommended_channels(guild_id, request)
 ```
 
 #### async
@@ -31,15 +33,17 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 async def demo():
-    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
-    announce = await announce_api.post_recommended_channels(guild_id, message_id)
+    announce_api = qqbot.AsyncAnnounceAPI(token, False) 
+    channel_list = [RecommendChannel(channel_id, "xxx")]
+    request = RecommendChannelRequest(0, channel_list)
+    announce = await announce_api.post_recommended_channels(guild_id, request)
 ```
 
 ## 参数说明
 
 | 字段名       | 必填 | 类型                          | 描述                         |
 | ------------ | ---- | ----------------------------- | ---------------------------- |
-| guildId      | 是   | string                        | [频道 ID](../../model/guild.md) |
+| guildId      | 是   | string                        | 频道 ID |
 | request | 是   | [RecommendChannelRequest](#RecommendChannelRequest) | 推荐子频道列表           |
 
 ### RecommendChannelRequest
@@ -64,11 +68,11 @@ async def demo():
 
 | 字段名             | 类型                                         | 描述                             |
 | ------------------ | -------------------------------------------- | -------------------------------- |
-| guild_id           | string                                       | [频道 ID](../model/guild.md)     |
-| channel_id         | string                                       | [子频道 ID](../model/channel.md) |
-| message_id         | string                                       | [消息 ID](../model/message.md)   |
+| guild_id           | string                                       | 频道 ID     |
+| channel_id         | string                                       | 子频道 ID |
+| message_id         | string                                       | 消息 ID  |
 | announce_type      | number                                       | 推荐类别 0:成员公告; 1:欢迎公告  |
-| recommend_channels | [RecommendChannel[]](#recommendchannel) 列表 | 推荐子频道详情列表               |
+| recommend_channels | [RecommendChannel](#recommendchannel) 列表 | 推荐子频道详情列表               |
 
 ## 返回示例
 
