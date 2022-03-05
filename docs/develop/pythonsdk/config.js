@@ -151,6 +151,7 @@ module.exports = {
               'api/announce/delete_guild_announce',
               'api/announce/create_channel_announce',
               'api/announce/delete_channel_announce',
+              'api/announce/post_recommended_channels',
             ],
           },
           {
