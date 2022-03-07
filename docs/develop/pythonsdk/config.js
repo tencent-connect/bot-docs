@@ -168,6 +168,16 @@ module.exports = {
             ],
           },
           {
+            title: '精华消息 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/pins_message/get_pins_message',
+              'api/pins_message/put_pins_message',
+              'api/pins_message/delete_pins_message',
+            ],
+          },
+          {
             title: '音频 API',
             collapsable: false,
             sidebarDepth: 0,
