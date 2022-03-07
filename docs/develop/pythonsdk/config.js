@@ -113,6 +113,7 @@ module.exports = {
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
+              'api/message/post_reference_messages'
             ],
           },
           {
