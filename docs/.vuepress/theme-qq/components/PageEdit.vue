@@ -52,10 +52,6 @@ export default {
       } = this.$site.themeConfig;
 
       const { path: pagePath } = this.$page; 
-      
-      if (disableRoutes.some(route => pagePath.startsWith(route))) {
-        return false;
-      }
 
       if (showEditLink && docsRepo && this.$page.relativePath) {
         return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath);
