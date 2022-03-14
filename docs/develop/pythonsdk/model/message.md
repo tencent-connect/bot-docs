@@ -19,8 +19,9 @@
 | ark              | [MessageArk](#messageark)                 | ark 消息                                                                                                                   |
 | seq              | number                                    | 用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序。(目前只在消息事件中有值，后续废弃) |
 | seq_in_channel   | string                                    | 子频道消息 seq，用于消息间的排序，seq 在同一子频道中按从先到后的顺序递增，不同的子频道之前消息无法排序                     |
+| message_reference| [MessageReference](#messagereference)     | 引用消息对象  |
 
-## MessageToCreate
+## MessageSendRequest
 
 | 字段名  | 类型                          | 描述                                                                    |
 | ------- | ----------------------------- | ----------------------------------------------------------------------- |
@@ -29,6 +30,7 @@
 | ark     | [MessageArk](#messageark)     | ark 消息                                                                |
 | image   | string                        | 图片 url 地址                                                           |
 | msg_id  | string                        | 要回复的消息 id。**带了 msg_id 视为被动回复消息，否则视为主动推送消息** |
+| message_reference| [MessageReference](#messagereference)     | 引用消息对象  |
 
 ## MessageEmbed
 
@@ -83,10 +85,10 @@
 
 ## MessageReference
 
-| 字段名                   | 类型    | 描述                                 |
+| 字段名                   | 类型    | 必填 ｜描述                                 |
 | :----------------------- | :------ | :----------------------------------- |
-| message_id               | string  | 需要引用回复的消息 ID                |
-| ignore_get_message_error | boolean | 是否忽略获取引用消息详情错误，默认否 |
+| message_id               | string  | 是 ｜ 需要引用回复的消息 ID                |
+| ignore_get_message_error | boolean | 否 ｜ 是否忽略获取引用消息详情错误，默认否 |
 
 ## MessageAudited
 
