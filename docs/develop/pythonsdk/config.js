@@ -28,6 +28,7 @@ module.exports = {
           {title: '私信对象(DMS)', path: 'model/dms'},
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
+          {title: '精华消息对象(PinsMessage)', path: 'model/pins_message' },
           {title: '表情对象(Emoji)', path: 'model/emoji'},
           {title: '表情表态对象(Reaction)', path: 'model/reaction'},
           {title: '日程对象(Schedule)', path: 'model/schedule'},
@@ -112,6 +113,7 @@ module.exports = {
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
+              'api/message/post_reference_messages'
             ],
           },
           {
@@ -121,6 +123,15 @@ module.exports = {
             children: [
               'api/dms/create_dms',
               'api/dms/post_dms',
+            ],
+          },
+          {
+            title: '表情表态 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/reaction/post_reaction.md',
+              'api/reaction/delete_reaction.md'
             ],
           },
           {
@@ -141,6 +152,7 @@ module.exports = {
               'api/announce/delete_guild_announce',
               'api/announce/create_channel_announce',
               'api/announce/delete_channel_announce',
+              'api/announce/post_recommended_channels',
             ],
           },
           {
@@ -153,6 +165,16 @@ module.exports = {
               'api/schedule/post_schedule',
               'api/schedule/update_schedule',
               'api/schedule/delete_schedule',
+            ],
+          },
+          {
+            title: '精华消息 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/pins_message/get_pins_message',
+              'api/pins_message/put_pins_message',
+              'api/pins_message/delete_pins_message',
             ],
           },
           {
