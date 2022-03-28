@@ -20,7 +20,7 @@ token = qqbot.Token({appid}, {token})
 
 def demo():
     msg_api = qqbot.MessageAPI(token, False)  
-    is_success = msg_api.recall_message(channel_id, message_id)
+    is_success = msg_api.recall_message(channel_id, message_id, True)
 ```
 
 #### async
@@ -31,7 +31,7 @@ token = qqbot.Token({appid}, {token})
 
 async def demo():
     msg_api = qqbot.AsyncMessageAPI(token, False)  
-    is_success = await msg_api.recall_message(channel_id, message_id)
+    is_success = await msg_api.recall_message(channel_id, message_id, True)
 ```
 
 
@@ -41,10 +41,11 @@ async def demo():
 | --------- | ---- | ------ | -------------------------------- |
 | channel_id | 是   | string | 子频道 ID |
 | message_id | 是   | string | 消息 ID  |
+| hide_tip | 否   | bool | 是否隐藏提示小灰条，true 为隐藏，false 为显示。默认为false  |
 
 ## 返回说明
 
-成功返回空对象。
+返回是否更新成功
 
 ## 返回示例
 
