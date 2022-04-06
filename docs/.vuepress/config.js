@@ -22,7 +22,7 @@ module.exports = ctx => ({
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.png',
+        href: '/favicon.ico',
       },
     ],
     [
