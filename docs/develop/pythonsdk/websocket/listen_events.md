@@ -13,6 +13,7 @@ class HandlerType(Enum):
     DIRECT_MESSAGE_EVENT_HANDLER = 6 # 私信事件
     AUDIO_EVENT_HANDLER = 7 # 音频事件
     MESSAGE_REACTIONS_EVENT_HANDLER = 8 # 表情表态事件
+    INTERACTION_CREATE_HANDLER = 12
 ```
 
 ## 当前支持的事件
@@ -39,6 +40,8 @@ class WsEvent:
     EventAudioFinish = "AUDIO_FINISH"
     EventAudioOnMic = "AUDIO_ON_MIC"
     EventAudioOffMic = "AUDIO_OFF_MIC"
+    
+    EventInteractionCreate = "INTERACTION_CREATE"
 
     EventMessageReactionAdd = "MESSAGE_REACTION_ADD"
     EventMessageReactionRemove = "MESSAGE_REACTION_REMOVE"
@@ -63,6 +66,8 @@ def _message_handler(event, message: Message):
 def _message_handler(event, message: Message):
 #表情表态消息事件
 def _message_reactions_handler(event, reaction: Reaction):
+#互动回调事件
+def _interaction_handler(event, interaction: qqbot.Interaction):
 ```
 
 ## 使用示例

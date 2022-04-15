@@ -32,6 +32,7 @@ module.exports = {
           {title: '表情对象(Emoji)', path: 'model/emoji'},
           {title: '表情表态对象(Reaction)', path: 'model/reaction'},
           {title: '日程对象(Schedule)', path: 'model/schedule'},
+          {title: '互动回调对象(Interaction)', path: 'model/interaction'},
         ],
       },
       {
@@ -189,7 +190,15 @@ module.exports = {
             title: '接口权限 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['api/api_permissions/get_permissions','api/api_permissions/post_permission.md'],
+            children: ['api/api_permissions/get_permissions','api/api_permissions/post_permission'],
+          },
+          {
+            title: '互动回调 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+                'api/interaction/put_interaction'
+            ],
           },
         ],
       },
