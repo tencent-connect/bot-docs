@@ -8,11 +8,14 @@ class HandlerType(Enum):
     GUILD_EVENT_HANDLER = 1  # 频道事件   
     GUILD_MEMBER_EVENT_HANDLER = 2  # 频道成员事件    
     CHANNEL_EVENT_HANDLER = 3  # 子频道事件    
-    MESSAGE_EVENT_HANDLER = 4  # 消息事件    
-    AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
-    DIRECT_MESSAGE_EVENT_HANDLER = 6 # 私信事件
-    AUDIO_EVENT_HANDLER = 7 # 音频事件
-    MESSAGE_REACTIONS_EVENT_HANDLER = 8 # 表情表态事件
+    MESSAGE_EVENT_HANDLER = 4  # 创建消息事件    
+    MESSAGE_DELETE_EVENT_HANDLER = 5 # 删除消息事件
+    AT_MESSAGE_EVENT_HANDLER = 6 # @事件
+    DIRECT_MESSAGE_EVENT_HANDLER = 7 # 私信消息事件
+    DIRECT_MESSAGE_DELETE_EVENT_HANDLER = 8 # 删除私信消息事件
+    AUDIO_EVENT_HANDLER = 9 # # 音频事件
+    MESSAGE_REACTIONS_EVENT_HANDLER = 10 # 表情表态事件
+    PUBLIC_MESSAGE_DELETE_EVENT_HANDLER = 11 # 公共消息删除事件
 ```
 
 ## 当前支持的事件
@@ -22,7 +25,6 @@ class WsEvent:
     EventGuildCreate = "GUILD_CREATE"
     EventGuildUpdate = "GUILD_UPDATE"
     EventGuildDelete = "GUILD_DELETE"
-    
     EventChannelCreate = "CHANNEL_CREATE"
     EventChannelUpdate = "CHANNEL_UPDATE"
     EventChannelDelete = "CHANNEL_DELETE"
@@ -32,8 +34,13 @@ class WsEvent:
     EventGuildMemberRemove = "GUILD_MEMBER_REMOVE"
 
     EventMessageCreate = "MESSAGE_CREATE"
-    EventDirectMessageCreate = "DIRECT_MESSAGE_CREATE"
+    EventMessageDelete = "MESSAGE_DELETE"
+
     EventAtMessageCreate = "AT_MESSAGE_CREATE"
+    EventPublicMessageDelete = "PUBLIC_MESSAGE_DELETE"
+
+    EventDirectMessageCreate = "DIRECT_MESSAGE_CREATE"
+    EventDirectMessageDelete = "DIRECT_MESSAGE_DELETE"
 
     EventAudioStart = "AUDIO_START"
     EventAudioFinish = "AUDIO_FINISH"
@@ -63,6 +70,8 @@ def _message_handler(event, message: Message):
 def _message_handler(event, message: Message):
 #表情表态消息事件
 def _message_reactions_handler(event, reaction: Reaction):
+#消息撤回事件
+def _message_recall_handler(event, deleted_message_info: DeletedMessageInfo):
 ```
 
 ## 使用示例
