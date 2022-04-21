@@ -22,7 +22,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 msg_api = qqbot.MessageAPI(token, False)         
-msg_api.post_message(channel_id, message_send_request)
+message = msg_api.post_message(channel_id, message_send_request)
 ```
 
 ## 参数说明
