@@ -17,7 +17,7 @@
 | private_type     | string | 子频道私密类型 [PrivateType](#privatetype)                                                                           |
 | speak_permission | number | 子频道发言权限 [SpeakPermission](#speakpermission)                                                                   |
 | application_id   | string | 用于标识应用子频道应用类型，仅应用子频道时会使用该字段，具体定义请参考 [应用子频道的应用类型](#应用子频道的应用类型) |
-| permissions      | string | 用户拥有的子频道权限 [Permissions](../model/channel_permission.md#permissions) 
+| permissions      | string | 用户拥有的子频道权限 [Permissions](./channel_permission.md#permissions) 
 
 ### 有关 position 的说明
 
