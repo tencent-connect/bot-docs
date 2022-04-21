@@ -10,7 +10,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 msg_api = qqbot.MessageAPI(token, False)
-msg_api.get_message(channel_id,message_id)
+message = msg_api.get_message(channel_id, message_id)
 ```
 
 ## 参数说明

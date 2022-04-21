@@ -27,7 +27,7 @@ send = qqbot.MessageSendRequest(
 )
 
 # 通过api发送回复消息
-await msg_api.post_message(channel_id, send)
+message = await msg_api.post_message(channel_id, send)
 ```
 
 ## 参数说明
