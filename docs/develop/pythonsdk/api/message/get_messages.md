@@ -11,7 +11,7 @@ import qqbot
 token = qqbot.Token({appid}, {token})
 
 msg_api = qqbot.MessageAPI(token, False)
-msg_api.get_messages(channel_id,pager)
+message_list = msg_api.get_messages(channel_id, pager)
 ```
 
 ## 参数说明
