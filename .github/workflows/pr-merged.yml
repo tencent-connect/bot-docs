@@ -19,7 +19,7 @@ jobs:
             > 合并人： ${{ github.event.pull_request.merged_by.login }}
             
             > 详情： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
-            > 请关注： <@shaohuizuo> <@ostwindli>  
+            > 请关注： <@nillwang> <@jackqqxu>  
             
           type: markdown
           status: ${{ job.status }}
