@@ -27,13 +27,8 @@ result = api.create_guild_role_member(guild_id, role_id, user_id, channel)
 | guild_id | 是   | string              | 频道 ID                              |
 | role_id  | 是   | string              | 身份组 ID                            |
 | user_id  | 是   | string              | 用户 ID                              |
-| channel | 是   | [Channel](#channel) | 接收一个只填充了子频道 ID 字段的对象 |
-
-### Channel
-
-| 字段名 | 类型   | 描述      |
-| ------ | ------ | --------- |
-| id     | string | 子频道 ID |
+| ~~channel~~ | 否   | ~~Channel 对象~~  | ~~只填充 id 属性的 Channel 对象~~(**已弃用，请使用 channelId**) |
+| channel_id   | 否   | string          | 子频道 ID                                 |
 
 ## 返回说明
 

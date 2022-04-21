@@ -59,7 +59,7 @@ msg_api.post_message(channel_id, message_send_request)
 | @用户   | `<@user_id>`    | 解析为 `@用户` 标签                                                   | `<@1234000000001>`
 | @所有人 | `@everyone`     | 解析为 `@所有人` 标签，需要机器人拥有发送 `@所有人` 消息的权限    | `@everyone` |
 | #子频道 | `<#channel_id>` | 解析为 `#子频道` 标签，点击可以跳转至子频道，仅支持当前频道内的子频道 | `<#12345>`         |
-| 表情    | `<emoji:id>`    | 解析为系统表情，具体表情 id 参考 [Emoji 列表](../model/emoji.md#Emoji-列表)，仅支持 type=1 的系统表情，type=2 的 emoji 表情直接按字符串填写即可 | `<emoji:4>` 解析为得意表情 |
+| 表情    | `<emoji:id>`    | 解析为系统表情，具体表情 id 参考 [Emoji 列表](../../model/emoji.md#Emoji-列表)，仅支持 type=1 的系统表情，type=2 的 emoji 表情直接按字符串填写即可 | `<emoji:4>` 解析为得意表情 |
 
 ## 返回说明
 

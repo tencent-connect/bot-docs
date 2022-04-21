@@ -9,7 +9,7 @@ import qqbot
 
 token = qqbot.Token({appid}, {token})
 api = qqbot.GuildMemberAPI(token, False)
-members = api.get_guild_member(guild_id, user_id)
+member = api.get_guild_member(guild_id, user_id)
 ```
 
 ## 参数说明
@@ -29,7 +29,7 @@ members = api.get_guild_member(guild_id, user_id)
 | --------- | ------------- | -------------------------------------------------------------------------------------------- |
 | user      | [User](#user) | 用户的频道基础信息，只有成员相关接口中会填充此信息                                   |
 | nick      | string        | 用户在频道内的昵称                                                                           |
-| roles     | string[]      | 用户在频道内的身份组 ID，默认值可参考[DefaultRoleIDs](../guild/role_model.md#DefaultRoleIDs) |
+| roles     | string[]      | 用户在频道内的身份组 ID，默认值可参考[DefaultRoleIDs](../../model/role.md#defaultroleids) |
 | joined_at | string        | 用户加入频道的时间，是个 `ISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"         |
 
 ## User

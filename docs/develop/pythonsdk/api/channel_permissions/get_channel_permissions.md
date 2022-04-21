@@ -35,7 +35,7 @@ async def demo():
 | 字段名    | 必填 | 类型   | 描述                                      |
 | --------- | ---- | ------ | ----------------------------------------- |
 | channel_id | 是   | string | 子频道 ID                                 |
-| user_id    | 是   | string | 用户 ID ，参考 [User](./../model/user.md) |
+| user_id    | 是   | string | 用户 ID ，参考 [User](../../model/user.md) |
 
 ## 返回说明
 
@@ -46,7 +46,7 @@ async def demo():
 | 字段名      | 类型   | 描述                                                   |
 | ----------- | ------ | ------------------------------------------------------ |
 | channel_id  | string | 子频道 ID                                              |
-| user_id     | string | 用户 ID，参考 [User](./../model/user.md)               |
+| user_id     | string | 用户 ID，参考 [User](../../model/user.md)               |
 | permissions | string | 用户拥有的子频道权限，参考 [Permissions](#permissions) |
 
 ### Permissions
