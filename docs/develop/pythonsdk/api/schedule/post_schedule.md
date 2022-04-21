@@ -52,7 +52,7 @@ async def demo():
 | start_timestamp | 是   | string            | 日程开始时间戳(**`ms`**) ，**日程开始时间必须大于传当前时间**   |
 | end_timestamp   | 是   | string            | 日程结束时间戳(**`ms`**) ，**日程结束时间必须大于日程开始时间** |
 | creator         | 否   | [Member](#member) | 创建者                                                          |
-| jump_channel_id | 否   | string            | 日程开始时跳转到的[子频道 ID](../model/channel.md)              |
+| jump_channel_id | 否   | string            | 日程开始时跳转到的[子频道 ID](../../model/channel.md)              |
 | remind_type     | 是   | string            | 日程提醒类型，取值参考[RemindType](#remindtype)                 |
 
 ## 返回说明

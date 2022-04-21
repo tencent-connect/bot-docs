@@ -23,9 +23,9 @@ result = api.update_guild_role(guild_id, role_id, role_info)
 | --------- | ---- | --------------------- | -------------- |
 | guild_id  | 是   | string                | 频道 ID        |
 | role_id   | 是   | string                | 身份组 ID      |
-| role_info | 是   | [RoleInfo](#roleinfo) | 频道身份组参数 |
+| role_info | 是   | [RoleUpdateInfo](#roleupdateinfo) | 频道身份组参数 |
 
-### RoleInfo
+### RoleUpdateInfo
 
 | 字段名 | 必填 | 类型   | 描述                                                           |
 | ------ | ---- | ------ | -------------------------------------------------------------- |
