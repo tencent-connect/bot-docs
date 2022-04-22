@@ -31,6 +31,6 @@ if err != nil {
 
 | 字段名      | 必填 | 类型                                  | 描述                             |
 | ----------- | ---- | ------------------------------------- | -------------------------------- |
-| type        | 是   | int                                   | 表情类型，参考[EmojiType](../../model/emoji.md#EmojiType)  |
-| emoji_id    | 是   | string                                | 表情 ID，参考 [Emoji 列表](../../model/emoji.md#Emoji-列表)|
+| Type        | 是   | int                                   | 表情类型，参考[EmojiType](../../model/emoji.md#EmojiType)  |
+| ID    | 是   | string                                | 表情 ID，参考 [Emoji 列表](../../model/emoji.md#Emoji-列表)|
 

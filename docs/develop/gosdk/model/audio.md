@@ -2,13 +2,13 @@
 
 ## AudioControl
 
-| 字段名    | 类型              | 描述                                                                  |
-| --------- | ----------------- | --------------------------------------------------------------------- |
-| audio_url | string            | 音频数据的 url status 为 0 时传                                       |
-| text      | string            | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |
-| status    | [STATUS](#status) | 播放状态，参考 STATUS                                                 |
+| 字段名    | 类型   | 描述                                                                  |
+| --------- | ------ | --------------------------------------------------------------------- |
+| URL       | string | 音频数据的 url status 为 0 时传                                       |
+| Text      | string | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |
+| Status    | STATUS | 播放状态，参考 [AudioStatus](#AudioStatus)                                                 |
 
-## STATUS
+### AudioStatus
 
 | 字段名 | 值  | 描述         |
 | ------ | --- | ------------ |
@@ -21,7 +21,7 @@
 
 | 字段名     | 类型   | 描述                                                                  |
 | ---------- | ------ | --------------------------------------------------------------------- |
-| guild_id   | string | 频道 ID                                                               |
-| channel_id | string | 子频道 ID                                                             |
-| audio_url  | string | 音频数据的 url status 为 0 时传                                       |
-| text       | string | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |
+| GuildID   | string | 频道 ID                                                               |
+| ChannelID | string | 子频道 ID                                                             |
+| URL  | string | 音频数据的 url status 为 0 时传                                       |
+| Text       | string | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |

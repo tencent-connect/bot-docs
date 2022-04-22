@@ -2,11 +2,11 @@
 
 ### ChannelPermissions
 
-| 字段名      | 类型   | 描述                                                        |
-| ----------- | ------ | ----------------------------------------------------------- |
-| channel_id  | string | 子频道 ID                                                   |
-| user_id     | string | 用户 ID                                                     |
-| permissions | string | 用户拥有的子频道权限，具体值参考[permissions](#permissions) |
+| 字段名      | 类型                        | 描述                              |
+| ----------- | --------------------------- | --------------------------------- |
+| ChannelID  | string                      | 子频道 ID                         |
+| UserID     | string                      | 用户 ID                           |
+| Permissions | [permissions](#permissions) | 用户拥有的子频道权限，是个 string |
 
 ### Permissions
 

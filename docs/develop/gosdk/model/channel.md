@@ -6,18 +6,18 @@
 
 | 字段名    | 类型   | 描述                                           |
 | --------- | ------ | ---------------------------------------------- |
-| id        | string | 子频道 ID                                      |
-| guild_id  | string | 频道 ID                                        |
-| name      | string | 子频道名                                       |
-| type      | number | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 排序，必填，而且不能够和其他子频道的值重复     |
-| parent_id | string | 分组 ID                                        |
-| owner_id  | string | 创建人 ID                                      |
-| private_type     | string | 子频道私密类型 [PrivateType](#privatetype)                                                                           |
-| speak_permission | number | 子频道发言权限 [SpeakPermission](#speakpermission)                                                                   |
-| application_id   | string | 用于标识应用子频道应用类型，仅应用子频道时会使用该字段，具体定义请参考 [应用子频道的应用类型](#应用子频道的应用类型) |
-| permissions      | string | 用户拥有的子频道权限 [Permissions](./channel_permission.md#permissions) 
+| ID        | string | 子频道id                                       |
+| GuildID   | string | 频道id                                         |
+| Name      | string | 子频道名                                       |
+| Type      | int    | 子频道类型 [ChannelType](#channeltype)         |
+| SubType   | int    | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| Position  | int64    | 排序，必填，而且不能够和其他子频道的值重复     |
+| ParentID  | string | 分组 id                                        |
+| OwnerID   | string | 创建人 id                                      |
+| PrivateType| int   | 子频道的可见类型 [ChannelPrivateType](#ChannelPrivateType)   |
+| SpeakPermission | int | 子频道发言权限 [SpeakPermissionType](#SpeakPermissionType)  |
+| ApplicationID | string | 应用子频道的应用ID，仅应用子频道有效|
+| Permissions | string | 用户拥有的子频道权限 |
 
 ### 有关 position 的说明
 
@@ -40,7 +40,7 @@
 | 10006 | 应用子频道   |
 | 10007 | 论坛子频道   |
 
-注：由于 QQ 频道还在持续的迭代中，经常会有新的子频道类型增加，文档更新不一定及时，开发者识别 `ChannelType` 时，请注意相关的未知 ID 的处理。
+注：由于 QQ 频道还在持续的迭代中，经常会有新的子频道类型增加，文档更新不一定及时，开发者识别 `ChannelType` 时，请注意相关的未知类型的处理。
 
 ### ChannelSubType
 
@@ -51,25 +51,20 @@
 | 2   | 攻略 |
 | 3   | 开黑 |
 
-注：目前只有`文字子频道`具有 `ChannelSubType` 二级分类，同时二级分类也可能会不断增加，开发者也需要注意对未知 ID 的处理。
+### SpeakPermissionType
 
-### PrivateType
+| 值  | 描述 |
+| --- | ---- |
+| 0   | 公开发言权限 |
+| 1   | 指定成员可发言 |
 
-子频道私密类型。
+### ChannelPrivateType
 
-| 值 | 描述 |
-| --- | --------------------- |
-| 0 | 公开频道 |
-| 1 | 群主管理员可见 |
-| 2 | 群主管理员 + 指定成员，可使用 [修改子频道权限接口](../channel_permissions/put_channel_permissions.md) 指定成员 |
-
-### SpeakPermission
-
-| 值  | 描述                                                                                                         |
-| --- | ------------------------------------------------------------------------------------------------------------ |
-| 0   | 无效类型                                                                                                     |
-| 1   | 所有人                                                                                                       |
-| 2   | 群主管理员+指定成员，可使用 [修改子频道权限接口](../channel_permissions/put_channel_permissions.md) 指定成员 |
+| 值  | 描述 |
+| --- | ---- |
+| 0   | 公开频道 |
+| 1   | 群主管理员可见 |
+| 2   | 群主管理员 + 指定成员 |
 
 ### 应用子频道的应用类型
 
