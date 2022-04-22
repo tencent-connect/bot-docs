@@ -2,36 +2,27 @@
 
 ## 使用示例
 
-:::: code-group
-::: code-group-item py
-```py
-import qqbot
+```go
+token := token.BotToken("appid", "token")
+api := botgo.NewOpenAPI(token).WithTimeout(3 * time.Second)
+ctx := context.Background()
 
-token = qqbot.Token({appid}, {token})
-
-audioApi = qqbot.AudioAPI(token, False)
-result = audioApi.post_audio(channel_id, audio_control)
-```
-:::
-::: code-group-item js
-```js
-async function demo() {
-  let { data } = await client.audioApi.postAudio(channelID, audioControl);
+audioControl, err := api.PostAudio(ctx, channelId, &dto.AudioControl{})
+if err != nil {
+  log.Fatalln("调用 PostAudio 接口失败, err = ", err)
 }
 ```
-:::
-::::
 
 ## 参数说明
 
 | 字段名       | 类型                                    | 描述           |
 | ------------ | ------------------------------------- | -------------- |
-| channel_id    | String                                | 子频道 id      |
-| audio_control | [AudioControl](#audiocontrol) | audio 控制参数 |
+| channelId    | string                                | 子频道 id      |
+| AudioControl | [AudioControl](#AudioControl) | audio 控制参数 |
 
 ## 返回说明
 
-字段参见 [AudioControl](#audiocontrol)
+字段参见 [AudioControl](#AudioControl)
 
 # 语音对象
 
@@ -39,11 +30,11 @@ async function demo() {
 
 | 字段名    | 类型   | 描述                                                                  |
 | --------- | ------ | --------------------------------------------------------------------- |
-| audio_url | string | 音频数据的 url status 为 0 时传                                       |
-| text      | string | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |
-| status    | STATUS | 播放状态，参考 [STATUS](#STATUS)                                                 |
+| URL       | string | 音频数据的 url status 为 0 时传                                       |
+| Text      | string | 状态文本（比如：简单爱-周杰伦），可选，status 为 0 时传，其他操作不传 |
+| Status    | STATUS | 播放状态，参考 [AudioStatus](#AudioStatus)                                                 |
 
-### STATUS
+### AudioStatus
 
 | 字段名 | 值  | 描述         |
 | ------ | --- | ------------ |
