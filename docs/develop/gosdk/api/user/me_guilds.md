@@ -16,8 +16,8 @@ if meGuildError != nil {
 
 `GuildPager`表示获取频道列表范围
 
-｜字段名	｜必填	｜类型	｜描述 ｜
-｜---------｜------｜-----｜----｜
+|字段名	|必填	|类型	|描述 |
+|------|------|----- |----|
 |before	|否	|string	|读取此 guild id 之前的数据|
 |after	|否	|string	|读取此 guild id 之后的数据|
 |limit	|否	|number	|每次拉取多少条数据，最大不超过 100，默认 100|
@@ -38,8 +38,8 @@ before、after 同时存在时，以 before 为准。
 | ------------ | ------- | ------------------ |
 | ID           | string  | 频道 ID            |
 | Name         | string  | 频道名称           |
-| Icon         | string  | 频道头像           ｜
-| OwnerID      | string  | 拥有者ID          ｜
+| Icon         | string  | 频道头像           |
+| OwnerID      | string  | 拥有者ID          |
 | IsOwner      | bool | 当前人是否是创建人 |
 | MemberCount  | int  | 成员数             |
 | MaxMembers   | int64  | 最大成员数         |

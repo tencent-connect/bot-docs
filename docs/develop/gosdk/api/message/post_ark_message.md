@@ -64,20 +64,20 @@ if err != nil {
 
 | 字段名             | 类型    | 描述           |
 | ------------------ | ------- | -------------|
-| URL          | string  |    缩略图url      ｜
+| URL          | string  |    缩略图url      |
 
 ## Ark
 
 | 字段名             | 类型    | 描述           |
 | ------------------ | ------- | -------------|
-| TemplateID         | string  |    ark 模版 ID  ｜
+| TemplateID         | string  |    ark 模版 ID  |
 | KV                 | []*[ArkKV](#ArkKV)|   ArkKV 数组  |
 
 ## ArkKV
 
 | 字段名             | 类型    | 描述           |
 | ------------------ | ------- | -------------|
-| Key         | string  |    key  ｜
+| Key         | string  |    key  |
 | Value       | string |   value  |
 | Obj         | []* [ArkObj](#ArkObj) | ark obj 类型的列表|
 
@@ -91,7 +91,7 @@ if err != nil {
 
 | 字段名             | 类型    | 描述           |
 | ------------------ | ------- | -------------|
-| Key         | string  |    key  ｜
+| Key         | string  |    key  |
 | Value       | string |   value  |
 
 ### 参数示例
@@ -218,7 +218,7 @@ if err != nil {
 | ID                 | string  | 用户 ID                                                                                           |
 | Username           | string  | 用户名                                                                                             |
 | Avatar             | string  | 用户头像地址                                                                                       |
-| Bot                | bool    | 是否是机器人                                                                            ｜
+| Bot                | bool    | 是否是机器人                                                                            |
 | UnionOpenID        | string  | 特殊关联应用的 openid，需要特殊申请并配置后才会返回。如需申请，请联系平台运营人员。                |
 | UnionUserAccount   | string  | 机器人关联的互联应用的用户信息，与 union_openid 关联的应用是同一个。如需申请，请联系平台运营人员。 |
 
@@ -226,7 +226,7 @@ if err != nil {
 
 | 字段名    | 类型          | 描述                                                                                         |
 | --------- | ------------- | -------------------------------------------------------------------------------------------- |
-| GuildID   | string        | 频道ID                                                                              ｜
+| GuildID   | string        | 频道ID                                                                              |
 | User      | [User](#user) | 用户基础信息，来自 QQ 资料，只有成员相关接口中会填充此信息                                   |
 | Nick      | string        | 用户在频道内的昵称                                                                           |
 | Roles     | string[]      | 用户在频道内的身份组 ID，默认值可参考[DefaultRoleIDs](../guild/role_model.md#DefaultRoleIDs) |
@@ -247,7 +247,7 @@ if err != nil {
 
 | 字段名             | 类型    | 描述           |
 | ------------------ | ------- | -------------|
-| Timestamp          | string  | 时间         ｜
+| Timestamp          | string  | 时间         |
 
 
 ## 返回示例

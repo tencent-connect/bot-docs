@@ -31,8 +31,8 @@ if guildError != nil {
 | ------------ | ------- | ------------------ |
 | ID           | string  | 频道 ID            |
 | Name         | string  | 频道名称           |
-| Icon         | string  | 频道头像           ｜
-| OwnerID      | string  | 拥有者ID          ｜
+| Icon         | string  | 频道头像           |
+| OwnerID      | string  | 拥有者ID          |
 | IsOwner      | bool | 当前人是否是创建人 |
 | MemberCount  | int  | 成员数             |
 | MaxMembers   | int64  | 最大成员数         |

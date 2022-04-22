@@ -29,25 +29,14 @@ if err != nil {
 | ------- | ---- | ------ | ------- |
 | guildId | 是   | string | 频道 ID |
 | userId  | 是   | string | 用户 ID |
-| MemberDeleteOption | 否 ｜ [MemberDeleteOption](#MemberDeleteOption) ｜ 删除用户的选项 ｜
+| MemberDeleteOption | 否 | [MemberDeleteOption](#MemberDeleteOption) | 删除用户的选项 |
 
 ## MemberDeleteOption
 
 | 字段名  | 必填 | 类型   | 描述    |
 | ------- | ---- | ------ | ------- |
-| AddBlackList | 否 | bool | 删除成员的同时，将该用户添加到频道黑名单中｜
+| AddBlackList | 否 | bool | 删除成员的同时，将该用户添加到频道黑名单中|
 | DeleteHistoryMsgDays | 否 | int | 删除成员的同时，撤回该成员的消息，可以指定撤回消息的时间范围 |
 
 >注：消息撤回时间范围仅支持固定的天数：3，7，15，30。 特殊的时间范围：-1: 撤回全部消息。默认值为0不撤回任何消息
 
-## 返回说明
-
-无
-
-## 返回示例
-
-`data`:
-
-```js
-'';
-```

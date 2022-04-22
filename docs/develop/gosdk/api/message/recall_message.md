@@ -2,7 +2,7 @@
 
 撤回子频道内的消息
 
-::: 注意
+::: warning 注意
 
 - 管理员可以撤回普通成员的消息。
 - 频道主可以撤回所有人的消息。
@@ -28,7 +28,7 @@ if err != nil {
 | --------- | ---- | ------ | --------- |
 | channelId | 是   | string | 子频道 ID |
 | msgId | 是   | string | 消息 ID   |
-| RetractMessageOption | 否 ｜ [RetractMessageOption](#RetractMessageOption)|是否隐藏提示小灰条|
+| RetractMessageOption | 否 | [RetractMessageOption](#RetractMessageOption)|是否隐藏提示小灰条|
 
 ### RetractMessageOption
 
