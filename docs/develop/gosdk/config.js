@@ -113,12 +113,70 @@ module.exports = {
             ]
           },
           {
+            title: '表情表态 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/reaction/post_reaction.md',
+              'api/reaction/delete_reaction.md'
+            ],
+          },
+          {
+            title: '禁言 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/mute/mute_all',
+              'api/mute/mute_member',
+            ],
+          },
+          {
+            title: '公告 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/announce/create_guild_announce',
+              'api/announce/delete_guild_announce',
+              'api/announce/create_channel_announce',
+              'api/announce/delete_channel_announce',
+              'api/announce/post_recommended_channels',
+            ],
+          },
+          {
+            title: '日程 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/schedule/get_schedules',
+              'api/schedule/get_schedule',
+              'api/schedule/post_schedule',
+              'api/schedule/update_schedule',
+              'api/schedule/delete_schedule',
+            ],
+          },
+          {
+            title: '精华消息 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+              'api/pins_message/get_pins_message',
+              'api/pins_message/put_pins_message',
+              'api/pins_message/delete_pins_message',
+            ],
+          },
+          {
             title: '音频 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
               'api/audio/post_audio'
             ],
+          },
+          {
+            title: '接口权限 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['api/api_permissions/get_permissions','api/api_permissions/post_permission.md'],
           },
         ],
       },
