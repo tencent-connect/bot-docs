@@ -2,6 +2,7 @@
 const apiConfig = require('../develop/api/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
+const gosdkConfig = require('../develop/gosdk/config');
 const commonConfig = require('./common');
 
 const base = '/wiki/';
@@ -126,10 +127,7 @@ module.exports = ctx => ({
         items: [
           nodesdkConfig.nav,
           pythonsdkConfig.nav,
-          {
-            text: 'GoSDK',
-            link: 'https://pkg.go.dev/github.com/tencent-connect/botgo',
-          },
+          gosdkConfig.nav,
         ],
       },
       {
@@ -157,6 +155,7 @@ module.exports = ctx => ({
       ...apiConfig.sidebar,
       ...nodesdkConfig.sidebar,
       ...pythonsdkConfig.sidebar,
+      ...gosdkConfig.sidebar,
       '/': [''],
     },
 
