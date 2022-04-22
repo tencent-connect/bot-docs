@@ -49,10 +49,14 @@ docs
 欢迎扫码加入 **QQ 频道开发者社区**。
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <img alt="QQ频道开发者社区" src="https://mpqq.gtimg.cn/privacy-info/qq-guild.png" width="400">
 =======
 ![频道开发者社区](https://mpqq.gtimg.cn/privacy-info/qq-guild.png)
 >>>>>>> 7048ad3 (docs(readme): 调整频道官方二维码)
+=======
+![开发者社区](https://mpqq.gtimg.cn/privacy/qq_guild_developer.png)
+>>>>>>> 4dc6ef2 (feat(readme): 替换官方频道二维码)
 
 ## 贡献者
 
