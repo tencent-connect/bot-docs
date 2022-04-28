@@ -6,31 +6,28 @@ module.exports = {
     },
     "sidebar": {
       "/newfeature/": [
-        
-      ],
-      "/newfeature/": [
         {
-            "title": "新特性文档",
+            "title": "QQ开放平台更新介绍",
             "children": [
                 [
                     "/newfeature/ten/",
-                    "第十期"
+                    "v.4(2022.04.08)"
                 ],
                 [
                     "/newfeature/nine/",
-                    "第九期",
+                    "v.3(2022.03.11)",
                 ],
                 [
                     "/newfeature/seven/",
-                    "第七期",
+                    "v.2(2022.01.20)",
                 ],
                 [
                     "/newfeature/six/",
-                    "第六期",
+                    "v.1(2021.12.15)",
                 ],
                 [
                     "/newfeature/five/",
-                    "第五期",
+                    "v.0(2021.11.30)",
                 ],
             ]
         }

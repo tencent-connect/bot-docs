@@ -1,7 +1,7 @@
-QQ机器人能力迭代新特性文档
+QQ开放平台更新介绍
 
-- [第十期](/newfeature/ten/)
-- [第九期](/newfeature/nine/)
-- [第七期](/newfeature/seven/)
-- [第六期](/newfeature/six/)
-- [第五期](/newfeature/five/)
+- [v.4(2022.04.08)](/newfeature/ten/)
+- [v.3(2022.03.11)](/newfeature/nine/)
+- [v.2(2022.01.20)](/newfeature/seven/)
+- [v.1(2021.12.15)](/newfeature/six/)
+- [v.0(2021.11.30)](/newfeature/five/)
