@@ -17,7 +17,7 @@ token = qqbot.Token({appid}, {token})
 def demo():
     api = qqbot.MuteAPI(token, False)
     option = qqbot.MultiMuteOption(mute_seconds="120", user_ids=[GUILD_TEST_MEMBER_ID])
-    succeed_user_ids = self.api.mute_multi_member(GUILD_ID, option)
+    succeed_user_ids = api.mute_multi_member(GUILD_ID, option)
 ```
 
 #### async
@@ -31,7 +31,7 @@ token = qqbot.Token({appid}, {token})
 async def demo():
     api = qqbot.AsyncMuteAPI(token, False)
     option = qqbot.MultiMuteOption(mute_seconds="120", user_ids=[GUILD_TEST_MEMBER_ID])
-    succeed_user_ids = self.api.mute_multi_member(GUILD_ID, option)
+    succeed_user_ids = api.mute_multi_member(GUILD_ID, option)
 ```
 
 ## 参数说明
