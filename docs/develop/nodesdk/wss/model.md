@@ -34,7 +34,7 @@ ws.on('AT_MESSAGES', data => {
 
 ### 接收到的通知示例
 
-以”创建子频道“为例，通过 client API 创建一个子频道，我们将在`GUILDS`事件中拿到如下结果：
+以“创建子频道”为例，通过 client API 创建一个子频道，我们将在`GUILDS`事件中拿到如下结果：
 
 ```js
 {

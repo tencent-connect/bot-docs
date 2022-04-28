@@ -6,7 +6,7 @@
 - 调用前需要先申请消息模板，这一步会得到一个模板 id，在请求时填在 ark.template_id 上
 - 发送成功之后，会触发一个创建消息的事件。
 - 可用模板参考[可用模板](message_template.md)
-- 如果发送的消息中包含链接（网页、图片、视频链接等），**需要提前在[机器人管理端](https://bot.q.qq.com/#/developer/developer-setting)报备**，操作流程：操作路径为：”开发设置“ -> ”消息 URL 配置“
+- 如果发送的消息中包含链接（网页、图片、视频链接等），**需要提前在[机器人管理端](https://bot.q.qq.com/#/developer/developer-setting)报备**，操作流程：操作路径为：“开发设置” -> “消息 URL 配置”
 
 :::
 
