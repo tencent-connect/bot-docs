@@ -141,6 +141,7 @@ module.exports = {
             children: [
               'api/mute/mute_all',
               'api/mute/mute_member',
+              'api/mute/mute_multi_member',
             ],
           },
           {
