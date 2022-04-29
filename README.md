@@ -19,12 +19,14 @@ npm i
 npm run dev
 ```
 
+<!-- clone内网API文档 权限添加： -->
 ## 构建
 
 ```sh
 npm run sync-api
 npm run build
 ```
+
 
 ## 文档结构参考
 

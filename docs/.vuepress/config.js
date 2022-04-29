@@ -3,6 +3,7 @@ const apiConfig = require('../develop/api/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
 const gosdkConfig = require('../develop/gosdk/config');
+const newfeatureConfig = require('../newfeature/config');
 const commonConfig = require('./common');
 
 const base = '/wiki/';
@@ -138,6 +139,11 @@ module.exports = ctx => ({
         text: '机器人平台',
         link: 'https://bot.q.qq.com/open',
       },
+      // {
+      //   text: '新特性',
+      //   link: '/newfeature/',
+      // },
+      newfeatureConfig.nav,
       {
         text: '更新日志',
         link: '/changelog/',
@@ -156,6 +162,7 @@ module.exports = ctx => ({
       ...nodesdkConfig.sidebar,
       ...pythonsdkConfig.sidebar,
       ...gosdkConfig.sidebar,
+      ...newfeatureConfig.sidebar,
       '/': [''],
     },
 

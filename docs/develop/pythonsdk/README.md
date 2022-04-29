@@ -6,10 +6,12 @@
 外发版本通过下面方式安装
 
 ```bash
-pip install qq-bot  # 注意是 qq-bot 而不是 qqbot！
+pip install qq-bot  
 ```
 
-更新包的话需要添加 `--upgrade` `注：需要python3.7+`
+>- 注意是`qq-bot`而不是 `qqbot`！
+>- 注意不要命名代码为`qqbot.py`，会导致冲突
+>- 更新包的话需要添加 `--upgrade` `注：需要python3.7+`
 
 ## sdk 使用
 
