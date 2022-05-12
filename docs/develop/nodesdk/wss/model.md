@@ -1,4 +1,4 @@
-# WSS 消息体 <Badge text="v1.0.0" />
+# WSS 消息体 <Badge text="v2.9.3" />
 
 WS 支持监听的事件类型可参考[事件订阅 intents](../../api/gateway/intents.md)。
 
@@ -93,6 +93,7 @@ ws.on('AT_MESSAGES', data => {
 ```js
 {
   eventType: 'CHANNEL_CREATE',
+  eventId: 'xxxxx',
   msg: {
     guild_id: 'xxxxxx',
     id: 'xxxxxx',
