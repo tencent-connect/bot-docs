@@ -7,6 +7,8 @@
 | id               | string                                    | 消息 id                                                                                                                    |
 | channel_id       | string                                    | 子频道 ID                                                                                                                  |
 | guild_id         | string                                    | 频道 ID                                                                                                                    |
+| src_guild_id     | string                                    | 真实频道 ID，用于在私信中判断来源频道（仅在私信中有此对象）                                                                    |
+| direct_message   | bool                                      | 是否为私信（仅在私信中有此对象）                                                                                             |
 | content          | string                                    | 消息内容                                                                                                                   |
 | timestamp        | string                                    | 消息创建时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
 | edited_timestamp | string                                    | 消息编辑时间，是个 `iISO8601 timestamp` 字符串，例："2021-11-23T15:16:48+08:00"                                            |
