@@ -6,6 +6,7 @@
 
 - 管理员可以撤回普通成员的消息。
 - 频道主可以撤回所有人的消息。
+- 增加hideTip选项，控制是否显示撤回消息的小灰条。
 
 :::
 
@@ -13,7 +14,7 @@
 
 ```javascript
 async function demo() {
-  let { data } = await client.messageApi.deleteMessage(channelID, messageID);
+  let { data } = await client.messageApi.deleteMessage(channelID, messageID, hideTip);
 }
 ```
 
@@ -23,6 +24,7 @@ async function demo() {
 | --------- | ---- | ------ | -------------------------------- |
 | channelID | 是   | string | [子频道 ID](../model/channel.md) |
 | messageID | 是   | string | [消息 ID](../model/message.md)   |
+| hideTip | 否   | boolean | 选填，是否隐藏提示小灰条，true 为隐藏，false 为显示。默认为false |
 
 ## 返回说明
 
