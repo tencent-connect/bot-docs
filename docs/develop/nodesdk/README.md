@@ -34,7 +34,7 @@ const { createOpenAPI, createWebsocket } = require('qq-guild-bot');
 const testConfig = {
   appID: 'APPID', // 申请机器人时获取到的机器人 BotAppID
   token: 'TOKEN', // 申请机器人时获取到的机器人 BotToken
-  intents: ['AT_MESSAGES'], // 事件订阅,用于开启可接收的消息类型
+  intents: ['PUBLIC_GUILD_MESSAGES'], // 事件订阅,用于开启可接收的消息类型
   sandbox: false, // 沙箱支持，可选，默认false. v2.7.0+
 };
 
@@ -45,12 +45,12 @@ const client = createOpenAPI(testConfig);
 const ws = createWebsocket(testConfig);
 ```
 
-- intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'DIRECT_MESSAGE', 'AUDIO_ACTION', 'AT_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html)。
+- intents 可选值举例：`['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES','GUILD_MESSAGE_REACTIONS','DIRECT_MESSAGE', 'INTERACTION','MESSAGE_AUDIT','FORUMS_EVENT','AUDIO_ACTION', 'PUBLIC_GUILD_MESSAGES']`，[详情参考](https://bot.q.qq.com/wiki/develop/api/gateway/intents.html)。
 - 沙箱配置说明：[接口域名](../api/#接口域名)
 
 :::warning 注意
 
-- 事件类型的订阅，是有权限控制的，除了 `GUILDS`，`AT_MESSAGES`，`DIRECT_MESSAGE`，`GUILD_MEMBERS` 事件是基础的事件，默认有权限订阅之外，其他的特殊事件，都需要**经过申请才能够使用**，如果在鉴权的时候传递了无权限的 `intents`，`websocket` **会报错，并直接关闭连接**。
+- 事件类型的订阅，是有权限控制的，除了 `GUILDS`，`PUBLIC_GUILD_MESSAGES`，`DIRECT_MESSAGE`，`GUILD_MEMBERS` 事件是基础的事件，默认有权限订阅之外，其他的特殊事件，都需要**经过申请才能够使用**，如果在鉴权的时候传递了无权限的 `intents`，`websocket` **会报错，并直接关闭连接**。
 
 - `intents`传**空数组**时，将默认开启**全部**事件类型的监听。
 
