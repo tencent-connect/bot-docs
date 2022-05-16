@@ -122,7 +122,7 @@ module.exports = {
             title: '禁言 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['mute/mute_all', 'mute/mute_member'],
+            children: ['mute/mute_all', 'mute/mute_member', 'mute/mute_members'],
           },
           {
             title: '公告 API',
