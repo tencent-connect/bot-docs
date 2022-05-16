@@ -131,7 +131,8 @@ module.exports = {
             sidebarDepth: 0,
             children: [
               'api/reaction/post_reaction.md',
-              'api/reaction/delete_reaction.md'
+              'api/reaction/delete_reaction.md',
+              'api/reaction/get_reaction_users.md'
             ],
           },
           {
