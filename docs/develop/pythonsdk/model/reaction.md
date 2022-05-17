@@ -25,6 +25,24 @@
 | id     | string | 表态对象 ID                                                  |
 | type   | number | 表态对象类型，参考 [ReactionTargetType](#reactiontargettype) |
 
+
+## ReactionUsers
+
+| 字段名     | 类型                              | 描述                      |
+| ---------- | --------------------------------- | ------------------------- |
+| users      | User 对象列表                      | 用户对象列表，参考 [User](./user.md)，会返回 id, username, avatar 等    |
+| cookie     | string                            | 分页参数，用于拉取下一页    |
+| is_end     | bool                             | 是否已拉取完成到最后一页，true代表完成 |
+
+
+## ReactionUsersPager
+
+| 字段名 | 类型   | 描述                                 |
+| ------ | ------ | ------------------------------------ |
+| cookie | string | 上次请求返回的cookie，第一次请求无需填写 |
+| limit  | int    | 每次拉取数量，默认20，最多50，只须第一次请求时设置  |
+
+
 ## ReactionTargetType
 
 | 值  | 描述 |
