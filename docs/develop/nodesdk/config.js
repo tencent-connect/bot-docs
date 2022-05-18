@@ -116,7 +116,7 @@ module.exports = {
             title: '表情表态 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['reaction/post_reaction.md', 'reaction/delete_reaction.md'],
+            children: ['reaction/post_reaction.md', 'reaction/delete_reaction.md', 'reaction/get_reaction_user_list.md'],
           },
           {
             title: '禁言 API',
