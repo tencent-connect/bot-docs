@@ -25,6 +25,7 @@ module.exports = {
           {title: '成员对象(Member)', path: 'model/member'},
           {title: '频道身份组对象(Role)', path: 'model/role'},
           {title: '消息对象(Message)', path: 'model/message'},
+          {title: '消息按钮对象(InlineKeyboard)', path: 'model/inline_keyboard'},
           {title: '私信对象(DMS)', path: 'model/dms'},
           {title: '语音对象(Audio)', path: 'model/audio'},
           {title: '公告对象(Announce)', path: 'model/announce'},
@@ -113,7 +114,8 @@ module.exports = {
               'api/message/post_ark_message',
               'api/message/message_template',
               'api/message/message_format',
-              'api/message/post_reference_messages'
+              'api/message/post_reference_messages',
+              'api/message/post_keyboard_message.md',
             ],
           },
           {

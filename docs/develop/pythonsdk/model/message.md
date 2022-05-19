@@ -91,6 +91,13 @@
 | message_id               | string  | 是 ｜ 需要引用回复的消息 ID                |
 | ignore_get_message_error | boolean | 否 ｜ 是否忽略获取引用消息详情错误，默认否 |
 
+## MessageKeyboard
+
+| 字段名                    | 类型     | 必填 ｜描述                                 |
+| :----------------------- | :------ | :----------------------------------- |
+| id                       | string  | 是 ｜ keyboard 模板 id                |
+| content                  | [InlineKeyboard](./inline_keyboard.md) 对象 | 否 ｜ 自定义 keyboard 内容,与 id 参数互斥,参数都传值将报错。 |
+
 ## MessageAudited
 
 消息审核对象
