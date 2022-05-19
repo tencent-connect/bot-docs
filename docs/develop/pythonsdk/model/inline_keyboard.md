@@ -1,4 +1,4 @@
-# 消息按钮组件（InlineKeyboard)
+# 消息按钮组件（InlineKeyboard）
 
 ### InlineKeyboard
 
