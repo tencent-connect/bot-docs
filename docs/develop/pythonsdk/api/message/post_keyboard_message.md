@@ -7,8 +7,8 @@
 - 要求操作人在该子频道具有`发送消息`和 对应`消息按钮组件` 的权限。
 - 请求参数 `keyboard 模版` 和 `自定义 keyboard` 只能单一传值。
 - `keyboard 模版`
-   - 调用前需要先申请消息按钮组件模板，这一步会得到一个模板 id，在请求时填在 `keyboard` 字段上。
-   - 申请消息按钮组件模板需要提供响应的 json，具体格式参考 [InlineKeyboard](../../model/inline_keyboard.md#InlineKeyboard)。
+  - 调用前需要先申请消息按钮组件模板，这一步会得到一个模板 id，在请求时填在 `keyboard` 字段上。
+  - 申请消息按钮组件模板需要提供响应的 json，具体格式参考 [InlineKeyboard](../../model/inline_keyboard.md#InlineKeyboard)。
 - 仅 markdown 消息支持消息按钮。
 
 ## 使用示例
