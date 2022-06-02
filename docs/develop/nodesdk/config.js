@@ -162,7 +162,7 @@ module.exports = {
             title: '音频 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['audio/audio_control'],
+            children: ['audio/audio_control', 'audio/bot_on_mic', 'audio/bot_off_mic'],
           },
           {
             title: '接口权限 API',
