@@ -66,7 +66,7 @@ module.exports = {
             title: '成员 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['member/get_members', 'member/get_member', 'member/delete_member'],
+            children: ['member/get_members', 'member/get_member', 'member/delete_member', 'member/get_voice_members'],
           },
           {
             title: '频道身份组 API',
