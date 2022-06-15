@@ -7,8 +7,8 @@ async function isAtTencent() {
   let is = false;
   try {
     console.log(chalk.green('--------检测是否为腾讯内网 start--------'));
-    const res = await extendRequest('http://9.134.210.127:3999'); // ostwindli's devCloud
-    is = res.atTencent;
+    const res = await extendRequest('http://8000.woa.com'); // ostwindli's devCloud
+    is = !!res;
     console.log(chalk.blue(`检测结果:  ${is}`));
   } catch (error) {
     console.log(chalk.blue('检测结果:  false'));

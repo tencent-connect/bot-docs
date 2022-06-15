@@ -29,9 +29,11 @@ const apiBranch = process.argv[2] || 'master';
 syncDocs();
 
 async function syncDocs() {
+  // 蓝盾触发构建
+  const isFromDevops =  process.argv[3]
   // 先检测下是内网还是外网
   const isAtTencent = await utils.isAtTencent();
-  if (isAtTencent) {
+  if (isFromDevops || isAtTencent) {
     getApiDocs();
     syncApiAssets();
   } else {
