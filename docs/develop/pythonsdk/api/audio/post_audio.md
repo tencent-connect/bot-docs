@@ -3,12 +3,22 @@
 ## 使用示例
 
 ```py
-import qqbot
+import botpy
+from botpy.audio import Audio
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_audio_start(self, audio: Audio):
+        audio_control={
+            "audio_url":"url",
+            "text":"简单爱-周杰伦",
+            "status":"START",
+        }
+        await self.api.update_audio(audio.channel_id, audio_control=audio_control)
 
-audioApi = qqbot.AudioAPI(token, False)
-result = audioApi.post_audio(channel_id, audio_control)
+intents = botpy.Intents(audio_action=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
+
 ```
 
 ## 参数说明
