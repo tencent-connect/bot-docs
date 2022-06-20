@@ -4,28 +4,28 @@
 
 ## 使用示例
 
-#### sync
 
 ```python
-import qqbot
+import os
 
-token = qqbot.Token({appid}, {token})
+import botpy
+from botpy import logging
+from botpy.message import Message
 
-def demo():
-    api = qqbot.APIPermissionAPI(token, False)
-    permissions = api.get_permissions(guild_id)
-```
+_log = logging.get_logger()
 
-#### async
 
-```python
-import qqbot
+class MyClient(botpy.Client):
 
-token = qqbot.Token({appid}, {token})
+    async def on_at_message_create(self, message: Message):
+      
+        apis = await self.api.get_permissions(message.guild_id)
+        for api in apis:
+            _log.info("api: %s" % api["desc"] + ", status: %d" % api["auth_status"])
 
-async def demo():
-    api = qqbot.AsyncAPIPermissionAPI(token, False)
-    permissions = await api.get_permissions(guild_id)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
