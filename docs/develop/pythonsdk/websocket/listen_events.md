@@ -1,104 +1,469 @@
-# WSS 消息体
+# 事件监听
 
-## 当前支持的事件类型
+**本文档概述[botpy的事件监听](https://github.com/tencent-connect/botpy/blob/feature/botpy_1.0/botpy/flags.py)**
 
-```python
-class HandlerType(Enum):
-    PLAIN_EVENT_HANDLER = 0  # 透传事件    
-    GUILD_EVENT_HANDLER = 1  # 频道事件   
-    GUILD_MEMBER_EVENT_HANDLER = 2  # 频道成员事件    
-    CHANNEL_EVENT_HANDLER = 3  # 子频道事件    
-    MESSAGE_EVENT_HANDLER = 4  # 消息事件    
-    AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
-    DIRECT_MESSAGE_EVENT_HANDLER = 6 # 私信事件
-    AUDIO_EVENT_HANDLER = 7 # 音频事件
-    MESSAGE_REACTIONS_EVENT_HANDLER = 8 # 表情表态事件
-```
-
-## 当前支持的事件
+## 准备
 
 ```python
-class WsEvent:
-    EventGuildCreate = "GUILD_CREATE"
-    EventGuildUpdate = "GUILD_UPDATE"
-    EventGuildDelete = "GUILD_DELETE"
-    
-    EventChannelCreate = "CHANNEL_CREATE"
-    EventChannelUpdate = "CHANNEL_UPDATE"
-    EventChannelDelete = "CHANNEL_DELETE"
-
-    EventGuildMemberAdd = "GUILD_MEMBER_ADD"
-    EventGuildMemberUpdate = "GUILD_MEMBER_UPDATE"
-    EventGuildMemberRemove = "GUILD_MEMBER_REMOVE"
-
-    EventMessageCreate = "MESSAGE_CREATE"
-    EventDirectMessageCreate = "DIRECT_MESSAGE_CREATE"
-    EventAtMessageCreate = "AT_MESSAGE_CREATE"
-
-    EventAudioStart = "AUDIO_START"
-    EventAudioFinish = "AUDIO_FINISH"
-    EventAudioOnMic = "AUDIO_ON_MIC"
-    EventAudioOffMic = "AUDIO_OFF_MIC"
-
-    EventMessageReactionAdd = "MESSAGE_REACTION_ADD"
-    EventMessageReactionRemove = "MESSAGE_REACTION_REMOVE"
+import botpy
 ```
 
-## 当前事件的返回类型
+## 使用方式
 
-``` py
-#透传事件（无具体的数据对象，根据后台返回Json对象）
-def _plain_handler(event, data):
-#频道事件
-def _guild_handler(event, guild:Guild):
-#频道成员事件
-def _guild_member_handler(event, guild_member: GuildMember):
-#子频道事件
-def _channel_handler(event, channel: Channel):
-#消息事件 
-def _message_handler(event, message: Message):
-#At消息事件
-def _message_handler(event, message: Message):
-#私信消息事件
-def _message_handler(event, message: Message):
-#表情表态消息事件
-def _message_reactions_handler(event, reaction: Reaction):
+通过继承实现`bot.Client`, 实现自己的机器人Client
+
+在`MyClient`类中调用函数实现处理事件的功能
+
+```python
+class MyClient(botpy.Client):
 ```
 
-## 使用示例
+## 监听的事件
 
-### 创建 WSS 实例并监听消息
+### 公域消息事件的监听
 
-```py
-import qqbot
+首先需要订阅事件`public_guild_messages`
 
-token = qqbot.Token({appid}, {token})
-
-
-def _message_handler(event, message: Message):
-    msg_api = qqbot.MessageAPI(t_token, False)
-    # 打印返回信息
-    qqbot.logger.info("event %s" % event + ",receive message %s" % message.content)
-    # 构造消息发送请求数据对象
-    send = qqbot.MessageSendRequest("<@%s>谢谢你，加油" % message.author.id, message.id)
-    # 通过api发送回复消息
-    msg_api.post_message(message.channel_id, send)
-
-
-qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
-qqbot.listen_events(token, False, qqbot_handler)
-```
-如果同时需要监听多个事件，在``listen_events``增加多个事件的handler对象
-
-```py
-# 同时监听at消息和私信消息的事件
-qqbot_handler = qqbot.Handler(
-    qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler
-)
-qqbot_direct_message_handler = qqbot.Handler(
-    qqbot.HandlerType.DIRECT_MESSAGE_EVENT_HANDLER, _direct_message_handler
-)
-qqbot.listen_events(token, False, qqbot_handler, qqbot_direct_message_handler)
-
+```python
+intents = botpy.Intents(public_guild_messages=True) 
+client = MyClient(intents=intents)
 ```
 
+| 对应函数                                             | 说明          |
+| ------------------------------------------------ | ----------- |
+| on_at_message_create(self, message: Message)     | 当收到@机器人的消息时 |
+| on_public_message_delete(self, message: Message) | 当频道的消息被删除时  |
+
+-   **注：需要引入`Message`**
+
+```python
+from botpy.message import Message
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_public_message_delete(self, message: Message):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 消息事件的监听
+
+-   **仅 私域 机器人能够设置此 intents**
+
+首先需要订阅事件`guild_messages`
+
+```python
+intents = botpy.Intents(guild_messages=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                      | 说明                                                             |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| on_message_create(self, message: Message) | 发送消息事件，代表频道内的全部消息，而不只是 at 机器人的消息。</br>内容与 AT_MESSAGE_CREATE 相同 |
+| on_message_delete(self, message: Message) | 删除（撤回）消息事件                                                     |
+
+-   **注：需要引入`Message`**
+
+```python
+from botpy.message import Message
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_message_create(self, message: Message):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_message_delete(self, message: Message):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 私信事件的监听
+
+首先需要订阅事件`direct_message`
+
+```python
+intents = botpy.Intents(direct_message=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                                   | 说明               |
+| ------------------------------------------------------ | ---------------- |
+| on_direct_message_create(self, message: DirectMessage) | 当收到用户发给机器人的私信消息时 |
+| on_direct_message_delete(self, message: DirectMessage) | 删除（撤回）消息事件       |
+
+-   **注：需要引入`DirectMessage`**
+
+```python
+from botpy.message import DirectMessage
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_direct_message_create(self, message: DirectMessage):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_direct_message_delete(self, message: DirectMessage):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 消息相关互动事件的监听
+
+首先需要订阅事件`guild_message_reactions`
+
+```python
+intents = botpy.Intents(guild_message_reactions=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                                 | 说明        |
+| ---------------------------------------------------- | --------- |
+| on_message_reaction_add(self, reaction: Reaction)    | 为消息添加表情表态 |
+| on_message_reaction_remove(self, reaction: Reaction) | 为消息删除表情表态 |
+
+-   **注：需要引入`Reaction`**
+
+```python
+from botpy.reaction import Reaction
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_message_reaction_add(self, reaction: Reaction):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_message_reaction_remove(self, reaction: Reaction):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 频道事件的监听
+
+首先需要订阅事件`guilds`
+
+```python
+intents = botpy.Intents(guilds=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                      | 说明            |
+| ----------------------------------------- | ------------- |
+| on_guild_create(self, guild: Guild)       | 当机器人加入新guild时 |
+| on_guild_update(self, guild: Guild)       | 当guild资料发生变更时 |
+| on_guild_delete(self, guild: Guild)       | 当机器人退出guild时  |
+| on_channel_create(self, channel: Channel) | 当channel被创建时  |
+| on_channel_update(self, channel: Channel) | 当channel被更新时  |
+| on_channel_delete(self, channel: Channel) | 当channel被删除时  |
+
+-   **注：需要引入`Guild`和`Channel`**
+
+```python
+from botpy.guild import Guild
+from botpy.channel import Channel
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_guild_create(self, guild: Guild):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_guild_update(self, guild: Guild):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_guild_delete(self, guild: Guild):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_channel_create(self, channel: Channel):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_channel_update(self, channel: Channel):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_channel_delete(self, channel: Channel):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 频道成员事件的监听
+
+首先需要订阅事件`guild_members`
+
+```python
+intents = botpy.Intents(guild_members=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                         | 说明       |
+| -------------------------------------------- | -------- |
+| on_guild_member_add(self, member: Member)    | 当成员加入时   |
+| on_guild_member_update(self, member: Member) | 当成员资料变更时 |
+| on_guild_member_remove(self, member: Member) | 当成员被移除时  |
+
+-   **注：需要引入`GuildMember`**
+
+```python
+from botpy.user import Member
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_guild_member_add(self, member: Member):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_guild_member_update(self, member: Member):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_guild_member_remove(self, member: Member):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 互动事件的监听
+
+首先需要订阅事件`interaction`
+
+```python
+intents = botpy.Intents(interaction=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                                  | 说明               |
+| ----------------------------------------------------- | ---------------- |
+| on_interaction_create(self, interaction: Interaction) | 当收到用户发给机器人的私信消息时 |
+
+-   **注：需要引入`Interaction`**
+
+```python
+from botpy.interaction import Interaction
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_interaction_create(self, interaction: Interaction):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 消息审核事件的监听
+
+首先需要订阅事件`message_audit`
+
+```python
+intents = botpy.Intents(message_audit=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                                 | 说明      |
+| ---------------------------------------------------- | ------- |
+| on_message_audit_pass(self, message: MessageAudit)   | 消息审核通过  |
+| on_message_audit_reject(self, message: MessageAudit) | 消息审核不通过 |
+
+-   **注：需要引入`MessageAudit`**
+
+```python
+from botpy.message import MessageAudit
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_message_audit_pass(self, message: MessageAudit):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_message_audit_reject(self, message: MessageAudit):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 论坛事件的监听
+
+-   **仅 私域 机器人能够设置此 intents**
+
+首先需要订阅事件`forums`
+
+```python
+intents = botpy.Intents(forums=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                                          | 说明         |
+| ------------------------------------------------------------- | ---------- |
+| on_forum_thread_create(self, thread: Thread)                  | 当用户创建主题时   |
+| on_forum_thread_update(self, thread: Thread)                  | 当用户更新主题时   |
+| on_forum_thread_delete(self, thread: Thread)                  | 当用户删除主题时   |
+| on_forum_post_create(self, post: Post)                        | 当用户创建帖子时   |
+| on_forum_post_delete(self, post: Post)                        | 当用户删除帖子时   |
+| on_forum_reply_create(self, reply: Reply)                     | 当用户回复评论时   |
+| on_forum_reply_delete(self, reply: Reply)                     | 当用户删除评论时   |
+| on_forum_publish_audit_result(self, auditresult: AuditResult) | 当用户发表审核通过时 |
+
+-   **注：需要引入`Thread`、`Post`、`Reply`和`AuditResult`**
+
+```python
+from botpy.forum import Thread
+from botpy.types.forum import Post, Reply, AuditResult
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_forum_thread_create(self, thread: Thread):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_thread_update(self, thread: Thread):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_thread_delete(self, thread: Thread):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_post_create(self, post: Post):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_post_delete(self, post: Post):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_reply_create(self, reply: Reply):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_reply_delete(self, reply: Reply):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_forum_publish_audit_result(self, auditresult: AuditResult):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+### 音频事件的监听
+
+首先需要订阅事件`audio_action`
+
+```python
+intents = botpy.Intents(audio_action=True) 
+client = MyClient(intents=intents)
+```
+
+| 对应函数                                 | 说明      |
+| ------------------------------------ | ------- |
+| on_audio_start(self, audio: Audio)   | 音频开始播放时 |
+| on_audio_finish(self, audio: Audio)  | 音频播放结束时 |
+| on_audio_on_mic(self, audio: Audio)  | 上麦时     |
+| on_audio_off_mic(self, audio: Audio) | 下麦时     |
+
+-   **注：需要引入`Audio`**
+
+```python
+from botpy.audio import Audio
+```
+
+```python
+class MyClient(botpy.Client):
+    async def on_audio_start(self, audio: Audio):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_audio_finish(self, audio: Audio):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_audio_on_mic(self, audio: Audio):
+        """
+        此处为处理该事件的代码
+        """
+    async def on_audio_off_mic(self, audio: Audio):
+        """
+        此处为处理该事件的代码
+        """
+```
+
+## 订阅事件的方法
+
+### 方法一：
+
+```python
+intents = botpy.Intents() 
+client = MyClient(intents=intents)
+```
+
+在Intents中填入对应的[参数](#参数列表)
+
+例子：
+
+```python
+intents = botpy.Intents(public_guild_messages=True, direct_message=True, guilds=True)
+```
+
+### 方法二：
+
+```python
+intents = botpy.Intents.none()
+```
+
+然后打开对应的订阅([参数列表](#参数列表))
+
+```python
+intents.public_guild_messages=True
+intents.direct_message=True
+intents.guilds=True
+```
+
+-   **说明**
+
+方法二对应的快捷订阅方式为
+
+1.  订阅所有事件
+
+```python
+intents = botpy.Intents.all()
+```
+
+2.  订阅所有的公域事件
+
+```python
+intents = botpy.Intents.default()
+```
+
+#### 参数列表
+
+| 参数                      | 含义                                 |
+| ----------------------- | ---------------------------------- |
+| public_guild_messages   | 公域消息事件                             |
+| guild_messages          | 消息事件 **(仅 `私域` 机器人能够设置此 intents)** |
+| direct_message          | 私信事件                               |
+| guild_message_reactions | 消息相关互动事件                           |
+| guilds                  | 频道事件                               |
+| guild_members           | 频道成员事件                             |
+| interaction             | 互动事件                               |
+| message_audit           | 消息审核事件                             |
+| forums                  | 论坛事件 **(仅 `私域` 机器人能够设置此 intents)** |
+| audio_action            | 音频事件                               |
