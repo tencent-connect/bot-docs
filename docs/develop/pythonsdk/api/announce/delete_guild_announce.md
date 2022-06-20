@@ -1,29 +1,20 @@
-# 删除频道全局公告 
+# 删除频道推荐子频道 
 
-删除频道全局公告。
+删除频道推荐子频道。
 
 ## 使用示例
 
-#### sync
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.delete_announce(message.guild_id, "all")
 
-def demo():
-    announce_api = qqbot.AnnounceAPI(token, False)  
-    is_success = announce_api.delete_announce(guild_id, message_id)
-```
-
-#### async
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-async def demo():
-    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
-    is_success = await announce_api.delete_announce(guild_id, message_id)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
