@@ -3,12 +3,16 @@
 ## 使用示例
 
 ``` python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        user = await self.api.me()
 
-api = qqbot.UserAPI(token, False)
-user = api.me()
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 返回说明
