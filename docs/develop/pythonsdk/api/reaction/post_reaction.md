@@ -4,30 +4,17 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.put_reaction(channel_id="xxxx", message_id="xxxx", emoji_type=1, emoji_id="4")
 
-
-def demo():
-    api = qqbot.ReactionAPI(token, False)
-    result = api.put_reaction(channel_id, message_id, EmojiType.system, "4")
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncReactionAPI(token, False)
-    result = await api.put_reaction(channel_id, message_id, EmojiType.system, "4")
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -36,7 +23,7 @@ async def demo():
 | ----------- | ---- | ------------------------------------- | -------------------------------- |
 | channel_id  | 是   | string                                | 子频道 ID |
 | message_id  | 是   | string                                | 消息 ID                     |
-| type        | 是   | int                                   | 表情类型，参考[EmojiType](../../model/emoji.md#EmojiType)                     |
+| emoji_type  | 是   | int                                   | 表情类型，参考[EmojiType](../../model/emoji.md#EmojiType)                     |
 | emoji_id    | 是   | string                                | 表情 ID，参考 [Emoji 列表](../../model/emoji.md#Emoji-列表) 
 
 ## 返回说明

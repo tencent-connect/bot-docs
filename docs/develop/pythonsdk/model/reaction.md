@@ -35,14 +35,6 @@
 | is_end     | bool                             | 是否已拉取完成到最后一页，true代表完成 |
 
 
-## ReactionUsersPager
-
-| 字段名 | 类型   | 描述                                 |
-| ------ | ------ | ------------------------------------ |
-| cookie | string | 上次请求返回的cookie，第一次请求无需填写 |
-| limit  | int    | 每次拉取数量，默认20，最多50，只须第一次请求时设置  |
-
-
 ## ReactionTargetType
 
 | 值  | 描述 |
