@@ -10,30 +10,18 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.get_schedules(channel_id="日程ID")
+        await self.api.delete_schedule(channel_id="日程子频道ID", schedule_id="日程ID")
 
-
-def demo():
-    api = qqbot.ScheduleAPI(token, False)
-    result = api.delete_schedule(channel_id, schedule_id)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncScheduleAPI(token, False)
-    result = await api.delete_schedule(channel_id, schedule_id)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
