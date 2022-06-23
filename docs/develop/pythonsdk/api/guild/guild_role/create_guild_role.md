@@ -5,12 +5,21 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.create_guild_role(
+            guild_id="xxxx",
+            name="xxxx",
+            color="10395294",
+            hoist=1,
+        )
 
-api = qqbot.GuildRoleAPI(token, False)
-result = api.create_guild_role(guild_id, role_info)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意
@@ -22,12 +31,6 @@ result = api.create_guild_role(guild_id, role_info)
 | 字段名   | 必填 | 类型                  | 描述           |
 | -------- | ---- | --------------------- | -------------- |
 | guild_id  | 是   | string                | 频道 ID        |
-| role_info | 是   | [RoleUpdateInfo](#roleupdateinfo) | 频道身份组参数 |
-
-### RoleUpdateInfo
-
-| 字段名 | 必填 | 类型   | 描述                                                           |
-| ------ | ---- | ------ | -------------------------------------------------------------- |
 | name   | 是   | string | 名称                                                           |
 | color  | 否   | number | ARGB 的 HEX 十六进制颜色值转换后的十进制数值（例：4294927682） |
 | hoist  | 否   | number | 在成员列表中单独展示: 0-否, 1-是                               |
