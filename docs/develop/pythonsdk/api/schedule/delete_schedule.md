@@ -16,7 +16,6 @@ from botpy.message import Message
 
 class MyClient(botpy.Client):
     async def on_at_message_create(self, message: Message):
-        await self.api.get_schedules(channel_id="日程ID")
         await self.api.delete_schedule(channel_id="日程子频道ID", schedule_id="日程ID")
 
 intents = botpy.Intents(public_guild_messages=True)
