@@ -90,13 +90,13 @@ intents.guilds=True
 
 方法二对应的快捷订阅方式为
 
-1.  订阅所有事件
+1. 订阅所有事件
 
 ```python
 intents = botpy.Intents.all()
 ```
 
-2.  订阅所有的公域事件
+2. 订阅所有的公域事件
 
 ```python
 intents = botpy.Intents.default()
@@ -127,7 +127,6 @@ intents.public_guild_messages=True
 | message_audit           | 消息审核事件                             |
 | forums                  | 论坛事件 **(仅 `私域` 机器人能够设置此 intents)** |
 | audio_action            | 音频事件                               |
-
 
 ## 日志打印
 

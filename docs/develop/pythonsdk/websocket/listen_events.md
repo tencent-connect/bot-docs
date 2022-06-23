@@ -34,7 +34,7 @@ client = MyClient(intents=intents)
 | on_at_message_create(self, message: Message)     | 当收到@机器人的消息时 |
 | on_public_message_delete(self, message: Message) | 当频道的消息被删除时  |
 
--   **注：需要引入`Message`**
+- **注：需要引入`Message`**
 
 ```python
 from botpy.message import Message
@@ -54,7 +54,7 @@ class MyClient(botpy.Client):
 
 ### 消息事件的监听
 
--   **仅 私域 机器人能够设置此 intents**
+- **仅 私域 机器人能够设置此 intents**
 
 首先需要订阅事件`guild_messages`
 
@@ -68,7 +68,7 @@ client = MyClient(intents=intents)
 | on_message_create(self, message: Message) | 发送消息事件，代表频道内的全部消息，而不只是 at 机器人的消息。</br>内容与 AT_MESSAGE_CREATE 相同 |
 | on_message_delete(self, message: Message) | 删除（撤回）消息事件                                                     |
 
--   **注：需要引入`Message`**
+- **注：需要引入`Message`**
 
 ```python
 from botpy.message import Message
@@ -100,7 +100,7 @@ client = MyClient(intents=intents)
 | on_direct_message_create(self, message: DirectMessage) | 当收到用户发给机器人的私信消息时 |
 | on_direct_message_delete(self, message: DirectMessage) | 删除（撤回）消息事件       |
 
--   **注：需要引入`DirectMessage`**
+- **注：需要引入`DirectMessage`**
 
 ```python
 from botpy.message import DirectMessage
@@ -132,7 +132,7 @@ client = MyClient(intents=intents)
 | on_message_reaction_add(self, reaction: Reaction)    | 为消息添加表情表态 |
 | on_message_reaction_remove(self, reaction: Reaction) | 为消息删除表情表态 |
 
--   **注：需要引入`Reaction`**
+- **注：需要引入`Reaction`**
 
 ```python
 from botpy.reaction import Reaction
@@ -168,7 +168,7 @@ client = MyClient(intents=intents)
 | on_channel_update(self, channel: Channel) | 当channel被更新时  |
 | on_channel_delete(self, channel: Channel) | 当channel被删除时  |
 
--   **注：需要引入`Guild`和`Channel`**
+- **注：需要引入`Guild`和`Channel`**
 
 ```python
 from botpy.guild import Guild
@@ -218,7 +218,7 @@ client = MyClient(intents=intents)
 | on_guild_member_update(self, member: Member) | 当成员资料变更时 |
 | on_guild_member_remove(self, member: Member) | 当成员被移除时  |
 
--   **注：需要引入`GuildMember`**
+- **注：需要引入`GuildMember`**
 
 ```python
 from botpy.user import Member
@@ -253,7 +253,7 @@ client = MyClient(intents=intents)
 | ----------------------------------------------------- | ---------------- |
 | on_interaction_create(self, interaction: Interaction) | 当收到用户发给机器人的私信消息时 |
 
--   **注：需要引入`Interaction`**
+- **注：需要引入`Interaction`**
 
 ```python
 from botpy.interaction import Interaction
@@ -281,7 +281,7 @@ client = MyClient(intents=intents)
 | on_message_audit_pass(self, message: MessageAudit)   | 消息审核通过  |
 | on_message_audit_reject(self, message: MessageAudit) | 消息审核不通过 |
 
--   **注：需要引入`MessageAudit`**
+- **注：需要引入`MessageAudit`**
 
 ```python
 from botpy.message import MessageAudit
@@ -301,7 +301,7 @@ class MyClient(botpy.Client):
 
 ### 论坛事件的监听
 
--   **仅 私域 机器人能够设置此 intents**
+- **仅 私域 机器人能够设置此 intents**
 
 首先需要订阅事件`forums`
 
@@ -321,7 +321,7 @@ client = MyClient(intents=intents)
 | on_forum_reply_delete(self, reply: Reply)                     | 当用户删除评论时   |
 | on_forum_publish_audit_result(self, auditresult: AuditResult) | 当用户发表审核通过时 |
 
--   **注：需要引入`Thread`、`Post`、`Reply`和`AuditResult`**
+- **注：需要引入`Thread`、`Post`、`Reply`和`AuditResult`**
 
 ```python
 from botpy.forum import Thread
@@ -380,7 +380,7 @@ client = MyClient(intents=intents)
 | on_audio_on_mic(self, audio: Audio)  | 上麦时     |
 | on_audio_off_mic(self, audio: Audio) | 下麦时     |
 
--   **注：需要引入`Audio`**
+- **注：需要引入`Audio`**
 
 ```python
 from botpy.audio import Audio
@@ -437,17 +437,17 @@ intents.direct_message=True
 intents.guilds=True
 ```
 
--   **说明**
+- **说明**
 
 方法二对应的快捷订阅方式为
 
-1.  订阅所有事件
+1. 订阅所有事件
 
 ```python
 intents = botpy.Intents.all()
 ```
 
-2.  订阅所有的公域事件
+2. 订阅所有的公域事件
 
 ```python
 intents = botpy.Intents.default()
