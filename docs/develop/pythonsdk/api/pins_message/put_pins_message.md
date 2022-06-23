@@ -12,30 +12,18 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
 
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.put_pin(channel_id=message.channel_id, message_id=message.id)
 
-def demo():
-    api = qqbot.PinsAPI(token, IS_SANDBOX)
-    result = api.put_pin(channel_id, message_id)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncPinsAPI(token, IS_SANDBOX)
-    result = await api.put_pin(channel_id, message_id)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
