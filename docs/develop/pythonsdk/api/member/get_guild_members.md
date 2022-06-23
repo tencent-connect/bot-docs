@@ -19,12 +19,6 @@ members = api.get_guild_members(guild_id, query_params)
 | 字段名      | 必填 | 类型                        | 描述     |
 | ----------- | ---- | --------------------------- | -------- |
 | guild_id     | 是   | string                      | 频道 ID  |
-| query_params | 否   | [QueryParams](#queryparams) | 查询参数 |
-
-### QueryParams
-
-| 字段名 | 必填 | 类型   | 描述                                                       |
-| ------ | ---- | ------ | ---------------------------------------------------------- |
 | after  | 否   | string | 上一次回包中最大的用户 ID， 如果是第一次请求填 0，默认为 0 |
 | limit  | 否   | number | 分页大小，1-1000，默认是 1                                 |
 
@@ -58,14 +52,14 @@ members = api.get_guild_members(guild_id, query_params)
 [
   {
     "user": {
-      "id": "USERID",
-      "username": "机器人管家-ostwindli",
-      "avatar": "http://thirdqq.qlogo.cn/g?b=oidb&k=oPicoPIg01ujpSr8oosudkQ&s=0&t=1637218059",
+      "id": "用户 ID",
+      "username": "用户名",
+      "avatar": "用户头像地址",
       "bot": false,
       "public_flags": 0,
       "system": false
     },
-    "nick": "阿青",
+    "nick": "",
     "roles": [
       "4"
     ],
