@@ -8,6 +8,7 @@
 import botpy
 
 from botpy.message import Message
+
 class MyClient(botpy.Client):
     async def on_at_message_create(self, message: Message):
         await self.api.put_reaction(channel_id="xxxx", message_id="xxxx", emoji_type=1, emoji_id="4")
