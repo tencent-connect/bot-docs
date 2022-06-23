@@ -11,29 +11,19 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
 
-def demo():
-    msg_api = qqbot.MessageAPI(token, False)  
-    is_success = msg_api.recall_message(channel_id, message_id, True)
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.recall_message(channel_id=message.channel_id, message_id="xxx", hidetip=True)
+
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
-
-#### async
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-async def demo():
-    msg_api = qqbot.AsyncMessageAPI(token, False)  
-    is_success = await msg_api.recall_message(channel_id, message_id, True)
-```
-
 
 ## 参数说明
 

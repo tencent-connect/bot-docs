@@ -15,96 +15,85 @@
 
 ### 1：使用 keyboard 模版
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
+from botpy.types.message import MarkdownPayload, MessageMarkdownParams
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def handle_send_markdown_by_template(self, channel_id, msg_id):
+        params = [
+            MessageMarkdownParams(key="title", values=["标题"]),
+            MessageMarkdownParams(key="content", values=["为了成为一名合格的巫师，请务必阅读频道公告", "藏馆黑色魔法书"]),
+        ]
+        markdown = MarkdownPayload(template_id=65, params=params)
 
-def send_template_keyboard(channel_id, msg_id):
-    msg_api = qqbot.MessageAPI(t_token, False)
+        # 通过api发送回复消息
+        await self.api.post_message(channel_id, markdown=markdown, msg_id=msg_id)
 
-    markdown = MessageMarkdown(content="# 123 \n hello")
-    keyword = MessageKeyboard(id='62')
-    send = qqbot.MessageSendRequest(markdown=markdown, msg_id=msg_id, keyboard=keyword)
-    message = msg_api.post_message(channel_id, send)
-```
+    async def handle_send_markdown_by_content(self, channel_id, msg_id):
+        markdown = MarkdownPayload(content="# 标题 \n## 简介很开心 \n内容")
+        # 通过api发送回复消息
+        await self.api.post_message(channel_id, markdown=markdown, msg_id=msg_id)
 
-#### async
+    async def on_at_message_create(self, message: Message):
+        await message.reply(content=f"机器人{self.robot.name}收到你的@消息了: {message.content}")
+        await self.handle_send_markdown_by_template(message.channel_id, message.id)
+        await self.handle_send_markdown_by_content(message.channel_id, message.id)
 
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
- 
-async def send_template_keyboard(channel_id, msg_id):
-    msg_api = qqbot.AsyncMessageAPI(t_token, False)
-
-    markdown = MessageMarkdown(content="# 123 \n hello")
-    keyword = MessageKeyboard(id='62')
-    send = qqbot.MessageSendRequest(markdown=markdown, msg_id=msg_id, keyboard=keyword)
-    message = await msg_api.post_message(channel_id, send)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ### 2：使用自定义 keyboard
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy import BotAPI
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
+from botpy.types.inline import Keyboard, Button, RenderData, Action, Permission, KeyboardRow
+from botpy.types.message import MarkdownPayload, KeyboardPayload
 
-def send_self_defined_keyboard(channel_id, msg_id):
-    msg_api = qqbot.MessageAPI(t_token, False)
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await send_template_keyboard(self.api, message)
+        await send_self_defined_keyboard(self.api, message)
 
-    markdown = MessageMarkdown(content="# 标题 \n## 简介 \n内容")
-    keyboard: MessageKeyboard = build_a_demo_keyboard()
-    send = qqbot.MessageSendRequest(markdown=markdown, msg_id=msg_id, keyboard=keyboard)
-    message = msg_api.post_message(channel_id, send)
-```
+async def send_template_keyboard(api: BotAPI, message: Message):
+    markdown = MarkdownPayload(content="# 123 \n 今天是个好天气")
+    keyboard = KeyboardPayload(id="62")
+    await api.post_keyboard_message(message.channel_id, markdown=markdown, keyboard=keyboard)
 
-#### async
+async def send_self_defined_keyboard(api: BotAPI, message: Message):
+    markdown = MarkdownPayload(content="# 标题 \n## 简介 \n内容")
+    keyboard = KeyboardPayload(content=build_a_demo_keyboard())
+    await api.post_keyboard_message(message.channel_id, markdown=markdown, keyboard=keyboard)
 
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
- 
-async def send_self_defined_keyboard(channel_id, msg_id):
-    msg_api = qqbot.AsyncMessageAPI(t_token, False)
-
-    markdown = MessageMarkdown(content="# 标题 \n## 简介 \n内容")
-    keyboard: MessageKeyboard = build_a_demo_keyboard()
-    send = qqbot.MessageSendRequest(markdown=markdown, msg_id=msg_id, keyboard=keyboard)
-    message = await msg_api.post_message(channel_id, send)
-```
-
-
-```python
-def build_a_demo_keyboard() -> MessageKeyboard:
+def build_a_demo_keyboard() -> Keyboard:
     """
     创建一个只有一行且该行只有一个 button 的键盘
     """
     button1 = Button(
-        '1',
-        RenderData(
-            "button",
-            "BUTTON",
-            0
+        id="1",
+        render_data=RenderData(label="button", visited_label="BUTTON", style=0),
+        action=Action(
+            type=2,
+            permission=Permission(type=2, specify_role_ids=["1"], specify_user_ids=["1"]),
+            click_limit=10,
+            data="/搜索",
+            at_bot_show_channel_list=True,
         ),
-        Action(
-            2,
-            Permission(2, specify_role_ids=["1"]),
-            10,
-            "/搜索",
-            True
-        )
     )
-    row1 = InlineKeyboardRow([button1])
-    inline_keyboard = InlineKeyboard([row1])
-    return MessageKeyboard(content=inline_keyboard)
+
+    row1 = KeyboardRow(buttons=[button1])
+    return Keyboard(rows=[row1])
+
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
+
 ```
 
 ## 返回说明

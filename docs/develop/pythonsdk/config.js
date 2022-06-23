@@ -108,7 +108,6 @@ module.exports = {
             sidebarDepth: 0,
             children: [
               'api/message/get_message',
-              //'api/message/get_messages',
               'api/message/post_message',
               'api/message/recall_message',
               'api/message/post_ark_message',

@@ -12,32 +12,45 @@
 使用方式同[发送消息](./post_message.md)，在[MessageSendRequest](../../model/message.md#messagesendrequest)中设置[MessageReference](../../model/message.md#messagereference)即可发送引用消息。
 
 ```python
-import qqbot
+import botpy
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
+from botpy.types.message import Reference
 
-msg_api = qqbot.MessageAPI(token, False)  
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        # 构造消息发送请求数据对象
+        message_reference = Reference(message_id=message.id)
+        # 通过api发送回复消息
+        await self.api.post_message(
+            channel_id=message.channel_id,
+            content="<emoji:4>这是一条引用消息",
+            msg_id=message.id,
+            message_reference=message_reference,
+        )
 
-message_reference = MessageReference()
-message_reference.message_id = message_id  
-send = qqbot.MessageSendRequest(
-    content="<emoji:4>这是一条引用消息",
-    msg_id=message_id,
-    message_reference=message_reference
-)
-
-# 通过api发送回复消息
-message = await msg_api.post_message(channel_id, send)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
 
 | 参数      | 必填 | 类型                                | 说明       |
 | --------- | ---- | ----------------------------------- | ---------- |
-| channelID | 是   | string                              | 子频道 ID  |
-| messsage  | 是   | [MessageSendRequest](../../model/message.md#messagesendrequest) | 消息体结构 |
+| channel_id | 是   | string                              | 子频道 ID  |
+| content | 是   | string                              | 消息内容  |
+| msg_id | 是   | string                              | 消息ID  |
+| message_reference | 是   | [Reference](#reference)                      | 引用消息体  |
 
 引用消息支持内嵌格式、消息模板及图片，设置相应参数即可。
+
+# Reference
+
+| 参数      | 必填 | 类型                                | 说明       |
+| --------- | ---- | ----------------------------------- | ---------- |
+| message_id | 是   | string                              | 需要引用回复的消息 ID  |
+| ignore_get_message_error | 是   | bool                  | 是否忽略获取引用消息详情错误，默认否  |
 
 ## 返回说明
 
