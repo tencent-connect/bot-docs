@@ -4,7 +4,7 @@
 
 ## 使用示例
 
-```py
+```python
 import botpy
 from botpy.message import Message
 

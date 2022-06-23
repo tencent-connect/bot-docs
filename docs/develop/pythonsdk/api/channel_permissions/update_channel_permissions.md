@@ -4,8 +4,6 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
 import botpy
 from botpy.message import Message
