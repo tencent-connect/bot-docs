@@ -7,12 +7,16 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.delete_channel(channel_id="xxxx")
 
-api = qqbot.ChannelAPI(token, False)
-channel = api.delete_channel(channel_id)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意
@@ -31,41 +35,12 @@ channel = api.delete_channel(channel_id)
 
 ## 返回说明
 
-字段参见 [ChannelRes](#channelres)
-
-### ChannelRes
-
-| 字段名   | 类型   | 描述                                   |
-| -------- | ------ | -------------------------------------- |
-| id       | string | 子频道 ID                              |
-| guild_id | string | 频道 ID                                |
-| name     | string | 子频道名                               |
-| type     | number | 子频道类型 [ChannelType](#channeltype) |
-
-### ChannelType
-
-| 值    | 描述         |
-| ----- | ------------ |
-| 0     | 文字子频道   |
-| 1     | 保留，不可用 |
-| 2     | 语音子频道   |
-| 3     | 保留，不可用 |
-| 4     | 子频道分组   |
-| 10005 | 直播子频道   |
-| 10006 | 应用子频道   |
-| 10007 | 论坛子频道   |
-
-注：由于 QQ 频道还在持续的迭代中，经常会有新的子频道类型增加，文档更新不一定及时，开发者识别 `ChannelType` 时，请注意相关的未知 ID 的处理。
+成功返回 HTTP 状态码 200
 
 ## 返回示例
 
 `data`：
 
 ```json
-{
-    "id":"channel_id",
-    "type":0,
-    "name":"update_channel",
-    "guild_id":"2020131797974366736"
-}
+{}
 ```

@@ -6,12 +6,24 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
+from botpy.types.channel import ChannelSubType, ChannelType
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.create_channel(
+          guild_id=message.guild_id,
+          name="创建子频道",
+          type=ChannelType.TEXT_CHANNEL,
+          sub_type=ChannelSubType.TALK,
+          position=1,
+          parent_id=1,
+        )
 
-api = qqbot.ChannelAPI(token, False)
-channel_res = api.create_channel(channel_id, channel)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意
@@ -29,17 +41,12 @@ channel_res = api.create_channel(channel_id, channel)
 | 字段名  | 必填 | 类型                | 描述       |
 | ------- | ---- | ------------------- | ---------- |
 | guild_id | 是   | string              | 频道 ID    |
-| channel | 是   | [Channel](#channel) | 子频道对象 |
+| name      | 是 | string   | 子频道名                                       |
+| type      | 是 | [ChannelType](#channeltype)   | 子频道类型          |
+| sub_type  | 是 | [ChannelSubType](#channelsubtype)   | 子频道子类型  |
+| position  | 否 | int   | 排序，非必填     |
+| parent_id | 否 | int   | 分组 ID                                        |
 
-### Channel
-
-| 字段名    | 类型   | 必填 | 描述                                           |
-| --------- | ------ | ---- | ---------------------------------------------- |
-| name      | string | 是   | 子频道名                                       |
-| type      | number | 是   | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type  | number | 是   | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position  | number | 否   | 排序，非必填     |
-| parent_id | string | 否   | 分组 ID                                        |
 
 ### ChannelType
 
@@ -76,9 +83,9 @@ channel_res = api.create_channel(channel_id, channel)
 | id       | string | 子频道 ID                                      |
 | guild_id | string | 频道 ID                                        |
 | name     | string | 子频道名                                       |
-| type     | number | 子频道类型 [ChannelType](#channeltype)         |
-| sub_type | number | 子频道子类型 [ChannelSubType](#channelsubtype) |
-| position | number | 排序，必填，而且不能够和其他子频道的值重复     |
+| type     | int | 子频道类型 [ChannelType](#channeltype)         |
+| sub_type | int | 子频道子类型 [ChannelSubType](#channelsubtype) |
+| position | int | 排序，非必填                                   |
 | owner_id | string | 创建者 ID                                      |
 
 ## 返回示例
@@ -91,8 +98,8 @@ channel_res = api.create_channel(channel_id, channel)
   "guild_id": "guild_id",
   "name": "channel_test",
   "type": 1,
+  "sub_type": 0,
   "position": 1640240055,
-  "owner_id": "2854198244",
-  "sub_type": 0
+  "owner_id": "2854198244"
 }
 ```
