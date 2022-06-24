@@ -7,27 +7,16 @@
 #### sync
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.get_schedules(channel_id="日程ID", since="1656008891145")
 
-
-def demo():
-    api = qqbot.ScheduleAPI(token, False)
-    schedules = api.get_schedules(channel_id, since)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncScheduleAPI(token, False)
-    schedules = await api.get_schedules(channel_id, since)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token}
 ```
 
 ## 参数说明

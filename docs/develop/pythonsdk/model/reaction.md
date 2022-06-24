@@ -35,14 +35,6 @@
 | is_end     | bool                             | 是否已拉取完成到最后一页，true代表完成 |
 
 
-## ReactionUsersPager
-
-| 字段名 | 类型   | 描述                                 |
-| ------ | ------ | ------------------------------------ |
-| cookie | string | 上次请求返回的cookie，第一次请求无需填写 |
-| limit  | int    | 每次拉取数量，默认20，最多50，只须第一次请求时设置  |
-
-
 ## ReactionTargetType
 
 | 值  | 描述 |
@@ -57,20 +49,45 @@
 ### 代码示例
 
 ```python
-import qqbot
-from qqbot.core.util.yaml_util import YamlUtil
+from typing import List
 
-test_config = YamlUtil.read(os.path.join(os.path.dirname(__file__), "config.yaml"))
+import botpy
 
+from botpy.message import Message
+from botpy.types import reaction
+from botpy.types.user import User
 
-async def _reaction_handler(event, reaction: qqbot.Reaction):
-    qqbot.logger.info("event %s" % event + ", reaction channel id %s" % reaction.channel_id)
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        users: List[User] = []
+        cookie = ""
+        while True:
+            reactionUsers: reaction.ReactionUsers = await self.api.get_reaction_users(
+                "2568610",
+                "088de19cbeb883e7e97110a2e39c0138d80d48acfc879406",
+                1,
+                "4",
+                cookie=cookie,
+            )
 
+            if not reactionUsers:
+                break
 
-if __name__ == "__main__":
-    t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
-    handler = qqbot.Handler(qqbot.HandlerType.MESSAGE_REACTIONS_EVENT_HANDLER, _reaction_handler)
-    qqbot.async_listen_events(t_token, False, handler)
+            users.extend(reactionUsers["users"])
+
+            if reactionUsers["is_end"]:
+                break
+            else:
+                cookie = reactionUsers["cookie"]
+
+        print(len(users))
+        for user in users:
+            print(user["username"])
+
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents)
+client.run(appid={appid}, token={token})
+
 ```
 
 在频道内，长按某条消息进行表情回复 `👍`，ws 收到消息并打印如下 log 信息：

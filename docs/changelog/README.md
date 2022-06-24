@@ -4,6 +4,33 @@ sidebar: auto
 
 # 文档更新日志
 
+## 2022-06-17
+
+* feat: 完善ws事件中Message数据的构建 ([9564cb2](https://github.com/tencent-connect/botpy/pull/103/commits/9564cb2858833fb8de442123226fe7a46f743fe6))
+* feat: 完善ws事件中User-Member数据的构建 ([109c74e](https://github.com/tencent-connect/botpy/pull/103/commits/109c74e8845ee0c91b0237a7bf427e9f4587cf47))
+* feat: 完善ws事件中Reaction、Audio、DirectMessage 以及 Forum（Thread类）数据的构建 
+ ([26af7ad](https://github.com/tencent-connect/botpy/pull/103/commits/26af7adc5fb193707023f3d6ebdc4f6b36936cff))
+
+## 2022-06-15
+
+* feat: 优化gateway, api, flags, http中的部分逻辑构建与冗余代码 ([727ed73](https://github.com/tencent-connect/botpy/commit/727ed73823a3d4e7a9a5f507edb5a3ff0f9a5222))
+* docs: 更新文档中的部分demo ([a24bf94](https://github.com/tencent-connect/botpy/commit/a24bf94557a06cf5cfabeefc81de5376a8578346))
+* feat: 优化撤回消息api的用法&优化handle消息参数的返回值 ([166496e](https://github.com/tencent-connect/botpy/commit/166496e8b6615b7797b71b004ec394e1876611cb))
+
+## 2022-06-14
+
+* fix: 修复撤回消息隐藏小灰条没有生效的问题 ([6c37dd6](https://github.com/tencent-connect/botpy/commit/06afb5361b05ac05981b1453453c99b1f10faf87))
+
+## 2022-06-13
+
+* feat: 优化指令装饰器并新增指令装饰器demo ([40576451](https://github.com/ReadSmall/botpy/commit/405764517c32bf55b168bd217934d4d452655fb8))
+* feat: botpy 1.0 版本合入 ([8a30abe2](https://github.com/ReadSmall/botpy/commit/8a30abe28fc9daed122c60f517c1fbbd3198c8c0))
+* feat: 优化http模块&新增频道成员事件的Member构建&优化代码逻辑统一性，去除部分冗余代码 ([0add0b9](https://github.com/tencent-connect/botpy/commit/0add0b9dd761b12e98f66db91c34e0939c270c60))
+
+## 2022-06-11
+
+* fix: 优化logging模块 ([9162c24](https://github.com/tencent-connect/botpy/commit/9162c2452b71778a15dadbc088b76405e53fd68b))
+
 ## 2022-01-13
 
 * docs(changlog): 同步changlog ([46f5921](https://github.com/tencent-connect/bot-docs/commit/46f59210f4f5f7efd72f47c447eefb93ea9ad288))

@@ -5,12 +5,21 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.delete_guild_role_member(
+            guild_id="xxxx",
+            role_id="xxxx",
+            user_id="xxxx",
+            channel_id="xxxx"
+        )
 
-api = qqbot.GuildRoleAPI(token, False)
-result = api.delete_guild_role_member(guild_id, role_id, user_id, channel)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意
@@ -26,7 +35,6 @@ result = api.delete_guild_role_member(guild_id, role_id, user_id, channel)
 | guild_id | 是   | string              | 频道 ID                              |
 | role_id  | 是   | string              | 身份组 ID                            |
 | user_id  | 是   | string              | 用户 ID                              |
-| ~~channel~~ | 否   | ~~Channel 对象~~  | ~~只填充 id 属性的 Channel 对象~~(**已弃用，请使用 channelId**) |
 | channel_id   | 否   | string          | 子频道 ID
 
 ## 返回说明

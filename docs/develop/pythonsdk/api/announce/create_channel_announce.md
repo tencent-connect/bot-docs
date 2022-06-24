@@ -4,30 +4,18 @@
 
 ## 使用示例
 
-#### sync 
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        message_id = "088de19cbeb883e7e97110a2e39c0138d401"
+        await self.api.create_announce(message.guild_id, message.channel_id, message_id)
 
-def demo():
-    announce_api = qqbot.AnnounceAPI(token, False)  
-    create_channel_announce_request = CreateChannelAnnounceRequest(message_id)
-    announce = announce_api.create_channel_announce(channel_id, create_channel_announce_request)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-async def demo():
-    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
-    create_channel_announce_request = CreateChannelAnnounceRequest(message_id)
-    announce = await announce_api.create_channel_announce(channel_id, create_channel_announce_request)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -35,26 +23,9 @@ async def demo():
 | 字段名    | 必填 | 类型   | 描述                             |
 | --------- | ---- | ------ | -------------------------------- |
 | guild_id   | 是   | string | 频道 ID     |
-| create_channel_announce_request | 是   | [CreateChannelAnnounceRequest](#CreateChannelAnnounceRequest) | 创建子频道公告请求参数 |
-
-
-### CreateChannelAnnounceRequest
-
-| 字段名       | 类型   | 描述                      |
-| ------------ | ------ | ------------------------- |
+| channel_id | 是   | string | 子频道 ID |
 | message_id | string | 消息 ID  |
 
-## 返回说明
-
-返回 [Announce](#announce) 对象。
-
-### Announce
-
-| 字段名       | 类型   | 描述                      |
-| ------------ | ------ | ------------------------- |
-| guild_id     | string | 频道 ID    |
-| channel_id   | string | 子频道 ID |
-| message_id | string | 消息 ID  |
 
 ## 返回示例
 

@@ -4,30 +4,23 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy import Permission
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.update_channel_role_permissions(
+            channel_id="xxxx",
+            role_id="xxxx",
+            add=Permission(speak_permission=True), # 添加可发言子频道
+            remove=Permission(speak_permission=False), # 移除可发言子频道
+        )
 
-
-def demo():
-    api = qqbot.ChannelPermissionsAPI(token, False)
-    is_success = api.update_channel_role_permissions(channel_id, role_id, channel_permissions)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncChannelPermissionsAPI(token, False)
-    is_success = await api.update_channel_role_permissions(channel_id, role_id, channel_permissions)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意
@@ -41,18 +34,11 @@ async def demo():
 
 | 字段名           | 必填 | 类型                                  | 描述                                      |
 | ---------------- | ---- | ------------------------------------- | ----------------------------------------- |
-| channel_id        | 是   | string                                | 子频道 ID                                 |
-| role_id           | 是   | string                                | 身份组 ID  |
-| channel_permissions | 是   | [UpdatePermission](#updatepermission) | 权限参数                                  |
+| channel_id       | 是   | string                                | 子频道 ID                                 |
+| role_id          | 是   | string                                | 身份组 ID  |
+| add              | 是   | string | **字符串**形式的**十进制**数表示**赋予**用户的权限，参考[Permissions](#permissions) |
+| remove           | 是   | string | **字符串**形式的**十进制**数表示**删除**用户的权限，参考[Permissions](#permissions) |
 
-### UpdatePermission
-
-参数包括`add`和`remove`两个字段，分别表示`授予`的权限以及`删除`的权限。要授予用户权限即把`add`对应位`置1`，删除用户权限即把`remove`对应位`置1`。当两个字段同一位`都为1`，表现为`删除`权限。
-
-| 字段名 | 类型   | 描述                                                                                |
-| ------ | ------ | ----------------------------------------------------------------------------------- |
-| add    | string | **字符串**形式的**十进制**数表示**赋予**用户的权限，参考[Permissions](#permissions) |
-| remove | string | **字符串**形式的**十进制**数表示**删除**用户的权限，参考[Permissions](#permissions) |
 
 ### Permissions
 
@@ -74,28 +60,6 @@ async def demo():
 +`0x0000000004`=`0x0000000006`。
 
 :::
-
-`SDK`中权限用`十进制字符串`描述，可参考如下提示：
-
-::: tip 提示
-
-以添加`可发言子频道`权限为例：
-
-```python
-async def demo():
-    api = qqbot.AsyncChannelPermissionsAPI(token, False)
-    update_permissions = qqbot.UpdatePermission(add="4")
-    is_succeeded = await api.update_channel_role_permissions(channel_id, role_id, update_permissions)
-```
-
-同理，移除`可发言子频道`如下：
-
-```python
-async def demo():
-    api = qqbot.AsyncChannelPermissionsAPI(token, False)
-    update_permissions = qqbot.UpdatePermission(remove="4")
-    is_succeeded = await api.update_channel_role_permissions(channel_id, role_id, update_permissions)
-```
 
 ## 返回示例
 

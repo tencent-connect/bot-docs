@@ -108,7 +108,6 @@ module.exports = {
             sidebarDepth: 0,
             children: [
               'api/message/get_message',
-              //'api/message/get_messages',
               'api/message/post_message',
               'api/message/recall_message',
               'api/message/post_ark_message',
@@ -156,7 +155,6 @@ module.exports = {
               'api/announce/delete_guild_announce',
               'api/announce/create_channel_announce',
               'api/announce/delete_channel_announce',
-              'api/announce/post_recommended_channels',
             ],
           },
           {
@@ -186,7 +184,9 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              'api/audio/post_audio'
+              'api/audio/post_audio',
+              'api/audio/audio_on_mic',
+              'api/audio/audio_off_mic',
             ],
           },
           {

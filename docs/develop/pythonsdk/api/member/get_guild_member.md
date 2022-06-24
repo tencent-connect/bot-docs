@@ -5,11 +5,16 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
-api = qqbot.GuildMemberAPI(token, False)
-member = api.get_guild_member(guild_id, user_id)
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.get_guild_member(guild_id="xxxx", user_id="xxx")
+
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明

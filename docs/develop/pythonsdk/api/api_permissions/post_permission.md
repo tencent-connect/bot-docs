@@ -12,29 +12,31 @@
 ## 使用示例
 
 ```python
-import qqbot
+import os
 
-token = qqbot.Token({appid}, {token})
+import botpy
+from botpy import logging
+from botpy.message import Message
 
-def demo():
-    api = qqbot.APIPermissionAPI(token, False)
-    identity = APIPermissionDemandIdentify(path, method)
-    demand_to_create = PermissionDemandToCreate(channel_id, identity)
-    demand = api.post_permission_demand(guild_id, demand_to_create)
-```
+_log = logging.get_logger()
 
-#### async
 
-```python
-import qqbot
+class MyClient(botpy.Client):
 
-token = qqbot.Token({appid}, {token})
+    async def on_at_message_create(self, message: Message):
+      
+      demand_identity = APIPermissionDemandIdentify(path="/guilds/{guild_id}/members/{user_id}", method="GET")
+      demand = await self.api.post_permission_demand(
+          message.guild_id,
+          message.channel_id,
+          demand_identity,
+          '获取当前频道成员信息'
+      )
+      _log.info("api title: %s" % demand["title"] + ", desc: %s" % demand["desc"])
 
-async def demo():
-    api = qqbot.AsyncAPIPermissionAPI(token, False)
-    identity = APIPermissionDemandIdentify(path, method)
-    demand_to_create = PermissionDemandToCreate(channel_id, identity)
-    demand = await api.post_permission_demand(guild_id, demand_to_create)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -42,12 +44,6 @@ async def demo():
 | 字段名              | 必填 | 类型                                                  | 描述                         |
 | ------------------- | ---- | ----------------------------------------------------- | ---------------------------- |
 | guild_id             | 是   | string                                                | [频道 ID](../../model/guild.md) |
-| permission_demand_to_create | 是   | [PermissionDemandToCreate](#PermissionDemandToCreate) | 授权链接对象                 |
-
-### PermissionDemandToCreate
-
-| 字段名       | 必填 | 类型                                                        | 描述                                              |
-| ------------ | ---- | ----------------------------------------------------------- | ------------------------------------------------- |
 | channel_id   | 是   | string                                                      | 授权链接发送的[子频道 ID](../../model/channel.md)    |
 | api_identify | 是   | [APIPermissionDemandIdentify](#apipermissiondemandidentify) | API 权限需求标识对象                              |
 | desc         | 否   | string                                                      | 机器人申请对应的 API 接口权限后可以使用功能的描述 |

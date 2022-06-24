@@ -7,12 +7,23 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        """
+        name	            string	子频道名
+        position	        int	    排序
+        parent_id	        string	分组 id
+        private_type	    int	    子频道私密类型 PrivateType
+        speak_permission	int	    子频道发言权限 SpeakPermission
+        """
+        await self.api.update_channel(channel_id="xxxx")
 
-api = qqbot.ChannelAPI(token, False)
-channel_res = api.update_channel(channel_id, channel)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ::: warning 注意

@@ -17,12 +17,16 @@
 ## 使用示例
 
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.post_message(channel_id="xxxx", content="xxx", msg_id="xxxx", embed=embed)
 
-msg_api = qqbot.MessageAPI(token, False)         
-message = msg_api.post_message(channel_id, message_send_request)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -30,12 +34,6 @@ message = msg_api.post_message(channel_id, message_send_request)
 | 参数      | 必填 | 类型                                | 说明       |
 | --------- | ---- | ----------------------------------- | ---------- |
 | channel_id | 是   | string                              | 子频道 ID  |
-| message_send_request  | 是   | [MessageSendRequest](#MessageSendRequest) | 消息体结构 |
-
-## MessageSendRequest
-
-| 字段名  | 必填 | 类型                          | 描述                                                                                     |
-| ------- | ---- | ----------------------------- | ---------------------------------------------------------------------------------------- |
 | content | 否   | string                        | 消息内容，文本内容，支持[内嵌格式](message_format.md)，可以为空                                    |
 | embed   | 否   | [MessageEmbed](#messageembed) | embed 消息，一种特殊的 ark                                                               |
 | ark     | 否   | [MessageArk](#messageark)     | ark 消息                                                                                 |

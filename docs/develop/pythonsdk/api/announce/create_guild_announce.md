@@ -1,33 +1,29 @@
-# 创建频道全局公告 
+# 创建频道公告推荐子频道 
 
-将某个子频道的某条消息创建为频道全局公告。
+用于将指定子频道设置为当前频道的推荐子频道，并以全局公告形式展示。
+
+::: warning 注意
+
+- 只有子频道权限为全体成员可见才可设置为推荐子频道。
+- **删除频道公告**推荐子频道请使用 [删除频道公告](./delete_channel_announce.md),并将 `messageId` 设置为 `all`。
+
+:::
 
 ## 使用示例
 
-#### sync 
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
+from botpy.types.announce import AnnouncesType
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        channel_list = [{"channel_id": message.channel_id, "introduce": "introduce"}]
+        await self.api.create_recommend_announce(message.guild_id, AnnouncesType.MEMBER, channel_list)
 
-def demo():
-    announce_api = qqbot.AnnounceAPI(token, False)  
-    create_announce_request = CreateAnnounceRequest(channel_id, message_id)
-    announce = announce_api.create_announce(guild_id, create_announce_request)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-async def demo():
-    announce_api = qqbot.AsyncAnnounceAPI(token, False)  
-    create_announce_request = CreateAnnounceRequest(channel_id, message_id)
-    announce = await announce_api.create_announce(guild_id, create_announce_request)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -35,27 +31,9 @@ async def demo():
 | 字段名    | 必填 | 类型   | 描述                             |
 | --------- | ---- | ------ | -------------------------------- |
 | guild_id   | 是   | string | 频道 ID     |
-| create_announce_request | 是   | [CreateAnnounceRequest](#CreateAnnounceRequest) | 创建频道公告请求参数 |
-
-
-### CreateAnnounceRequest
-
-| 字段名       | 类型   | 描述                      |
-| ------------ | ------ | ------------------------- |
-| channel_id   | string | 子频道 ID |
+| channel_id | 是   | string | 子频道 ID |
 | message_id | string | 消息 ID  |
 
-## 返回说明
-
-返回 [Announce](#announce) 对象。
-
-### Announce
-
-| 字段名       | 类型   | 描述                      |
-| ------------ | ------ | ------------------------- |
-| guild_id     | string | 频道 ID    |
-| channel_id   | string | 子频道 ID |
-| message_id | string | 消息 ID  |
 
 ## 返回示例
 

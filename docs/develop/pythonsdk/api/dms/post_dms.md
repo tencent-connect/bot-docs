@@ -11,32 +11,17 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.post_dms(guild_id="xxxx", content="xx")
 
-
-def demo():
-    api = qqbot.DmsAPI(token, False)
-    msg_request = qqbot.MessageSendRequest(content='ss', msg_id=message_id)
-    msg = api.post_direct_message(guild_id, msg_request)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncDmsAPI(token, False)
-    msg_request = qqbot.MessageSendRequest(content='ss', msg_id=message_id)
-    msg = await api.post_direct_message(guild_id, msg_request)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明

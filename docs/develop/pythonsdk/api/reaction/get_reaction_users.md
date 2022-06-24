@@ -4,30 +4,46 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+from typing import List
 
-token = qqbot.Token({appid}, {token})
+import botpy
 
+from botpy.message import Message
+from botpy.types import reaction
+from botpy.types.user import User
 
-def demo():
-    api = qqbot.ReactionAPI(token, False)
-    reaction_users = api.get_reaction_users(channel_id, message_id, EmojiType.system, "4", ReactionUsersPager())
-```
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        users: List[User] = []
+        cookie = ""
+        while True:
+            reactionUsers: reaction.ReactionUsers = await self.api.get_reaction_users(
+                channel_id="2568610",
+                message_id="088de19cbeb883e7e97110a2e39c0138d80d48acfc879406",
+                emoji_type=1,
+                emoji_id="4",
+                cookie=cookie,
+                limit=20
+            )
 
-#### async
+            if not reactionUsers:
+                break
 
-```python
-import qqbot
+            users.extend(reactionUsers["users"])
 
-token = qqbot.Token({appid}, {token})
+            if reactionUsers["is_end"]:
+                break
+            else:
+                cookie = reactionUsers["cookie"]
 
+        print(len(users))
+        for user in users:
+            print(user["username"])
 
-async def demo():
-    api = qqbot.AsyncReactionAPI(token, False)
-    reaction_users = await api.get_reaction_users(channel_id, message_id, EmojiType.system, "4", ReactionUsersPager())
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -38,7 +54,8 @@ async def demo():
 | message_id  | 是   | string                                | 消息 ID                     |
 | type        | 是   | int                                   | 表情类型，参考[EmojiType](../../model/emoji.md#EmojiType)      |
 | emoji_id    | 是   | string                                | 表情 ID，参考 [Emoji 列表](../../model/emoji.md#Emoji-列表)    |
-| pager       | 是   | ReactionUsersPager 对象  | 拉取表情表态用户列表的分页对象，参考[ReactionUsersPager](../../model/reaction.md#ReactionUsersPager)|
+| cookie    | 否   | string                                | cookie 上次请求返回的cookie，第一次请求无需填写  |
+| limit    | 否   | int                                | 返回的最大用户数 (1-100), 默认20  |
 
 ## 返回说明
 

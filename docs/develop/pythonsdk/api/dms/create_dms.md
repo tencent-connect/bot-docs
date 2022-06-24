@@ -10,46 +10,25 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
+from botpy.message import Message
 
-token = qqbot.Token({appid}, {token})
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.create_dms(guild_id="xxxx", user_id="xxxx")
 
-
-def demo():
-    api = qqbot.DmsAPI(token, False)
-    request = qqbot.CreateDirectMessageRequest(source_guild_id, recipient_id)
-    dms = api.create_direct_message(request)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncDmsAPI(token, False)
-    dms_request = qqbot.CreateDirectMessageRequest(source_guild_id, recipient_id)
-    dms = await api.create_direct_message(request)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
 
 | 字段名 | 必填 | 类型                        | 描述           |
 | ------ | ---- | --------------------------- | -------------- |
-| dms_request  | 是   | [CreateDirectMessageRequest](#CreateDirectMessageRequest) | 创建私信结构体 |
-
-### CreateDirectMessageRequest
-
-| 字段名          | 必填 | 类型   | 描述                           |
-| --------------- | ---- | ------ | ------------------------------ |
-| source_guild_id | 是   | string | [源频道 ID](../../model/guild.md) |
-| recipient_id    | 是   | string | [接收者 ID](../../model/user.md)  |
+| guild_id | 是   | string | [源频道 ID](../../model/guild.md) |
+| user_id    | 是   | string | [接收者 ID](../../model/user.md)  |
 
 ## 返回说明
 

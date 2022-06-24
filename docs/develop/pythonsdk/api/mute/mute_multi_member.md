@@ -6,32 +6,19 @@
 
 ## 使用示例
 
-#### sync
-
 ```python
-import qqbot
+import botpy
 
-token = qqbot.Token({appid}, {token})
+from botpy.message import Message
 
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        user_ids = ["xxx", "xxx"]
+        await self.api.mute_multi_member(guild_id="xxxx", user_ids=user_ids, mute_end_timestamp="xxxx", mute_seconds="xxxx")
 
-def demo():
-    api = qqbot.MuteAPI(token, False)
-    option = qqbot.MultiMuteOption(mute_seconds="120", user_ids=[GUILD_TEST_MEMBER_ID])
-    succeed_user_ids = api.mute_multi_member(GUILD_ID, option)
-```
-
-#### async
-
-```python
-import qqbot
-
-token = qqbot.Token({appid}, {token})
-
-
-async def demo():
-    api = qqbot.AsyncMuteAPI(token, False)
-    option = qqbot.MultiMuteOption(mute_seconds="120", user_ids=[GUILD_TEST_MEMBER_ID])
-    succeed_user_ids = api.mute_multi_member(GUILD_ID, option)
+intents = botpy.Intents(public_guild_messages=True)
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
 ## 参数说明
@@ -39,15 +26,9 @@ async def demo():
 | 字段名  | 必填 | 类型                      | 描述                         |
 | ------- | ---- | ------------------------- | ---------------------------- |
 | guild_id | 是   | string                    | [频道 ID](../../model/guild.md) |
-| options  | 是   | [MultiMuteOptions](#multimuteoption) | 批量禁言参数             |
-
-### MultiMuteOption
-
-| 字段名  | 类型   | 描述                                                                                    |
-| ------- | ------ | --------------------------------------------------------------------------------------- |
+| user_ids            | string 列表 | 禁言成员的 user_id 列表                       |
 | mute_end_timestamp  | string | 禁言到期时间戳，`绝对时间戳`，单位：`秒`（与 `seconds` 字段同时赋值的话，以该字段为准） |
 | mute_seconds        | string | 禁言多少秒（两个字段二选一，**默认以 `mute_end_timstamp` 为准**）                         |
-| user_ids            | string 列表 | 禁言成员的 user_id 列表                       |
 
 #### 批量解除禁言
 

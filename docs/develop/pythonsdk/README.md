@@ -1,204 +1,247 @@
 # Python SDK 接入指南
-![PyPI](https://img.shields.io/pypi/v/qq-bot)
+![PyPI](https://img.shields.io/pypi/v/qq-botpy)
 
 ## sdk 安装
 
 外发版本通过下面方式安装
 
 ```bash
-pip install qq-bot  
+pip install qq-botpy
 ```
 
->- 注意是`qq-bot`而不是 `qqbot`！
->- 注意不要命名代码为`qqbot.py`，会导致冲突
->- 更新包的话需要添加 `--upgrade` `注：需要python3.7+`
+> 更新包的话需要添加 `--upgrade` `兼容版本：python3.8+`
 
 ## sdk 使用
 
-需要使用的地方 import SDK
+需要使用的地方`import botpy`
 
 ```python
-import qqbot
+import botpy
 ```
+
+### 兼容提示
+
+> 原机器人的老版本`qq-bot`仍然可以使用，但新接口的支持上会逐渐暂停，此次升级不会影响线上使用的机器人 
+
 
 ## 示例机器人
 
 [`examples`](https://github.com/tencent-connect/botpy/tree/master/examples) 目录下存放示例机器人，可供实现参考。
 
-## qqbot-API
+## botpy-API
 
 基于 [机器人开放平台API](https://bot.q.qq.com/wiki/develop/api/) 实现的 API 接口封装。
 
-### 使用方法
+### 快速示例
 
-通过 `import` 对应 API 的类来进行使用，构造参数（`Token` 对象，是否沙盒模式）。
+通过继承实现`bot.Client`, 实现自己的机器人Client 
 
-比如下面的例子，通过 api 当前机器人的相关信息：
+```python
+import botpy
+from botpy.types.message import Message
 
-```py
-import qqbot
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.post_message(channel_id=message.channel_id, content="content")
 
-token = qqbot.Token("{appid}","{token}")
-api = qqbot.UserAPI(token, False)
-
-user = api.me()
-
-print(user.username)  # 打印机器人名字
+intents = botpy.Intents(public_guild_messages=True) 
+client = MyClient(intents=intents)
+client.run(appid={appid}, token={token})
 ```
 
-async 示例：
-
-```py
-import qqbot
-
-token = qqbot.Token("{appid}","{token}")
-api = qqbot.AsyncUserAPI(token, False)
-
-# 获取loop
-loop = asyncio.get_event_loop()
-user = loop.run_until_complete(api.me())
-
-print(user.username)  # 打印机器人名字
-```
-
-## qqbot-事件监听
+## botpy-事件监听
 
 异步模块基于 websocket 技术用于监听频道内的相关事件，如消息、成员变化等事件，用于开发者对事件进行相应的处理。
 
 更完整的事件说明，请参考 [事件监听](https://bot.q.qq.com/wiki/develop/pythonsdk/websocket/listen_events.html)
 
-### 使用方法
+## 订阅事件的方法
 
-通过注册需要监听的事件并设置回调函数后，即可完成对事件的监听。
+### 方法一：
 
-比如下面这个例子：需要监听机器人被@后消息并进行相应的回复。
+```python
+intents = botpy.Intents() 
+client = MyClient(intents=intents)
+```
 
-- 先初始化需要用的 `token` 对象
-- 通过 `qqbot.listen_events` 注册需要监听的事件
-- 通过 `qqbot.HandlerType` 定义需要监听的事件（部分事件可能需要权限申请）
+在Intents中填入对应的[参数](#参数列表)
 
-  ```py
-  t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
-  # 注册事件类型和回调，可以注册多个
-  qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
-  qqbot.listen_events(t_token, False, qqbot_handler)
-  ```
+例子：
 
-- 最后定义注册事件回调执行函数,如 `_message_handler` 。
+```python
+intents = botpy.Intents(public_guild_messages=True, direct_message=True, guilds=True)
+```
 
-  ```py
-  def _message_handler(event, message: Message):
-      msg_api = qqbot.MessageAPI(t_token, False)
-      # 打印返回信息
-      qqbot.logger.info("event %s" % event + ",receive message %s" % message.content)
-      # 构造消息发送请求数据对象
-      send = qqbot.MessageSendRequest("<@%s>谢谢你，加油" % message.author.id, message.id)
-      # 通过api发送回复消息
-      msg_api.post_message(message.channel_id, send)
-  ```
+### 方法二：
 
-- async 示例:
+```python
+intents = botpy.Intents.none()
+```
 
-  ```py
-  # async的异步接口的使用示例
-  t_token = qqbot.Token(test_config["token"]["appid"], test_config["token"]["token"])
-  qqbot_handler = qqbot.Handler(qqbot.HandlerType.AT_MESSAGE_EVENT_HANDLER, _message_handler)
-  qqbot.async_listen_events(t_token, False, qqbot_handler)
-  ```
+然后打开对应的订阅([参数列表](#参数列表))
 
-  ```py
-  async def _message_handler(event, message: qqbot.Message):
-    """
-    定义事件回调的处理
+```python
+intents.public_guild_messages=True
+intents.direct_message=True
+intents.guilds=True
+```
 
-    :param event: 事件类型
-    :param message: 事件对象（如监听消息是Message对象）
-    """
-    msg_api = qqbot.AsyncMessageAPI(t_token, False)
-    # 打印返回信息
-    qqbot.logger.info("event %s" % event + ",receive message %s" % message.content)
-    for i in range(5):
-        await asyncio.sleep(5)
-        # 构造消息发送请求数据对象
-        send = qqbot.MessageSendRequest("<@%s>谢谢你，加油 " % message.author.id, message.id)
-        # 通过api发送回复消息
-        await msg_api.post_message(message.channel_id, send)
+说明：
 
-  ```
+方法二对应的快捷订阅方式为
 
-- 注：当前支持事件及回调数据对象为：
+1. 订阅所有事件
 
-  ```py
-  class HandlerType(Enum):
-      PLAIN_EVENT_HANDLER = 0  # 透传事件
-      GUILD_EVENT_HANDLER = 1  # 频道事件
-      GUILD_MEMBER_EVENT_HANDLER = 2  # 频道成员事件
-      CHANNEL_EVENT_HANDLER = 3  # 子频道事件
-      MESSAGE_EVENT_HANDLER = 4  # 消息事件
-      AT_MESSAGE_EVENT_HANDLER = 5  # At消息事件
-      # DIRECT_MESSAGE_EVENT_HANDLER = 6  # 私信消息事件
-      # AUDIO_EVENT_HANDLER = 7  # 音频事件
-  ```
+```python
+intents = botpy.Intents.all()
+```
 
-  事件回调函数的参数 1 为事件名称，参数 2 返回具体的数据对象。
+2. 订阅所有的公域事件
 
-  ```py
-  # 透传事件（无具体的数据对象，根据后台返回Json对象）
-  def _plain_handler(event, data):
-  # 频道事件
-  def _guild_handler(event, guild:Guild):
-  # 频道成员事件
-  def _guild_member_handler(event, guild_member: GuildMember):
-  # 子频道事件
-  def _channel_handler(event, channel: Channel):
-  # 消息事件
-  # At消息事件
-  def _message_handler(event, message: Message):
-  ```
+```python
+intents = botpy.Intents.default()
+```
+
+### 备注
+
+也可以通过预设置的类型，设置需要监听的事件通道
+
+```python
+import botpy
+
+intents = botpy.Intents.none()
+intents.public_guild_messages=True
+```
+
+#### 参数列表
+
+| 参数                      | 含义                                 |
+| ----------------------- | ---------------------------------- |
+| public_guild_messages   | 公域消息事件                             |
+| guild_messages          | 消息事件 **(仅 `私域` 机器人能够设置此 intents)** |
+| direct_message          | 私信事件                               |
+| guild_message_reactions | 消息相关互动事件                           |
+| guilds                  | 频道事件                               |
+| guild_members           | 频道成员事件                             |
+| interaction             | 互动事件                               |
+| message_audit           | 消息审核事件                             |
+| forums                  | 论坛事件 **(仅 `私域` 机器人能够设置此 intents)** |
+| audio_action            | 音频事件                               |
 
 ## 日志打印
 
-基于自带的 logging 模块封装的日志模块，提供了日志写入以及美化了打印格式，并支持通过设置 `QQBOT_LOG_LEVEL` 环境变量来调整日志打印级别（默认打印级别为 `INFO`）。
+基于自带的 logging 模块封装的日志模块，提供了日志写入以及美化了打印格式，并支持调整打印级别（默认打印级别为 `INFO`）。
 
 ### 使用方法
 
 引用模块，并获取 `logger` 实例：
 
-```py
-from core.util import logging
-
-logger = logging.getLogger(__name__)
+```python
+from botpy import logging
 ```
+
+或者通过`botpy.logger`也可以获取logger对象
 
 然后就可以愉快地使用 logger 进行打印。例如：
 
-```py
+```python
+from botpy import logger
+
 logger.info("hello world!")
 ```
 
-### 设置日志级别
+### 日志设置
 
-通过 `export` 命令添加 `QQBOT_LOG_LEVEL` 环境变量可以设置日志级别。例如：
+SDK的日志设置集成在`bot.Client`的实例化阶段，也可通过[`logging.configure_logging`](botpy/logging.py)修改(均为可选)
 
-```bash
-export QQBOT_LOG_LEVEL=10  # 10表示DEBUG级别
+```python
+import botpy
+
+# 示例，非默认值
+botpy.Client(
+    log_level=10,
+    log_format="new format",
+    bot_log=None,
+    ext_handlers=False,
+    log_config="log_config.json"
+)
 ```
 
-几个可选取值（参考了[logging 模块的取值](https://docs.python.org/3/library/logging.html#levels)）：
+### log_level
 
-| Level    | 取值 |
-| -------- | ---- |
-| CRITICAL | 50   |
-| ERROR    | 40   |
-| WARNING  | 30   |
-| INFO     | 20   |
-| DEBUG    | 10   |
-| NOTSET   | 0    |
+日志级别，默认为`INFO`
 
-### 禁用日志文件输出
-
-默认情况下 qqbot 会在当前执行目录下生成格式为 `qqbot.log.*` 的日志文件。如果想禁用这些日志文件，可以通过设置 `QQBOT_DISABLE_LOG` 环境变量为 1 来关闭。
+命令行启动py可增加参数`-d` 或 `--debug`快捷打开debug日志
 
 ```bash
-export QQBOT_DISABLE_LOG=1  # 1表示禁用日志
+python3 demo_at_reply.py -d
 ```
+
+几个可选取值（参考了[logging模块的取值](https://docs.python.org/3/library/logging.html#levels)）：
+
+| Level    | 取值  |
+| -------- | --- |
+| CRITICAL | 50  |
+| ERROR    | 40  |
+| WARNING  | 30  |
+| INFO     | 20  |
+| DEBUG    | 10  |
+| NOTSET   | 0   |
+
+### log_format
+
+日志控制台输出格式，默认为 `"\033[1;33m[%(levelname)s]\t(%(filename)s:%(lineno)s)%(funcName)s\t\033[0m%(message)s"`
+
+### bot_log
+
+是否启用`botpy`日志，默认为`True`
+
+`True` 启用  
+`None` 禁用 拓展  
+`False` 禁用 拓展+控制台输出
+
+### ext_handlers
+
+日志Handler拓展，为`True`使用默认拓展，`False`不添加拓展，可用list添加多个拓展。默认为`True`
+
+[默认拓展](./botpy/logging.py)
+
+```python
+import os
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+DEFAULT_FILE_HANDLER = {
+    # 要实例化的Handler
+    "handler": TimedRotatingFileHandler,
+    # 可选 Default to DEFAULT_FILE_FORMAT
+    "format": "%(asctime)s\t[%(levelname)s]\t(%(filename)s:%(lineno)s)%(funcName)s\t%(message)s",
+    # 可选 Default to DEBUG
+    "level": logging.DEBUG,
+    # 以下是Handler相关参数
+    "when": "D",
+    "backupCount": 7,
+    "encoding": "utf-8",
+    # *特殊* 对于filename参数，其中如有 %(name)s 会在实例化阶段填入相应的日志name
+    "filename": os.path.join(os.getcwd(), "%(name)s.log"),
+}
+```
+
+#### 修改默认拓展
+
+```python
+import os
+import botpy
+from botpy.logging import DEFAULT_FILE_HANDLER
+
+# 修改日志路径
+DEFAULT_FILE_HANDLER["filename"] = os.path.join(os.getcwd(), "log", "%(name)s.log")
+# 修改日志格式
+DEFAULT_FILE_HANDLER["format"] = "new format"
+
+botpy.Client(ext_handlers=DEFAULT_FILE_HANDLER)
+```
+
+### log_config
+
+该参数将传入`logging.config.dictConfig`(内置logging而非botpy.logging)，如果为.json/.yaml文件路径将从文件中读取配置，无默认值
