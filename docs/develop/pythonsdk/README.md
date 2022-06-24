@@ -138,7 +138,6 @@ intents.public_guild_messages=True
 
 ```python
 from botpy import logging
-
 ```
 
 或者通过`botpy.logger`也可以获取logger对象
@@ -149,7 +148,6 @@ from botpy import logging
 from botpy import logger
 
 logger.info("hello world!")
-
 ```
 
 ### 日志设置
@@ -167,7 +165,6 @@ botpy.Client(
     ext_handlers=False,
     log_config="log_config.json"
 )
-
 ```
 
 ### log_level

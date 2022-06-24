@@ -38,9 +38,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.message import Message
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_at_message_create(self, message: Message):
         """
@@ -72,9 +70,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.message import Message
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_message_create(self, message: Message):
         """
@@ -104,9 +100,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.message import DirectMessage
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_direct_message_create(self, message: DirectMessage):
         """
@@ -136,9 +130,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.reaction import Reaction
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_message_reaction_add(self, reaction: Reaction):
         """
@@ -173,9 +165,7 @@ client = MyClient(intents=intents)
 ```python
 from botpy.guild import Guild
 from botpy.channel import Channel
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_guild_create(self, guild: Guild):
         """
@@ -222,9 +212,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.user import Member
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_guild_member_add(self, member: Member):
         """
@@ -257,9 +245,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.interaction import Interaction
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_interaction_create(self, interaction: Interaction):
         """
@@ -285,9 +271,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.message import MessageAudit
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_message_audit_pass(self, message: MessageAudit):
         """
@@ -326,9 +310,7 @@ client = MyClient(intents=intents)
 ```python
 from botpy.forum import Thread
 from botpy.types.forum import Post, Reply, AuditResult
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_forum_thread_create(self, thread: Thread):
         """
@@ -384,9 +366,7 @@ client = MyClient(intents=intents)
 
 ```python
 from botpy.audio import Audio
-```
 
-```python
 class MyClient(botpy.Client):
     async def on_audio_start(self, audio: Audio):
         """
@@ -451,7 +431,7 @@ intents = botpy.Intents.all()
 
 ```python
 intents = botpy.Intents.default()
-```
+``` 
 
 #### 参数列表
 
