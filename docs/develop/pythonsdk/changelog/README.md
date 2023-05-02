@@ -2,7 +2,7 @@
 
 ## 2023-05-02
 
-* feat: pythonsdk 添加获取频道身份组的成员列表的接口 ([6f11885](https://github.com/moian98/bot-docs/commit/6f11885a5b9f282caf96e2803f7a9df2891ea194))
+* feat: pythonsdk 添加获取频道身份组的成员列表的接口 ([582c2b1](https://github.com/tencent-connect/botpy/pull/135/commits/582c2b185a3264c0b6dcbfb91128f127559dff7d))
 
 ## 2022-06-17
 
