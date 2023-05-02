@@ -1,5 +1,9 @@
 # PythonSDK更新日志
 
+## 2023-05-02
+
+* feat: pythonsdk 添加获取频道身份组的成员列表的接口 ([6f11885](https://github.com/moian98/bot-docs/commit/6f11885a5b9f282caf96e2803f7a9df2891ea194))
+
 ## 2022-06-17
 
 * feat: 完善ws事件中Message数据的构建 ([9564cb2](https://github.com/tencent-connect/botpy/pull/103/commits/9564cb2858833fb8de442123226fe7a46f743fe6))
