@@ -17,7 +17,7 @@ npm i qq-guild-bot --registry=https://mirrors.tencent.com/npm/
 ```
 
 :::danger 注意
-`@tencent-connect/bot-node-sdk`已更名为`qq-guild-bot`。 原包已废弃，请使用新包！
+`@tencent-connect/bot-node-sdk`已更名为`qq-guild-bot`。 原包已废弃，请使用新包！!
 :::
 
 ## 使用示例
