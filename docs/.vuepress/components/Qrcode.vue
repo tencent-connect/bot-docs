@@ -1,7 +1,7 @@
 <template>
   <div class="qrcode">
     <div class="title top">手机QQ扫码</div>
-    <img src="https://mpqq.gtimg.cn/privacy/qq_guild_developer_doc.png"
+    <img src="https://guild-1251316161.cos.ap-guangzhou.myqcloud.com/miniapp/icons/qq_guild_developer_doc.png"
          alt="开发者社区" />
     <div class="title bottom">加入官方频道开发者社区</div>
   </div>
