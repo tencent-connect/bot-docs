@@ -123,14 +123,14 @@ module.exports = ctx => ({
       //   link: '/develop/api/',
       // },
       apiConfig.nav,
-      {
-        text: 'SDK文档',
-        items: [
-          nodesdkConfig.nav,
-          pythonsdkConfig.nav,
-          gosdkConfig.nav,
-        ],
-      },
+      // {
+      //   text: 'SDK文档',
+      //   items: [
+      //     nodesdkConfig.nav,
+      //     pythonsdkConfig.nav,
+      //     gosdkConfig.nav,
+      //   ],
+      // },
       {
         text: '运营规范',
         link: '/business/',
@@ -143,11 +143,11 @@ module.exports = ctx => ({
       //   text: '新特性',
       //   link: '/newfeature/',
       // },
-      newfeatureConfig.nav,
-      {
-        text: '更新日志',
-        link: '/changelog/',
-      },
+      // newfeatureConfig.nav,
+      // {
+      //   text: '更新日志',
+      //   link: '/changelog/',
+      // },
     ],
     repo: 'tencent-connect/bot-docs',
     editLinks: true,
