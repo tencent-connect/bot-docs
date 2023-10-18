@@ -1,7 +1,5 @@
-
 ---
 sidebar: auto
-sidebarDepth: 1
 ---
 
 # QQ 机器人
