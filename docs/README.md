@@ -83,7 +83,7 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 ::: tip 温馨提示
 
-请务必确认上传的营业执照与填写的主体信息保持一致，账号注册完毕，后续还存在其他主体认证步骤，信息不一致否则会导致后续步骤出现问题。
+请务必确认上传的营业执照与填写的主体信息保持一致，账号注册完毕，后续还存在其他主体认证步骤，信息不一致将会导致后续步骤出现问题。
 
 :::
 
@@ -187,19 +187,7 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 ##### 4.2.1 机器人资料填写页面
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_robot_info.png')" alt="机器人资料填写页面">
-
-<!-- ::: tip 温馨提示
-
-沙箱频道为下拉选择，该频道由开发者在频道中自主创建。
-
-:::
-
-提交机器人基本信息后，机器人会出现在沙箱频道的机器人列表当中，开发者可在沙箱频道里进行功能自测，便于填写复审时需要的自测报告。 -->
-
-<!-- ##### 4.2.2 小程序资料填写页面
-
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_miniapp_info.png')" alt="小程序资料填写页面"> -->
+<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_robot_info_231017.png')" alt="机器人资料填写页面">
 
 ##### 4.2.2 进入管理端
 
@@ -589,6 +577,16 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 
 <img :src="$withBotBase('/images/introduce/bot_func_config_server.png')" alt="服务配置">
+
+
+::: warning 注意
+
+extendData仅支持在频道场景下开放频道ID、子频道ID，群场景、消息列表单聊场景暂无相关字段开放；
+当配置了extendData字段且使用场景同时支持频道及其他场景时，用户在非频道场景打开该服务小程序，频道ID、子频道ID返回为空。
+
+:::
+
+
 
 ##### 9.1.2 指令配置
 
