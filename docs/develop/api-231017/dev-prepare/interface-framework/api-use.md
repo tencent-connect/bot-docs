@@ -7,11 +7,23 @@
 
 - **请求**
 
-| 基本 |
-| --- |
-| HTTP URL | https://bots.qq.com/app/getAppAccessToken |
-| HTTP Method | POST |
-| 接口频率限制 |      |
+<table>
+	<tr>
+	  <th colspan="2">基本</th>
+	</tr>
+	<tr>
+    <td>HTTP URL</td>
+    <td>https://bots.qq.com/app/getAppAccessToken</td>
+	</tr>
+	<tr>
+    <td>HTTP Method</td>
+    <td>POST</td>
+	</tr>
+	<tr>
+    <td>接口频率限制</td>
+    <td></td>
+	</tr>
+</table>
 
 - **请求参数**
 
@@ -39,16 +51,16 @@
 curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 --header 'Content-Type: application/json' \
 --data '{
-"appId": "APPID",
-"clientSecret": "CLIENTSECRET"
+  "appId": "APPID",
+  "clientSecret": "CLIENTSECRET"
 }'
 ```
 
 - **返回示例**
 ```
 {
-"access\_token": "ACCESS\_TOKEN",
-"expires\_in": "7200"
+  "access_token": "ACCESS_TOKEN",
+  "expires_in": "7200"
 }
 ```
 
@@ -77,8 +89,8 @@ curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 **事例**
 ```
 'headers': {
-'Authorization': "QQBot {ACCESS\_TOKEN}",
-'X-Union-Appid': "{BOT\_APPID}",
+  'Authorization': "QQBot {ACCESS_TOKEN}",
+  'X-Union-Appid': "{BOT_APPID}",
 }
 ```
 

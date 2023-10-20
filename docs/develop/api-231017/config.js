@@ -17,20 +17,19 @@ module.exports = {
       },
       {
         "title": "接入开发准备",
-        "collapsable": false,
+        "collapsable": true,
         "sidebarDepth": 1,
-        "path": "dev-prepare/",
         "children": [
           {
             "title": "接口通信框架",
             "collapsable": true,
             "sidebarDepth": 1,
             "children": [
-              "interface-framework/api-use.md",
-              "interface-framework/event-emit.md"
+              "dev-prepare/interface-framework/api-use.md",
+              "dev-prepare/interface-framework/event-emit.md"
             ]
           },
-          "unique-id.md"
+          "dev-prepare/unique-id.md"
         ]
       },
       {
