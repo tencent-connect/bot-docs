@@ -15,7 +15,7 @@
 - 不论主动消息还是被动消息，在一个子频道中，每 `1s` 只能发送 `5` 条消息。
 - 被动回复消息有效期为 `5` 分钟。超时会报错。
 - **发送消息接口要求机器人接口需要连接到 websocket 上保持在线状态**
-- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
+- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#事件类型Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
 
 ### Content-Type
 
@@ -30,7 +30,7 @@
 | ark | [MessageArk](./template/model.md#messageark) ark消息对象 | 选填，ark 消息 |
 | message_reference | [MessageReference](./template/model.md#messagereference) 引用消息对象 | 选填，引用消息 |
 | image | string | 选填，图片url地址，平台会转存该图片，用于下发图片消息 |
-| msg_id | string | 选填，要回复的消息id([Message](./template/model.md#message).id), 在 [AT_CREATE_MESSAGE](../../gateway/message.md) 事件中获取。 |
+| msg_id | string | 选填，要回复的消息id([Message](./template/model.md#message).id), 在 [AT_CREATE_MESSAGE](message.md) 事件中获取。 |
 | markdown          | [MessageMarkdown](./template/model.md#messagemarkdown) markdown 消息对象 | 选填，markdown 息    |
 
 **content, embed, ark, image, markdown 至少需要有一个字段，否则无法下发消息。**
@@ -46,9 +46,9 @@
 
 ### 错误码
 
-详见[错误码](../../gateway/error/error.md)。
+详见[错误码](../../openapi/error/error.md)。
 
-其中推送、回复消息的 `code` 错误码 `304023`、`304024` 会在 响应数据包 `data` 中返回 [MessageAudit](../../gateway/error/data/model.md) 审核消息的信息，结构如下:
+其中推送、回复消息的 `code` 错误码 `304023`、`304024` 会在 响应数据包 `data` 中返回 [MessageAudit](../../openapi/error/data/model.md) 审核消息的信息，结构如下:
 
 ```json
 {

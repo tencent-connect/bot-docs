@@ -46,12 +46,10 @@ at 所有人，解析为 <font style="background: #C7ECFF">@所有人</font> 标
 
 ## 跳转子频道
 
-仅频道可用，#子频道 解析为 #子频道 标签，点击可以跳转至子频道，仅支持当前频道内的子频道
+仅频道可用，#子频道 解析为 <font style="background: #C7ECFF">#子频道</font> 标签，点击可以跳转至子频道，仅支持当前频道内的子频道
 
 `<#channel_id>`
 
 ## 表情
-
-`<emoji:id>`
 
 仅频道可用，解析为系统表情，具体表情id参考 [Emoji 列表](../../../openapi/emoji/model.md#Emoji%20列表)，仅支持type=1的系统表情，type=2的emoji表情直接按字符串填写即可`<emoji:id>`

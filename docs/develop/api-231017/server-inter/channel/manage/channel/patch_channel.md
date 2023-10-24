@@ -35,7 +35,7 @@
 
 ## 错误码
 
-详见[错误码](../../../../gateway/error/error.md)。
+详见[错误码](../../../../openapi/error/error.md)。
 
 ## 示例
 

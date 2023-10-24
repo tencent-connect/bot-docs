@@ -1,26 +1,26 @@
 # 获取成员详情
 
-### 接口
+## 接口
 
 `GET /guilds/{guild_id}/members/{user_id}`
 
-### 功能描述
+## 功能描述
 
 用于获取 `guild_id` 指定的频道中 `user_id` 对应成员的详细信息。
 
-### Content-Type
+## Content-Type
 
 `application/json`
 
-### 返回
+## 返回
 
 返回[Member](model.md#member) 成员对象。
 
-### 错误码
+## 错误码
 
 详见[错误码](../error/error.md)。
 
-### 示例
+## 示例
 
 请求数据包
 

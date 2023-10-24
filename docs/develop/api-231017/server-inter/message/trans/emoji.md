@@ -28,7 +28,7 @@
 
 ### 错误码
 
-详见[错误码](../../../gateway/error/error.md)。
+详见[错误码](../../../openapi/error/error.md)。
 
 ### 示例
 
@@ -64,7 +64,7 @@ PUT /channels/1013531/messages/08c095b7ba8ed4abd7e00110cbd83f3841489aa2bd9006/re
 
 ### 错误码
 
-详见[错误码](../../../gateway/error/error.md)。
+详见[错误码](../../../openapi/error/error.md)。
 
 ### 示例
 
@@ -104,7 +104,7 @@ GET /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}?cookie={c
 |is_end	|bool	|是否已拉取完成到最后一页，true代表完成|
 
 ### 错误码
-详见[错误码](../../../gateway/error/error.md)。
+详见[错误码](../../../openapi/error/error.md)。
 
 ### 示例
 请求数据包

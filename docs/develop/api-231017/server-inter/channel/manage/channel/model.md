@@ -17,7 +17,7 @@
 | private_type     | int | 子频道私密类型 [PrivateType](#privatetype)                             |
 | speak_permission | int | 子频道发言权限 [SpeakPermission](#speakpermission)                     |
 | application_id   | string | 用于标识应用子频道应用类型，仅应用子频道时会使用该字段，具体定义请参考 [应用子频道的应用类型](#应用子频道的应用类型)                  |
-| permissions      | string | 用户拥有的子频道权限 [Permissions](../channel_permissions/model.html#permissions) |
+| permissions      | string | 用户拥有的子频道权限 [Permissions](../../role-group/channel_permissions/model.html#Permissions) |
 
 ### 有关 position 的说明
 
@@ -59,7 +59,7 @@
 | --- | --------------------------------------------------------------------------------------------------------------------------- |
 | 0   | 公开频道                                                                                                                    |
 | 1   | 群主管理员可见                                                                                                              |
-| 2   | 群主管理员+指定成员，可使用 [修改子频道权限接口](../channel_permissions/put_channel_permissions.md#修改子频道权限) 指定成员 |
+| 2   | 群主管理员+指定成员，可使用 [修改子频道权限接口](../../role-group/channel_permissions/put_channel_permissions.md#修改子频道权限) 指定成员 |
 
 ## SpeakPermission
 
@@ -67,7 +67,7 @@
 | --- | --------------------------------------------------------------------------------------------------------------------------- |
 | 0   | 无效类型                                                                                                                    |
 | 1   | 所有人                                                                                                                      |
-| 2   | 群主管理员+指定成员，可使用 [修改子频道权限接口](../channel_permissions/put_channel_permissions.md#修改子频道权限) 指定成员 |
+| 2   | 群主管理员+指定成员，可使用 [修改子频道权限接口](../../role-group/channel_permissions/put_channel_permissions.md#修改子频道权限) 指定成员 |
 
 ## 应用子频道的应用类型
 

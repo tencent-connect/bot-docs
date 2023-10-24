@@ -24,11 +24,11 @@
 
 ### 返回
 
-返回[DMS](../template/model.md#dms)对象。
+返回[DMS](model.md#dms)对象。
 
 ### 错误码
 
-详见[错误码](../../../gateway/error/error.md)。
+详见[错误码](../../../openapi/error/error.md)。
 
 ### 示例
 
