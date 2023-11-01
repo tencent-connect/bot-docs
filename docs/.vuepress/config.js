@@ -1,5 +1,6 @@
 // 注意：需要在dev前初始化内网api文档
 const apiConfig = require('../develop/api/config');
+const apiConfig231017 = require('../develop/api-231017/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
 const gosdkConfig = require('../develop/gosdk/config');
@@ -110,6 +111,7 @@ module.exports = ctx => ({
   globalUIComponents: ['TuXiaoChao','Qrcode'],
   theme: require.resolve('./theme-qq'),
   themeConfig: {
+    // sidebarDepth: 0,
     sidebarDepth: 1,
     displayAllHeaders: false,
     lastUpdated: '上次更新',
@@ -118,17 +120,29 @@ module.exports = ctx => ({
         text: '介绍',
         link: '/',
       },
-      // {
-      //   text: 'API文档',
-      //   link: '/develop/api/',
-      // },
-      apiConfig.nav,
+      {
+        text: 'API文档',
+        link: '/develop/api-231017/',
+        items: [
+          apiConfig231017.nav,
+          apiConfig.nav
+        ]
+      },
       {
         text: 'SDK文档',
         items: [
-          nodesdkConfig.nav,
-          pythonsdkConfig.nav,
-          gosdkConfig.nav,
+          {
+            text: 'NodeSDK',
+            link: 'https://github.com/tencent-connect/bot-node-sdk',
+          },
+          {
+            text: 'PythonSDK',
+            link: 'https://github.com/tencent-connect/botpy',
+          },
+          {
+            text: 'GoSDK',
+            link: 'https://github.com/tencent-connect/botgo',
+          },
         ],
       },
       {
@@ -158,6 +172,7 @@ module.exports = ctx => ({
     docsBranch: 'main',
     sidebar: {
       // '/develop/api/': convertSummary('./docs/develop/api/SUMMARY-PUBLIC.md', hiddenApi, 1, true),
+      ...apiConfig231017.sidebar,
       ...apiConfig.sidebar,
       ...nodesdkConfig.sidebar,
       ...pythonsdkConfig.sidebar,
