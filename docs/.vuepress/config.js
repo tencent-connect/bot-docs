@@ -78,7 +78,7 @@ module.exports = ctx => ({
     [
       'vuepress-plugin-right-anchor',
       {
-        showDepth: 1,
+        showDepth: 6,
         expand: {
           trigger: 'hover',
           clickModeDefaultOpen: true,
