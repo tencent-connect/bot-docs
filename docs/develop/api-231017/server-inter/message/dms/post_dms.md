@@ -2,7 +2,9 @@
 
 ### 接口
 
-`POST /users/@me/dms`
+```http
+POST /users/@me/dms
+```
 
 ### 功能描述
 
@@ -13,7 +15,9 @@
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 参数
 

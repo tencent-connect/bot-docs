@@ -2,7 +2,9 @@
 
 ### 接口
 
-`DELETE /dms/{guild_id}/messages/{message_id}?hidetip=false`
+```http
+DELETE /dms/{guild_id}/messages/{message_id}?hidetip=false
+```
 
 ### 参数
 
@@ -18,7 +20,9 @@
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 返回
 

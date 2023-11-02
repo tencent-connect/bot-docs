@@ -1,7 +1,9 @@
 # 获取频道身份组成员列表
 
 ## 接口
-`GET /guilds/{guild_id}/roles/{role_id}/members`
+```http
+GET /guilds/{guild_id}/roles/{role_id}/members
+```
 
 ## 功能描述
 用于获取 `guild_id` 频道中指定`role_id`身份组下所有成员的详情列表，支持分页。
@@ -9,7 +11,9 @@
 <PrivateDomain/>
 
 ## Content-Type
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 |字段名	|类型	|描述|
@@ -32,10 +36,12 @@
 ## 示例
 
 请求
-`GET /guilds/123456/roles/4/members?limit=2`
+```http
+GET /guilds/123456/roles/4/members?limit=2
+```
 
 响应数据包
-```
+```json
 {
   "data": [
     {

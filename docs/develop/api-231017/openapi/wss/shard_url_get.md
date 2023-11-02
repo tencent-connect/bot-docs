@@ -2,7 +2,9 @@
 
 ### 接口
 
-`GET /gateway/bot`
+```http
+GET /gateway/bot
+```
 
 ### 功能描述
 
@@ -13,7 +15,9 @@
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 返回
 

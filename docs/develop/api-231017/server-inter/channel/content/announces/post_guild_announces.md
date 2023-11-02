@@ -2,7 +2,9 @@
 
 ## 接口
 
-`POST /guilds/{guild_id}/announces`
+```http
+POST /guilds/{guild_id}/announces
+```
 
 ## 功能描述
 
@@ -17,7 +19,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

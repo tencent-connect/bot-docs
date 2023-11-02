@@ -1,4 +1,4 @@
-# ✅撤回消息
+# 撤回消息
 
 <!-- ## 🚫单聊
 
@@ -8,11 +8,13 @@
 
 [暂不对外开放]，管理员身份可撤回的加多消息 -->
 
-## ✅文字子频道
+## 文字子频道
 
 ### 接口
 
-`DELETE /channels/{channel_id}/messages/{message_id}?hidetip=false`
+```http
+DELETE /channels/{channel_id}/messages/{message_id}?hidetip=false
+```
 
 ### 参数
 
@@ -31,7 +33,9 @@
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 返回
 
@@ -50,11 +54,13 @@ DELETE /channels/123456/messages/112233
 ```
 
 
-## ✅频道私信
+## 频道私信
 
 ### 接口
 
-`DELETE /dms/{guild_id}/messages/{message_id}?hidetip=false`
+```http
+DELETE /dms/{guild_id}/messages/{message_id}?hidetip=false
+```
 
 ### 参数
 
@@ -70,7 +76,9 @@ DELETE /channels/123456/messages/112233
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 返回
 

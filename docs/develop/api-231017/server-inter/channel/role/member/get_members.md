@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /guilds/{guild_id}/members`
+```http
+GET /guilds/{guild_id}/members
+```
 
 ## 功能描述
 
@@ -12,7 +14,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

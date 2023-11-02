@@ -2,7 +2,9 @@
 
 ### 接口
 
-`POST /channels/{channel_id}/messages`
+```http
+POST /channels/{channel_id}/messages
+```
 
 ### 功能描述
 
@@ -15,18 +17,20 @@
 - 不论主动消息还是被动消息，在一个子频道中，每 `1s` 只能发送 `5` 条消息。
 - 被动回复消息有效期为 `5` 分钟。超时会报错。
 - **发送消息接口要求机器人接口需要连接到 websocket 上保持在线状态**
-- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#事件类型Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
+- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#事件订阅Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 参数
 
 | 字段名             | 类型                        | 描述                                                          |
 |-------------------|-----------------------------------------------|--------------------------------------------|
 | content | string | 选填，消息内容，文本内容，支持[内嵌格式](message_format.md) |
-| embed | [MessageEmbed](./template/model.md#messageembed)| 选填，embed 消息，一种特殊的 ark，详情参考[Embed消息](../../server-inter/message/message-type.md#✅Embed) |
+| embed | [MessageEmbed](./template/model.md#messageembed)| 选填，embed 消息，一种特殊的 ark，详情参考[Embed消息](../../server-inter/message/message-type.md#Embed) |
 | ark | [MessageArk](./template/model.md#messageark) ark消息对象 | 选填，ark 消息 |
 | message_reference | [MessageReference](./template/model.md#messagereference) 引用消息对象 | 选填，引用消息 |
 | image | string | 选填，图片url地址，平台会转存该图片，用于下发图片消息 |

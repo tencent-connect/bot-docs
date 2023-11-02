@@ -2,7 +2,9 @@
 
 ## 接口
 
-`POST /channels/{channel_id}/schedules`
+```http
+POST /channels/{channel_id}/schedules
+```
 
 ## 功能描述
 
@@ -16,7 +18,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

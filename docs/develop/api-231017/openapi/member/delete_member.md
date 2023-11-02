@@ -2,7 +2,9 @@
 
 ### 接口
 
-`DELETE /guilds/{guild_id}/members/{user_id}`
+```http
+DELETE /guilds/{guild_id}/members/{user_id}
+```
 
 ### 功能描述
 
@@ -14,7 +16,9 @@
 <PrivateDomain/>
 
 ### Content-Type
-`application/json`
+```http
+application/json
+```
 
 ### 参数
 | 字段名         | 类型  | 描述                                |

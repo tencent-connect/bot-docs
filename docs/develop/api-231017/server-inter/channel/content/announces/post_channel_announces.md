@@ -2,7 +2,9 @@
 
 ## 接口
 
-`POST /channels/{channel_id}/announces`
+```http
+POST /channels/{channel_id}/announces
+```
 
 ## 功能描述
 
@@ -11,7 +13,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

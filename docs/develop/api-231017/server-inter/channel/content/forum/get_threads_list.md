@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /channels/{channel_id}/threads`
+```http
+GET /channels/{channel_id}/threads
+```
 
 ## 功能描述
 
@@ -12,7 +14,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 

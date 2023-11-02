@@ -2,7 +2,9 @@
 
 ## 接口
 
-`POST /channels/{channel_id}/audio`
+```http
+POST /channels/{channel_id}/audio
+```
 
 ## 功能描述
 
@@ -12,7 +14,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

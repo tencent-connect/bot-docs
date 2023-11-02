@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /channels/{channel_id}/online_nums`
+```http
+GET /channels/{channel_id}/online_nums
+```
 
 ## 功能描述
 
@@ -10,12 +12,14 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 成功返回空对象。
 
-```
+```json
 {
   "online_nums": 1
 }
@@ -26,10 +30,12 @@
 ## 示例
 
 请求数据包
-`GET /channels/123456/online_nums`
+```http
+GET /channels/123456/online_nums
+```
 
 响应数据包
-```
+```json
 {
   "online_nums": 1
 }

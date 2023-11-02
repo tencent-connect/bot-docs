@@ -47,7 +47,7 @@
 
 - **调用示例**
 
-```
+```shell
 curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -57,7 +57,7 @@ curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 ```
 
 - **返回示例**
-```
+```json
 {
   "access_token": "ACCESS_TOKEN",
   "expires_in": "7200"
@@ -86,8 +86,9 @@ curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 | Authorization | string | 是 | 格式值："QQBot ACCESS\_TOKEN" |
 | X-Union-Appid | string | 是 | 格式值："BOT\_APPID", 机器人 appid |
 
-**事例**
-```
+**示例**
+
+```json
 'headers': {
   'Authorization': "QQBot {ACCESS_TOKEN}",
   'X-Union-Appid': "{BOT_APPID}",

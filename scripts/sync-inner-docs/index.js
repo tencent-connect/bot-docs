@@ -10,12 +10,15 @@ const utils = require('../utils.js');
 const { convertSummary } = require('./summary-to-vuepress');
 const apiDefaultConfig = require('./default-docs/config.js');
 
+const isWindows = process.platform === 'win32';
 // api文档临时更新目录
 const apiDocsTempPath = path.join(__dirname, '../../.temp_docs/');
 // api文档临时更新目录-文档具体目录
-const apiDocsTempPathBase = path.join(apiDocsTempPath, 'docs/');
+const tempBase = path.join(apiDocsTempPath, 'docs/');
+const apiDocsTempPathBase = isWindows ? tempBase.replace(/\\/g, '/') : tempBase;
 // api文档要同步的位置
-const apiDocsTargetPath = path.join(__dirname, '../../docs/develop/api/');
+const targetBase = path.join(__dirname, '../../docs/develop/api/');
+const apiDocsTargetPath = isWindows ? targetBase.replace(/\\/g, '/') : targetBase;
 fs.ensureDirSync(apiDocsTargetPath);
 
 // 默认api模板位置

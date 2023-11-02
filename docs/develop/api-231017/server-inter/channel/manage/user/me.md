@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /users/@me`
+```http
+GET /users/@me
+```
 
 ## 功能描述
 
@@ -10,7 +12,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 

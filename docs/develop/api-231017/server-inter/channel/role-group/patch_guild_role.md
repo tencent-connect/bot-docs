@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PATCH /guilds/{guild_id}/roles/{role_id}`
+```http
+PATCH /guilds/{guild_id}/roles/{role_id}
+```
 
 ## 功能描述
 
@@ -13,7 +15,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

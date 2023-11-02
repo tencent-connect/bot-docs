@@ -125,7 +125,10 @@ module.exports = ctx => ({
         link: '/develop/api-231017/',
         items: [
           apiConfig231017.nav,
-          apiConfig.nav
+          {
+            text: 'API文档（旧版）',
+            link: '/develop/api/'
+          }
         ]
       },
       {

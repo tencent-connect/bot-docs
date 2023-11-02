@@ -60,7 +60,7 @@ wss://api.sgroup.qq.com/websocket/
 
 `token` 是创建机器人的时候分配的，格式为`Bot {appid}.{app_token}`
 
-`intents` 是此次连接所需要接收的事件，具体可参考 [Intents](event-emit.md#事件类型Intents)
+`intents` 是此次连接所需要接收的事件，具体可参考 [Intents](event-emit.md#事件订阅Intents)
 
 `shard` 该参数是用来进行水平分片的。该参数是个拥有两个元素的数组。例如：`[0,4]`，代表分为四个片，当前链接是第 0 个片，业务稍后应该继续建立 shard 为`[1,4]`,`[2,4]`,`[3,4]`的链接，才能完整接收事件。更多详细的内容可以参考[Shard](event-emit.md#分片连接LoadBalance)。
 

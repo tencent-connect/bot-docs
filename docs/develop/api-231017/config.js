@@ -27,6 +27,7 @@ module.exports = {
             "collapsable": true,
             "sidebarDepth": 1,
             "children": [
+              // "dev-prepare/interface-framework/README.md",
               "dev-prepare/interface-framework/api-use.md",
               "dev-prepare/interface-framework/event-emit.md"
             ]
@@ -144,8 +145,8 @@ module.exports = {
                 "collapsable": true,
                 "sidebarDepth": 1,
                 "children": [
-                  "server-inter/channel/content/announces/post_channel_announces.md",
-                  "server-inter/channel/content/announces/delete_channel_announces.md",
+                  "server-inter/channel/content/announces/post_guild_announces.md",
+                  "server-inter/channel/content/announces/delete_guild_announces.md",
                   "server-inter/channel/content/pins/put_pins_message.md",
                   "server-inter/channel/content/pins/delete_pins_message.md",
                   "server-inter/channel/content/pins/get_pins_message.md",

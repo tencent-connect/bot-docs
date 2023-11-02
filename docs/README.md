@@ -345,11 +345,11 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 方法一：移动端点击沙箱频道封面图--\>选择「机器人」进入商店页--\>点击添加测试机器人
 
-<img :src="$withBotBase('/images/introduce/add_robot_to_sandbox_1.png')" alt="添加到沙箱频道1">
+<img :src="$withBotBase('/images/introduce/add_robot_to_sandbox_1.png')" alt="添加到沙箱频道1" height="315">
 
 方法二：移动端登陆管理员QQ号--\>扫描管理端频道机器人二维码--\>打开机器人资料卡--\>添加到频道--\>选择配置好的沙箱频道--\>授权添加
 
-<img :src="$withBotBase('/images/introduce/add_robot_to_sandbox_2.png')" alt="添加到沙箱频道2">
+<img :src="$withBotBase('/images/introduce/add_robot_to_sandbox_2.png')" alt="添加到沙箱频道2" height="315">
 
 :::tip 温馨提示
 二维码可在「使用范围与人员」页面扫描。
@@ -359,7 +359,7 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 沙箱频道添加好测试机器人后，已经配置沙箱私信账号的QQ号，从沙箱频道打开机器人资料卡，选择私信，即进入私信沙箱环境
 
-<img :src="$withBotBase('/images/introduce/join_c2c_sandbox.png')" alt="进入私信沙箱">
+<img :src="$withBotBase('/images/introduce/join_c2c_sandbox.png')" alt="进入私信沙箱" height="315">
 
 :::tip 温馨提示
 当账号在「沙箱配置」-「在频道私信配置」完成配置后，该账号从任意渠道进入该机器人的频道私信窗口，拉到的该机器人指令面板、基础信息资料等内容均为沙箱环境信息。
@@ -369,11 +369,11 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 方法一：移动端点击沙箱群"设置"--\>选择「群机器人」进入商店页--\>点击添加测试机器人
 
-<img :src="$withBotBase('/images/introduce/add_to_sandbox_group_1.png')" alt="添加到沙箱群1">
+<img :src="$withBotBase('/images/introduce/add_to_sandbox_group_1.png')" alt="添加到沙箱群1" height="315">
 
 方法二：移动端登陆管理员QQ号-->扫描管理端QQ群和消息列表机器人二维码-->打开机器人web资料卡-->点击「添加到机器人」-->跳转到native资料卡-->分享到沙箱群-->打开native资料卡-->点击「添加到本群」-->选择配置好的沙箱群-->授权确认添加
 
-<img :src="$withBotBase('/images/introduce/add_to_sandbox_group_1.png')" alt="添加到沙箱群2">
+<img :src="$withBotBase('/images/introduce/add_to_sandbox_group_1.png')" alt="添加到沙箱群2" height="315">
 
 
 :::tip 温馨提示
@@ -384,7 +384,7 @@ QQ 频道机器人通过开放的平台承载机器人的定制化功能，让�
 
 移动端登陆管理员QQ号--\>扫描管理端QQ群和消息列表机器人二维码--\>打开机器人资料卡--\>点击"发消息"--\>授权确认添加--\>进入消息列表开启沙箱单聊对话
 
-<img :src="$withBotBase('/images/introduce/add_sandbox_c2c_list.png')" alt="添加到沙箱账号消息列表">
+<img :src="$withBotBase('/images/introduce/add_sandbox_c2c_list.png')" alt="添加到沙箱账号消息列表" height="315">
 
 ### 8. 开发基础设置
 

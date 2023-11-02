@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PUT /channels/{channel_id}/mic`
+```http
+PUT /channels/{channel_id}/mic
+```
 
 ## 功能描述
 
@@ -12,16 +14,21 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 
-url参数：channel_id
+url参数：`channel_id`
 
 ## 返回
 
 成功返回空对象。
-`{}`
+
+```json
+{}
+```
 
 ## 错误码
 
@@ -30,7 +37,13 @@ url参数：channel_id
 ## 示例
 
 请求数据包
-`{}`
+
+```json
+{}
+```
 
 响应数据包
-`{}`
+
+```json
+{}
+```

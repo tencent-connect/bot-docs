@@ -11,7 +11,7 @@
 - OPEN_FORUM_THREAD_DELETE
 
 ### 示例
-```
+```json
 {
   "guild_id": "47129941624960822",
   "channel_id": "1661124",
@@ -24,7 +24,7 @@
 - OPEN_FORUM_POST_DELETE
 
 ### 示例
-```
+```json
 {
   "guild_id": "47129941624960822",
   "channel_id": "1661124",
@@ -37,7 +37,7 @@
 - OPEN_FORUM_REPLY_DELETE
 
 ### 示例
-```
+```json
 {
   "guild_id": "47129941624960822",
   "channel_id": "1661124",

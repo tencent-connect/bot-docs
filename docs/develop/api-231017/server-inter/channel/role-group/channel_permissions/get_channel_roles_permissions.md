@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /channels/{channel_id}/roles/{role_id}/permissions`
+```http
+GET /channels/{channel_id}/roles/{role_id}/permissions
+```
 
 ## 功能描述
 

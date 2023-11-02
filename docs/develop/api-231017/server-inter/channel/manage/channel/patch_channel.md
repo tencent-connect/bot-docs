@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PATCH /channels/{channel_id}`
+```http
+PATCH /channels/{channel_id}
+```
 
 ## 功能描述
 
@@ -15,7 +17,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

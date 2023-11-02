@@ -2,7 +2,9 @@
 
 ## 接口
 
-`DELETE /guilds/{guild_id}/roles/{role_id}`
+```http
+DELETE /guilds/{guild_id}/roles/{role_id}
+```
 
 ## 功能描述
 
@@ -12,7 +14,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 

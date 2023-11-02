@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PATCH /guilds/{guild_id}/members/{user_id}/mute`
+```http
+PATCH /guilds/{guild_id}/members/{user_id}/mute
+```
 
 ## 功能描述
 
@@ -14,7 +16,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

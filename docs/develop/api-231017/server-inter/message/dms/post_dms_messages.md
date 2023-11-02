@@ -2,7 +2,9 @@
 
 ### 接口
 
-`POST /dms/{guild_id}/messages`
+```http
+POST /dms/{guild_id}/messages
+```
 
 ### 功能描述
 
@@ -15,7 +17,9 @@
 
 ### Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ### 参数
 

@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PUT /channels/{channel_id}/pins/{message_id}`
+```http
+PUT /channels/{channel_id}/pins/{message_id}
+```
 
 ## 功能描述
 
@@ -14,7 +16,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 

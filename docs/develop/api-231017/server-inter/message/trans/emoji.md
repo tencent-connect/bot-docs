@@ -1,4 +1,4 @@
-# ✅表情表态
+# 表情表态
 
 > 目前表情表态仅支持在频道内使用
 
@@ -6,7 +6,9 @@
 
 ### 接口
 
-`PUT /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}`
+```http
+PUT /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}
+```
 
 ### 功能描述
 
@@ -42,7 +44,9 @@ PUT /channels/1013531/messages/08c095b7ba8ed4abd7e00110cbd83f3841489aa2bd9006/re
 
 ### 接口
 
-`DELETE /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}`
+```http
+DELETE /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}
+```
 
 ### 功能描述
 
@@ -108,10 +112,12 @@ GET /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}?cookie={c
 
 ### 示例
 请求数据包
-`GET /channels/1013531/messages/08c095b7ba8ed4abd7e00110cbd83f3841489aa2bd9006/reactions/1/203?cookie=&limit=20`
+```http
+GET /channels/1013531/messages/08c095b7ba8ed4abd7e00110cbd83f3841489aa2bd9006/reactions/1/203?cookie=&limit=20
+```
 
 返回数据包
-```
+```json
 {
     "users": [
         {

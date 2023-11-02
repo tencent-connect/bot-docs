@@ -2,7 +2,9 @@
 
 ## 接口
 
-`GET /channels/{channel_id}/members/{user_id}/permissions`
+```http
+GET /channels/{channel_id}/members/{user_id}/permissions
+```
 
 ## 功能描述
 
@@ -13,7 +15,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 返回
 

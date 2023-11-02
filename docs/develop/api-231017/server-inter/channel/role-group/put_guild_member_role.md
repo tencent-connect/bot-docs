@@ -2,7 +2,9 @@
 
 ## 接口
 
-`PUT /guilds/{guild_id}/members/{user_id}/roles/{role_id}`
+```http
+PUT /guilds/{guild_id}/members/{user_id}/roles/{role_id}
+```
 
 ## 功能描述
 
@@ -13,7 +15,9 @@
 
 ## Content-Type
 
-`application/json`
+```http
+application/json
+```
 
 ## 参数
 

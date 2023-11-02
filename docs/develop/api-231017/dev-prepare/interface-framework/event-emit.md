@@ -14,7 +14,7 @@
 ### 通用数据结构 Payload
 
 payload 指的是在 websocket 连接上传输的数据，网关的上下行消息采用的都是同一个结构，如下：
-```
+```json
 {
   "op": 0,
   "d": {},
@@ -58,12 +58,13 @@ Reply 客户端接收到服务端发送的消息之后的回包（HTTP 回调模
 
 第一步先调用 [获取通用WSS 接入点 | QQ机器人文档](../../openapi/wss/url_get.md) 或 [获取带分片WSS 接入点 | QQ机器人文档](../../openapi/wss/shard_url_get.md) 接口获取网关地址。
 
+
 会得到一个类似下面这样的地址：
 
 `wss://api.sgroup.qq.com/websocket/`
 
 然后进行 websocket 长连接建立，一旦连接成功，就会返回 [OpCode 10 Hello](opcode.md) 消息。这个消息主要的内容是心跳周期，单位毫秒(milliseconds)，如下：
-```
+```json
 {
   "op": 10,
   "d": {
@@ -77,7 +78,7 @@ Reply 客户端接收到服务端发送的消息之后的回包（HTTP 回调模
 websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功后会获得一个 session 会话 id，只有登录成功后，QQ后台才会下发事件通知，
 
 发送一个 OpCode 2 Identify 消息，payload 如下：
-```
+```json
 {
   "op": 2,
   "d": {
@@ -102,7 +103,8 @@ websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功�
 | properties | 目前无实际作用，可以按照自己的实际情况填写，也可以留空 |
 
 鉴权成功之后，QQ 后台会下发一个 Ready Event，payload 如下：
-```
+
+```json
 {
   "op": 0,
   "s": 1,
@@ -123,7 +125,7 @@ websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功�
 ### 发送心跳 Ack
 
 鉴权成功之后，就需要按照周期进行心跳发送。d 为客户端收到的最新的消息的 s，如果是首次连接，d 为传 null，payload 如下：
-```
+```json
 {
   "op": 1,
   "d": 251 // null
@@ -133,7 +135,7 @@ websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功�
 
 心跳发送成功之后会收到 [OpCode 11 Heartbeat ACK](opcode.md) 消息，payload 如下：
 
-```
+```json
 {
   "op": 11
 }
@@ -142,7 +144,7 @@ websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功�
 ### 恢复登录态 Session
 
 有很多原因可能会导致 websocket 长连接断开，断开之后短时间内重连会补发中间遗漏的事件，以保障业务逻辑的正确性。断开重连 gateway 后不需要发送重新登录 [Opcode 2 Identify](opcode.md)请求。在连接到 Gateway 之后，需要发送 [Opcode 6 Resume](opcode.md)消息，payload 如下：
-```
+```json
 {
   "op": 6,
   "d": {
@@ -157,7 +159,7 @@ websocket 长连接建立之后，需要进行登录鉴权，登录鉴权成功�
 
 恢复成功之后，就开始补发遗漏事件，所有事件补发完成之后，会下发一个 Resumed Event，payload 如下：
 
-```
+```json
 {
   "op": 0,
   "s": 2002,
