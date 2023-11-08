@@ -1,8 +1,13 @@
-# 事件(8)
+# 事件
 
 ## 单聊消息
 
-> 用户在单聊发送消息给机器人
+<!-- > 用户在单聊发送消息给机器人 -->
+
+::: tip 温馨提示
+用户在单聊发送消息给机器人
+:::
+
 
 - **基本概况**
 
@@ -37,9 +42,9 @@
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 平台方消息ID，可以用于被动消息发送 |
-| author | object | 发送者"id": "xxx" // 用户openid |
+| author | object | 发送者"user_openid": "xxx" // 用户openid |
 | content | string | 文本消息内容 |
-| timestamp | string | 消息生产时间 |
+| timestamp | string | 消息生产时间（RFC3339） |
 | attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件"{"content_type": "", "filename": "", "height": "", "width": "", "size": "", "url": ""} |
 
 
@@ -53,15 +58,13 @@
     "id": "C2C_MESSAGE_CREATE:051c863a-05d1-483d-8fd5-15b4e1d7ea1a",
     "d": {
         "author": {
-            "id": "E4F4AEA33253A2797FB897C50B81D7ED"
+            "user_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
         },
         "content": "123",
-        "group_id": "0",
         "id": "ROBOT1.0_.b6nx.CVryAO0nR58RXuU6SC.m92gc19j02qKqdm8ek!",
-        "timestamp": "2023-09-04 18:42:57.404149365 +0800 CST m=+352051.396449269"
+        "timestamp": "2023-11-06T13:37:18+08:00"
     }
 }
-
 ```
 
 - **其他说明**
@@ -70,7 +73,11 @@
 
 ## 群聊@机器人
 
-> 用户在群内@机器人发动的消息
+<!-- > 用户在群内@机器人发动的消息 -->
+::: tip 温馨提示
+用户在群内@机器人发动的消息
+:::
+
 
 - **基本概况**
 
@@ -105,15 +112,15 @@
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 平台方消息 ID，可以用于被动消息发送 |
-| author | object | 发送者 |
-| conent | string | 消息内容 |
-| timestamp | string | 消息生产时间 |
-| group_id | string | 群聊的 openid |
+| author | object | 发送者 "member_openid": "xxx" // 用户在本群的member_openid |
+| content | string | 消息内容 |
+| timestamp | string | 消息生产时间（RFC3339） |
+| group_openid | string | 群聊的 openid |
 | attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件"{"content_type": "", "filename": "", "height": "", "width": "", "size": "", "url": ""} |
 
 - **事件示例**
 
-```
+```json
 // Websocket
 {
     "op": 0,
@@ -122,12 +129,12 @@
     "id": "GROUP_AT_MESSAGE_CREATE:87612938-5b4b-441f-b4aa-2c0266092fe0",
     "d": {
         "author": {
-            "id": "E4F4AEA33253A2797FB897C50B81D7ED"
+            "member_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
         },
         "content": " 123",
-        "group_id": "C9F778FE6ADF9D1D1DBE395BF744A33A",
+        "group_openid": "C9F778FE6ADF9D1D1DBE395BF744A33A",
         "id": "ROBOT1.0_eBIyWnxpmSu6uLQ7u7fU0eGloKGYg4eEa737vRyKnMCgyZjKi7JLYkQ9B0VapbiY",
-        "timestamp": "2023-09-04 18:50:34.560639335 +0800 CST m=+352012.788711412"
+        "timestamp": "2023-11-06T13:37:18+08:00"
     }
 }
 ```

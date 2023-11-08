@@ -25,11 +25,13 @@ application/json
 }
 ```
 ## 错误码
+
 详见[错误码](../../../openapi/error/error.md)。
 
 ## 示例
 
 请求数据包
+
 ```http
 GET /channels/123456/online_nums
 ```

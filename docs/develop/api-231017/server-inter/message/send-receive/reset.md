@@ -24,7 +24,7 @@ DELETE /channels/{channel_id}/messages/{message_id}?hidetip=false
 
 ### 功能描述
 
-用于撤回子频道 `channel_id` 下的消息 `message_id。`
+用于撤回子频道 `channel_id` 下的消息 `message_id`
 
 - 管理员可以撤回普通成员的消息。
 - 频道主可以撤回所有人的消息。

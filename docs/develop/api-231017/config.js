@@ -27,7 +27,7 @@ module.exports = {
             "collapsable": true,
             "sidebarDepth": 1,
             "children": [
-              // "dev-prepare/interface-framework/README.md",
+              "dev-prepare/interface-framework/base.md",
               "dev-prepare/interface-framework/api-use.md",
               "dev-prepare/interface-framework/event-emit.md"
             ]
@@ -57,7 +57,7 @@ module.exports = {
             },
             "server-inter/message/message-type.md",
             {
-              "title": "消息交互[3]",
+              "title": "消息交互",
               "collapsable": true,
               "sidebarDepth": 1,
               "children": [

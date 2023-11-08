@@ -17,7 +17,7 @@ POST /channels/{channel_id}/messages
 - 不论主动消息还是被动消息，在一个子频道中，每 `1s` 只能发送 `5` 条消息。
 - 被动回复消息有效期为 `5` 分钟。超时会报错。
 - **发送消息接口要求机器人接口需要连接到 websocket 上保持在线状态**
-- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#事件订阅Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
+- 有关主动消息审核，可以通过 [Intents](../../dev-prepare/interface-framework/event-emit.md#事件类型Intents) 中审核事件 MESSAGE_AUDIT 返回 [MessageAudited](./template/model.md#messageaudited) 对象获取结果。
 
 ### Content-Type
 

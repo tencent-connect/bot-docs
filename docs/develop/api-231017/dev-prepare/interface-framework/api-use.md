@@ -1,7 +1,9 @@
 
 # API 调用｜鉴权
 
-> QQ BOT 服务端开放的 openapi 接口，均使用 https 方式进行调用，通过 access token 机制实现对 openapi 接口调用的鉴权。
+::: tip 温馨提示
+`QQ BOT` 服务端开放的 `openapi` 接口，均使用 `https` 方式进行调用，通过  `access token` 机制实现对 `openapi` 接口调用的鉴权。
+:::
 
 ## 获取接口凭证
 
@@ -36,8 +38,8 @@
 
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
-| access\_token | string | 获取到的凭证。 |
-| expires\_in | number | 凭证有效时间，单位：秒。目前是7200秒之内的值。 |
+| access_token | string | 获取到的凭证。 |
+| expires_in | number | 凭证有效时间，单位：秒。目前是7200秒之内的值。 |
 
 - **错误码**
 
@@ -66,30 +68,31 @@ curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 
 - **其他说明**
 
-目前 access\_token 生命周期默认 7200 秒，每次请求不会刷新新的 access\_token，开发者需要在过期后自行刷新 access\_token，保证调用链路权限正常。
+目前 `access_token` 生命周期默认 `7200` 秒，每次请求不会刷新新的 `access_token`，开发者需要在过期后自行刷新 `access_token`，保证调用链路权限正常。
 
-在上一个 access\_token 接近过期时间 60 秒内，获取 access\_token 时，会获得一个新的 access\_token，老的 access\_token 在这个60秒内仍然有效。
+在上一个 `access_token` 接近过期时间 `60` 秒内，获取 `access_token` 时，会获得一个新的 `access_token`，老的 `access_token` 在这个`60`秒内仍然有效。
 
 ## 接口调用
 
-在每次调用 https 的 openapi 开放接口请求的时候，需要在 header 内引入 access\_token 进行调用权限验证。
+在每次调用 `https` 的 `openapi` 开放接口请求的时候，需要在 `header` 内引入 `access_token` 进行调用权限验证。
 
 **统一地址**
 
-> https://api.sgroup.qq.com
+```
+https://api.sgroup.qq.com
+```
 
 
 **请求头**
 
 | 名称 | 类型 | 必填 | 描述 |
 | --- | --- | --- | --- |
-| Authorization | string | 是 | 格式值："QQBot ACCESS\_TOKEN" |
-| X-Union-Appid | string | 是 | 格式值："BOT\_APPID", 机器人 appid |
+| Authorization | string | 是 | 格式值："QQBot ACCESS_TOKEN" |
+| X-Union-Appid | string | 是 | 格式值："BOT_APPID", 机器人 appid |
 
 **示例**
-
 ```json
-'headers': {
+'headers'': {
   'Authorization': "QQBot {ACCESS_TOKEN}",
   'X-Union-Appid': "{BOT_APPID}",
 }
@@ -97,4 +100,4 @@ curl --location 'https://bots.qq.com/app/getAppAccessToken' \
 
 ## 调用权限错误码
 
-与 access token 权限有关的错误码。
+与  `access token` 权限有关的错误码。

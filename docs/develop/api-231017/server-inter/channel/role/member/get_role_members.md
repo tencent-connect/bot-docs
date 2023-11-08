@@ -28,14 +28,17 @@ application/json
 |next	|string	|下一次请求的分页标识|
 
 ## 有关返回结果的说明
+
 每次返回的member数量与limit不一定完全相等。特定管理身份组下的成员可能存在一次性返回全部的情况
 
 ## 错误码
+
 详见[错误码](../../../../openapi/error/error.md)。
 
 ## 示例
 
 请求
+
 ```http
 GET /guilds/123456/roles/4/members?limit=2
 ```
