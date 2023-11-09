@@ -1,15 +1,16 @@
 # 获取频道和当前人信息
 
 适用场景：
+
 1.机器人服务打开小程序后（机器人服务需在机器人开发者端-服务配置）
 
-2.机器人发出的ark 打开小程序后（ark模版的跳转link可以带上对应的参数）
+2.机器人发出的`ark` 打开小程序后（`ark`模版的跳转`link`可以带上对应的参数）
 
 ## 从 extendData 中获取频道ID
 
 ### 机器人服务打开小程序
 
-开发者在开发者平台配置服务功能的时候，在 extData 支持使用占位符来获取频道ID，子频道ID。
+开发者在开发者平台配置服务功能的时候，在 `extData` 支持使用占位符来获取`频道ID`，`子频道ID`。
 
 如：`guildID=$OPENGUILDID$&channelID=$CHANNELID$`
 
@@ -33,14 +34,13 @@
 | fail       | function |     | 否  | 接口调用失败的回调函数              | 1.40.0 |
 | complete   | function |     | 否  | 接口调用结束的回调函数（调用成功、失败都会执行） | 1.40.0 |
 
-open_guild_id 从小程序的 extendData 上获取，即开发者在机器人平台配置小程序服务时候提示到的 `$OPENGUILDID$`
+`open_guild_id` 从小程序的 `extendData` 上获取，即开发者在机器人平台配置小程序服务时候提示到的 `$OPENGUILDID$`
 
 ### Object.success 回调函数参数 Object res
 
 #### 解密前
 
-res 得到的是加密之后的数据，需要开发者解密，解密方案参考: https://q.qq.com/wiki/develop/game/frame/open-ability/signature.html
-
+res 得到的是加密之后的数据，需要开发者解密，解密方案参考: [开放数据校验与解密](https://q.qq.com/wiki/develop/game/frame/open-ability/signature.html)
 | 属性           | 类型     | 说明                            |
 |--------------|--------|-------------------------------|
 | encryptedData   | string | 加密之后的数据，需要解密 |

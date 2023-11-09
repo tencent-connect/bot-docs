@@ -40,6 +40,8 @@ application/json
 
 ```json
 {
-  "channel": { "id": "1744939" }
+	"channel": {
+		"id": "1744939"
+	}
 }
 ```

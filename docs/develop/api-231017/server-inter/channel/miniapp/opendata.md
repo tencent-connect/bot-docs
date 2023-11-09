@@ -7,4 +7,4 @@
 
 ## 开放数据加密-参考文档
 
-https://q.qq.com/wiki/develop/game/frame/open-ability/signature.html
+[开放数据校验与解密](https://q.qq.com/wiki/develop/game/frame/open-ability/signature.html)

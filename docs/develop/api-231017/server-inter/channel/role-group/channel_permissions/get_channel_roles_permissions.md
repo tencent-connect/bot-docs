@@ -14,7 +14,9 @@ GET /channels/{channel_id}/roles/{role_id}/permissions
 
 ## Content-Type
 
+```http
 application/json
+```
 
 ## 返回
 

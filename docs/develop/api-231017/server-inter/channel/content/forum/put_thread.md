@@ -35,7 +35,7 @@ application/json
 | FORMAT_TEXT     | 1 | 普通文本  |
 | FORMAT_HTML     | 2 | HTML     |
 | FORMAT_MARKDOWN | 3 | Markdown |
-| FORMAT_JSON     | 4 | JSON（content参数可参照[RichText](#RichText)结构）|
+| FORMAT_JSON     | 4 | JSON（content参数可参照[RichText](model.md#RichText)结构）|
 
 ## 错误码
 

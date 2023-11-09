@@ -8,7 +8,7 @@ GET /channels/{channel_id}/online_nums
 
 ## 功能描述
 
-用于查询音视频/直播子频道 channel_id 的在线成员数。
+用于查询音视频/直播子频道 `channel_id` 的在线成员数。
 
 ## Content-Type
 

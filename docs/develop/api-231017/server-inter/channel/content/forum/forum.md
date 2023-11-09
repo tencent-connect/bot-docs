@@ -64,7 +64,7 @@
 - FORUM_POST_CREATE
 - FORUM_POST_DELETE
 
-事件内容为 [PostEvent](model.md#Post) 对象
+事件内容为 [Post](model.md#Post) 对象
 
 ## 示例
 

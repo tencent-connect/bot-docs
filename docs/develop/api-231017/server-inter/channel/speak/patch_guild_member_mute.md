@@ -8,7 +8,7 @@ PATCH /guilds/{guild_id}/members/{user_id}/mute
 
 ## 功能描述
 
-用于禁言频道 `guild_id` 下的成员 `user_id。`
+用于禁言频道 `guild_id` 下的成员 `user_id`。
 
 - 需要使用的 `token` 对应的用户具备管理员权限。如果是机器人，要求被添加为管理员。
 

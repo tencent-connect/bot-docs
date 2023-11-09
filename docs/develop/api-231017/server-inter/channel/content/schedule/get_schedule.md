@@ -4,7 +4,7 @@
 
 ```http
 GET /channels/{channel_id}/schedules/{schedule_id}
-```。
+```
 
 ## 功能描述
 

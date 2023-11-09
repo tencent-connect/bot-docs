@@ -1,6 +1,6 @@
 # 表情表态
 
-::: tip 温馨提示
+::: tip 说明
 目前表情表态仅支持在频道内使用
 :::
 
@@ -84,18 +84,21 @@ DELETE /channels/1013531/messages/08c095b7ba8ed4abd7e00110cbd83f3841489aa2bd9006
 ## 获取消息表情表态的用户列表
 
 ### 接口
+
+```http
 GET /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}?cookie={cookie}&limit={limit}
+```
 
 ### 功能描述
-拉取对消息 message_id 指定表情表态的用户列表
+拉取对消息 `message_id` 指定表情表态的用户列表
 
 ### Path 参数
 |字段名	|类型	|描述|
 | ------- | ------ | ----- |
 |channel_id	|string	|子频道ID|
 |message_id	|string	|消息ID|
-|type	|int|	表情类型，参考 EmojiType|
-|id	|string	|表情ID，参考 Emoji 列表|
+| type | int | 表情类型，参考 [EmojiType](../../../openapi/emoji/model.md#EmojiType)   |
+| id | string | 表情ID，参考 [Emoji 列表](../../../openapi/emoji/model.md#Emoji%20列表) |
 
 ### Query 参数
 |字段名|	类型|	描述|
@@ -106,7 +109,7 @@ GET /channels/{channel_id}/messages/{message_id}/reactions/{type}/{id}?cookie={c
 ### 返回
 |字段名	|类型	|描述|
 | ---- | ---- | ---- |
-|users	|array	|用户对象，参考 User，会返回 id, username, avatar|
+|users	|array	|用户对象，参考 [User](../../../openapi/user/model.md)，会返回 id, username, avatar|
 |cookie	|string	|分页参数，用于拉取下一页|
 |is_end	|bool	|是否已拉取完成到最后一页，true代表完成|
 

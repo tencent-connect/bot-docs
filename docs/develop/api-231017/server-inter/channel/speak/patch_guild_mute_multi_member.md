@@ -30,11 +30,11 @@ application/json
 
 ### 批量解除禁言
 
-该接口同样支持**批量解除禁言**，将`mute_end_timestamp`或`mute_seconds`传值为字符串`'0'`即可，及需要批量解除禁言的成员的user_id列表`user_ids`'。
+该接口同样支持**批量解除禁言**，将`mute_end_timestamp`或`mute_seconds`传值为字符串`'0'`即可，及需要批量解除禁言的成员的`user_id` 列表`user_ids`。
 
 ## 返回
 
-成功返回 HTTP 状态码 `200`，并返回设置成功的成员user_ids。
+成功返回 HTTP 状态码 `200`，并返回设置成功的成员`user_ids`。
 
 ## 错误码
 
