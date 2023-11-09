@@ -10,6 +10,10 @@ module.exports = {
             "title": "QQ开放平台更新介绍",
             "children": [
                 [
+                    "/newfeature/eleven/",
+                    "v.5(2023.11.08)"
+                ] ,
+                [
                     "/newfeature/ten/",
                     "v.4(2022.04.08)"
                 ],
