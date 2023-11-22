@@ -1,6 +1,6 @@
 // 注意：需要在dev前初始化内网api文档
 const apiConfig = require('../develop/api/config');
-const apiConfig231017 = require('../develop/api-231017/config');
+const apiConfig231017 = require('../develop/api-v2/config');
 const nodesdkConfig = require('../develop/nodesdk/config');
 const pythonsdkConfig = require('../develop/pythonsdk/config');
 const gosdkConfig = require('../develop/gosdk/config');
@@ -122,7 +122,7 @@ module.exports = ctx => ({
       },
       {
         text: 'API文档',
-        link: '/develop/api-231017/',
+        link: '/develop/api-v2/',
         items: [
           apiConfig231017.nav,
           {
