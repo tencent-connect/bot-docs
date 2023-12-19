@@ -35,7 +35,7 @@ application/json
 | message_reference | [MessageReference](./template/model.md#messagereference) 引用消息对象 | 选填，引用消息 |
 | image | string | 选填，图片url地址，平台会转存该图片，用于下发图片消息 |
 | msg_id | string | 选填，要回复的消息id([Message](./template/model.md#message).id), 在 [AT_CREATE_MESSAGE](message.md) 事件中获取。 |
-| markdown          | [MessageMarkdown](./template/model.md#messagemarkdown) markdown 消息对象 | 选填，markdown 息    |
+| markdown          | [MessageMarkdown](./template/model.md#messagemarkdown) markdown 消息对象 | 选填，markdown 消息    |
 
 **content, embed, ark, image, markdown 至少需要有一个字段，否则无法下发消息。**
 
