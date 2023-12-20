@@ -4,7 +4,7 @@
 <!-- > QQ BOT 服务端开放的 openapi 接口，均使用 https 方式进行调用，通过  `access token` 机制实现对 openapi 接口调用的鉴权。 -->
 
 ::: tip 说明
-`QQ BOT` 服务端开放的 `openapi` 接口，均使用 `https` 方式进行调用，通过  `access token` 机制实现对 openapi 接口调用的鉴权。
+`QQ 机器人` 服务端开放的 `openapi` 接口，均使用 `https` 方式进行调用，通过  `AccessToken` 机制实现对 `openapi` 接口调用的鉴权。
 :::
 
 ## 获取调用凭证
@@ -90,16 +90,17 @@ https://api.sgroup.qq.com
 | 名称 | 类型 | 必填 | 描述 |
 | --- | --- | --- | --- |
 | Authorization | string | 是 | 格式值："QQBot ACCESS_TOKEN" |
-| X-Union-Appid | string | 是 | 格式值："BOT_APPID", 机器人 appid |
+| X-Union-Appid | string | 是 | 格式值："BOT_APPID", 机器人 AppID |
 
 **示例**
 ```json
-'headers'': {
-  'Authorization': "QQBot {ACCESS_TOKEN}",
-  'X-Union-Appid': "{BOT_APPID}",
+{
+  "headers": {
+    "Authorization": "QQBot {ACCESS_TOKEN}",
+    "X-Union-Appid": "{BOT_APPID}",
+  }
 }
 ```
 
 <!-- ## 调用权限错误码
-
 与  `access token` 权限有关的错误码。 -->

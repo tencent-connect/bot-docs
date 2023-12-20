@@ -39,7 +39,17 @@ module.exports = {
               "dev-prepare/interface-framework/event-emit.md"
             ]
           },
-          "dev-prepare/unique-id.md"
+          "dev-prepare/unique-id.md",
+          {
+            "title": "错误与调试",
+            "collapsable": false,
+            "sidebarDepth": 1,
+            "path": "/develop/api-v2/dev-prepare/error-trace/",
+            "children": [
+              "dev-prepare/error-trace/openapi.md",
+              "dev-prepare/error-trace/websocket.md"
+            ]
+          },
         ]
       },
       {

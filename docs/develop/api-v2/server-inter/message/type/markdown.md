@@ -1,6 +1,8 @@
 # Markdown 消息
 
 目前需要内邀开通
+当开通模版 MD 或原生 MD 后，主动 MD 默认生效，被动 MD 仍需单独申请开通。
+
 
 |  | **单聊** | **群聊** | **文字子频道** | **频道私信** |
 | --- | --- | --- | --- | --- |
@@ -37,6 +39,8 @@ _斜体_
 ```
 
 ### 图片
+
+对于 markdown 消息内的图片资源，QQ 后台为了保护用户 IP 隐私的原因，会通过域名代理和内容缓存机制解析到 QQ 客户端，但不会持久化存储，请开发者自身维护图片 url 的可用性，当 url 不可用时，markdown 消息内的图片可能不能正常渲染展示。
 
 ```
 ![text #208px #320px](https://resource5-1255303497.cos.ap-guangzhou.myqcloud.com/abcmouse_word_watch/markdown/building.png)

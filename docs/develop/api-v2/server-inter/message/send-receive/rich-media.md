@@ -24,10 +24,12 @@
     <td>HTTP Method</td>
     <td>POST</td>
 	</tr>
-	<!-- <tr>
+	<!-- 
+	<tr>
     <td>接口频率限制</td>
     <td></td>
-	</tr> -->
+	</tr> 
+	-->
 </table>
 
 - **路径参数**
