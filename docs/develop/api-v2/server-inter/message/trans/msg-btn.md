@@ -37,9 +37,9 @@
 
 ## 数据结构与协议
 
-消息发送接口 keyboard 字段值是一个 json object，rows 数组表示每一行按钮
+消息发送接口 keyboard 字段值是一个 Json Object {}，rows 数组的每个元素表示每一行按钮
 
-每个 button 是一个 json object，具体字段如下：
+每个 button 是一个 Json Object，具体字段如下：
 
 | **属性** | **类型** | **必填** | **说明** |
 | --- | --- | --- | --- |
@@ -47,17 +47,17 @@
 | render_data.label | string | 是 | 按钮上的文字 |
 | render_data.visited_label | string | 是 | 点击后按钮的上文字 |
 | render_data.style | int | 是 | 按钮样式：0 灰色线框，1 蓝色线框 |
-| action.type | int | 是 | 0 跳转按钮：http 或 小程序 客户端识别 scheme, data字段为链接1 回调按钮：回调后台接口, data 传给后台2 指令按钮：自动在输入框插入 @bot data |
-| action.permisson.type | int | 是 | 0 指定用户可操作1 仅管理者可操作2 所有人可操作3 指定身份组可操作（仅频道可用） |
-| action.permisson.specify_role_ids | array | 否 | 有权限的身份组id的列表（仅频道可用） |
-| action.permisson.specify_user_ids | array | 否 | 有权限的用户id的列表 |
-| data | string | 是 | 操作相关的数据 |
-| at_bot_show_channel_list | bool | 否 | 指令按钮可用，弹出子频道选择器，默认 false（已弃用） |
-| reply | bool | 否 | 指令按钮可用，指令是否带引用回复本消息，默认 false支持版本 8983 |
-| enter | bool | 否 | 指令按钮可用，点击按钮后直接自动发送 data，默认 false。支持版本 8983 |
-| anchor | bool | 否 | 指令按钮可用，自动锚点到选图器，默认 false，设置 ture 后会忽略 enter 配置。支持版本 8983 |
-| click_limit | int | 否 | 可操作点击的次数，默认不限 |
-| unsupport_tips | string | 是 | 客户端不支持本action的时候，弹出的toast文案 |
+| action.type | int | 是 | 设置 0 跳转按钮：http 或 小程序 客户端识别 scheme，设置 1 回调按钮：回调后台接口, data 传给后台，设置 2 指令按钮：自动在输入框插入 @bot data |
+| action.permisson.type | int | 是 | 0 指定用户可操作，1 仅管理者可操作，2 所有人可操作，3 指定身份组可操作（仅频道可用） |
+| action.permisson.specify_user_ids | array | 否 | 有权限的用户 id 的列表 |
+| action.permisson.specify_role_ids | array | 否 | 有权限的身份组 id 的列表（仅频道可用） |
+| action.data | string | 是 | 操作相关的数据 |
+| action.reply | bool | 否 | 指令按钮可用，指令是否带引用回复本消息，默认 false。支持版本 8983 |
+| action.enter | bool | 否 | 指令按钮可用，点击按钮后直接自动发送 data，默认 false。支持版本 8983 |
+| action.anchor | bool | 否 | 指令按钮可用，自动锚点到选图器，默认 false，设置 ture 后会忽略 enter 配置。支持版本 8983 |
+| action.click_limit | int | 否 |【已弃用】可操作点击的次数，默认不限 |
+| action.at_bot_show_channel_list | bool | 否 |【已弃用】指令按钮可用，弹出子频道选择器，默认 false |
+| action.unsupport_tips | string | 是 | 客户端不支持本action的时候，弹出的toast文案 |
 
 示例
 ```json
@@ -174,17 +174,20 @@
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 平台方事件 ID，可以用于被动消息发送 |
-| type | int | <font color=red>按钮事件固定是 11</font> |
-| chat_type | int | 消息内容 |
-| timestamp | string | 消息生产时间 |
-| guild_id | string | 频道的 openid |
-| channel_id | string | 文字子频道的 openid |
-| group_open_id | string | 群聊的 openid |
-| chat_type | int | 目前只有群和单聊有该字段，1 群聊，2 单聊，后续加入 3 频道 |
-| data.resoloved.button_data | string | 操作按钮的data字段值【在发送按钮时规划】 |
-| data.resoloved.button_id | string | 操作按钮的id字段值【在发送按钮时规划】 |
-| data.resoloved.user_id | string | 操作的用户 openid |
-| data.resoloved.message_id | string | 操作的消息id |
+| type | int | 消息按钮： 11，单聊快捷菜单：12 |
+| scene | string | 事件发生的场景：c2c、group、guild |
+| chat_type | int | 0 频道场景，1 群聊场景，2 单聊场景 |
+| timestamp | string | 触发时间 RFC 3339 格式 |
+| guild_id | string | 频道的 openid ，仅在频道场景提供该字段 |
+| channel_id | string | 文字子频道的 openid，仅在频道场景提供该字段 |
+| user_openid | string | 单聊单聊按钮触发x，的用户 openid，仅在单聊场景提供该字段 |
+| group_openid | string | 群的 openid，仅在群聊场景提供该字段 |
+| group_member_openid | string | 按钮触发用户，群聊的群成员 openid，仅在群聊场景提供该字段 |
+| data.resoloved.button_data | string | 操作按钮的 data 字段值（在发送消息按钮时设置） |
+| data.resoloved.button_id | string | 操作按钮的 id 字段值（在发送消息按钮时设置） |
+| data.resoloved.user_id | string | 操作的用户 userid，仅频道场景提供该字段 |
+| data.resoloved.feature_id | string | 操作按钮的 id 字段值，仅自定义菜单提供该字段（在管理端设置） |
+| data.resoloved.message_id | string | 操作的消息id，目前仅频道场景提供该字段 |
 | version | int | 默认 1 |
 | application_id | string | 机器人的 appid |
 
