@@ -54,7 +54,7 @@
 | action.data | string | 是 | 操作相关的数据 |
 | action.reply | bool | 否 | 指令按钮可用，指令是否带引用回复本消息，默认 false。支持版本 8983 |
 | action.enter | bool | 否 | 指令按钮可用，点击按钮后直接自动发送 data，默认 false。支持版本 8983 |
-| action.anchor | bool | 否 | 指令按钮可用，自动锚点到选图器，默认 false，设置 ture 后会忽略 enter 配置。支持版本 8983 |
+| action.anchor | int | 否 | 本字段仅在指令按钮下有效，设置后后会忽略 action.enter 配置。<br/>设置为 1 时 ，点击按钮自动唤起启手Q选图器，其他值暂无效果。<br/>（仅支持手机端版本 8983+ 的单聊场景，桌面端不支持） |
 | action.click_limit | int | 否 |【已弃用】可操作点击的次数，默认不限 |
 | action.at_bot_show_channel_list | bool | 否 |【已弃用】指令按钮可用，弹出子频道选择器，默认 false |
 | action.unsupport_tips | string | 是 | 客户端不支持本action的时候，弹出的toast文案 |
