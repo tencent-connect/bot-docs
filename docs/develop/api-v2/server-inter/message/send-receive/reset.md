@@ -8,6 +8,74 @@
 
 [暂不对外开放]，管理员身份可撤回的加多消息 -->
 
+## 单聊
+
+### 接口
+
+```http
+DELETE /v2/users/{openid}/messages/{message_id}
+```
+
+### 功能描述
+
+用于撤回机器人发送给当前用户 `openid` 的消息 `message_id`，发送超出2分钟的消息不可撤回
+
+### Content-Type
+
+```http
+application/json
+```
+
+### 返回
+
+成功返回 HTTP 状态码 `200`。
+
+### 错误码
+
+详见[错误码](../../../dev-prepare/error-trace/openapi.md)。
+
+### 示例
+
+请求数据包
+
+```http
+DELETE /v2/users/123456/messages/112233
+```
+
+## 群聊
+
+### 接口
+
+```http
+DELETE /v2/groups/{group_openid}/messages/{message_id}
+```
+
+### 功能描述
+
+用于撤回机器人发送在当前群 `group_openid` 的消息 `message_id`，发送超出2分钟的消息不可撤回
+
+### Content-Type
+
+```http
+application/json
+```
+
+### 返回
+
+成功返回 HTTP 状态码 `200`。
+
+### 错误码
+
+详见[错误码](../../../dev-prepare/error-trace/openapi.md)。
+
+### 示例
+
+请求数据包
+
+```http
+DELETE /v2/groups/123456/messages/112233
+```
+
 ## 文字子频道
 
 ### 接口
