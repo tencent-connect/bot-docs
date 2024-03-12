@@ -54,6 +54,7 @@
 | file_uuid | string | 文件 ID |
 | file_info | string | 文件信息，用于发消息接口的 media 字段使用 |
 | ttl | int | 有效期，表示剩余多少秒到期，到期后 file_info 失效，当等于 0 时，表示可长期使用 |
+| id | string | 发送消息的唯一ID，当srv_send_msg设置为true时返回 |
 
 - **错误码**
 
@@ -103,6 +104,7 @@
 | file_uuid | string | 文件 ID |
 | file_info | string | 文件信息，用于发消息接口的 media 字段使用 |
 | ttl | int | 有效期，表示剩余多少秒到期，到期后 file_info 失效，当等于 0 时，表示可长期使用 |
+| id | string | 发送消息的唯一ID，当srv_send_msg设置为true时返回 |
 
 <!-- - **错误码** -->
 
