@@ -48,9 +48,9 @@
 | render_data.visited_label | string | 是 | 点击后按钮的上文字 |
 | render_data.style | int | 是 | 按钮样式：0 灰色线框，1 蓝色线框 |
 | action.type | int | 是 | 设置 0 跳转按钮：http 或 小程序 客户端识别 scheme，设置 1 回调按钮：回调后台接口, data 传给后台，设置 2 指令按钮：自动在输入框插入 @bot data |
-| action.permisson.type | int | 是 | 0 指定用户可操作，1 仅管理者可操作，2 所有人可操作，3 指定身份组可操作（仅频道可用） |
-| action.permisson.specify_user_ids | array | 否 | 有权限的用户 id 的列表 |
-| action.permisson.specify_role_ids | array | 否 | 有权限的身份组 id 的列表（仅频道可用） |
+| action.permission.type | int | 是 | 0 指定用户可操作，1 仅管理者可操作，2 所有人可操作，3 指定身份组可操作（仅频道可用） |
+| action.permission.specify_user_ids | array | 否 | 有权限的用户 id 的列表 |
+| action.permission.specify_role_ids | array | 否 | 有权限的身份组 id 的列表（仅频道可用） |
 | action.data | string | 是 | 操作相关的数据 |
 | action.reply | bool | 否 | 指令按钮可用，指令是否带引用回复本消息，默认 false。支持版本 8983 |
 | action.enter | bool | 否 | 指令按钮可用，点击按钮后直接自动发送 data，默认 false。支持版本 8983 |
