@@ -24,7 +24,7 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 客户端解析为： <font style="color: #09f">@全部成员</font> 标签，需要机器人拥有发送 <font style="color: #09f">@全部成员</font> 消息的权限，
 
-## 指令操作
+<!-- ## 指令操作
 
 目前仅在 markdown 支持。
 
@@ -35,7 +35,6 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 `[/回车指令](mqqapi://aio/inlinecmd?command={urlencode(/回车指令)}&reply=false&enter=true)`
 
 客户端解析为： <font style="color: #09f">/回车指令</font> 用户可点击的标签
-<!-- `<cmd enter=true reply=true cmd="/回车指令">` -->
 
 - `command` 自定义文本，数据需要 `url 编码`。
 - `enter` 参数必须 `true`。
@@ -51,7 +50,7 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 - `command` 自定义文本，数据需要 `url 编码`。
 - `enter` 参数必须 `false`。
-- `reply` 可选 `true` 或 `false`，填 `true` 则带引用回复到输入框中。
+- `reply` 可选 `true` 或 `false`，填 `true` 则带引用回复到输入框中。 -->
   
 <!-- ```
 <cmd reply=true cmd="/参数指令（带引用本消息）">
