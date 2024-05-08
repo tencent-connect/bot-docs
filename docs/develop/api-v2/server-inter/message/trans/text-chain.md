@@ -44,7 +44,7 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 嵌入文本使用格式：
 
-`[/参数指令](mqqapi://aio/inlinecmd?command={urlencode(/参数指令（带引用）)&reply=true&enter=false) `
+`[/参数指令](mqqapi://aio/inlinecmd?command={urlencode(/参数指令（带引用）)}&reply=true&enter=false) `
 
 客户端解析为： <font style="color: #09f">/参数指令</font> 用户可点击的标签
 
