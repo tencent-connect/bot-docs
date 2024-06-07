@@ -14,17 +14,19 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 1. @某人｜群聊、文字子频道可用
 
-嵌入文本使用格式：`<@userid>`
+嵌入文本使用格式：`<qqbot-at-user id="" />`
+协议：`<@userid>`即将弃用，请使用上述最新格式。
 
-客户端解析为： <font style="color: #09f">@用户</font> 标签
+客户端展示为： <font style="color: #09f">@用户</font> 标签
 
 2. @全部成员｜仅在文字子频道可用
 
-嵌入文本使用格式：`@everyone`
+嵌入文本使用格式：`<qqbot-at-everyone />`
+协议：`@everyone`即将弃用，请使用上述最新格式。
 
-客户端解析为： <font style="color: #09f">@全部成员</font> 标签，需要机器人拥有发送 <font style="color: #09f">@全部成员</font> 消息的权限，
+客户端展示为： <font style="color: #09f">@全部成员</font> 标签，需要机器人拥有发送 <font style="color: #09f">@全部成员</font> 消息的权限，
 
-<!-- ## 指令操作
+## 指令操作
 
 目前仅在 markdown 支持。
 
@@ -32,32 +34,23 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 嵌入文本使用格式：
 
-`[/回车指令](mqqapi://aio/inlinecmd?command={urlencode(/回车指令)}&reply=false&enter=true)`
+`<qqbot-cmd-enter text="xxx" /> `
 
-客户端解析为： <font style="color: #09f">/回车指令</font> 用户可点击的标签
+客户端展示为： <font style="color: #09f">/回车指令</font> 用户可点击的标签，群聊和文字子频道不支持该能力。
 
-- `command` 自定义文本，数据需要 `url 编码`。
-- `enter` 参数必须 `true`。
-- `reply` 参数必须 `false`。
+- `text` 用户点击后直接发送的文本，参数必填，最大限制 100 字符，传值时需要 urlencode。
 
 **2. 参数指令格式（点击后，文本插入输入框，用户自行编辑发送）**
 
 嵌入文本使用格式：
 
-`[/参数指令](mqqapi://aio/inlinecmd?command={urlencode(/参数指令（带引用）)&reply=true&enter=false) `
+`<qqbot-cmd-input text="xxx" show="xxx" reference="false" />`
 
-客户端解析为： <font style="color: #09f">/参数指令</font> 用户可点击的标签
+客户端展示为： <font style="color: #09f">/参数指令</font> 用户可点击的标签
 
-- `command` 自定义文本，数据需要 `url 编码`。
-- `enter` 参数必须 `false`。
-- `reply` 可选 `true` 或 `false`，填 `true` 则带引用回复到输入框中。 -->
-  
-<!-- ```
-<cmd reply=true cmd="/参数指令（带引用本消息）">
-<cmd reply=false cmd="/参数指令（不带引用）">
-``` -->
-<!-- 原生 scheme 格式： -->
-
+- `text` 用户点击后插入输入框的文本，参数必填，最大限制 100 字符，传值时需要 urlencode。
+- `show` 用户在消息内看到的文本，参数选填，默认取 text 值，最大限制 100 字符，传值时需要 urlencode。
+- `reference` 插入输入框时是否带消息原文回复引用，参数选填，默认为 `false`，填入 `true` 时则带引用回复到输入框中。
 
 ## 跳转子频道
 
@@ -65,7 +58,7 @@ QQBot 提供文本消息的交互能力，当开发者使用指定的格式发�
 
 嵌入文本使用格式：`<#channel_id>`
 
-客户端解析为： <font style="color: #09f">#XXX文字子频道</font> 标签，点击可以跳转至子频道，仅支持当前频道内的子频道。
+客户端展示为： <font style="color: #09f">#XXX文字子频道</font> 标签，点击可以跳转至子频道，仅支持当前频道内的子频道。
 
 
 ## 表情
