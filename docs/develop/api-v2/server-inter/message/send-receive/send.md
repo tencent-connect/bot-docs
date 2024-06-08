@@ -56,11 +56,15 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
     <td></td>
     </tr> -->
 </table>
-- **路径参数**
-| **属性** | **类型** | **必填** | **说明** |
-| --- | --- | --- | --- |
-| openid | string | 是 | QQ 用户的 openid，可在各类事件中获得。 |
-- **请求参数**
+
+- **路径参数**  
+
+| **属性** | **类型** | **必填** | **说明** |  
+| --- | --- | --- | --- |  
+| openid | string | 是 | QQ 用户的 openid，可在各类事件中获得。 |  
+
+- **请求参数**  
+
 | **属性** | **类型** | **必填** | **说明** |
 | --- | --- | --- | --- |
 | content | string | 否 | 文本内容 |
@@ -72,23 +76,28 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
 | message_reference | object | 否 | 【暂未支持】消息引用 |
 | event_id | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"C2C_MSG_RECEIVE"、"FRIEND_ADD"|
 | msg_id | string | 否 | 前置收到的用户发送过来的消息 ID，用于发送被动（回复）消息 |
-| msg_seq	| int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是1。相同的 msg_id + msg_seq 重复发送会失败。
+| msg_seq	| int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是1。相同的 msg_id + msg_seq 重复发送会失败。|
+
 
 
 <!-- |input_notify    |object    |否    |仅 msg_type = 6 时使用 <br> {"input_type": 1, "input_second": 3} <br> input_type：int｜1：对方正在输入...、2：手动取消展示、3：对方正在讲话.. 、4：正在生成... 、5：正在想象...<br> input_second：int｜持续X秒，1-60之间 |
 |typing_setting    |object|    否|    仅 msg_type = 6 时使用 <br>{"status": 1, "duration": 3 } <br>status：int｜必填｜0：手动取消状态、1：对方正在输入...、2：对方正在讲话... 、3：正在生成... 、4：正在想象...<br>duration：int｜选填｜持续X秒，1-60之间，不填默认3<br>其他说明：<br>当设置状态后，发送一条新的消息，状态会自动取消。成功的重复调用，覆盖上次请求的设置。| -->
 - **返回参数**
+
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 消息唯一ID |
 | timestamp | int | 发送时间 |
+
 - **常见错误码**
 - 当 msg_type = 7 时，content 字段需要填入一个值，譬如一个空格 “ ”，后续版本会修复该问题。
+
 | **code** | **message** | **说明** |
 | --- | --- | --- |
 | 22009 | msg limit exceed | 消息发送超频 |
 | 304082 | upload media info fail | 富媒体资源拉取失败，请重试 |
 | 304083 | convert media info fail | 富媒体资源拉取失败，请重试 |
+
 ## 群聊
 <!-- > 发动消息到群。 -->
 ::: tip 说明
@@ -112,11 +121,14 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
     <td></td>
     </tr> -->
 </table>
-- **路径参数**
+- **路径参数**  
+
 | **属性** | **类型** | **必填** | **说明** |
 | --- | --- | --- | --- |
 | group_openid | string | 是 | 群聊的 openid |
+
 - **请求参数**
+  
 | **属性** | **类型** | **必填** | **说明** |
 | --- | --- | --- | --- |
 | content | string | 是 | 文本内容 |
@@ -128,20 +140,24 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
 | message_reference | object | 否 | 【暂未支持】消息引用 |
 | event_id | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"GROUP_ADD_ROBOT"、"GROUP_MSG_RECEIVE" |
 | msg_id | string | 否 | 前置收到的用户发送过来的消息 ID，用于发送被动消息（回复） |
-| msg_seq	| int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是 1。相同的 msg_id + msg_seq 重复发送会失败。
+| msg_seq	| int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是 1。相同的 msg_id + msg_seq 重复发送会失败。|
 
 - **返回参数**
+  
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 消息唯一 ID |
 | timestamp | int | 发送时间 |
+
 - **常见错误码**
 - 当 msg_type = 7 时，content 字段需要填入一个值，譬如一个空格 “ ”，后续版本会修复该问题。
+  
 | **code** | **message** | **说明** |
 | --- | --- | --- |
 | 22009 | msg limit exceed | 消息发送超频 |
 | 304082 | upload media info fail | 富媒体资源拉取失败，请重试 |
 | 304083 | convert media info fail | 富媒体资源拉取失败，请重试 |
+
 ## 文字子频道
 <!-- > 发动消息到文字子频道。 -->
 ::: tip 说明
