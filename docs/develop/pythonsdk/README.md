@@ -46,7 +46,7 @@ class MyClient(botpy.Client):
 
 intents = botpy.Intents(public_guild_messages=True) 
 client = MyClient(intents=intents)
-client.run(appid={appid}, token={token})
+client.run(appid={appid}, token={secret})
 ```
 
 ## botpy-事件监听
