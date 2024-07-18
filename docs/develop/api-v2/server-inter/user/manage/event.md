@@ -41,14 +41,8 @@
 
 ```json
 {
-	"op": 0,
-	"s": 4,
-	"t": "FRIEND_ADD",
-	"id": "FRIEND_ADD:701d1cfb-46cd-4979-9a01-1031819c2e4b",
-	"d": {
-		"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
-		"timestamp": 1699240365
-	}
+	"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
+	"timestamp": 1699240365
 }
 ```
 
@@ -93,14 +87,8 @@
 
 ```json
 {
-	"op": 0,
-	"s": 3,
-	"t": "FRIEND_DEL",
-	"id": "FRIEND_DEL:bcb31d69-a2b6-4a3e-89dc-077951f22e53",
-	"d": {
-		"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
-		"timestamp": 1699240328
-	}
+	"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
+	"timestamp": 1699240328
 }
 ```
 
@@ -145,14 +133,8 @@
 
 ```json
 {
-	"op": 0,
-	"s": 9,
-	"t": "C2C_MSG_REJECT",
-	"id": "C2C_MSG_REJECT:5f68ab54-f67e-446c-81e4-2e6e1975eb29",
-	"d": {
-		"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
-		"timestamp": 1699240599
-	}
+	"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
+	"timestamp": 1699240599
 }
 ```
 
@@ -197,14 +179,8 @@
 
 ```json
 {
-	"op": 0,
-	"s": 10,
-	"t": "C2C_MSG_RECEIVE",
-	"id": "C2C_MSG_RECEIVE:f064381c-360d-4400-9320-ea3dae112ce2",
-	"d": {
-		"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
-		"timestamp": 1699240617
-	}
+	"openid": "E4F4AEA33253A2797FB897C50B81D7ED",
+	"timestamp": 1699240617
 }
 ```
 <!-- ## 三方平台

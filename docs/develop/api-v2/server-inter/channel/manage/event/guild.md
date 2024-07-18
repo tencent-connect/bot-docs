@@ -17,10 +17,6 @@
 
 ```json
 {
-  "op": 0,
-  "s": 6,
-  "t": "GUILD_CREATE",
-  "d": {
     "description": "频道介绍",
     "icon": "https://pub.idqqimg.com/pc/misc/files/20211208/311cfc87ce394c62b7c9f0508658cf25.png",
     "id": "200000000",
@@ -30,7 +26,6 @@
     "name": "频道名称",
     "op_user_id": "100000000",
     "owner_id": "100000000"
-  }
 }
 ```
 
@@ -45,10 +40,6 @@
 
 ```json
 {
-  "op": 0,
-  "s": 7,
-  "t": "GUILD_UPDATE",
-  "d": {
     "description": "修改了的频道介绍",
     "icon": "https://pub.idqqimg.com/pc/misc/files/20211208/311cfc87ce394c62b7c9f0508658cf25.png",
     "id": "200000000",
@@ -58,7 +49,6 @@
     "name": "频道名称",
     "op_user_id": "100000000",
     "owner_id": "100000000"
-  }
 }
 ```
 
@@ -74,10 +64,6 @@
 
 ```json
 {
-  "op": 0,
-  "s": 5,
-  "t": "GUILD_DELETE",
-  "d": {
     "description": "频道介绍",
     "icon": "https://pub.idqqimg.com/pc/misc/files/20211208/311cfc87ce394c62b7c9f0508658cf25.png",
     "id": "200000000",
@@ -87,6 +73,5 @@
     "name": "频道名称",
     "op_user_id": "100000000",
     "owner_id": "100000000"
-  }
 }
 ```

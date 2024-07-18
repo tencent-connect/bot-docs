@@ -21,14 +21,14 @@ application/json
 
 | 字段名 | 类型                                     | 描述           |
 | ------ | ---------------------------------------- | -------------- |
-| embed  | [MessageEmbed](../../template/model.md#messageembed) | embed 消息详情 |
+| embed  | [MessageEmbed](../template/model.md#messageembed) | embed 消息详情 |
 
 - 其中 embed.thumbnail 为选填，没有缩略图的可以不填。
 - embed.fields.name 为文本。
 
 ### 返回
 
-返回[Message](../../template/model.md#message)对象。
+返回[Message](../template/model.md#message)对象。
 
 ### 错误码
 
