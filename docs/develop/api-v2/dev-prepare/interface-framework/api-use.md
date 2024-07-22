@@ -90,14 +90,12 @@ https://api.sgroup.qq.com
 | 名称 | 类型 | 必填 | 描述 |
 | --- | --- | --- | --- |
 | Authorization | string | 是 | 格式值："QQBot ACCESS_TOKEN" |
-| X-Union-Appid | string | 是 | 格式值："BOT_APPID", 机器人 AppID |
 
 **示例**
 ```json
 {
   "headers": {
-    "Authorization": "QQBot {ACCESS_TOKEN}",
-    "X-Union-Appid": "{BOT_APPID}",
+    "Authorization": "QQBot {ACCESS_TOKEN}"
   }
 }
 ```

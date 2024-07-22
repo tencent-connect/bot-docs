@@ -42,28 +42,35 @@
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 平台方消息ID，可以用于被动消息发送 |
-| author | object | 发送者 {"user_openid": "xxx"} // 用户 openid |
+| author | object | 发送者 |
 | content | string | 文本消息内容 |
 | timestamp | string | 消息生产时间（RFC3339） |
-| attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件"<br/>{"content_type": "", "filename": "", "height": "", "width": "", "size": "", "url": ""} |
+| attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件" |
+author对象
+| **属性** | **类型** | **说明** |
+| --- | --- | --- |
+| user_openid | string | 用户 openid |
+attachment对象
+| **属性** | **类型** | **说明** |
+| --- | --- | --- |
+| content_type | string | 文件类型，"image/jpeg","image/png","image/gif"，"file"，"video/mp4"，"voice" |
+| filename | string | 文件名称 |
+| height | int | 图片高度 |
+| width | int | 图片宽度 |
+| size | int | 文件大小 |
+| url | string | 文件链接 |
 
 
 - **事件示例**
 
 ```json
 {
-    "op": 0,
-    "s": 2,
-    "t": "C2C_MESSAGE_CREATE",
-    "id": "C2C_MESSAGE_CREATE:051c863a-05d1-483d-8fd5-15b4e1d7ea1a",
-    "d": {
-        "author": {
-            "user_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
-        },
-        "content": "123",
-        "id": "ROBOT1.0_.b6nx.CVryAO0nR58RXuU6SC.m92gc19j02qKqdm8ek!",
-        "timestamp": "2023-11-06T13:37:18+08:00"
-    }
+  "author": {
+      "user_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
+  },
+  "content": "123",
+  "id": "ROBOT1.0_.b6nx.CVryAO0nR58RXuU6SC.m92gc19j02qKqdm8ek!",
+  "timestamp": "2023-11-06T13:37:18+08:00"
 }
 ```
 
@@ -111,30 +118,29 @@
 | **属性** | **类型** | **说明** |
 | --- | --- | --- |
 | id | string | 平台方消息 ID，可以用于被动消息发送 |
-| author | object | 发送者 {"member_openid": "xxx"} // 用户在本群的 member_openid |
+| author | object | 发送者 |
 | content | string | 消息内容 |
 | timestamp | string | 消息生产时间（RFC3339） |
 | group_openid | string | 群聊的 openid |
-| attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件"<br/>{"content_type": "", "filename": "", "height": "", "width": "", "size": "", "url": ""} |
+| attachments | object[] | 富媒体文件附件，文件类型："图片，语音，视频，文件"|
+
+author对象
+| **属性** | **类型** | **说明** |
+| --- | --- | --- |
+| member_openid | string | 用户在本群的 member_openid |
 
 - **事件示例**
 
 ```json
 // Websocket
 {
-    "op": 0,
-    "s": 3,
-    "t": "GROUP_AT_MESSAGE_CREATE",
-    "id": "GROUP_AT_MESSAGE_CREATE:87612938-5b4b-441f-b4aa-2c0266092fe0",
-    "d": {
-        "author": {
-            "member_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
-        },
-        "content": " 123",
-        "group_openid": "C9F778FE6ADF9D1D1DBE395BF744A33A",
-        "id": "ROBOT1.0_eBIyWnxpmSu6uLQ7u7fU0eGloKGYg4eEa737vRyKnMCgyZjKi7JLYkQ9B0VapbiY",
-        "timestamp": "2023-11-06T13:37:18+08:00"
-    }
+  "author": {
+      "member_openid": "E4F4AEA33253A2797FB897C50B81D7ED"
+  },
+  "content": " 123",
+  "group_openid": "C9F778FE6ADF9D1D1DBE395BF744A33A",
+  "id": "ROBOT1.0_eBIyWnxpmSu6uLQ7u7fU0eGloKGYg4eEa737vRyKnMCgyZjKi7JLYkQ9B0VapbiY",
+  "timestamp": "2023-11-06T13:37:18+08:00"
 }
 ```
 

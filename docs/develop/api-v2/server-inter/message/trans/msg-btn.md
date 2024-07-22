@@ -189,32 +189,25 @@
 | data.resoloved.feature_id | string | 操作按钮的 id 字段值，仅自定义菜单提供该字段（在管理端设置） |
 | data.resoloved.message_id | string | 操作的消息id，目前仅频道场景提供该字段 |
 | version | int | 默认 1 |
-| application_id | string | 机器人的 appid |
 
 - **事件示例**
 
 ```json
 // Websocket
 {
-    "op": 0,
-    "s": 4,
-    "t": "INTERACTION_CREATE",
-    "id": "INTERACTION_CREATE:b68a29b3-2373-434d-ab7e-76638506237c",
-    "d": {
-        "application_id": "102041818",
-        "chat_type": 2,
-        "data": {
-            "resolved": {
-                "button_data": "回调按钮",
-                "button_id": "21",
-                "user_id": "E4F4AEA33253A2797FB897C50B81D7ED"
-            },
-            "type": 11
+    "chat_type": 2,
+    "data": {
+        "resolved": {
+            "button_data": "回调按钮",
+            "button_id": "21",
+            "user_id": "E4F4AEA33253A2797FB897C50B81D7ED"
         },
-        "id": "30540ff7-9d8f-4737-83f1-e116ce6afa8b",
-        "type": 11,
-        "version": 1
-    }
+        "type": 11
+    },
+    "id": "30540ff7-9d8f-4737-83f1-e116ce6afa8b",
+    "type": 11,
+    "version": 1
+
 }
 ```
 
