@@ -71,7 +71,7 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
 | markdown | object | 否 | [Markdown](../type/markdown.md#数据结构与协议)对象 |
 | keyboard | object | 否 | [Keyboard](../trans/msg-btn.md#数据结构与协议)对象 |
 | ark | object | 否 | [Ark](../type/ark.md#数据结构与协议)对象 |
-| media | object | 否 | [富媒体单聊](./rich-media.md#用于单聊)的file_info |
+| media | object | 否 | [富媒体单聊](./rich-media.md#用于单聊)对象 |
 | message_reference | object | 否 | 【暂未支持】消息引用 |
 | event_id | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"C2C_MSG_RECEIVE"、"FRIEND_ADD"|
 | msg_id | string | 否 | 前置收到的用户发送过来的消息 ID，用于发送被动（回复）消息 |
@@ -133,7 +133,7 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
 | msg_type | int | 是 | 消息类型： 0 文本，2 是 markdown，3 ark 消息，4 embed，7 media 富媒体 |
 | markdown | object | 否 | [Markdown](../type/markdown.md#数据结构与协议)对象 |
 | keyboard | object | 否 | [Keyboard](../trans/msg-btn.md#数据结构与协议)对象 |
-| media | object | 否 | [富媒体群聊](./rich-media.md#用于群聊)的file_info |
+| media | object | 否 | [富媒体群聊](./rich-media.md#用于群聊)对象 |
 | ark | object | 否 | [Ark](../type/ark.md#数据结构与协议)对象 |
 | message_reference | object | 否 | 【暂未支持】消息引用 |
 | event_id | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"GROUP_ADD_ROBOT"、"GROUP_MSG_RECEIVE" |
