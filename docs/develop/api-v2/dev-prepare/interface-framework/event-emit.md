@@ -235,7 +235,7 @@ FORUMS_EVENT (1 << 28)  // 论坛事件，仅 *私域* 机器人能够设置此 
   - FORUM_POST_CREATE       // 当用户创建帖子时
   - FORUM_POST_DELETE       // 当用户删除帖子时
   - FORUM_REPLY_CREATE      // 当用户回复评论时
-  - FORUM_REPLY_DELETE      // 当用户回复评论时
+  - FORUM_REPLY_DELETE      // 当用户回复评论删除时
   - FORUM_PUBLISH_AUDIT_RESULT      // 当用户发表审核通过时
 
 AUDIO_ACTION (1 << 29)
