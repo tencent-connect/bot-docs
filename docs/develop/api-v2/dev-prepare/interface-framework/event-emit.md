@@ -1,5 +1,5 @@
 
-# 事件订阅与异步通知
+# 事件订阅与通知
 
 <!-- > 当用户在QQ平台内的一些行为操作或某些接口的有异步返回通知确认机制的场景的时候，QQ 会通过"事件"的方式，通知到开发者服务器，开发者可自行根据具体事件通知来进行下一步响应。譬如用户跟机器人发消息，用户添加机器人好友，机器人被拉入群聊等等事件。 -->
 
@@ -7,10 +7,82 @@
 当用户在QQ平台内的一些行为操作或某些接口的有异步返回通知确认机制的场景的时候，QQ 会通过"事件"的方式，通知到开发者服务器，开发者可自行根据具体事件通知来进行下一步响应。譬如用户跟机器人发消息，用户添加机器人好友，机器人被拉入群聊等等事件。
 :::
 
+## Webhook方式
 
-## WebSocket 方式
+**当前方式灰度中，仅灰度用户可使用** 其它用户请使用 [websocket方式](#websocket方式) 
 
-通过 `WebSocket` 建立与QQ后台的长链接通信管道，当需要事件通知的时候QQ后台通过 `WebSocket` 连接下发事件到开发者服务器上。
+灰度用户如遇问题可通过QQ机器人反馈助手反馈 <img :src="$withBotBase('/images/api-231017/qqrobot-feedback.jpg')" alt="feedback">
+
+QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com)设定回调地址，监听事件等。
+
+### 数据结构
+
+#### Payload
+
+网关的上下行消息采用的都是同一个结构，如下：
+
+```json
+{
+  "op": 0,
+  "d": {},
+  "t": "GATEWAY_EVENT_NAME"
+}
+```
+
+##### OpCode
+
+`opcode` 含义如下：
+
+| **CODE** | **名称** | **客户端行为** | **描述** |
+| --- | --- | --- | --- |
+| 0        | Dispatch          | Receive | 服务端进行消息推送 |
+| 12       | HTTP Callback ACK | Reply | 仅用于 http 回调模式的回包，代表机器人收到了平台推送的数据 |
+| 13       | 回调地址验证            | Receive | 开放平台对机器人服务端进行验证 |
+| 14       | 回调地址验证 ACK        | Reply | 机器人服务端响应开放平台的验证请求 |
+
+
+### 签名校验
+机器人服务端需要对回调请求进行签名验证以保证数据没有被篡改过。
+[签名算法](opcode.md)
+
+### 回调地址及事件监听配置
+
+开发者需要提供一个HTTPS回调地址。并选定监听的事件类型。开放平台会将事件通过回调的方式推送给机器人。
+<img :src="$withBotBase('/images/api-231017/event_subscription.png')" alt="event_subscription">
+
+开发者配置回调地址时，开放平台会对回调地址进行验证。机器人服务端需要按格式返回签名信息。签名算法同上。 机器人服务端需要在 3 秒内响应200或204，表示接受到事件。
+* 请求结构
+
+| **字段** | **描述** |
+| --- |------|
+| plain_token | 要计算hash的字符串 |
+| event_ts | 时间戳  |
+
+* 返回结果
+
+| **字段** | **描述**      |
+| --- |-------------|
+| plain_token | 要计算hash的字符串 |
+| signature | 签名          |
+
+例如机器人账号
+```
+appid: 11111111
+secret: DG5g3B4j9X2KOErG
+```
+回调验证请求：
+```
+headers: User-Agent:[QQBot-Callback] X-Bot-Appid:[11111111]
+body: {"d":{"plain_token":"Arq0D5A61EgUu4OxUvOp","event_ts":"1725442341"},"op":13},
+```
+机器人应返回：
+```
+body: {"plain_token": "Arq0D5A61EgUu4OxUvOp","signature": "87befc99c42c651b3aac0278e71ada338433ae26fcb24307bdc5ad38c1adc2d01bcfcadc0842edac85e85205028a1132afe09280305f13aa6909ffc2d652c706"}
+```
+
+## WebSocket方式
+
+通过 `WebSocket` 建立与QQ机器人开放平台的长链接通信管道，当需要事件通知的时候QQ后台通过 `WebSocket` 连接下发事件到开发者服务器上。
 
 开发者需要维护 `WebSocket` 长链接的状态，包括连接状态维护、登录鉴权、心跳维护、断线恢复重连等。
 
@@ -134,7 +206,7 @@ wss://api.sgroup.qq.com/websocket/
 ```json
 {
   "op": 1,
-  "d": 251 // null
+  "d": 251
 }
 ```
 
@@ -182,7 +254,7 @@ wss://api.sgroup.qq.com/websocket/
 
 事件和位移的关系如下：
 
-```yaml
+```
 GUILDS (1 << 0)
   - GUILD_CREATE           // 当机器人加入新guild时
   - GUILD_UPDATE           // 当guild资料发生变更时
