@@ -25,7 +25,7 @@ module.exports = {
           { title: '成员对象(Member)', path: 'model/member' },
           { title: '频道身份组对象(Role)', path: 'model/role' },
           { title: '消息对象(Message)', path: 'model/message' },
-          {title: '消息按钮对象(InlineKeyboard)', path: 'model/inline_keyboard'},
+          { title: '消息按钮对象(InlineKeyboard)', path: 'model/inline_keyboard' },
           { title: '私信对象(DMS)', path: 'model/dms' },
           { title: '公告对象(Announce)', path: 'model/announce' },
           { title: '精华消息对象(PinsMessage)', path: 'model/pins_message.md' },
@@ -94,7 +94,7 @@ module.exports = {
             ],
           },
           {
-            title: '消息 API',
+            title: '频道消息 API',
             collapsable: false,
             sidebarDepth: 0,
             children: [
@@ -109,7 +109,7 @@ module.exports = {
             ],
           },
           {
-            title: '私信 API',
+            title: '频道私信 API',
             collapsable: false,
             sidebarDepth: 0,
             children: ['dms/post_dms.md', 'dms/post_dms_messages.md'],
@@ -170,7 +170,13 @@ module.exports = {
             title: '接口权限 API',
             collapsable: false,
             sidebarDepth: 0,
-            children: ['api_permissions/get_permissions','api_permissions/post_permission.md'],
+            children: ['api_permissions/get_permissions', 'api_permissions/post_permission.md'],
+          },
+          {
+            title: 'QQ 群和私聊 API',
+            collapsable: false,
+            sidebarDepth: 0,
+            children: ['group_and_c2c/post_message', 'group_and_c2c/files.md', 'group_and_c2c/del_message'],
           },
         ],
       },
