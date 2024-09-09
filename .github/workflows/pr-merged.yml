@@ -20,6 +20,6 @@ jobs:
             
             > 详情： [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}})
             > 请关注： <@nillwang> <@jackqqxu>  
-            
+
           type: markdown
           status: ${{ job.status }}
