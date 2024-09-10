@@ -11,9 +11,9 @@
 
 **当前方式灰度中，仅灰度用户可使用** 其它用户请使用 [websocket方式](#websocket方式) 
 
-灰度用户如遇问题可通过QQ机器人反馈助手反馈 <img :src="$withBotBase('/images/api-231017/qqrobot-feedback.jpg')" alt="feedback">
+灰度用户如遇问题可通过 [QQ机器人反馈助手](https://mpqq.gtimg.cn/bot-wiki/online/images/api-231017/qqrobot-feedback.jpg) 反馈
 
-QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com)设定回调地址，监听事件等。
+QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com/qqbot/#/developer/webhook-setting)设定回调地址，监听事件等。
 
 ### 数据结构
 
@@ -43,7 +43,7 @@ QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可�
 
 ### 签名校验
 机器人服务端需要对回调请求进行签名验证以保证数据没有被篡改过。
-[签名算法](opcode.md)
+[签名算法](sign.md)
 
 ### 回调地址及事件监听配置
 
