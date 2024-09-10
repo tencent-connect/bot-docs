@@ -12,7 +12,9 @@
 | 9    | Invalid Session   | Receive       | 当identify或resume的时候，如果参数有错，服务端会返回该消息 |
 | 10   | Hello             | Receive       | 当客户端与网关建立ws连接之后，网关下发的第一条消息           |
 | 11   | Heartbeat ACK     | Receive/Reply | 当发送心跳成功之后，就会收到该消息                    |
-| 12   | HTTP Callback ACK | Reply         | 仅用于 http 回调模式的回包，代表机器人收到了平台推送的数据     |
+| 12   | HTTP Callback ACK | Reply         | 仅用于 http 回调模式的回包，代表机器人收到了平台推送的数据()   |
+| 13   | 回调地址验证            | Receive | 开放平台对机器人服务端进行验证                      |
+
 
 客户端操作含义如下：
 

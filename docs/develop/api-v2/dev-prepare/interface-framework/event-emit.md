@@ -9,7 +9,7 @@
 
 ## Webhook方式
 
-**当前方式灰度中，仅灰度用户可使用** 其它用户请使用 [websocket方式](#websocket方式) 
+**Webhook方式灰度中，仅灰度用户可使用** 其它用户请使用 [websocket方式](#websocket方式) 。
 
 灰度用户如遇问题可通过 [QQ机器人反馈助手](https://mpqq.gtimg.cn/bot-wiki/online/images/api-231017/qqrobot-feedback.jpg) 反馈
 
@@ -36,10 +36,7 @@ QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可�
 | **CODE** | **名称** | **客户端行为** | **描述** |
 | --- | --- | --- | --- |
 | 0        | Dispatch          | Receive | 服务端进行消息推送 |
-| 12       | HTTP Callback ACK | Reply | 仅用于 http 回调模式的回包，代表机器人收到了平台推送的数据 |
 | 13       | 回调地址验证            | Receive | 开放平台对机器人服务端进行验证 |
-| 14       | 回调地址验证 ACK        | Reply | 机器人服务端响应开放平台的验证请求 |
-
 
 ### 签名校验
 机器人服务端需要对回调请求进行签名验证以保证数据没有被篡改过。
@@ -50,20 +47,72 @@ QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可�
 开发者需要提供一个HTTPS回调地址。并选定监听的事件类型。开放平台会将事件通过回调的方式推送给机器人。
 <img :src="$withBotBase('/images/api-231017/event_subscription.png')" alt="event_subscription">
 
-开发者配置回调地址时，开放平台会对回调地址进行验证。机器人服务端需要按格式返回签名信息。签名算法同上。 机器人服务端需要在 3 秒内响应200或204，表示接受到事件。
-* 请求结构
+配置回调地址后，开放平台会对回调地址进行验证：
+* 请求结构(Payload.d)
 
-| **字段** | **描述** |
-| --- |------|
-| plain_token | 要计算hash的字符串 |
-| event_ts | 时间戳  |
+| **字段** | **描述**     |
+| --- |------------|
+| plain_token | 需要计算签名的字符串 |
+| event_ts | 计算签名使用时间戳  |
 
 * 返回结果
 
 | **字段** | **描述**      |
 | --- |-------------|
-| plain_token | 要计算hash的字符串 |
+| plain_token | 需要计算签名的字符串 |
 | signature | 签名          |
+
+计算过程如下(golang)：
+```go
+func handleValidation(rw http.ResponseWriter, r *http.Request, botSecret string) {
+	httpBody, err := io.ReadAll(r.Body)
+	if err != nil {
+		log.Println("read http body err", err)
+		return
+	}
+	payload := &Payload{}
+	if err = json.Unmarshal(httpBody, payload); err != nil {
+		log.Println("parse http payload err", err)
+		return
+	}
+	validationPayload := &ValidationRequest{}
+	if 	err = json.Unmarshal(payload.Data, validationPayload);err != nil {
+		log.Println("parse http payload failed:", err)
+		return
+	}
+	seed := botSecret
+	for len(seed) < ed25519.SeedSize {
+		seed = strings.Repeat(seed, 2)
+	}
+	seed = seed[:ed25519.SeedSize]
+	reader := strings.NewReader(seed)
+	// GenerateKey 方法会返回公钥、私钥，这里只需要私钥进行签名生成不需要返回公钥
+	_, privateKey, err := ed25519.GenerateKey(reader)
+	if err != nil {
+		log.Println("ed25519 generate key failed:", err)
+		return
+	}
+	var msg bytes.Buffer
+	msg.WriteString(validationPayload.EventTs)
+	msg.WriteString(validationPayload.PlainToken)
+	signature := hex.EncodeToString(ed25519.Sign(privateKey, msg.Bytes()))
+	if err != nil {
+		log.Println("generate signature failed:", err)
+		return
+	}
+	rspBytes, err := json.Marshal(
+		&ValidationResponse{
+			PlainToken: validationPayload.PlainToken,
+			Signature:  signature,
+		})
+	if err != nil {
+		log.Println("handle validation failed:", err)
+		return
+	}
+	rw.Write(rspBytes)
+}
+
+```
 
 例如机器人账号
 ```
