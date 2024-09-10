@@ -11,7 +11,7 @@
 
 **当前方式灰度中，仅灰度用户可使用** 其它用户请使用 [websocket方式](#websocket方式) 
 
-灰度用户如遇问题可通过QQ机器人反馈助手反馈 <img :src="$withBotBase('/images/api-231017/qqrobot-feedback.jpg')" alt="feedback">
+灰度用户如遇问题可通过 [QQ机器人反馈助手](https://mpqq.gtimg.cn/bot-wiki/online/images/api-231017/qqrobot-feedback.jpg) 反馈
 
 QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com/qqbot/#/developer/webhook-setting)设定回调地址，监听事件等。
 
