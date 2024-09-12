@@ -67,12 +67,14 @@ privateKey: [110 97 79 67 48 111 99 81 69 51 115 104 87 76 65 102 102 102 86 76 
   if timestamp == "" {
     return false
   }
-  // 按照timstamp+Body顺序组成签名体
+  httpBody, err := io.ReadAll(req.Body)
+  if err != nil {
+    return false
+  }
+  // 按照timestamp+Body顺序组成签名体
   var msg bytes.Buffer
   msg.WriteString(timestamp)
-  var body bytes.Buffer
-  // copy body into buffers
-   _, err = io.Copy(&msg, io.TeeReader(r.Body, &body))
+  msg.Write(httpBody)
   if err != nil {
     return false
   }
@@ -81,7 +83,7 @@ privateKey: [110 97 79 67 48 111 99 81 69 51 115 104 87 76 65 102 102 102 86 76 
 - 根据公钥、Signature、签名体调用 Ed25519 算法进行验证
 
 ```go
- ed25519.Verify(publicKey, msg.Bytes(), sig)
+  ed25519.Verify(publicKey, msg.Bytes(), sig)
 ```
 
 DEMO
