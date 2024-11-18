@@ -58,6 +58,7 @@
 
 QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com/qqbot/#/developer/webhook-setting)设定回调地址，监听事件等。
 
+目前回调地址允许配置的端口号为： 80、443、8080、8443。
 
 ### 签名校验
 
@@ -155,13 +156,7 @@ body: {"plain_token": "Arq0D5A61EgUu4OxUvOp","signature": "87befc99c42c651b3aac0
 
 ## WebSocket方式
 
-* websocket 事件推送链路将在24年年底前逐步下线，后续官方不再维护。
-
-通过 `WebSocket` 建立与QQ机器人开放平台的长链接通信管道，当需要事件通知的时候QQ后台通过 `WebSocket` 连接下发事件到开发者服务器上。
-
-开发者需要维护 `WebSocket` 长链接的状态，包括连接状态维护、登录鉴权、心跳维护、断线恢复重连等。
-
-优势：本地服务器即可发起调试，无需依赖公网域名和公网服务器（`WebHook`）接收回调通知。
+* websocket 事件推送链路将在24年年底前逐步下线，后续官方不再维护。已接入websocket链路的机器人，请迁移至webhook链路
 
 ### 发起连接到 Gateway
 
