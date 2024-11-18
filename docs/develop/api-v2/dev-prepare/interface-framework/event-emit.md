@@ -56,10 +56,6 @@
 
 ## Webhook方式
 
-webhook事件回调链路目前在灰度验证，灰度用户可体验通过页面配置事件监听及回调地址。如未在灰度范围，可联系QQ机器人反馈助手开通。
-
-<img :src="$withBotBase('/images/api-231017/feedback_bot.png')" alt="QQ机器人反馈助手">
-
 QQ机器人开放平台支持通过使用HTTP接口接收事件。开发者可通过[管理端](https://q.qq.com/qqbot/#/developer/webhook-setting)设定回调地址，监听事件等。
 
 
