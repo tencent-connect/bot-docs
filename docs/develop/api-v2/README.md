@@ -21,3 +21,5 @@ QQ 机器人：一个机器人可以被添加到 `群聊/频道` 内对话，QQ 
 开发过程中如遇任何问题，可联系QQ机器人反馈助手开通。
 
 <img :src="$withBotBase('/images/api-231017/feedback_bot.png')" alt="QQ机器人反馈助手">
+
+快速搭建机器人服务端请参考：[botgo sdk](https://github.com/tencent-connect/botgo)
