@@ -1,87 +1,87 @@
 ---
-sidebar: auto
+提要栏：自动
 ---
 
-# QQ 机器人
+#QQ机器人
 
 ## 简介
 
-QQ 机器人通过开放的平台承载机器人的定制化功能，让开发者获得更畅快的开发体验。
+QQ机器人通过开放的平台承载机器人的定制化功能，让开发者获得更畅快的开发体验.
 
 ## **亮点**
 
-**便捷**：通过开放接口的形式，QQ 开放平台允许开发者进行机器人定制化开发。
+**便捷**：通过开放接口的形式，QQ开放平台允许开发者进行机器人定制化开发.
 
-**高效**：提供一套标准化、易接入的API与websocket事件，可以帮助开发者实现机器人的快速开发和迭代。
+**高效**：提供一套标准化、易接入的API与WebSocket事件，可以帮助开发者实现机器人的快速开发和迭代。
 
-**趣味**：机器人创新 C 端交互方式，通过指令的方式承载服务，让多样化服务变得触手可达。
+**趣味**：机器人创新C端交互方式，通过指令的方式承载服务，让多样化服务变得触手可达.
 
-**赋能**：频道、群、单聊等QQ场景全面打通，深度融入QQ社交生态，用户基础大，服务范围广。
+**赋能**：频道、群、单聊等QQ场景全面打通，深度融入QQ社交生态，用户基础大，服务范围广.
 
 ## 接入流程
 
-<img :src="$withBotBase('/images/introduce/Aspose.Words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0.001.png')" alt="接入流程">
+<IMG:src="$withBotBase('/images/induct/assose.words.a59f0707-65ac-4bec-8de6-d0d8efeb74d0。001.PNG')"alt="接入流程">
 
-### 1. 阅读文档
+###1. 阅读文档
 
-为了更高效的进驻到 QQ 机器人平台，建议先阅读下列文档后再启动进驻工作：
+为了更高效的进驻到QQ机器人平台，建议先阅读下列文档后再启动进驻工作：
 
-[运营规范 | QQ机器人文档](./business/)
+[运营规范 | QQ机器人文档](./商业/)
 
-[开发说明 | QQ机器人文档](./develop/api-v2/)
+[开发说明 | QQ机器人文档](./develop/API-v2/)
 
-### 2. 企业主体入驻
+###2. 企业主体入驻
 
-> 企业主体入驻开发者默认支持频道、群场景开发能力；个人主体入驻开发者默认仅支持频道场景开发能力。除默认开通的能力外，后续其他接口能力申请上，企业开发者与个人开发者也存在差异。
+>企业主体入驻开发者默认支持频道、群场景开发能力；个人主体入驻开发者默认仅支持频道场景开发能力。 除默认开通的能力外，后续其他接口能力申请上，企业开发者与个人开发者也存在差异。
 
 #### 步骤总览
 
-<img :src="$withBotBase('/images/introduce/open_platform_step.png')" alt="步骤总览">
+<IMG:src="$withBotBase('/images/induct/open_platform_step.PNG')"alt="步骤总览">
 
-::: warning 注意
+**警告注意
 
 企业入驻需要提供工商信息，包括：**营业执照**、**对公账号**，如不具备的用户请前往个人入口进行入驻。
 邮箱一旦填写完毕进入激活步骤，则被占用，不可修改，所以选错主体类型的用户需要更换邮箱重新注册。
 
 :::
 
-#### 2.1 点击「立即注册」
+####2.1 点击「立即注册」
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_register.png')" alt="立即注册">
+<IMG风格="上边距:20PX;" ：src="$withBotBase('/images/induct/open_platform_register.PNG')" alt="立即注册">
 
-::: tip 温馨提示
+**小费温馨提示
 
 服务的三个类目，将鼠标放上去，将会有相关应用的文档及对应便捷入口，在注册前可先阅读相关文档。
 
 :::
 
-#### 2.2 选择企业
+####2.2 选择企业
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_choose_business.png')" alt="选择企业">
+<IMG风格="上边距:20PX;" ：src="$withBotBase('/images/induct/open_platform_choose_business.png')" alt="选择企业">
 
-#### 2.3 填写邮箱
+####2.3 填写邮箱
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_mail.png')" alt="填写邮箱">
+<IMG风格="上边距:20PX;" ：src="$withBotBase('/images/induct/open_platform_mail.png')" alt="填写邮箱">
 
-::: tip 温馨提示
+**小费温馨提示
 
 之前已经注册过的邮箱不需再注册，直接去登陆界面登陆即可。
 
 :::
 
-#### 2.4 激活邮箱
+####2.4 激活邮箱
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_mail_active.png')" alt="激活邮箱">
+<IMG风格="上边距:20PX;" ：src="$withBotBase('/images/induct/open_platform_mail_active.png')" alt="激活邮箱">
 
-::: tip 温馨提示
+**小费温馨提示
 
 如未收到邮件，请检查垃圾箱或者点击重新发送进行尝试。
 
 :::
 
-#### 2.5 上传工商信息
+####2.5 上传工商信息
 
-<img style="margin-top:20px;" :src="$withBotBase('/images/introduce/open_platform_upload_business.png')" alt="上传工商信息">
+<IMG风格="上边距:20PX;" ：src="$withBotBase('/images/induct/open_platform_upload_business.png')" alt="上传工商信息">
 
 ::: tip 温馨提示
 
