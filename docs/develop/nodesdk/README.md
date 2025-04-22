@@ -156,6 +156,9 @@ ws.on('AUDIO_ACTION', (data) => {
 ws.on('PUBLIC_GUILD_MESSAGES', (data) => {
   console.log('[PUBLIC_GUILD_MESSAGES] 事件接收 :', data);
 });
+ws.on("GROUP_AND_C2C_EVENT", (data) => {
+	console.log("[GROUP_AND_C2C_EVENT] 事件接收 :", data);
+});
 ```
 
 ### ws 返回示例
