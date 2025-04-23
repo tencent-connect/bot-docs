@@ -70,19 +70,25 @@ QQ 用户可以在 QQ 客户端主动设置是否接收机器人发送的主动�
 
 - **请求参数**
 
-| **属性** | **类型** | **必填** | **说明** |
-| --- | --- | --- | --- |
-| content | string | 否 | 文本内容 |
-| msg_type | int | 是 | 消息类型：0 是文本，2 是 markdown， 3 ark，4 embed，7 media 富媒体 |
-| markdown | object | 否 | [Markdown](../type/markdown.md#数据结构与协议)对象 |
-| keyboard | object | 否 | [Keyboard](../trans/msg-btn.md#数据结构与协议)对象 |
-| ark | object | 否 | [Ark](../type/ark.md#数据结构与协议)对象 |
-| media | object | 否 | [富媒体单聊](./rich-media.md#用于单聊)的file_info |
-| message_reference | object | 否 | 【暂未支持】消息引用 |
-| event_id | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"C2C_MSG_RECEIVE"、"FRIEND_ADD"|
-| msg_id | string | 否 | 前置收到的用户发送过来的消息 ID，用于发送被动（回复）消息 |
-| msg_seq	| int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是1。相同的 msg_id + msg_seq 重复发送会失败。 |
+| **属性**            | **类型** | **必填** | **说明**                                                                      |
+|-------------------| --- | --- |-----------------------------------------------------------------------------|
+| content           | string | 否 | 文本内容                                                                        |
+| msg_type          | int | 是 | 消息类型：0 是文本，2 是 markdown， 3 ark，4 embed，7 media 富媒体                          |
+| markdown          | object | 否 | [Markdown](../type/markdown.md#数据结构与协议)对象                                   |
+| keyboard          | object | 否 | [Keyboard](../trans/msg-btn.md#数据结构与协议)对象                                   |
+| ark               | object | 否 | [Ark](../type/ark.md#数据结构与协议)对象                                             |
+| media             | object | 否 | Media对象                                                          |
+| message_reference | object | 否 | 【暂未支持】消息引用                                                                  |
+| event_id          | string | 否 | 前置收到的事件 ID，用于发送被动消息，支持事件："INTERACTION_CREATE"、"C2C_MSG_RECEIVE"、"FRIEND_ADD" |
+| msg_id            | string | 否 | 前置收到的用户发送过来的消息 ID，用于发送被动（回复）消息                                              |
+| msg_seq	          | int	| 否 | 回复消息的序号，与 msg_id 联合使用，避免相同消息id回复重复发送，不填默认是1。相同的 msg_id + msg_seq 重复发送会失败。   |
 
+
+- Media对象
+
+| **属性**            | **类型** | **必填**                                              | **说明**                                                                       |
+|-------------------| --- |-----------------------------------------------------|------------------------------------------------------------------------------|
+| file_info | string | [富媒体单聊](./rich-media.md#用于单聊)上传富媒体接口，返回参数的file_info |
 
 
 <!-- |input_notify    |object    |否    |仅 msg_type = 6 时使用 <br> {"input_type": 1, "input_second": 3} <br> input_type：int｜1：对方正在输入...、2：手动取消展示、3：对方正在讲话.. 、4：正在生成... 、5：正在想象...<br> input_second：int｜持续X秒，1-60之间 |
