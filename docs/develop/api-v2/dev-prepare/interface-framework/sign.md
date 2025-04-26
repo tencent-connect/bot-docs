@@ -35,7 +35,7 @@
 DEMO
 ```
 【输入】
-botSecret: naOC0ocQE3shWLAfffVLB1rhYPG7
+botSecret: naOC0ocQE3shWLAfffVLB1rhYPG7 
 seed: naOC0ocQE3shWLAfffVLB1rhYPG7naOC0ocQE3shWLAfffVLB1rhYPG7
 rand: naOC0ocQE3shWLAfffVLB1rhYPG7naOC
 【输出】
