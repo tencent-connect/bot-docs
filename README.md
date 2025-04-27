@@ -1,16 +1,16 @@
 # 机器人文档
 
-本仓库是 QQ 机器人文档项目，基于[vuepress](https://vuepress.vuejs.org/zh/)构建。对应文档网站是 <https://bot.q.qq.com/wiki/>。
+本仓库是 QQ 机器人文档项目，基于[vuepress](https://vuepress.vuejs.org/zh/)构建。对应文档网站是[https://bot.q.qq.com/wiki/](https://bot.q.qq.com/wiki/) 。
 
 ## 本地开发
 
 通过以下任何一种方式进行本地开发
 
-### 1、Gitpod 在线开发
+### 1. Gitpod 在线开发
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/tencent-connect/bot-docs)
 
-### 2、本地克隆代码开发
+### 2. 本地克隆代码开发
 
 ```sh
 git clone git@github.com:tencent-connect/bot-docs.git
@@ -50,7 +50,13 @@ docs
 
 欢迎扫码加入 **QQ 频道开发者社区**。
 
-![开发者社区](https://mpqq.gtimg.cn/privacy/qq_guild_developer.png)
+<a href="https://pd.qq.com/s/8m0pke8ks">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/937c9a6c-3d48-4c71-b4a0-477de255b0ca" />
+   <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/51086907-c9c3-45a6-ae88-f255efcb2df2" />
+   <img alt="Star History Chart" src="https://github.com/user-attachments/assets/51086907-c9c3-45a6-ae88-f255efcb2df2" />
+ </picture>
+</a>
 
 ## 贡献者
 
