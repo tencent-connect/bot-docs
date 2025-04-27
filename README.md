@@ -50,9 +50,13 @@ docs
 
 欢迎扫码加入 **QQ 频道开发者社区**。
 
-[![开发者社区](https://github.com/user-attachments/assets/51086907-c9c3-45a6-ae88-f255efcb2df2)](https://pd.qq.com/s/8m0pke8ks)
-
-
+<a href="https://pd.qq.com/s/8m0pke8ks">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/937c9a6c-3d48-4c71-b4a0-477de255b0ca" />
+   <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/51086907-c9c3-45a6-ae88-f255efcb2df2" />
+   <img alt="Star History Chart" src="https://github.com/user-attachments/assets/51086907-c9c3-45a6-ae88-f255efcb2df2" />
+ </picture>
+</a>
 
 ## 贡献者
 
